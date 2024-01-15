@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Post, Gallery
+from .models import Post, Gallery, FriendRequest
 
 
 
@@ -21,3 +21,10 @@ class PostAdmin(admin.ModelAdmin):
 class GalleryAdmin(admin.ModelAdmin):
     list_editable = ['active']
     list_display = ['post', 'active']
+
+
+@admin.register(FriendRequest)
+class FriendRequestAdmin(admin.ModelAdmin):
+    
+    list_editable = ['status']
+    list_display = ['user', 'friend', 'status' ]
