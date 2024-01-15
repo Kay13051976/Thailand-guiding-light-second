@@ -30,11 +30,15 @@ class GalleryAdmin(admin.ModelAdmin):
 
 @admin.register(FriendRequest)
 class FriendRequestAdmin(admin.ModelAdmin):
-    
     list_editable = ['status']
     list_display = ['user', 'friend', 'status' ]
 
 
+@admin.register(Friend)
 class FriendAdmin(admin.ModelAdmin):
-    
     list_display = ['user', 'friend']
+
+
+@admin.register(Comment)
+class CommentAdmin(admin.ModelAdmin):
+    list_display = ['user', 'post', 'comment', 'active']
