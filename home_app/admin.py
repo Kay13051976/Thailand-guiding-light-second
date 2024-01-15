@@ -33,3 +33,8 @@ class FriendRequestAdmin(admin.ModelAdmin):
     
     list_editable = ['status']
     list_display = ['user', 'friend', 'status' ]
+
+
+class FriendAdmin(admin.ModelAdmin):
+    
+    list_display = ['user', 'friend']
