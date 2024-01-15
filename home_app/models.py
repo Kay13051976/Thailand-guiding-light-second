@@ -65,3 +65,20 @@ class Comment(models.Model):
 
     class Meta:
         verbose_name_plural = 'comment'
+
+
+class Gallery(models.Model):
+    """ This Gallery class use to store multiple images in class Post """
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    image = CloudinaryField(
+        'image', null=True, blank=True, default='placeholder')
+    active = models.BooleanField(default=True)
+    date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return str(self.post)
+
+    class Meta:
+        """ To stop Django automatically create a plural
+        verbose name from your object by adding "s" """
+        verbose_name_plural = 'Gallery'
