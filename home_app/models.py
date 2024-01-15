@@ -130,3 +130,22 @@ class Friend(models.Model):
 
     class Meta:
         verbose_name_plural = 'Friend'
+    
+    
+class ReplyComment(models.Model):
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="ReplyComment_user")
+    comment = models.ForeignKey(Post, on_delete=models.CASCADE)
+    reply = models.CharField(max_length=1000)
+    active = models.BooleanField(default=True)
+    date = models.DateTimeField(auto_now_add=True)
+    likes = models.ManyToManyField(
+        User, blank=True, related_name="ReplyComment_likes")
+    id_reply_comment = models.UUIDField(primary_key=True, default=uuid.uuid4)
+
+    def __str__(self):
+        return str(self.comment)
+
+    class Meta:
+        verbose_name_plural = 'Reply Comment'
+
