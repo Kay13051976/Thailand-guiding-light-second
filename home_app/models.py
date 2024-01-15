@@ -14,6 +14,21 @@ VISIBILITY = (
     ("Everyone", "Everyone")
 )
 
+FRIEND_REQUEST = (
+    ("pending", "pending"),
+    ("accept", "accept"),
+    ("reject", "reject")
+)
+
+class Profile(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    id_user = models.IntegerField()
+    cover_image = CloudinaryField('image', default='placeholder')
+    country = models.CharField(max_length=100, blank=True)
+    """ A special method that is used to define the user-friendly
+    string representation of an object """
+    def __user__(self):
+        return self.user.username
 
 class Post(models.Model):
     """ models.UUIDField is a field type that used for uniquely
@@ -92,7 +107,7 @@ class FriendRequest(models.Model):
     friend = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="FriendRequest_friend")
     status = models.CharField(
-        max_length=100, default="pending", choices=FriendRequest.FRIEND_REQUEST_CHOICES)
+        max_length=100, default="pending", choices=FRIEND_REQUEST)
     date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
