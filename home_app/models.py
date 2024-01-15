@@ -82,3 +82,34 @@ class Gallery(models.Model):
         """ To stop Django automatically create a plural
         verbose name from your object by adding "s" """
         verbose_name_plural = 'Gallery'
+
+class FriendRequest(models.Model):
+    id_friend_request = models.UUIDField(primary_key=True, default=uuid.uuid4)
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="FriendRequest_user")
+    friend = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="FriendRequest_friend")
+    status = models.CharField(
+        max_length=100, default="pending", choices=FRIEND_REQUEST)
+    date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return str(self.post)
+
+    class Meta:
+        verbose_name_plural = 'FriendRequest'
+
+
+class Friend(models.Model):
+    id_friend = models.UUIDField(primary_key=True, default=uuid.uuid4)
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="Friend_user")
+    friend = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="Friend_friend")
+    date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return str(self.post)
+
+    class Meta:
+        verbose_name_plural = 'Friend'
