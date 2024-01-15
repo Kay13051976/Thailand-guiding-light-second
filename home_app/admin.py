@@ -1,7 +1,12 @@
 from django.contrib import admin
-from .models import Post, Gallery, FriendRequest
+from .models import Post, Gallery, FriendRequest, Profile
 
 
+@admin.register(Profile)
+class  ProfileAdmin(admin.ModelAdmin):
+ 
+    list_display = ('user', 'id_user', 'cover_image', 'country')
+    search_fields = ('user', 'id_user')
 
 class GalleryAdminTab(admin.TabularInline):
     model = Gallery
