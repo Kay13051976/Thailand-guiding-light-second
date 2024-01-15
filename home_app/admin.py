@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Post, Gallery, Friend, FriendRequest, Profile, Comment, ReplyComment
+from .models import Post, Gallery, Friend, FriendRequest, Profile, Comment, ReplyComment, Notification
 
 
 @admin.register(Profile)
@@ -47,3 +47,9 @@ class CommentAdmin(admin.ModelAdmin):
 @admin.register(ReplyComment)
 class ReplyCommentAdmin(admin.ModelAdmin):
     list_display = ['user', 'comment', 'active']
+
+
+
+@admin.register(Notification)
+class NotificationAdmin(admin.ModelAdmin):
+    list_display = ['user', 'notification_type', 'sender' , 'post', 'comment', 'is_read']
