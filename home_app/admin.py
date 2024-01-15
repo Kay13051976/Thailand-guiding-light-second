@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Post, Gallery, FriendRequest, Profile
+from .models import Post, Gallery, Friend, FriendRequest, Profile, Comment, ReplyComment
 
 
 @admin.register(Profile)
@@ -42,3 +42,8 @@ class FriendAdmin(admin.ModelAdmin):
 @admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):
     list_display = ['user', 'post', 'comment', 'active']
+
+
+@admin.register(ReplyComment)
+class ReplyCommentAdmin(admin.ModelAdmin):
+    list_display = ['user', 'comment', 'active']

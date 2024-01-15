@@ -20,6 +20,15 @@ FRIEND_REQUEST = (
     ("reject", "reject")
 )
 
+NOTIFICATION_TYPE = (
+    ("Friend Request", "Friend Request"),
+    ("Friend Request Accepted", "Friend Request Accepted"),
+    ("New Friend", "New Friend"),
+    ("New Comment", "New Comment"),
+    ("Comment Liked", "Comment Liked"),
+    ("Comment Replied", "Comment Replied")
+)
+
 class Profile(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     id_user = models.IntegerField()
@@ -114,7 +123,7 @@ class FriendRequest(models.Model):
         return str(self.post)
 
     class Meta:
-        verbose_name_plural = 'FriendRequest'
+        verbose_name_plural = 'Friend Request'
 
 
 class Friend(models.Model):
@@ -135,7 +144,7 @@ class Friend(models.Model):
 class ReplyComment(models.Model):
     user = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="ReplyComment_user")
-    comment = models.ForeignKey(Post, on_delete=models.CASCADE)
+    comment = models.ForeignKey(Comment, on_delete=models.CASCADE)
     reply = models.CharField(max_length=1000)
     active = models.BooleanField(default=True)
     date = models.DateTimeField(auto_now_add=True)
@@ -148,4 +157,21 @@ class ReplyComment(models.Model):
 
     class Meta:
         verbose_name_plural = 'Reply Comment'
+
+
+class Notification(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="reply_user")
+    sender = models.ForeignKey(User, on_delete=models.CASCADE, related_name="notification_user")
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    comment = models.ForeignKey(Comment, on_delete=models.CASCADE)
+    notification_type = models.CharField(max_length=500, choices=NOTIFICATION_TYPE)
+    is_read = models.BooleanField(default=False)
+    date = models.DateTimeField(auto_now_add=True)
+    id_notification = models.UUIDField(primary_key=True, default=uuid.uuid4)
+    
+    def __str__(self):
+        return str(self.user)
+
+    class Meta:
+        verbose_name_plural = 'Notification'
 
