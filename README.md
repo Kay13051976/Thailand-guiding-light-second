@@ -1,110 +1,241 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Thailand Guiding Light
+  
+  Thailand Guiding Light is a social network media website allowing customers who love to travel to Thailand or live in Thailand to share their passion. They can also view, comment, like, share pictures, share external content, videos or literary posts, and connect and navigate to other social links or websites. It is a platform to sell Thailand travel packages online, promote Thailand tour businesses, and sell all tourist-relevant firms or products by navigating the user to their website. The user can create a network and improve communication to find people with similar interests online.
+  The website allows users and organizations to connect, communicate, and share information and relationships. People can connect with others in the same area or worldwide, families, friends, and those with the same interests. Also, eCommerce customers advertise and navigate the customer to their website. It has a login system. The website has a personal functionality that allows the admin and user to edit and manage their account.Deployed website:[ Link to website](
+  https://thailand-guiding-light-2fb0b0e33db8.herokuapp.com/
+)
+## UX  
+  The website was created to be eye-catching and user-friendly. The user is given a simple procedure when they want to share their experience picture and videos. The emphasis is on the user experience. The user can navigate the website easily to fulfil the user's goal; the website is designed to be ready to use and easy to understand.
 
-Welcome Wanwisa Waddington ,
+## Target Audience
+  A Thailand Guiding Light's target audience is people who want to share Their passion for travel and living in Thailand. This group will have specific shared characteristics that connect them and make them relevant to their friends, relatives, customers and colleagues. You can find people who share their same interests online and sell Tourist relevant 
+  product or tour package online, and promote brands and Thailand tour businesses.
+## User Story ## 
+ ### As a first time user ###
+- First time user 
+  - As a First Time Visitor, I want to quickly understand the app's primary purpose so that I can learn more about how to get benefit from this app.
+  - As a First Time Visitor, I want to navigate through the app to find the content easily.
+  - As a First Time Visitor, I want to find this useful for my needs.
+  - As a First Time Visitor, I want to be able to easily  to create an account by providing basic information such as my name, email address , and password.
+  - As a First Time Visitor, I want to be informed if I am making any errors when create my account so that I can fix any mistakes quickly.
+  - As a Firs Time Visitor, I want to have a personalized profile where I can add a profile picture, cover photo, and write a bio to introduce myself to others.
+  - As a First Time Visitor, I want to see the variety of places in Thailand, such as images, VDO, and short stories that are most valuable to visit.
+  - As a First Time Visitor, I want to share my photo, videos, and comment on a beautiful place in Thailand.
+  - As a First Time Visitor, I want to quickly and easily connect to people and link them to book the holiday trip (Hotel, Flight, Taxi, Guide, and All facilities).
+  - As a First Time Visitor, I want to be able to access social media websites from various devices, such as desktop computers and smartphones, with a consistent user experience.
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+- Regular User (customer)
+  - As a Regular User, I want to access my account without having to log in every time so that I can quickly post and share pictures, videos, and short stories.
+  - As a Regular User, I want to safely protect my account details from sharing pictures, videos and short stories.
+  - As a Regular User, I want to view my data to quickly check my account details and add or amend the information.
+  - As a Regular User, I want to be able to search for a connection with a friend, a place or a relative story by name, username, or email address to get the most appropriate choices so that I am likely to find what I am looking for.
+  - As a Regular User, I want to send post updates, photos, external content and videos to share with my connector.
+  - As a Regular User, I want to be able to search for people, places, and relevant organizations by text search so that I can connect to communicate with them.
+  - As a Regular User, I want to see ratings and reviews on a photo or videos, the story of the place that the experience shares.
+  - As a regular User, I want to customize my news post and have control over the privacy of my posts, being able to choose who can see them.
+  - As a regular User, I want to be notified when someone interacts with my posts or sends me a message, so I can stay engaged and respond promptly.
+  - As a regular User, I want to be able to report or block other users for inappropriate behavior, ensuring a safe and respectful community,
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+## Wire frames
+ ### Laptop
+- Home page
 
-## Gitpod Reminders
+![Wire frame Laptop home page1](documentation/wireframe-laptop-home-page1.png)
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+![Wire frame Laptop home page2](documentation/wireframe-laptop-home-page2.png)
 
-`python3 -m http.server`
+![Wire frame Laptop home page3](documentation/wireframe-laptop-home-page3.png)
 
-A blue button should appear to click: _Make Public_,
+- Full view home page
 
-Another blue button should appear to click: _Open Browser_.
+![Wire frame laptop full view home page](documentation/wireframe-laptop-full-page.png)
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+- About page
 
-A blue button should appear to click: _Make Public_,
+![Wire frame Laptop about page](documentation/wireframe-laptop-about-page.png)
 
-Another blue button should appear to click: _Open Browser_.
+- Contact page
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+![Wire frame laptop contact page](documentation/wireframe-laptop-contact-page.png)
 
-To log into the Heroku toolbelt CLI:
+- Sign up page
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+![Wire frame laptop sigh up page](documentation/wireframe-laptop-sign-up-page.png)
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+- Thai travel news page
 
-------
+![Wire frame laptop thai travel news page](documentation/wireframe-laptop-thai-travel-news-page.png)
 
-## Release History
+- Warning bell nav bar popover 
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+![Wire frame laptop warning bell popover nav](documentation/wireframe-laptop-warning-bell-nav.png)
 
-**September 20 2023:** Update Python version to 3.9.17.
+- Information nav bar popover
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+![Wire frame laptop information popover nav](documentation/wireframe-laptop-information-nav.png)
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+- Hamburger nav bar popover
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+![Wire frame laptop hamburger popover nav](documentation/wireframe-laptop-hamburger-menu.png)
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+- Account management page
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+![Wire frame laptop account management page](documentation/wireframe-laptop-your-account-page.png)
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+- Your connections list page
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+![Wire frame laptop your connections list page](documentation/wireframe-laptop-your-connection-list-page.png)
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+- Most popular place page
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+![Wire frame laptop most popular place page](documentation/wireframe-laptop-most-popular-place-page.png)
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+- Chat room popover
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+![Wire frame laptop chat room popover](documentation/wireframe-laptop-chat-room-popover.png)
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+ ### Mobile
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+- Mobile home page
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+ ![Wire frame Mobile1](documentation/wireframe-mobile-phone1.png)
 
-------
+ ![Wire frame Mobile2](documentation/wireframe-mobile-phone2.png)
 
-## FAQ about the uptime script
+- Mobile hamburger menu popover nav
 
-**Why have you added this script?**
+![Wire frame mobile hamburger popover nam](documentation/wireframe-mobile-hamburger-popover-nav.png)
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+- Mobile your account
 
-**How will this affect me?**
+![Wire frame mobile hamburger popover nam](documentation/wireframe-mobile-your-account.png)
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+- Mobile sign up
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+![Wire frame mobile hamburger popover nam](documentation/wireframe-mobile-sign-up.png)
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+- Mobile your connections list
 
-**So….?**
+![Wire frame mobile hamburger popover nam](documentation/wireframe-mobile-your-connection-list.png)
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+- Mobile most popular place
 
-**Can I opt out?**
+![Wire frame mobile hamburger popover nam](documentation/wireframe-mobile-most-popular-place.png)
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+- Mobile chat room
 
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
+![Wire frame mobile hamburger popover nam](documentation/wireframe-mobile-chat-room.png)
+## Workflow
 
-**Anything more?**
+![Workflow Picture](documentation/workflow-picture.png)
+ 
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+ ## Future Development
+ - Chat bot
 
----
+## Technologies used
+ 
+### Languages
+ - [Python 3.9.17](https://www.python.org/downloads/release/python-3917/): python framework used to create all the logic.
+ - [JS](https://www.javascript.com/): the primary language used to  develop interactive components of the website.
+ - [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML): the markup language used to create the website.
+ - [CSS](https://developer.mozilla.org/en-US/docs/Web/css): the styling language used to style the website.
 
-Happy coding!
+ ### Frameworks and libraries:
+ - [Django](https://www.djangoproject.com/):Django use to build content management systems.
+ - [jQuery](https://jquery.com/):was used to control click events and sending AJAX requests.
+ - [jQuery User Interface](https://jqueryui.com/):was used to create interactive elements.
+    
+ ### Database:
+ - [SQLite](https://www.sqlite.org/index.html):was used to as a development database.
+ - [PostgreSQL](https://www.postgresql.org/):the database used to store all the data.
+
+ ### Other tools:
+ - [Git](https://git-scm.com/):The version control system used to manage to code.
+ - [Pip3](https://pypi.org/project/pip/):the package manager used to install the dependencies.
+ - [Gunicorn](https://gunicorn.org/):the web server used to run the website.
+ - [Psycopg2](https://www.psycopg.org/):the database driver used to connect to the database.
+ - [Django-allauth](https://docs.allauth.org/en/latest/):the authentication library used to create the user accounts.
+ - [Render](https://pypi.org/project/render/):was used to render the README file.
+ - [GitHub](https://github.com/):used to host the website's source code.
+ - [GitPod](https://www.gitpod.io/):the IDE used to develop the website.
+ - [Cloudinary](https://cloudinary.com/):was used to store all the images for the website.
+ - [Chrome Devtools](https://developer.chrome.com/docs/devtools/open/):was used to debug the website.
+ - [Font Awesome](https://fontawesome.com/icons):was used to create the icons used in the website.
+ - [Lucidchart](https://www.lucidchart.com/pages/):was used to make a flowchart for the README file.
+ - []():was used to make a color palette for the website.
+ - [W3C Validator](https://validator.w3.org/):was used to validate HTML5 code for the website.
+ - [W3c CSS validator](https://jigsaw.w3.org/css-validator/):was used to validate CSS code for the website.
+ - [JShint](): was used to validate JS code for the website.
+ - [PEP8](https://pep8.org/):was used to validate Python code for the website.
+ - [Privacy Policy Generator](https://www.privacypolicygenerator.info/):was used to create the privacy policy.
+ - [Django-extensions](https://django-extensions.readthedocs.io/en/latest/):was used to create a Entity-Relationship Diagram.
+ - [iStock by Getty Images](https://www.istockphoto.com/):was used to get background images and all the images for the website.
+
+ ## Features
+ Please refer to the [FEATURES.md]()file for all test-related documentation.
+- []()
+ ## design
+- []()
+ ### Color Scheme
+- []()
+ ### Typography
+- []()
+### Imagery
+- []()
+
+## Agile Methodology
+- []()
+## Flowcharts
+- []()
+
+## Information Architecture
+
+### Database
+- Doing the earliest stages of the project, the database was created using SQLite.
+- The database was then migrated to PostgreSQL.
+
+**Entity-Relationship Diagram**
+
+![Entity-Relationship Diagram image](documentation/entity-relationship-diagram-image.png)
+
+### Data Modeling
+
+
+## Testing
+- Please refer to the [TESTING.md]()file for all test-related documentation.
+
+
+## Deployment 
+- The app was deployed to[Heroku](https://thailand-guiding-light-2fb0b0e33db8.herokuapp.com/)
+- The database was deployed to [ElephantSQL](https://www.elephantsql.com/)
+- The app can be reached by the [link]()
+
+## Credits
+
+## Content and Images
+- [iStock by Getty Images](https://www.istockphoto.com/)
+
+## Acknowledgments
+- Code Institute tutor and Slack community members for their support and help.
+- Code Institute mentor Julia Konovalova for her advice
+- Pook Pak wiht an Entity-Relationship Diagram explanation.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
