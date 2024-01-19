@@ -1,7 +1,9 @@
 # Thailand Guiding Light
-  
+![Home page image]()
+
+  ## About
   Thailand Guiding Light is a social network media website allowing customers who love to travel to Thailand or live in Thailand to share their passion. They can also view, comment, like, share pictures, share external content, videos or literary posts, and connect and navigate to other social links or websites. It is a platform to sell Thailand travel packages online, promote Thailand tour businesses, and sell all tourist-relevant firms or products by navigating the user to their website. The user can create a network and improve communication to find people with similar interests online.
-  The website allows users and organizations to connect, communicate, and share information and relationships. People can connect with others in the same area or worldwide, families, friends, and those with the same interests. Also, eCommerce customers advertise and navigate the customer to their website. It has a login system. The website has a personal functionality that allows the admin and user to edit and manage their account.Deployed website:[ Link to website](
+  The website allows users and organizations to connect, communicate, and share information and relationships. People can connect with others in the same area or worldwide, families, friends, and those with the same interests. Also, eCommerce customers advertise and navigate the customer to their website. It has a login system. The website has a personal functionality that allows the admin and user to edit and manage their account. Deployed website:[ Link to website](
   https://thailand-guiding-light-2fb0b0e33db8.herokuapp.com/
 )
 ## UX  
@@ -10,13 +12,13 @@
 ## Target Audience
   A Thailand Guiding Light's target audience is people who want to share Their passion for travel and living in Thailand. This group will have specific shared characteristics that connect them and make them relevant to their friends, relatives, customers and colleagues. You can find people who share their same interests online and sell Tourist relevant 
   product or tour package online, and promote brands and Thailand tour businesses.
-## User Story ## 
+## User Stories ## 
  ### As a first time user ###
 - First time user 
   - As a First Time Visitor, I want to quickly understand the app's primary purpose so that I can learn more about how to get benefit from this app.
   - As a First Time Visitor, I want to navigate through the app to find the content easily.
   - As a First Time Visitor, I want to find this useful for my needs.
-  - As a First Time Visitor, I want to be able to easily  to create an account by providing basic information such as my name, email address , and password.
+  - As a First Time Visitor, I want to be able to easily to create an account by providing basic information such as my name, email address , and password.
   - As a First Time Visitor, I want to be informed if I am making any errors when create my account so that I can fix any mistakes quickly.
   - As a Firs Time Visitor, I want to have a personalized profile where I can add a profile picture, cover photo, and write a bio to introduce myself to others.
   - As a First Time Visitor, I want to see the variety of places in Thailand, such as images, VDO, and short stories that are most valuable to visit.
@@ -207,9 +209,9 @@
 
 
 ## Deployment 
-- The app was deployed to[Heroku](https://thailand-guiding-light-2fb0b0e33db8.herokuapp.com/)
+- The app was deployed to[Heroku](https://id.heroku.com/login)
 - The database was deployed to [ElephantSQL](https://www.elephantsql.com/)
-- The app can be reached by the [link]()
+- The app can be reached by the [link](https://thailand-guiding-light-2fb0b0e33db8.herokuapp.com/)
 
 ## Credits
 
@@ -219,8 +221,8 @@
 ## Acknowledgments
 - Code Institute tutor and Slack community members for their support and help.
 - Code Institute mentor Julia Konovalova for her advice
-- Pook Pak wiht an Entity-Relationship Diagram explanation.
-
+- Pook Pak with an Entity-Relationship Diagram explanation.
+- Jin with an HTML, CSS explanation.
 
 
 
