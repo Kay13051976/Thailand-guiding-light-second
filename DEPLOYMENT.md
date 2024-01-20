@@ -25,3 +25,4 @@
      - `os.environ["CLOUDINARY_API_KEY] = your cloudinary api key`
      - `os.environ["CLOUDINARY_API_SECRET] = your cloudinary api secret`
 7. Create and migrate the database.
+[code image]()
