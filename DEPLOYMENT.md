@@ -67,4 +67,12 @@ After the following steps, you will ensure that the app is working correctly, an
 4. In your app, go to the "Setting" tab, press "Reveal Config Vars", and the following config vars if they are not already set:
      - ALLOWED_HOSTS = your heroku domain name.
      - CLOUDINARY_CLOUD_NAME = the cloud name you used when creating your cloudinary account.
+     - CLOUDINARY_API_KEY = the api key you got when crated your cloudinary account.
+     - CLOUDINARY_API_SECRET = the api secret you got when created your cloudinary account.
+     - DATABASE_URL = the url of your heroku postgras database.
+     - EMAIL_HOST_USER = the email address you going to use to send emails.
+     - DEBUG = True during development, False during production.
+     - DISABLE_COLLECTIONSTATIC = 1 during development. Remove this when deploying to production.
      
+5. In your app go to the "Deploy" tab.
+    - if it's already possible, connect your Heroku account to your GitHub account

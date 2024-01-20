@@ -1,2 +1,4 @@
 VDO
 CLOUDINARY
+cloudinary
+heroku
