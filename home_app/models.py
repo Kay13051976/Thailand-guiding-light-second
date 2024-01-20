@@ -1,4 +1,3 @@
-models.py
 from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
@@ -14,7 +13,7 @@ VISIBILITY = (
     ("Only Me", "Only Me"),
     ("Everyone", "Everyone")
 )
-
+ß
 FRIEND_REQUEST = (
     ("pending", "pending"),
     ("accept", "accept"),
