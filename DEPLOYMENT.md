@@ -26,3 +26,27 @@
      - `os.environ["CLOUDINARY_API_SECRET] = your cloudinary api secret`
 7. Create and migrate the database.
 [code image]()
+     - `python3 manage.py makemigrations`
+     - `python3 manage.py migrate`
+     - `After migration, you will need to create a superuser.`
+8. Create roles as following:
+     - `python3 manage.py createsuperuser`
+9. Create roles as following:
+
+For example
+`Role.objects.create(name='Customer)`
+`Role.objects.create(name='Customer)`
+`Role.objects.create(name='Customer)`
+
+10. Set the role for the superuser with the role field with id 3.
+
+  `superuser.profile.role_id = 3`    
+  `superuser.save()`
+11. Go to Profiles and uncomment the default role. Make new migrations and migrate.
+     - python manage.py makemigrations
+     - python manage.py migrate
+
+After the following steps, you will ensure that the app is working correctly, and any other user registered in your app will only have access as a customer. The rest of the roles will be controlled by the admin
+12. Run the server.
+     - python3 manage.py runserver
+13. Access the website by the link provided in terminal. Add /admin/ at the end of the link to access the admin panel. If you are using Gitpod, you can skip steps 1-3 by clicking this [link](), and start from step4
