@@ -13,7 +13,7 @@ VISIBILITY = (
     ("Only Me", "Only Me"),
     ("Everyone", "Everyone")
 )
-ß
+
 FRIEND_REQUEST = (
     ("pending", "pending"),
     ("accept", "accept"),
