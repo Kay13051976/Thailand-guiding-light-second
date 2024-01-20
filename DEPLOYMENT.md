@@ -94,6 +94,10 @@ After the following steps, you will ensure that the app is working correctly, an
 12. Check your app's logs in heroku dashboard and ensure everything is working.
 13. After the development is done, you can change the `Debug` config vars to `False` and remove the `DISABLE_COLLECTSTATIC` config var from the config vars on heroku.
 To get Cloudinary cloud name, API key, and API secret:
-  1. go to the [Cloudinary website](https://cloudinary.com/users)
-  2. Log in your account or sign up if you don't have an account.
-  3. 
+    1. go to the [Cloudinary website](https://cloudinary.com/users)
+    2. Log in your account or sign up if you don't have an account.
+    3. Go to the Cloudinary dashboard.
+    4. At the top of the page, you will see your cloud name, API key, and API secret.
+    5. To reveal API secret, hover over the API key container and click on the button that look like and eye.
+    6. Copy these values and paste them into the config vars on Heroku and into your `env.py` file.
+## Render Deployment
