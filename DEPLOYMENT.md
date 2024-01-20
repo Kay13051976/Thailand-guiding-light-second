@@ -50,3 +50,21 @@ After the following steps, you will ensure that the app is working correctly, an
 12. Run the server.
      - python3 manage.py runserver
 13. Access the website by the link provided in terminal. Add /admin/ at the end of the link to access the admin panel. If you are using Gitpod, you can skip steps 1-3 by clicking this [link](), and start from step4
+
+## The app was initially deployed to Heroku
+### Heroku Deployment
+
+1. Create a Heroku account if you don't already have one.
+2. Create a new app on Heroku.
+     - Go to the [Heroku](https://id.heroku.com/login)
+     - Click on the "New" button.
+     - Click on the "Create new app" button.
+     - Choose a name for your app.
+     - Choose a region.
+     - Click on the "Create app" button.
+3. In your app go to the "Resources" tab.
+     - Add a Heroku Postgres database.
+4. In your app, go to the "Setting" tab, press "Reveal Config Vars", and the following config vars if they are not already set:
+     - ALLOWED_HOSTS = your heroku domain name.
+     - CLOUDINARY_CLOUD_NAME = the cloud name you used when creating your cloudinary account.
+     
