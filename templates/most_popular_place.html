@@ -1,0 +1,144 @@
+{% extends "base.html" %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static "css/style.css" %}" >
+    
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .card-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+
+        .card {
+            width: calc(33.33% - 20px);
+            margin: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px 4px 0 0;
+        }
+
+        .card-content {
+            padding: 15px;
+        }
+
+        .card-title {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .card-description {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .footer {
+            background-color: #444;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .title{
+            margin-top: 50px;
+            font-size: 25px;
+            margin-left: 30px;
+        }
+        .card-title{
+            text-align: center;
+        }
+        .card-description{
+            text-align: center;
+        }
+
+    </style>
+    <title>MOST POPULAR PLACE. MUST SEE</title>
+</head>
+<body>
+
+    <h1 class="title">MOST POPULAR PLACE. MUST SEE</h1>
+    <div class="card-container">
+        <!-- Card 1 -->
+        <div class="card">
+            <img src="image1.jpg" alt="Image 1">
+            <div class="card-content">
+                <h2 class="card-title">CHIANGMAI</h2>
+                <p class="card-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card">
+            <img src="image2.jpg" alt="Image 2">
+            <div class="card-content">
+                <h2 class="card-title">BANGKOK</h2>
+                <p class="card-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card">
+            <img src="image3.jpg" alt="Image 3">
+            <div class="card-content">
+                <h2 class="card-title">PATTAYA</h2>
+                <p class="card-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+        </div>
+
+        <!-- Additional Cards -->
+        <!-- Card 4 -->
+        <div class="card">
+            <img src="image4.jpg" alt="Image 4">
+            <div class="card-content">
+                <h2 class="card-title">PHUKET</h2>
+                <p class="card-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="card">
+            <img src="image5.jpg" alt="Image 5">
+            <div class="card-content">
+                <h2 class="card-title">NAN</h2>
+                <p class="card-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="card">
+            <img src="image6.jpg" alt="Image 6">
+            <div class="card-content">
+                <h2 class="card-title">KANCHANABURI</h2>
+                <p class="card-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p></p>
+    </div>
+</body>
+</html>
