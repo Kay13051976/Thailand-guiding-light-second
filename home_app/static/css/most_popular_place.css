@@ -1,0 +1,66 @@
+popular.css
+/* popular place */
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.card-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.card {
+    width: calc(33.33% - 20px);
+    margin: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px 4px 0 0;
+}
+
+.card-content {
+    padding: 15px;
+}
+
+.card-title {
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.card-description {
+    font-size: 14px;
+    color: #666;
+}
+
+.footer {
+    background-color: #444;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+.title{
+    margin-top: 50px;
+    font-size: 25px;
+    margin-left: 30px;
+}
+.card-title{
+    text-align: center;
+}
+.card-description{
+    text-align: center;
+}
