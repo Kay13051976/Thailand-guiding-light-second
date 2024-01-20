@@ -75,4 +75,6 @@ After the following steps, you will ensure that the app is working correctly, an
      - DISABLE_COLLECTIONSTATIC = 1 during development. Remove this when deploying to production.
      
 5. In your app go to the "Deploy" tab.
-    - if it's already possible, connect your Heroku account to your GitHub account
+    - If it's already possible, connect your Heroku account to your GitHub account and then click on the "Deploy" button.
+    - If not, you need to copy the Heroku CLI command to connect your Heroku app and your local repository.
+      - `heroku git:remote -a <your-heroku-app-name`
