@@ -1,3 +1,4 @@
+models.py
 from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
@@ -175,3 +176,10 @@ class Notification(models.Model):
     class Meta:
         verbose_name_plural = 'Notification'
 
+class Popular(models.Model):
+    name = models.CharField(max_length=255)
+    description = models.TextField()
+    image = models.ImageField(upload_to='images/')
+
+    def __str__(self):
+        return self.name
