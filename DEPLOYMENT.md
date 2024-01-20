@@ -101,3 +101,9 @@ To get Cloudinary cloud name, API key, and API secret:
     5. To reveal API secret, hover over the API key container and click on the button that look like and eye.
     6. Copy these values and paste them into the config vars on Heroku and into your `env.py` file.
 ## Render Deployment
+### Create Database on ElephantSQL
+1. Go to [ElephantSQL](https://www.elephantsql.com/) and create a new account.
+2. Create a new instance of the database.
+![Crate new instance](documentation/elephant-sql-create-new-instance.png)
+3. Select a name for yor database and select the free plan.
+![Select plan and name](documentation/elephant-sql-select-plan-and-name.png)
