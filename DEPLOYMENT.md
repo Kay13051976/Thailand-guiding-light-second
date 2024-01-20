@@ -77,4 +77,23 @@ After the following steps, you will ensure that the app is working correctly, an
 5. In your app go to the "Deploy" tab.
     - If it's already possible, connect your Heroku account to your GitHub account and then click on the "Deploy" button.
     - If not, you need to copy the Heroku CLI command to connect your Heroku app and your local repository.
-      - `heroku git:remote -a <your-heroku-app-name`
+      - `heroku git:remote -a <your-heroku-app-name`ุ
+6. Go to your local repository.
+7. Login to your Heroku account in your terminal and connect your local repository to your heroku app.
+     - `heroku login -i` - Enter all your Heroku credentials it will ask for.
+     - Paste the command you copied from step 5 into your terminal.
+8. Create Procfile.
+   This project uses Keroku which is require a Procfile that specifies the commands that are executed by the app on startup. You can use a Procfile to declare a variety of process types, including: Your app's web server. Multiple types 
+     - `web: gunicorn social_media_project.wsgi`
+9. Create requirements.txt This can be done by running the following command.
+     - `pip3 freeze > requirement.txt`
+10. Add your commit to Heroku.
+11. Push your changes to Heroku.
+     - `git push heroku master` or 
+     - `git push heroku main`
+12. Check your app's logs in heroku dashboard and ensure everything is working.
+13. After the development is done, you can change the `Debug` config vars to `False` and remove the `DISABLE_COLLECTSTATIC` config var from the config vars on heroku.
+To get Cloudinary cloud name, API key, and API secret:
+  1. go to the [Cloudinary website](https://cloudinary.com/users)
+  2. Log in your account or sign up if you don't have an account.
+  3. 
