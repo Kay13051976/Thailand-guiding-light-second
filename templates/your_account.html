@@ -1,0 +1,24 @@
+{% extends "home_app/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+    <div class="row my-5">
+        <div class="col-12 col-md-4">
+            <div class="row">
+              <img  class="card-img-top" alt="..." src="https://placehold.co/50x50">
+            </div>
+        </div>
+
+        <div class="col-12 col-md-8">
+          <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <button type="submit">Sign Up</button>
+        </form>
+                </div>
+            </div>
+        </div>
+        </div>
+</div>
+{% endblock content %}
