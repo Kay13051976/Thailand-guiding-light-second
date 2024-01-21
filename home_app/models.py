@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-from cloudinary.models import CloudinaryField
+# from cloudinary.models import CloudinaryField
 import uuid
 from datetime import datetime
 
@@ -32,7 +32,7 @@ NOTIFICATION_TYPE = (
 class Profile(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     id_user = models.IntegerField()
-    cover_image = CloudinaryField('image', default='placeholder')
+    cover_image = models.ImageField("featured image", upload_to=None, height_field=None, width_field=None, max_length=None)
     country = models.CharField(max_length=100, blank=True)
     """ A special method that is used to define the user-friendly
     string representation of an object """
@@ -45,7 +45,7 @@ class Post(models.Model):
     id_post = models.UUIDField(primary_key=True, default=uuid.uuid4)
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="post_user")
     title = models.CharField(max_length=200, unique=True)
-    featured_image = CloudinaryField('image', default='placeholder')
+    featured_image = models.ImageField("featured image", upload_to=None, height_field=None, width_field=None, max_length=None)
     visibility = models.CharField(
         max_length=100, choices=VISIBILITY, default='Everyone')
     slug = models.SlugField(max_length=200, unique=True)
@@ -96,8 +96,7 @@ class Comment(models.Model):
 class Gallery(models.Model):
     """ This Gallery class use to store multiple images in class Post """
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
-    image = CloudinaryField(
-        'image', null=True, blank=True, default='placeholder')
+    image = models.ImageField("image", upload_to=None, height_field=None, width_field=None, max_length=None)
     active = models.BooleanField(default=True)
     date = models.DateTimeField(auto_now_add=True)
 

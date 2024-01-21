@@ -2,6 +2,7 @@ from django.contrib import admin
 from .models import Post, Gallery, Friend, FriendRequest, Profile, Comment, ReplyComment, Notification
 
 
+
 @admin.register(Profile)
 class  ProfileAdmin(admin.ModelAdmin):
  
