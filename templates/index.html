@@ -1,102 +1,90 @@
-{% extends "base.html" %}
-{% load static %}
+{% extends "home_app/base.html" %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Social Media Project Home page</title>
-</head>
-<body>
-{% block title %} HOME PAGE {% endblock %} 
 {% block content %}
-<div class="card">
-  <div class="card-body">
-    <a href="#">
-      <i class="fa-solid fa-user-tie"></i>
-    </a>
-    <h5 class="card-title">Paul Waddington</h5>
-    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-  </div>
-  <div>
-      {% if "placeholder" in post.featured_image.url %}
-      <img src="https://media.istockphoto.com/id/1011930302/es/foto/pareja-paseos-en-bote-en-un-lago-tranquilo.jpg?s=1024x1024&w=is&k=20&c=hYyWgVr46MBQs3RxTpP5gwaoKRWenahuy775uMSYVLk=" class="card-img-bottom" alt="...">
-      {% else %}
-      <img src=" {{ post.featured_image.url }}">
-      {% endif %}
-  </div>
-  <div>
-  <p>Author: {{ post.author }}</p>  
-  </div>
-  <div> 
-  <a href="#" class="post-link">
-  <h2 class="class-title">{{ post.title }}</h2>
-  <p class="class-title">{{ post.excerpt }}</p>
-  </a>
-  <hr />
-  <p class="card-text text-muted h6 m-3"> {{ post.update_on }}
-  <i class="fa-solid fa-heart"></i>{{ post.number_of_likes }}
-  <i class="fa-solid fa-comment-pen"></i>
-  <i class="fa-regular fa-people-arrows"></i>
-  <i class="fa-solid fa-share-from-square"></i>
-  </p>
-  </div>
-</div>
-<div class="card">
-  <div class="card-body">
-    <a href="#">
-      <i class="fa-solid fa-user-tie"></i>
-    </a>
-    <h5 class="card-title">Jackie Corner</h5>
-    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-  </div>
-  <div>
-  <img src="https://media.istockphoto.com/id/1346433798/es/foto/isla-de-koh-mook.jpg?s=1024x1024&w=is&k=20&c=YqlvTaUov-CqCS8oH2SKUQH1BCy58h2q5VmLataKUZ0=" class="card-img-bottom" alt="...">
-  </div>
-  <div> 
-  <a href="#" class="post-link">
-  <h2 class="class-title">{{ post.title }}</h2>
-  <p class="class-title">{{ post.excerpt }}</p>
-  </a>
-  <hr />
-  <p class="card-text text-muted h6 m-3"> {{ post.update_on }}
-  <i class="fa-solid fa-heart"></i>{{ post.number_of_like }}
-  <i class="fa-solid fa-comment-pen"></i>
-  <i class="fa-regular fa-people-arrows"></i>
-  <i class="fa-solid fa-share-from-square"></i>
-  </p>
-  </div>
-</div>
-<div class="card">
-  <div class="card-body">
-    <a href="#">
-      <i class="fa-solid fa-user-tie"></i>
-    </a>
-    <h5 class="card-title">Tony Handerson</h5>
-    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-  </div>
-  <div>
-  <img src="https://media.istockphoto.com/id/515660981/es/foto/barco-de-madera-en-la-isla-de-phi-phi-tailandia.jpg?s=1024x1024&w=is&k=20&c=mXRRJJ1QpZZzkQU48WsoAyLYyFqPiJlCLh_MifvzZag=" class="card-img-bottom" alt="...">
-  </div>
-  <div> 
-  <a href="#" class="post-link">
-  <h2 class="class-title">{{ post.title }}</h2>
-  <p class="class-title">{{ post.excerpt }}</p>
-  </a>
-  <hr />
-  <p class="card-text text-muted h6 m-3"> {{ post.update_on }}
-  <i class="fa-solid fa-heart"></i>{{ post.number_of_like }}
-  <i class="fa-solid fa-comment-pen"></i>
-  <i class="fa-regular fa-people-arrows"></i>
-  <i class="fa-solid fa-share-from-square"></i>
-  </p>
-  </div>
-</div>
-{% endblock %}
 
-</body>
-</html>
+    <div class="row my-5">
+        <div class="col-4 d-xs-none">
+            <div class="row">
+            <p><a class="link-opacity-100" href="/account">Your Account</a></p>
+            <p><a class="link-opacity-100" href="#">Your Connection</a></p>
+            <p><a class="link-opacity-100" href="#">Chat</a></p>
+            <p><a class="link-opacity-100" href="/popular">Most Popular Place</a></p>
+            <p><a class="link-opacity-100" href="#">Travel Agent</a></p>
+            <p><a class="link-opacity-100" href="#">Accommodations</a></p>
+            <p><a class="link-opacity-100" href="#">Transport</a></p>
+            <p><a class="link-opacity-100" href="#">Thai Traval News </a></p>
+            </div>
+            <div class="row">
+                <div class="col-8">
+                <div class="card my-3">
+                    <img  class="card-img-top" alt="..." src="https://placehold.co/100x50">
+                    <div class="card-body">
+                      <h5 class="card-title">ADS</h5>
+                      <p class="card-text"> <small class="text-body-secondary">This is a wider card with supporting text</small> </p>
+                    </div>
+                  </div>
+
+                  <div class="card my-3">
+                    <img  class="card-img-top" alt="..." src="https://placehold.co/100x50">
+                    <div class="card-body">
+                      <h5 class="card-title">ADS</h5>
+                      <p class="card-text"> <small class="text-body-secondary">This is a wider card with supporting text</small> </p>
+                    </div>
+                  </div>
+
+                  <div class="card my-3">
+                    <img  class="card-img-top" alt="..." src="https://placehold.co/100x50">
+                    <div class="card-body">
+                      <h5 class="card-title">ADS</h5>
+                      <p class="card-text"> <small class="text-body-secondary">This is a wider card with supporting text</small> </p>
+                    </div>
+                  </div>
+
+                </div>
+
+                
+            </div>
+        </div>
+
+        <div class="col-12 col-md-8">
+                <div class="d-flex flex-row mb-3">
+                <div class="text-center">
+                    <img src="https://placehold.co/60x60" class="rounded" alt="...">
+                  </div>
+                  <div>
+                    <div class="pt-3">
+                <span  class="mx-3 fs-18">Account Name</span >
+                </div>
+            </div>
+                </div>
+                <input type="text" class="form-control" placeholder="write something ..">
+                
+
+                <div class="row my-4">
+                    <div class="col-12">
+                <div class="card my-3">
+                    <img  class="card-img-top" alt="..." src="https://placehold.co/250x100">
+                    <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                      <p class="card-text"><small class="text-body-secondary">Like</small> <small class="text-body-secondary">Comment</small> </p>
+                    </div>
+                  </div>
+
+
+                  <div class="card my-3">
+                    <img  class="card-img-top" alt="..." src="https://placehold.co/250x100">
+                    <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                      <p class="card-text"><small class="text-body-secondary">Like</small> <small class="text-body-secondary">Comment</small> </p>
+                    </div>
+                  </div>
+
+
+                </div>
+            </div>
+        </div>
+        </div>
+</div>
+{% endblock content %}
