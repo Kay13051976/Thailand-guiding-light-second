@@ -31,10 +31,10 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-kay13051976-thailandgui-jfkilhjpyib.ws-eu107.gitpod.io',
+ALLOWED_HOSTS = ['261e-2a09-bac1-6f20-1060-00-1f1-20b.ngrok-free.app','8000-kay13051976-thailandgui-jfkilhjpyib.ws-eu107.gitpod.io',
                  'thailand-guiding-light-2fb0b0e33db8.herokuapp.com',
                  'thailand-guiding-light.herokuapp.com', 
-                 'localhost']
+                 'localhost','127.0.0.1']
 
 
 # Application definition
@@ -53,7 +53,6 @@ INSTALLED_APPS = [
     'home_app',
     
 ]
-
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -96,6 +95,14 @@ WSGI_APPLICATION = 'social_media_project.wsgi.application'
 #         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
+
+
+# postgres://kqlgwsfz:PELGcwjjMrkuyEzZkzfvzUNDyXSgfF4N@snuffleupagus.db.elephantsql.com/kqlgwsfz
+# postgres://rmitzrwu:AvsjvRMu9UUiazfOHuaYKy79m6adNK6v@tiny.db.elephantsql.com/rmitzrwu
+# postgres://dyowxatm:BzwENgJEMNvooZAO4OoGR8VVodlXqxdd@arjuna.db.elephantsql.com/dyowxatm
+# postgres://diyosqfn:EPOT-yiDsxg6SVbymcDcDsATSCdK8nR_@manny.db.elephantsql.com/diyosqfn
+# postgres://chfbxfsq:s-_OsitArsivt6bTBZEVipX1iAapQwwG@rogue.db.elephantsql.com/chfbxfsq
+
 DATABASES = {
     'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
 }
@@ -105,18 +112,18 @@ DATABASES = {
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
+    # {
+    #     'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+    # },
+    # {
+    #     'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+    # },
+    # {
+    #     'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+    # },
+    # {
+    #     'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+    # },
 ]
 
 
@@ -138,14 +145,41 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
+# STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_URL = '/media/'
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+MEDIA_ROOT = BASE_DIR 
+# DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
+
+
+AUTHENTICATION_BACKENDS = [
+    # ...
+    'allauth.account.auth_backends.AuthenticationBackend',
+    # ...
+]
+
+
+# Enable Django Allauth
+SITE_ID = 1  # You may need to change this based on your site configuration
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = 'none'
+ACCOUNT_UNIQUE_EMAIL = True
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False
+LOGIN_REDIRECT_URL = '/index/'
+LOGOUT_REDIRECT_URL = '/login'
+
+
+CSRF_TRUSTED_ORIGINS=["http://127.0.0.1:8000","https://8000-kay13051976-thailandgui-jfkilhjpyib.ws-eu107.gitpod.io"]
