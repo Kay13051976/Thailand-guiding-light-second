@@ -1,6 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import User
-# from cloudinary.models import CloudinaryField
+from django.contrib.auth.models import User 
 import uuid
 from datetime import datetime
 
@@ -29,11 +28,17 @@ NOTIFICATION_TYPE = (
     ("Comment Replied", "Comment Replied")
 )
 
+
+
+
+
 class Profile(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     id_user = models.IntegerField()
     cover_image = models.ImageField("featured image", upload_to=None, height_field=None, width_field=None, max_length=None)
     country = models.CharField(max_length=100, blank=True)
+    profile_img = models.ImageField("profile image", upload_to=None, height_field=None, width_field=None, max_length=None,blank=True)
+    phone = models.CharField(max_length=15,blank=True)
     """ A special method that is used to define the user-friendly
     string representation of an object """
     def __user__(self):
@@ -45,12 +50,12 @@ class Post(models.Model):
     id_post = models.UUIDField(primary_key=True, default=uuid.uuid4)
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="post_user")
     title = models.CharField(max_length=200, unique=True)
-    featured_image = models.ImageField("featured image", upload_to=None, height_field=None, width_field=None, max_length=None)
+    featured_image = models.ImageField("featured image", upload_to=None, height_field=None, width_field=None,blank=True, max_length=None)
     visibility = models.CharField(
-        max_length=100, choices=VISIBILITY, default='Everyone')
-    slug = models.SlugField(max_length=200, unique=True)
+        max_length=100, choices=VISIBILITY, default='Everyone',blank=True)
+    slug = models.SlugField(max_length=200)
     updated_on = models.DateTimeField(auto_now=True)
-    content = models.TextField()
+    content = models.TextField(blank=True)
     excerpt = models.TextField(blank=True)
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
@@ -176,7 +181,7 @@ class Notification(models.Model):
 
 class Popular(models.Model):
     name = models.CharField(max_length=255)
-    description = models.TextField()
+    description = models.TextField(verbose_name="Description")
     image = models.ImageField(upload_to='images/')
 
     def __str__(self):
