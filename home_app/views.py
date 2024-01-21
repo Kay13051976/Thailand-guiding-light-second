@@ -1,10 +1,10 @@
 from django.shortcuts import render,redirect
 from django.views import generic
 from .models import Post
-from .models import Popular,Profile,Gallery
+from .models import Popular,Profile,Gallery,Comment
 from .forms import AccountForm,UserPostForm
-
-
+from django.shortcuts import get_object_or_404
+from django.http import JsonResponse
 
 def login(request):
     return render(request, 'home_app/login.html', {})
@@ -18,17 +18,11 @@ def index(request):
             post_instance = form.save(commit=False)
             post_instance.user = request.user
             post_instance.save()
-
-    
             images = request.FILES.getlist('images')
             for image in images:
                 Gallery.objects.create(post=post_instance, image=image)
-
-            
     else:
         form = UserPostForm()
-
-
     posts = Post.objects.all() #filter(user=request.user)
     return render(request, 'home_app/index.html', {
         'posts' : posts
@@ -65,10 +59,53 @@ def account(request):
         form.fields['first_name'].initial = user.first_name
         form.fields['last_name'].initial = user.last_name
         form.fields['email'].initial = user.email
-        
-
     return render(request, 'home_app/your_account.html', {'form': form})
+
+
+
 
 def popular(request):
     places = Popular.objects.all()
     return render(request, 'home_app/most_popular_place.html', {'places': places})
+
+
+
+
+
+def api_toggle_like(request, id_post):
+    post = get_object_or_404(Post, id_post=id_post)
+    user = request.user
+
+    if user in post.likes.all():
+        post.likes.remove(user)
+        liked = False
+    else:
+        post.likes.add(user)
+        liked = True
+
+    return JsonResponse({'liked': liked, 'like_count': post.likes.count()})
+
+
+
+def api_add_comment(request, post_id):
+    if request.method == 'POST':
+        user = request.user
+        post = get_object_or_404(Post, id_post=post_id)
+        comment_text = request.POST.get('comment', '')
+
+        if comment_text:
+            comment = Comment(user=user, post=post, comment=comment_text)
+            comment.save()
+
+            # ส่งข้อมูล comment ที่ถูกสร้างกลับไป
+            comment_data = {
+                'user': comment.user.username,
+                'comment': comment.comment,
+                'date': comment.date.strftime('%Y-%m-%d %H:%M:%S')
+            }
+
+            return JsonResponse({'success': True, 'message': 'Comment added successfully.', 'comment': comment_data,'comment_count':post.comment_set.count()})
+        else:
+            return JsonResponse({'success': False, 'message': 'Comment text is required.'})
+
+    return JsonResponse({'success': False, 'message': 'Invalid request method.'})
