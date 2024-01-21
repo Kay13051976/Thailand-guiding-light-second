@@ -51,7 +51,7 @@ def account(request):
             request.user.first_name = form.cleaned_data['first_name']
             request.user.last_name = form.cleaned_data['last_name']
             request.user.save()
-            return render(request, 'home_app/account.html', {'form': form})
+            return render(request, 'home_app/your_account.html', {'form': form})
     else:
         form = AccountForm()
         user = request.user
@@ -67,7 +67,7 @@ def account(request):
         form.fields['email'].initial = user.email
         
 
-    return render(request, 'home_app/account.html', {'form': form})
+    return render(request, 'home_app/your_account.html', {'form': form})
 
 def popular(request):
     places = Popular.objects.all()
