@@ -50,7 +50,7 @@
             <div class="card my-3 p-4">
                 <div class="d-flex flex-row mb-3">
                 <div class="text-center">
-                    <img src="{{request.user.profile.profile_img.url}}" class="rounded" alt="..." width=60 height=60>
+                    <img src="{{request.user.profile.profile_img.url}}" class="rounded" alt="..." width=60 height=60 id="profile_img">
                   </div>
                   <div>
                     <div class="pt-3">
@@ -124,9 +124,9 @@
                     <div class="card-body">
                       <h5 class="card-title">{{post.title}}</h5>
                       <p class="card-text">{{post.excerpt}}</p>
-                      <p class="card-text"><small class="text-body-secondary">{{post.likes.count}} Like</small> <small class="text-body-secondary" onclick="toggle_comment('post-comment-{{post.id_post}}')" >{{ post.comment_set.all.count }}  Comments</small> </p>
+                      <p class="card-text"><small class="text-body-secondary" id="like-{{post.id_post}}" onclick="toggle_like('{{post.id_post}}')">{{post.likes.count}} Like</small> <small class="text-body-secondary" id="comment-{{post.id_post}}" onclick="toggle_comment('post-comment-{{post.id_post}}')" >{{ post.comment_set.all.count }}  Comments</small> </p>
                     <hr/>
-                    <input type="text" name="comment" class="form-control" placeholder="what do you thing about this .. "/>
+                    <input type="text" name="comment" class="form-control" onkeypress="post_comment(event,'{{post.id_post}}')" placeholder="what do you thing about this .. "/>
 
                     </div>
 
@@ -136,7 +136,7 @@
                             <div class="row">
                                 <div class="d-flex flex-row my-1">
                                     <div class="text-center ml-5">
-                                        <img src="https://placehold.co/60x60" class="rounded ml-5" alt="..." width=50 height=50>
+                                        <img src="{{comment.user.profile.profile_img.url}}" class="rounded ml-5" alt="..." width=50 height=50>
                                       </div>
                                       <div>
                                         <div class="">
@@ -148,7 +148,7 @@
                             </div>
                             <hr/>
                             {% empty %}
-                            <p  class="mx-3 my-2 text-center text-post-comment">No Comment.</p >
+                            <p  class="mx-3 my-2 text-center text-post-comment"></p >
                         {% endfor %}
                     </div>
                   </div>
@@ -166,10 +166,88 @@
 
 
 {% block extras_js %}
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
 <script>
     function toggle_comment(id_post){
         $('#' + id_post).toggleClass('d-none');
       }
+
+
+
+
+      function toggle_like(id_post) {
+        var csrftoken = Cookies.get('csrftoken');
+
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRFToken': csrftoken
+            }
+        });
+
+        $.ajax({
+            type: 'POST',
+            url: `/api/toggle-like/${id_post}/`,
+            success: function(data) {
+                $('#like-' + id_post).text(data.like_count + ' Like');
+            },
+            error: function() {
+                console.log('like fail')
+            }
+        });
+    }
+
+
+
+
+    function post_comment(event,post_id) {
+        if (event.key === 'Enter') {
+            console.log("post comment")
+            event.preventDefault();
+            var comment_text = $(event.target).val();
+
+            $.ajax({
+                type: 'POST',
+                url: `/api/add_comment/${post_id}/`,
+                data: {
+                    'comment': comment_text,
+                    'csrfmiddlewaretoken': '{{ csrf_token }}'
+                },
+                success: function (data) {
+                    if (data.success) {
+                        // เพิ่ม HTML ลงไปที่ตำแหน่งที่ต้องการ
+                        var profileImgSrc = $('#profile_img').attr('src');
+                        var commentHtml = `
+                            <div class="row">
+                                <div class="d-flex flex-row my-1">
+                                    <div class="text-center ml-5">
+                                        <img src="${profileImgSrc}" class="rounded ml-5" alt="..." width=50 height=50>
+                                    </div>
+                                    <div>
+                                        <div class="">
+                                            <p  class="mx-3 my-0 text-post-account-comment">${data.comment.user}</p>
+                                            <p  class="mx-3 my-2 text-post-comment">${data.comment.comment}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr/>
+                        `;
+                        // เพิ่ม HTML ลงไปในตำแหน่งที่คุณต้องการ
+                        $('#post-comment-' + post_id).append(commentHtml);
+                        
+                        // ลบข้อความที่ป้อนใน textbox
+                        $(event.target).val('');
+
+                        $('#comment-' + post_id).text(data.comment_count + ' Comments');
+                    }
+                },
+                error: function() {
+                    alert('An error occurred.');
+                }
+            });
+        }
+    }
   </script>
 
   {% endblock extras_js %}
