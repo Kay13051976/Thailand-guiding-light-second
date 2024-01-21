@@ -1,5 +1,10 @@
 from django.contrib import admin
-from .models import Post, Gallery, Friend, FriendRequest, Profile, Comment, ReplyComment, Notification
+from .models import Post, Gallery, Friend, FriendRequest, Profile, Comment, ReplyComment, Notification,Popular
+
+@admin.register(Popular)
+class PopularAdminTab(admin.ModelAdmin):
+    model = Popular
+
 
 
 
