@@ -2,8 +2,8 @@
 
 {% block content %}
 
-    <div class="row my-5">
-        <div class="col-4 d-xs-none">
+    <div class="row my-5 ">
+        <div class="col-md-4 d-none d-md-block ">
             <div class="row">
             <p><a class="link-opacity-100" href="/account">Your Account</a></p>
             <p><a class="link-opacity-100" href="#">Your Connection</a></p>
@@ -47,39 +47,114 @@
         </div>
 
         <div class="col-12 col-md-8">
+            <div class="card my-3 p-4">
                 <div class="d-flex flex-row mb-3">
                 <div class="text-center">
-                    <img src="https://placehold.co/60x60" class="rounded" alt="...">
+                    <img src="{{request.user.profile.profile_img.url}}" class="rounded" alt="..." width=60 height=60>
                   </div>
                   <div>
                     <div class="pt-3">
-                <span  class="mx-3 fs-18">Account Name</span >
+                <span  class="mx-3 fs-18">{{request.user.first_name}} {{request.user.last_name}}</span >
                 </div>
             </div>
                 </div>
-                <input type="text" class="form-control" placeholder="write something ..">
-                
+                {{form.errors}}
+                <form method="post"  enctype="multipart/form-data">
+                    
+                     {% csrf_token %}
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" name="title" placeholder="Write something" aria-label="Write something" aria-describedby="button-addon2">
+                   
+                 
+                </div>
+                <div class="mb-3">
+                    <input class="form-control" type="file" id="formFileMultiple" name="images" multiple>
+                  </div>
 
+                  <div class="mb-3">
+                  <button class="btn btn-outline-secondary btn btn-primary text-white w-100" type="submit" id="button-addon2">Post</button>
+                </div>
+           
+                </form>
+
+        </div>
                 <div class="row my-4">
                     <div class="col-12">
+
+                {% for post in posts %}
                 <div class="card my-3">
-                    <img  class="card-img-top" alt="..." src="https://placehold.co/250x100">
+                    <div class="">
+                  
+                            <div class="d-flex flex-row m-4">
+                            <div class="text-center">
+                                <img src="{{post.user.profile.profile_img.url}}" class="rounded-5" alt="..." width=60 height=60>
+                              </div>
+                              <div>
+                                <div class="">
+                            <span  class="mx-3 fs-20 fw-700">{{post.user.first_name}} {{post.user.last_name}}</span >
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                    {% if post.featured_image.url is not None %}
+                    <img  class="card-img-top" alt="..." src="{{post.featured_image.url}}">
+                    {% else %}
+                   
+                    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner p-3">
+                            {% for gallery in post.gallery_set.all %}
+                    
+                          <div class="carousel-item active">
+                            <img src="{{gallery.image.url}}" class="d-block w-100 rounded" alt="..." height=500 style="object-fit:cover">
+                          </div>
+
+                
+                        {% endfor %}
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                          <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                          <span class="visually-hidden">Next</span>
+                        </button>
+                      </div>
+                    {% endif %}
                     <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                      <p class="card-text"><small class="text-body-secondary">Like</small> <small class="text-body-secondary">Comment</small> </p>
+                      <h5 class="card-title">{{post.title}}</h5>
+                      <p class="card-text">{{post.excerpt}}</p>
+                      <p class="card-text"><small class="text-body-secondary">{{post.likes.count}} Like</small> <small class="text-body-secondary" onclick="toggle_comment('post-comment-{{post.id_post}}')" >{{ post.comment_set.all.count }}  Comments</small> </p>
+                    <hr/>
+                    <input type="text" name="comment" class="form-control" placeholder="what do you thing about this .. "/>
+
+                    </div>
+
+                    <div class="card-footer d-none" id="post-comment-{{post.id_post}}" >
+                        <p class="h6 my-3">Comments</span>
+                        {% for comment in post.comment_set.all %}
+                            <div class="row">
+                                <div class="d-flex flex-row my-1">
+                                    <div class="text-center ml-5">
+                                        <img src="https://placehold.co/60x60" class="rounded ml-5" alt="..." width=50 height=50>
+                                      </div>
+                                      <div>
+                                        <div class="">
+                                        <p  class="mx-3 my-0 text-post-account-comment">{{comment.user}}</p >
+                                        <p  class="mx-3 my-2 text-post-comment">{{comment.comment}}</p >
+                                    </div>
+                                </div>
+                                    </div>
+                            </div>
+                            <hr/>
+                            {% empty %}
+                            <p  class="mx-3 my-2 text-center text-post-comment">No Comment.</p >
+                        {% endfor %}
                     </div>
                   </div>
+                {% endfor %}
 
 
-                  <div class="card my-3">
-                    <img  class="card-img-top" alt="..." src="https://placehold.co/250x100">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                      <p class="card-text"><small class="text-body-secondary">Like</small> <small class="text-body-secondary">Comment</small> </p>
-                    </div>
-                  </div>
 
 
                 </div>
@@ -88,3 +163,13 @@
         </div>
 </div>
 {% endblock content %}
+
+
+{% block extras_js %}
+<script>
+    function toggle_comment(id_post){
+        $('#' + id_post).toggleClass('d-none');
+      }
+  </script>
+
+  {% endblock extras_js %}
