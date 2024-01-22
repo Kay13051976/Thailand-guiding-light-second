@@ -183,3 +183,6 @@ LOGOUT_REDIRECT_URL = '/login'
 
 
 CSRF_TRUSTED_ORIGINS=["http://127.0.0.1:8000","https://8000-kay13051976-thailandgui-jfkilhjpyib.ws-eu107.gitpod.io"]
+
+
+ACCOUNT_FORMS = {'signup': 'home_app.forms.CustomSignupForm'}
