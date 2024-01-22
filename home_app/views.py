@@ -23,7 +23,7 @@ def index(request):
                 Gallery.objects.create(post=post_instance, image=image)
     else:
         form = UserPostForm()
-    posts = Post.objects.all() #filter(user=request.user)
+    posts = Post.objects.filter(admin_approved=True) #filter(user=request.user)
     return render(request, 'home_app/index.html', {
         'posts' : posts
     })
