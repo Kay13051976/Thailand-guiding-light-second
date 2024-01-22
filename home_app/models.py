@@ -37,7 +37,7 @@ class Profile(models.Model):
     id_user = models.IntegerField()
     cover_image = models.ImageField("featured image", upload_to=None, height_field=None, width_field=None, max_length=None)
     country = models.CharField(max_length=100, blank=True)
-    profile_img = models.ImageField("profile image", upload_to=None, height_field=None, width_field=None, max_length=None,blank=True)
+    profile_img = models.ImageField("profile image", upload_to='images', height_field=None, width_field=None, max_length=None,blank=True ,default='images/default/profile.png',)
     phone = models.CharField(max_length=15,blank=True)
     """ A special method that is used to define the user-friendly
     string representation of an object """
@@ -53,7 +53,7 @@ class Post(models.Model):
     featured_image = models.ImageField("featured image", upload_to=None, height_field=None, width_field=None,blank=True, max_length=None)
     visibility = models.CharField(
         max_length=100, choices=VISIBILITY, default='Everyone',blank=True)
-    slug = models.SlugField(max_length=200)
+    slug = models.SlugField(max_length=200,blank=True)
     updated_on = models.DateTimeField(auto_now=True)
     content = models.TextField(blank=True)
     excerpt = models.TextField(blank=True)
@@ -61,6 +61,7 @@ class Post(models.Model):
     status = models.IntegerField(choices=STATUS, default=0)
     views = models.PositiveIntegerField(default=0)
     likes = models.ManyToManyField(User, related_name="post_likes", blank=True)
+    admin_approved = models.BooleanField(default=False)
 
     class Meta:
         """ class Meta Allow you to specify various options for the model,
