@@ -16,6 +16,10 @@
             </div>
         
                 <div class="col-8">
+
+
+
+                    <a href="https://www.tourismthailand.org/home?lang=th" class="text-decoration-none" target="blank">
                 <div class="card my-3">
                     <img  class="card-img-top" alt="..." src="https://media.istockphoto.com/id/1173736603/photo/young-woman-pulling-suitcase-in-airport-terminal-copy-space.jpg?s=1024x1024&w=is&k=20&c=Z90V6j_KuXIgd8KW_7eObiQMFZTfO4lDnulJ1QmrDSg=">
                     <div class="card-body">
@@ -24,7 +28,9 @@
                         Explore Bangkok, the Golden Triangle, Chiang Rai and Chai Mai on a Thailand tour package, which features a visit to an elephant camp.</small> </p>
                     </div>
                   </div>
+                </a>
 
+                  <a href="https://www.thailand-tourism.net/" class="text-decoration-none" target="blank">
                   <div class="card my-3">
                     <img  class="card-img-top" alt="..." src="https://media.istockphoto.com/id/1146493663/photo/bangkok-thailand-at-the-temple-of-the-emerald-buddha-and-grand-palace.jpg?s=1024x1024&w=is&k=20&c=f2M_Pq_7ci7hp3sgSQfbhpZIrTfOSdlcocDXt2xvQXI=">
                     <div class="card-body">
@@ -35,7 +41,10 @@
                         Let us design for you a trip that will give you insights into the development of Buddhism in North Thailand. We will discuss with you the itinerary and off we go!</small> </p>
                     </div>
                   </div>
+                </a>
 
+
+                <a href="https://www.lonelyplanet.com/thailand" class="text-decoration-none" target="blank">
                   <div class="card my-3">
                     <img  class="card-img-top" alt="..." src="https://media.istockphoto.com/id/1309583872/photo/aerial-view-of-lao-lading-island-in-krabi-thailand.jpg?s=1024x1024&w=is&k=20&c=QluXaL4bsnRTTmpHZHvMRNJqGhFT-dBEy8xmJsXZWW8=">
                     <div class="card-body">
@@ -43,6 +52,10 @@
                       <p class="card-text"> <small class="text-body-secondary">With turquoise waters, limestone cliffs, sandy beaches, and lush jungle, Phang Nga Bay boasts islands straight out of a brochure. Explore them with a guide on this all-inclusive day trip. Kayak through caves and mangroves at Koh Panak and surreal rock formations at Hong Island. Soak up views of James Bond Island then lounge on the beach at Lawa Island. Refuel with a buffet lunch onboard your boat.</small> </p>
                     </div>
                   </div>
+                </a>
+
+
+                <a href="https://www.thaitravelcenter.com/thailand/" class="text-decoration-none" target="blank">
                   <div class="card my-3">
                     <img  class="card-img-top" alt="..." src="https://media.istockphoto.com/id/1213840216/photo/luxury-travel-romantic-couple-in-beach-hotel.jpg?s=1024x1024&w=is&k=20&c=Z-5_rrckhzQcXR_czDKemD3X5eQO2371QhDHzGI1Lew=">
                     <div class="card-body">
@@ -51,11 +64,14 @@
 
                         Compared to the bustling Phuket and Samui islands, Koh Chang offers a more peaceful and laid-back atmosphere, making it an ideal destination for travelers seeking to avoid the crowds. With a good range of accommodations, some excellent restaurants, and numerous bars, Koh Chang provides a perfect balance of relaxation and adventure.</small> </p>
                     </div>
-
-                </div>
+                    </div>
+                </a>
                 
             </div>
         </div>
+          
+
+
 
         <div class="col-12 col-md-8">
             <div class="card my-3 p-4">
@@ -117,7 +133,7 @@
                     <img  class="card-img-top" alt="..." src="{{post.featured_image.url}}">
                     {% else %}
                    
-                    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                    <div id="carouselExampleControls-{{post.id_post}}" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-inner p-3">
                             {% for gallery in post.gallery_set.all %}
                     
@@ -128,11 +144,11 @@
                 
                         {% endfor %}
                         </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls-{{post.id_post}}" data-bs-slide="prev">
                           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                           <span class="visually-hidden">Previous</span>
                         </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls-{{post.id_post}}" data-bs-slide="next">
                           <span class="carousel-control-next-icon" aria-hidden="true"></span>
                           <span class="visually-hidden">Next</span>
                         </button>
