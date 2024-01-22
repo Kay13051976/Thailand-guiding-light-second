@@ -8,7 +8,7 @@
     {% for place in places %}
 <div class="col-12 col-md-4 my-3">
 <div class="card mb-3">
-    <img  class="card-img-top" alt="..." src="{{place.image.url}}">
+    <img  class="card-img-top" alt="..." src="{{place.image.url}}" width=200 height=200 onerror="this.src='https://placehold.co/600x250'" style="object-fit:cover">
     <div class="card-body">
       <h5 class="card-title">{{place.name}}</h5>
       <p class="card-text text-truncate">{{place.description}}</p>
