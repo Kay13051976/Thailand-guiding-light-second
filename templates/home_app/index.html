@@ -5,16 +5,16 @@
     <div class="row my-5 ">
         <div class="col-md-4 d-none d-md-block ">
             <div class="row">
-            <p><a class="link-opacity-100" href="/account"><i class="fa-solid fa-gear"></i>Your Account</a></p>
-            <p><a class="link-opacity-100" href="#"><i class="fa-solid fa-people-arrows"></i>Your Connection</a></p>
-            <p><a class="link-opacity-100" href="#"><i class="fa-solid fa-comments"></i>Chat</a></p>
-            <p><a class="link-opacity-100" href="/popular"><i class="fa-brands fa-fort-awesome"></i>Most Popular Place</a></p>
-            <p><a class="link-opacity-100" href="#"><i class="fa-solid fa-cart-flatbed-suitcase"></i>Travel Agent</a></p>
-            <p><a class="link-opacity-100" href="#"><i class="fa-solid fa-square-h"></i>Accommodations</a></p>
-            <p><a class="link-opacity-100" href="#"><i class="fa-solid fa-taxi"></i>Transport</a></p>
-            <p><a class="link-opacity-100" href="#"><i class="fa-solid fa-newspaper"></i>Thai Traval News </a></p>
+            <p><a class="link-opacity-100" href="/account"><i class="fa-solid fa-gear mx-2"></i>Your Account</a></p>
+            <p><a class="link-opacity-100" href="#"><i class="fa-solid fa-people-arrows mx-2"></i>Your Connection</a></p>
+            <p><a class="link-opacity-100" href="#"><i class="fa-solid fa-comments mx-2"></i>Chat</a></p>
+            <p><a class="link-opacity-100" href="/popular"><i class="fa-brands fa-fort-awesome mx-2"></i>Most Popular Place</a></p>
+            <p><a class="link-opacity-100" href="#"><i class="fa-solid fa-cart-flatbed-suitcase mx-2"></i>Travel Agent</a></p>
+            <p><a class="link-opacity-100" href="#"><i class="fa-solid fa-square-h mx-2"></i>Accommodations</a></p>
+            <p><a class="link-opacity-100" href="#"><i class="fa-solid fa-taxi mx-2"></i>Transport</a></p>
+            <p><a class="link-opacity-100" href="#"><i class="fa-solid fa-newspaper mx-2"></i>Thai Traval News </a></p>
             </div>
-            <di class="row">
+        
                 <div class="col-8">
                 <div class="card my-3">
                     <img  class="card-img-top" alt="..." src="https://media.istockphoto.com/id/1173736603/photo/young-woman-pulling-suitcase-in-airport-terminal-copy-space.jpg?s=1024x1024&w=is&k=20&c=Z90V6j_KuXIgd8KW_7eObiQMFZTfO4lDnulJ1QmrDSg=">
@@ -61,7 +61,11 @@
             <div class="card my-3 p-4">
                 <div class="d-flex flex-row mb-3">
                 <div class="text-center">
-                    <img src="{{request.user.profile.profile_img.url}}" class="rounded" alt="..." width=60 height=60 id="profile_img">
+                    {% if request.user.profile.profile_img is not None %}
+                    <img src="{{request.user.profile.profile_img.url}}" class="rounded" alt="..." width=60 height=60 id="profile_img" onerror="this.src='/media/images/default/profile.png'">
+                    {% else %}
+                    <img src=".." class="rounded" alt="..." width=60 height=60 id="profile_img" onerror="this.src='/media/images/default/profile.png'">
+                    {% endif %}
                   </div>
                   <div>
                     <div class="pt-3">
@@ -98,7 +102,7 @@
                   
                             <div class="d-flex flex-row m-4">
                             <div class="text-center">
-                                <img src="{{post.user.profile.profile_img.url}}" class="rounded-5" alt="..." width=60 height=60>
+                                <img src="{{post.user.profile.profile_img.url}}" class="rounded-5" alt="..." width=60 height=60 onerror="this.src='/media/images/default/profile.png'">
                                
                               </div>
                               <div>
@@ -137,7 +141,7 @@
                     <div class="card-body">
                       <h5 class="card-title">{{post.title}}</h5>
                       <p class="card-text">{{post.excerpt}}</p>
-                      <p class="card-text"><small class="text-body-secondary" id="like-{{post.id_post}}" onclick="toggle_like('{{post.id_post}}')">{{post.likes.count}} <i class="fa-solid fa-heart"></i></small> <small class="text-body-secondary" id="comment-{{post.id_post}}" onclick="toggle_comment('post-comment-{{post.id_post}}')" >{{ post.comment_set.all.count }}  <i class="fa-regular fa-comment"></i></small><small><i class="fa-solid fa-share-from-square"></i></small><small><i class="fa-solid fa-people-arrows"></i></small> </p>
+                      <p class="card-text"><small class="text-body-secondary  mx-2 pointer" id="like-{{post.id_post}}" onclick="toggle_like('{{post.id_post}}')">{{post.likes.count}} <i class="fa-solid fa-heart"></i></small> <small class="text-body-secondary  mx-2 pointer" id="comment-{{post.id_post}}" onclick="toggle_comment('post-comment-{{post.id_post}}')" >{{ post.comment_set.all.count }}  <i class="fa-regular fa-comment  mx-2"></i></small><small><i class="fa-solid fa-share-from-square  mx-2 pointer"></i></small><small><i class="fa-solid fa-people-arrows  mx-2 pointer"></i></small> </p>
                     <hr/>
                     <input type="text" name="comment" class="form-control" onkeypress="post_comment(event,'{{post.id_post}}')" placeholder="what do you thing about this .. "/>
 
@@ -202,7 +206,7 @@
             type: 'POST',
             url: `/api/toggle-like/${id_post}/`,
             success: function(data) {
-                $('#like-' + id_post).text(data.like_count + ' Like');
+                $('#like-' + id_post).html(data.like_count + ' <i class="fa-solid fa-heart"></i>');
             },
             error: function() {
                 console.log('like fail')
@@ -252,7 +256,7 @@
                         // ลบข้อความที่ป้อนใน textbox
                         $(event.target).val('');
 
-                        $('#comment-' + post_id).text(data.comment_count + ' Comments');
+                        $('#comment-' + post_id).html(data.comment_count + '  <i class="fa-regular fa-comment  mx-2">');
                     }
                 },
                 error: function() {
