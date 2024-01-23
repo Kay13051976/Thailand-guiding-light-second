@@ -1,1 +1,20 @@
+style.css
 .pointer {cursor: pointer;}
+
+
+/* color before pointer */
+.hover-color {
+    color: #2c2c2c; 
+    transition: background-color 0.3s ease; 
+  }
+  
+  /* color when hover*/
+  .hover-color:hover {
+    color: #e74c3c; 
+  }
+
+
+    /* advert hover color */
+.hover-color-ads:hover {
+    background-color: #888888;
+    }
