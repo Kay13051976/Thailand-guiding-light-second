@@ -10,6 +10,16 @@ def login(request):
     return render(request, 'home_app/login.html', {})
 
 
+def first_page(request):
+    print(request.user,request.user.is_authenticated)
+    if request.user.is_authenticated == True:
+        return redirect('/index')
+    else:
+        return redirect('/login')
+
+
+
+
 
 def index(request):
     if request.method == 'POST':
