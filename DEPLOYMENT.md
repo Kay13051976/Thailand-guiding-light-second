@@ -136,3 +136,18 @@ To get Cloudinary cloud name, API key, and API secret:
 6. In the Deployment method section enable GitHub integration by clicking on Connect to GitHub
 **if you have not deployed a project from GitHub before then, you will be asked to authenticate with GitHub.**
 ![Heroku connect GitHub section](documentation/hetoku-connect-github-section.png)
+7. Start typing your project repo name into the search box and click Search. A list of repositories from your GitHub account should appear. Click on the GitHub repo you want to deploy from.
+![Heroku search repo to connect image](documentation/heroku-serch-repo-to-connect.png)
+8. Scroll to the bottom of the page and click Deploy Branch to start a manual deployment of the main branch.
+![Heroku deploy branch button image](documentation/heroku-deploy-branch-button.png)
+9. Heroku will start to deploy the current state of a branch to this app.
+![](documentation/heroku-view-blog-log.png)
+You can click on "View build log" to view the code. When loading completed click on open app on top right corner.
+![](documentation/heroku-view-blog-detail.png)
+Click on Details
+![](documentation/heroku-dangerous-site-warning.png)
+Click on "this unsafe site" the home page of the website will appear
+![](documentation/heroku-dangerous-site-this-unsafe-site.png)
+![](documentation/heroku-home-page-view-signup.png)
+sign out then sign in to your account.
+![](documentation/heroku-home-page-view.png)
