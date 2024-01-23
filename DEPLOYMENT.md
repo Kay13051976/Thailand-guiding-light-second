@@ -15,7 +15,7 @@
      - `pip3 install -r requirements.txt`
 5. Create a env.py file
      - `touch env.py`
-6. Add th following lines env.py
+6. Add the following lines env.py
      - `import os`
      - `os.environ["SECRET_KEY] = your secret key.`
      - `os.environ["DEBUG"] = "True" or "False" depending on whether you are in development or production.`
@@ -141,13 +141,12 @@ To get Cloudinary cloud name, API key, and API secret:
 8. Scroll to the bottom of the page and click Deploy Branch to start a manual deployment of the main branch.
 ![Heroku deploy branch button image](documentation/heroku-deploy-branch-button.png)
 9. Heroku will start to deploy the current state of a branch to this app.
-![](documentation/heroku-view-blog-log.png)
+![Heroku view blog log image](documentation/heroku-view-blog-log.png)
 You can click on "View build log" to view the code. When loading completed click on open app on top right corner.
-![](documentation/heroku-view-blog-detail.png)
+![Heroku view blog detail image](documentation/heroku-view-blog-detail.png)
 Click on Details
-![](documentation/heroku-dangerous-site-warning.png)
+![Heroku dangerous site warning image](documentation/heroku-dangerous-site-warning.png)
 Click on "this unsafe site" the home page of the website will appear
-![](documentation/heroku-dangerous-site-this-unsafe-site.png)
-![](documentation/heroku-home-page-view-signup.png)
+![Heroku dangerous site this unsafe site image](documentation/heroku-dangerous-site-this-unsafe-site.png)
 sign out then sign in to your account.
-![](documentation/heroku-home-page-view.png)
+![Heroku home page view](documentation/heroku-home-page-view.png)
