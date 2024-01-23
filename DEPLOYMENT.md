@@ -113,3 +113,7 @@ To get Cloudinary cloud name, API key, and API secret:
 ![Select region close to you](documentation/elephant-sql-select-close-region.png)
 6. Click "Review"
 ![Click review](documentation/elephant-sqp-review.png)
+7. Click "create instance"
+![Click create instance](documentation/elephant-sql-create-instance.png)
+8. Click on the name of your database to open the dashboard.
+![Instance name list](documentation/elephant-sql-instance-list.png)
