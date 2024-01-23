@@ -248,7 +248,7 @@
                 },
                 success: function (data) {
                     if (data.success) {
-                        // เพิ่ม HTML ลงไปที่ตำแหน่งที่ต้องการ
+                        // Add HTML 
                         var profileImgSrc = $('#profile_img').attr('src');
                         var commentHtml = `
                             <div class="row">
@@ -266,10 +266,10 @@
                             </div>
                             <hr/>
                         `;
-                        // เพิ่ม HTML ลงไปในตำแหน่งที่คุณต้องการ
+                        // Add HTML 
                         $('#post-comment-' + post_id).append(commentHtml);
                         
-                        // ลบข้อความที่ป้อนใน textbox
+                        // Delete text in textbox
                         $(event.target).val('');
 
                         $('#comment-' + post_id).html(data.comment_count + '  <i class="fa-regular fa-comment  mx-2">');

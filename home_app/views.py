@@ -107,7 +107,7 @@ def api_add_comment(request, post_id):
             comment = Comment(user=user, post=post, comment=comment_text)
             comment.save()
 
-            # ส่งข้อมูล comment ที่ถูกสร้างกลับไป
+            # Send comment back
             comment_data = {
                 'user': comment.user.username,
                 'comment': comment.comment,
