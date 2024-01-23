@@ -133,3 +133,6 @@ To get Cloudinary cloud name, API key, and API secret:
 ![Heroku app name list image](documentation/heroku-app-name-list.png)
 5. On your app dashboard click on the Deploy tab.
 ![Heroku app dashboard deploy tab](documentation/heroku-app-dashboard.png)
+6. In the Deployment method section enable GitHub integration by clicking on Connect to GitHub
+**if you have not deployed a project from GitHub before then, you will be asked to authenticate with GitHub.**
+![Heroku connect GitHub section](documentation/hetoku-connect-github-section.png)
