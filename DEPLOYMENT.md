@@ -123,10 +123,13 @@ To get Cloudinary cloud name, API key, and API secret:
 ## Create a new app on Heroku
  ### sign up with Heroku then log into your account and go to the Dashboard.
 1. Click "New"
-![Click new button](documentation/heroku-new-button.png)
+![Click new button image](documentation/heroku-new-button.png)
 2. Click "Create new app"
-![Heroku create new app](documentation/heroku-create-new-app.png)
+![Heroku create new app image](documentation/heroku-create-new-app.png)
 3. Give your app a name and select the region closest to you. When you're done, click "Create app" to confirm.
-![Heroku create app button](documentation/heroku-create-app-button.png)
+![Heroku create app button image](documentation/heroku-create-app-button.png)
 **Heroku app names must be unique. If yours isn't, Heroku will give you a warning that looks like the image below**
-
+4. Navigate to your Heroku dashboard and select the app you have just created.
+![Heroku app name list image](documentation/heroku-app-name-list.png)
+5. On your app dashboard click on the Deploy tab.
+![Heroku app dashboard deploy tab](documentation/heroku-app-dashboard.png)
