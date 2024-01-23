@@ -117,3 +117,16 @@ To get Cloudinary cloud name, API key, and API secret:
 ![Click create instance](documentation/elephant-sql-create-instance.png)
 8. Click on the name of your database to open the dashboard.
 ![Instance name list](documentation/elephant-sql-instance-list.png)
+9. You will see the dashboard of your database. You will need the URL of your database to connect it to your Django project.
+![Instance dashboard](documentation/elephant-sql-instance-dashboard.png)
+
+## Create a new app on Heroku
+ ### sign up with Heroku then log into your account and go to the Dashboard.
+1. Click "New"
+![Click new button](documentation/heroku-new-button.png)
+2. Click "Create new app"
+![Heroku create new app](documentation/heroku-create-new-app.png)
+3. Give your app a name and select the region closest to you. When you're done, click "Create app" to confirm.
+![Heroku create app button](documentation/heroku-create-app-button.png)
+**Heroku app names must be unique. If yours isn't, Heroku will give you a warning that looks like the image below**
+
