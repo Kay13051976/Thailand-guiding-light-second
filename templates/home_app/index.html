@@ -20,7 +20,7 @@
 
 
                     <a href="https://www.tourismthailand.org/home?lang=th" class="text-decoration-none" target="blank">
-                <div class="card my-3">
+                <div class="card my-3 hover-color-ads">
                     <img  class="card-img-top" alt="..." src="https://media.istockphoto.com/id/1173736603/photo/young-woman-pulling-suitcase-in-airport-terminal-copy-space.jpg?s=1024x1024&w=is&k=20&c=Z90V6j_KuXIgd8KW_7eObiQMFZTfO4lDnulJ1QmrDSg=">
                     <div class="card-body">
                       <h5 class="card-title">Fish and Chip Tour</h5>
@@ -31,7 +31,7 @@
                 </a>
 
                   <a href="https://www.thailand-tourism.net/" class="text-decoration-none" target="blank">
-                  <div class="card my-3">
+                  <div class="card my-3 hover-color-ads">
                     <img  class="card-img-top" alt="..." src="https://media.istockphoto.com/id/1146493663/photo/bangkok-thailand-at-the-temple-of-the-emerald-buddha-and-grand-palace.jpg?s=1024x1024&w=is&k=20&c=f2M_Pq_7ci7hp3sgSQfbhpZIrTfOSdlcocDXt2xvQXI=">
                     <div class="card-body">
                       <h5 class="card-title">Buddha Tour Dot Com</h5>
@@ -45,7 +45,7 @@
 
 
                 <a href="https://www.lonelyplanet.com/thailand" class="text-decoration-none" target="blank">
-                  <div class="card my-3">
+                  <div class="card my-3 hover-color-ads">
                     <img  class="card-img-top" alt="..." src="https://media.istockphoto.com/id/1309583872/photo/aerial-view-of-lao-lading-island-in-krabi-thailand.jpg?s=1024x1024&w=is&k=20&c=QluXaL4bsnRTTmpHZHvMRNJqGhFT-dBEy8xmJsXZWW8=">
                     <div class="card-body">
                       <h5 class="card-title">Best Phuket Tour</h5>
@@ -56,7 +56,7 @@
 
 
                 <a href="https://www.thaitravelcenter.com/thailand/" class="text-decoration-none" target="blank">
-                  <div class="card my-3">
+                  <div class="card my-3 hover-color-ads">
                     <img  class="card-img-top" alt="..." src="https://media.istockphoto.com/id/1213840216/photo/luxury-travel-romantic-couple-in-beach-hotel.jpg?s=1024x1024&w=is&k=20&c=Z-5_rrckhzQcXR_czDKemD3X5eQO2371QhDHzGI1Lew=">
                     <div class="card-body">
                       <h5 class="card-title">Koh Chang Island Tour</h5>
@@ -157,7 +157,7 @@
                     <div class="card-body">
                       <h5 class="card-title">{{post.title}}</h5>
                       <p class="card-text">{{post.excerpt}}</p>
-                      <p class="card-text"><small class="text-body-secondary  mx-2 pointer" id="like-{{post.id_post}}" onclick="toggle_like('{{post.id_post}}')">{{post.likes.count}} <i class="fa-solid fa-heart"></i></small> <small class="text-body-secondary  mx-2 pointer" id="comment-{{post.id_post}}" onclick="toggle_comment('post-comment-{{post.id_post}}')" >{{ post.comment_set.all.count }}  <i class="fa-regular fa-comment  mx-2"></i></small><small><i class="fa-solid fa-share-from-square  mx-2 pointer"></i></small><small><i class="fa-solid fa-people-arrows  mx-2 pointer"></i></small> </p>
+                      <p class="card-text"><small class="text-body-secondary  mx-2 pointer hover-color" id="like-{{post.id_post}}" onclick="toggle_like('{{post.id_post}}')">{{post.likes.count}} <i class="fa-solid fa-heart hover-color"></i></small> <small class="text-body-secondary  mx-2 pointer hover-color" id="comment-{{post.id_post}}" onclick="toggle_comment('post-comment-{{post.id_post}}')" >{{ post.comment_set.all.count }}  <i class="fa-regular fa-comment  mx-2 hover-color"></i></small><small><i class="fa-solid fa-share-from-square  mx-2 pointer hover-color"></i></small><small><i class="fa-solid fa-people-arrows  mx-2 pointer hover-color"></i></small> </p>
                     <hr/>
                     <input type="text" name="comment" class="form-control" onkeypress="post_comment(event,'{{post.id_post}}')" placeholder="what do you thing about this .. "/>
 
