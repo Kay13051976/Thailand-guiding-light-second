@@ -237,7 +237,7 @@
   - [Koh Chang Thailand](https://www.istockphoto.com/photo/koh-chang-gm1659281885-534824316?phrase=Koh+chang+island+thailand)
   - [Wat Rong Khun Thailand](https://www.istockphoto.com/photo/wat-rong-khun-or-white-temple-landmark-chiang-rai-thailand-gm526443477-52763864?phrase=chiang+rai+thailand)
   - [Keren long neck woman Chaingrai Thailand](https://www.istockphoto.com/photo/karen-long-neck-woman-selling-handicrafts-in-hill-tribe-village-chiang-rai-thailand-gm1496955496-519473110?phrase=chiang+rai+thailand)
-  - []()
+  - [Asia elephant family Chiangmai Thailand](https://www.istockphoto.com/photo/asia-elephant-family-live-in-the-elephant-camp-in-chiang-mai-gm1497301330-519714578?phrase=elephant+thailand)
   - []()
   - []()
   - []()
