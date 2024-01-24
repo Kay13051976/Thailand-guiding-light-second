@@ -16,7 +16,13 @@
         border-radius: 50% !important;
         background-color: #304ffe !important;
         padding: 30px;
+      }
+      .logo-content {
         font-size: 1.2em;
+      }
+      .logo-content:hover {
+        color: #FFa500; 
+
       }
       .hover-color {
         color: #2c2c2c; 
@@ -25,7 +31,7 @@
       
 
       .hover-color:hover {
-        color: #e74c3c; 
+        color: #FFa500; 
       }
     
     
@@ -47,25 +53,25 @@
           <div class="container">
 
           <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-            <a class="navbar-brand" href="/index"><div class="rounded primary text-white">Thailand Guiding Light</div></a>
+            <a class="navbar-brand" href="/index"><div class="rounded primary text-white"><small class="logo-content">Thailand Guiding Light</small></div></a>
             <form class="d-flex" role="search">
                 <input class="form-control " style="width:500px" type="search" placeholder="Search" aria-label="Search">
             </form>
 
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/index">Home<i class="fa-solid fa-house mx-2"></i></a>
+                <a class="nav-link active" aria-current="page" href="/index">Home<i class="fa-solid fa-house mx-2 hover-color"></i></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Information<i class="fa-solid fa-circle-info  mx-2"></i></a>
+                <a class="nav-link" href="#">Information<i class="fa-solid fa-circle-info  mx-2 hover-color"></i></a>
               </li>
               {% if request.user.is_superuser %}
               <li class="nav-item">
-                <a class="nav-link" href="/admin">Admin site<i class="fa-solid fa-user-tie mx-2" aria-hidden="true"></i></a>
+                <a class="nav-link" href="/admin">Admin site<i class="fa-solid fa-user-tie mx-2 hover-color" aria-hidden="true"></i></a>
               </li>
               {% endif %}
               <li class="nav-item">
-                <a class="nav-link " aria-disabled="true" href="/logout">Logout<i class="fa-solid fa-bell  mx-2"></i></a>
+                <a class="nav-link " aria-disabled="true" href="/logout">Logout<i class="fa-solid fa-bell  mx-2 hover-color"></i></a>
               </li>
             </ul>
           </div>
