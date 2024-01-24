@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Thailand Guilding Light !</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="/static/css/style.css" rel="stylesheet"  >
+    <script src="https://kit.fontawesome.com/16cb06a64c.js" crossorigin="anonymous"></script>
+    <style>
+      .navbar-brand {
+        display: flex;
+        align-items: center;
+      }
+      .navbar-brand div {
+        border-radius: 50% !important;
+        background-color: #304ffe !important;
+        padding: 30px;
+      }
+      .logo-content {
+        font-size: 1.2em;
+      }
+      .logo-content:hover {
+        color: #fdd835; 
+
+      }
+      .hover-color {
+        color: #2c2c2c; 
+        transition: background-color 0.3s ease; 
+      }
+      
+
+      .hover-color:hover {
+        color: #Fdd835; 
+      }
+    
+    
+
+    .hover-color-ads:hover {
+        background-color: #c5d9ed;
+        }
+      .pointer {cursor: pointer;}
+    </style>
+  </head>
+  <body>
+  
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="container">
+
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+            <a class="navbar-brand" href="/index" aria-label="Visit our home page website"><div class="rounded primary text-white"><small class="logo-content">Thailand Guiding Light</small></div></a>
+            <form class="d-flex" role="search">
+                <input class="form-control " style="width:500px" type="search" placeholder="Search" aria-label="Search">
+            </form>
+
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/index" aria-label="Visit our home page website">Home<i class="fa-solid fa-house mx-2 hover-color"></i></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="https://www.tourismthailand.org/home" aria-label="Visi our official tourism thailand website" target="_blank">Information<i class="fa-solid fa-circle-info  mx-2 hover-color"></i></a>
+              </li>
+              {% if request.user.is_superuser %}
+              <li class="nav-item">
+                <a class="nav-link" href="/admin" aria-label="Visit admin site only for admin">Admin site<i class="fa-solid fa-user-tie mx-2 hover-color" aria-hidden="true"></i></a>
+              </li>
+              {% endif %}
+              <li class="nav-item">
+                <a class="nav-link " aria-disabled="true" href="/logout" aria-label="Visit our log out page to sign out">Logout<i class="fa-solid fa-bell  mx-2 hover-color"></i></a>
+              </li>
+            </ul>
+          </div>
+          </div>
+        </div>
+      </nav>
+
+      <div class="container">
+        {% block content %}
+    
+        {% endblock content %}
+      </div>
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>  
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+        {% block extras_js %}
+        {% endblock extras_js %}
+    </body>
+</html>

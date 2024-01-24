@@ -25,7 +25,5 @@ class CustomSignupForm(SignupForm):
     first_name = forms.CharField(max_length=30, label='First Name')
     last_name = forms.CharField(max_length=30, label='Last Name')
 
-    # password1 = forms.CharField(
-    # widget=forms.PasswordInput, label='Password',min_length=8)
-    # password2 = forms.CharField(
-    # widget=forms.PasswordInput, label='Confirm Password',min_length=8)
+    # password1 = forms.CharField(widget=forms.PasswordInput, label='Password',min_length=8)
+    # password2 = forms.CharField(widget=forms.PasswordInput, label='Confirm Password',min_length=8)

@@ -1,5 +1,6 @@
 # Thailand Guiding Light
-![Home page image]()
+[Link to website](https://8000-kay13051976-thailandgui-jfkilhjpyib.ws-eu107.gitpod.io/index/)
+![Home page image](documentation/home-page.png)
 
   ## About
   Thailand Guiding Light is a social network media website allowing customers who love to travel to Thailand or live in Thailand to share their passion. They can also view, comment, like, share pictures, share external content, videos or literary posts, and connect and navigate to other social links or websites. It is a platform to sell Thailand travel packages online, promote Thailand tour businesses, and sell all tourist-relevant firms or products by navigating the user to their website. The user can create a network and improve communication to find people with similar interests online.
