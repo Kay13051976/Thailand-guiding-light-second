@@ -222,7 +222,7 @@
 - Code Institute tutor and Slack community members for their support and help.
 - Code Institute mentor Julia Konovalova for her advice
 - Pook Pak with an Entity-Relationship Diagram explanation.
-- Jin with an HTML, CSS explanation.
+- Yodsapon Naree with an API, Django allauth, login and logout form explanation.
 
 ## image
   - [Chiangmai Thailand](https://www.istockphoto.com/photo/hot-air-balloons-gm619250406-107950677?phrase=chiangmai+thailand)
