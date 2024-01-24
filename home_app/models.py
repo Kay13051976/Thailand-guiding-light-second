@@ -1,8 +1,7 @@
 from django.db import models
-from django.contrib.auth.models import User 
+from django.contrib.auth.models import User
 import uuid
 from datetime import datetime
-
 
 
 # Create your models here.
@@ -29,31 +28,37 @@ NOTIFICATION_TYPE = (
 )
 
 
-
-
-
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     id_user = models.IntegerField()
-    cover_image = models.ImageField("featured image", upload_to=None, height_field=None, width_field=None, max_length=None)
+    cover_image = models.ImageField(
+        "featured image", upload_to=None, height_field=None,
+        width_field=None, max_length=None)
     country = models.CharField(max_length=100, blank=True)
-    profile_img = models.ImageField("profile image", upload_to='images', height_field=None, width_field=None, max_length=None,blank=True ,default='images/default/profile.png',)
-    phone = models.CharField(max_length=15,blank=True)
+    profile_img = models.ImageField(
+        "profile image", upload_to='images', height_field=None,
+        width_field=None, max_length=None, blank=True,
+        default='images/default/profile.png',)
+    phone = models.CharField(max_length=15, blank=True)
     """ A special method that is used to define the user-friendly
     string representation of an object """
     def __user__(self):
         return self.user.username
 
+
 class Post(models.Model):
     """ models.UUIDField is a field type that used for uniquely
     identifying objects or records in a database """
     id_post = models.UUIDField(primary_key=True, default=uuid.uuid4)
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="post_user")
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="post_user")
     title = models.CharField(max_length=200, unique=True)
-    featured_image = models.ImageField("featured image", upload_to=None, height_field=None, width_field=None,blank=True, max_length=None)
+    featured_image = models.ImageField(
+        "featured image", upload_to=None, height_field=None,
+        width_field=None, blank=True, max_length=None)
     visibility = models.CharField(
-        max_length=100, choices=VISIBILITY, default='Everyone',blank=True)
-    slug = models.SlugField(max_length=200,blank=True)
+        max_length=100, choices=VISIBILITY, default='Everyone', blank=True)
+    slug = models.SlugField(max_length=200, blank=True)
     updated_on = models.DateTimeField(auto_now=True)
     content = models.TextField(blank=True)
     excerpt = models.TextField(blank=True)
@@ -80,7 +85,7 @@ class Post(models.Model):
 
 
 class Comment(models.Model):
-    
+
     user = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="comment_user")
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
@@ -102,7 +107,9 @@ class Comment(models.Model):
 class Gallery(models.Model):
     """ This Gallery class use to store multiple images in class Post """
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
-    image = models.ImageField("image", upload_to=None, height_field=None, width_field=None, max_length=None)
+    image = models.ImageField(
+        "image", upload_to=None, height_field=None,
+        width_field=None, max_length=None)
     active = models.BooleanField(default=True)
     date = models.DateTimeField(auto_now_add=True)
 
@@ -113,6 +120,7 @@ class Gallery(models.Model):
         """ To stop Django automatically create a plural
         verbose name from your object by adding "s" """
         verbose_name_plural = 'Gallery'
+
 
 class FriendRequest(models.Model):
     id_friend_request = models.UUIDField(primary_key=True, default=uuid.uuid4)
@@ -144,8 +152,8 @@ class Friend(models.Model):
 
     class Meta:
         verbose_name_plural = 'Friend'
-    
-    
+
+
 class ReplyComment(models.Model):
     user = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="ReplyComment_user")
@@ -165,20 +173,24 @@ class ReplyComment(models.Model):
 
 
 class Notification(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="reply_user")
-    sender = models.ForeignKey(User, on_delete=models.CASCADE, related_name="notification_user")
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="reply_user")
+    sender = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="notification_user")
     post = models.ForeignKey(Post, on_delete=models.SET_NULL, null=True)
     comment = models.ForeignKey(Comment, on_delete=models.SET_NULL, null=True)
-    notification_type = models.CharField(max_length=500, choices=NOTIFICATION_TYPE)
+    notification_type = models.CharField(
+        max_length=500, choices=NOTIFICATION_TYPE)
     is_read = models.BooleanField(default=False)
     date = models.DateTimeField(auto_now_add=True)
     id_notification = models.UUIDField(primary_key=True, default=uuid.uuid4)
-    
+
     def __str__(self):
         return str(self.user)
 
     class Meta:
         verbose_name_plural = 'Notification'
+
 
 class Popular(models.Model):
     name = models.CharField(max_length=255)

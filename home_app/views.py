@@ -1,24 +1,22 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render, redirect
 from django.views import generic
 from .models import Post
-from .models import Popular,Profile,Gallery,Comment
-from .forms import AccountForm,UserPostForm
+from .models import Popular, Profile, Gallery, Comment
+from .forms import AccountForm, UserPostForm
 from django.shortcuts import get_object_or_404
 from django.http import JsonResponse
+
 
 def login(request):
     return render(request, 'home_app/login.html', {})
 
 
 def first_page(request):
-    print(request.user,request.user.is_authenticated)
+    print(request.user, request.user.is_authenticated)
     if request.user.is_authenticated == True:
         return redirect('/index')
     else:
         return redirect('/login')
-
-
-
 
 
 def index(request):
@@ -33,13 +31,11 @@ def index(request):
                 Gallery.objects.create(post=post_instance, image=image)
     else:
         form = UserPostForm()
-    posts = Post.objects.filter(admin_approved=True) #filter(user=request.user)
+    # filter(user=request.user)
+    posts = Post.objects.filter(admin_approved=True)
     return render(request, 'home_app/index.html', {
-        'posts' : posts
+        'posts': posts
     })
-
-
-
 
 
 def account(request):
@@ -55,14 +51,17 @@ def account(request):
             request.user.first_name = form.cleaned_data['first_name']
             request.user.last_name = form.cleaned_data['last_name']
             request.user.save()
-            return render(request, 'home_app/your_account.html', {'form': form})
+            return render(request, 'home_app/your_account.html', {
+                'form': form})
+
     else:
         form = AccountForm()
         user = request.user
         try:
             profile = Profile.objects.get(user=request.user)
         except Profile.DoesNotExist:
-            profile = Profile.objects.create(user=request.user,id_user=request.user.id)
+            profile = Profile.objects.create(
+                user=request.user, id_user=request.user.id)
         form.fields['profileimage'].initial = profile.profile_img
         form.fields['phone'].initial = profile.phone
         form.fields['accountname'].initial = user.username
@@ -72,14 +71,10 @@ def account(request):
     return render(request, 'home_app/your_account.html', {'form': form})
 
 
-
-
 def popular(request):
     places = Popular.objects.all()
-    return render(request, 'home_app/most_popular_place.html', {'places': places})
-
-
-
+    return render(
+        request, 'home_app/most_popular_place.html', {'places': places})
 
 
 def api_toggle_like(request, id_post):
@@ -94,7 +89,6 @@ def api_toggle_like(request, id_post):
         liked = True
 
     return JsonResponse({'liked': liked, 'like_count': post.likes.count()})
-
 
 
 def api_add_comment(request, post_id):
@@ -114,8 +108,13 @@ def api_add_comment(request, post_id):
                 'date': comment.date.strftime('%Y-%m-%d %H:%M:%S')
             }
 
-            return JsonResponse({'success': True, 'message': 'Comment added successfully.', 'comment': comment_data,'comment_count':post.comment_set.count()})
+            return JsonResponse({
+                'success': True, 'message': 'Comment added successfully.',
+                'comment': comment_data,
+                'comment_count': post.comment_set.count()})
         else:
-            return JsonResponse({'success': False, 'message': 'Comment text is required.'})
+            return JsonResponse({
+                'success': False, 'message': 'Comment text is required.'})
 
-    return JsonResponse({'success': False, 'message': 'Invalid request method.'})
+    return JsonResponse({
+        'success': False, 'message': 'Invalid request method.'})
