@@ -27,15 +27,15 @@ write mark down table
       
 | Page Name | Most Popular Page | Logged In | logged Out | Addmin site | 
 | --------- | ----------------- | --------- | ---------- | ----------- |
-| Home      | Yes               | Yes       | Yes        | Yes         |
-| Login     | Yes               | Yes       | Yes        | Yes         | 
-| Sign up   | Yes               | Yes       | Yes        | Yes         |   
-| Most popular placce      | Yes               | Yes       | Yes        | Yes         | 
+| Home      | Yes               | Yes       | Yes        | Yes (Only for admin)       |
+| Login     | No              | No       | No        | No         | 
+| Sign up   | No               | No       | No        | No         |   
+| Most popular place      | Yes               | Yes       | Yes        | Yes         | 
 | Information      | Yes               | Yes       | Yes        | No         | 
 | Your Account      | Yes               | Yes       | Yes        | No         | 
 | Chat      | Yes               | Yes       | Yes        | Yes         | 
 | Travel Agent     | Yes               | Yes       | Yes        | Yes         | 
-| Accommodations      | Yes               | Yes       | Yes        | Yes         | 
+| Accommodations      | Yes               | Yes       | Yes        | Yes (only for admin)       | 
 | Transport     | Yes               | Yes       | Yes        | Yes         |
 | Thai Travel News     | Yes               | Yes       | Yes        | Yes         | 
      |  
