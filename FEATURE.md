@@ -61,3 +61,42 @@ write mark down table
           - Most Popular place button, which redirects the user to the most popular page
           - Accommodations button, which redirects the user to the accommodation website page
           - Transport button, which redirects the user to the transport booing website
+**The simplistic design of the Navbar is based on the decision to make the use of the web app easy for all users.
+
+**Navbar looks as follows on the mobile debices**
+![Mobile hamburger navbar](documentation/mobile-hamburger-navbar.png)
+
+## Home page :
+![Admin home page](documentation/admin-home-page.png)
+![User home page](documentation/user-home-page.png)
+![New user home page](documentation/new-user-home-page.png)
+  ### Home page has 
+   - header havbar
+  ![Admin navbar in header](documentation/admin-navbar-in-header.png)
+  header section has a logo in the top left cornor. There is also an eye-catching image 
+
+   - Left section navbar
+  ![Left navbar section](documentation/left-section-navbar.png)
+     - left section nav has a list of nav link button nice and clear with an icon on front which will navigate the user direct to what they need to do and connect. 
+   - Left section advert
+  ![Left section advert](documentation/left-section-advert.png)
+
+   - Create post section
+  ![Create post section](images/create-post-section.png)
+     - Create post section has simple form to fill and small default image show if user have not manage to load their image, also big and bright submit post button.
+
+   - Display post section
+  ![Display post section](documentation/display-post-section.png)
+     - Display post section has user image in a curcle shape and name on the same line underneath has a carousal to display multiple image.
+  
+
+
+![]()
+![]()
+![]()
+![]()
+![]()
+![]()
+![]()
+![]()
+![]()
