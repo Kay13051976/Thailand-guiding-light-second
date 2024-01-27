@@ -90,20 +90,58 @@ write mark down table
      - Display post section has user image in a curcle shape and name on the same line underneath has a carousal to display multiple image.
   
 ### Mobile home page
-  - Mobile home page has hamburger dropdown it will show navbar when you click on hamberger icon
-![Mobile home page](documentation/mobile-home-page.png)
+  - Mobile home page has hamburger dropdown it will show navbar when you click on hamberger icon and in the dropdown menu will have admin site nav to navigate to Django panel for admin 
+    - mobile home page for new user
+  ![Mobile home page new user](documentation/mobile-home-page-new-user.png)
+  ![Mobile home page new user dropdown](documentation/mobile-home-page-new-user-dropdown.png)
 
-  - When you click on hamburger dropdown
-![Mobile hamburger dropdown](documentation/mobile-hamburger-dropdown.png)
-  - Mobile home page admin
-![Mobile home page admin]()
+    - mobile home page for user
+  ![Mobile home page user](documentation/mobile-home-page-user.png)
+  ![Mobile home page user dropdown](documentation/mobile-home-page-user-dropdown.png)
+
+    - Mobile home page for admin
+  ![Mobile home page admin](documentation/mobile-home-page-hamburger.png)
+  ![Mobile home page hamburger dropdown](documentation/mobile-home-page-hamburger-dropdown.png)
+
  ## Your account page
-  - This page has the primary data on the customer for the logged-in user.
-    - It has an avatar, full name, primary
+  - This page has the primary data, this page allows the user to add or edit profile image, account name, full name, email address, phone number 
+    - It has an avatar as a default if the use don't want to display their image
+      - Your account new user
+      ![Your account page new user](documentation/your-account-page-new-user.png)
+      - your account user
+      ![Your account page user](documentation/your-account-page-user.png)
+      - your account admin
+      ![Your account page admin](documentation/your-account-page-admin.png)
+### your account page mobile
+ - This page has hamburger dropdown include four navigate nav link and the primary data in this page allows the user to add or edit profile image, account name, full name, email address, phone number 
+    - It has an avatar as a default if the use don't want to display their image
+      - Your account new user
+      ![Mobile your account page new user](documentation/mobile-your-account-page-new-user.png)
+      - your account user
+      ![Mobile your account page user](documentation/mobile-your-account-page-user.png)
+      - your account admin
+      ![Mobile your account page admin](documentation/mobile-your-account-page-admin.png)
 
-![](documentation/your-accont-page-user.png)
-![](documentation/your-account-page-admin.png)
-![](documentation/mobile-home-page-admin.png)
-![Mobile home page hamburger](documentation/mobile-home-page-hamburger.png)
-![]()
-![]()
+## Most popular place
+  - This page has the most popular place in Thailand that will alway in a top list to visit.
+      - most populay page for user and new user
+  ![Most popular place for user and new user](documentation/most-popular-page-user-and-new-user.png)
+       - most populay page for admin
+  ![Most popular place for admin](documentation/most-popular-page-admin.png)
+
+
+  ### Most popular place mobile
+   - This page has the most popular place in Thailand that will alway in a top list for tourish to visit, and hamburger dropdown to hide/show nav link
+    ![Mobile most popular page](documentation/mobile-most-popular-page-.png)
+    ![Mobile most popular page hamburger dropdown](documentation/mobile-most-poppular-page-hamburger-dropdown.png)
+
+    ## Allauth and Access pages :
+
+  - Logout page
+  ![Log out form page](documentation/log-out-form.png)
+
+  - login page
+  ![Sign in page](documentation/sign-in-page.png)
+  - sign up page
+  ![Sign up page](documentation/sign-up-page.png)
+
