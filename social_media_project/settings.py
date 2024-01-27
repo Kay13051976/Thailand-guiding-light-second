@@ -170,6 +170,7 @@ CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 
 AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
     # ...
     'allauth.account.auth_backends.AuthenticationBackend',
     # ...
