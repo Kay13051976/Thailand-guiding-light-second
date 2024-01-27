@@ -51,4 +51,3 @@ class CommentModelTest(TestCase):
         comment = Comment.objects.get(comment='Test Comment')
         owner = comment.get_owner()
         self.assertEqual(owner, ' ')
-        
