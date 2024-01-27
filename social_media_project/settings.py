@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 import os
 from pathlib import Path
-
+import sys
 import dj_database_url
 if os.path.isfile('env.py'):
     import env
@@ -29,7 +29,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG')
 
 ALLOWED_HOSTS = ['261e-2a09-bac1-6f20-1060-00-1f1-20b.ngrok-free.app','8000-kay13051976-thailandgui-jfkilhjpyib.ws-eu107.gitpod.io',
                  'thailand-guiding-light-2fb0b0e33db8.herokuapp.com',
@@ -50,6 +50,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'allauth',
     'allauth.account',
+    'cloudinary_storage',
+    'cloudinary',
     'home_app',
     
 ]
@@ -105,8 +107,13 @@ WSGI_APPLICATION = 'social_media_project.wsgi.application'
 
 DATABASES = {
     'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+    
 }
 
+# Use SQLite for testing
+if 'test' in sys.argv:
+    DATABASES['default']['ENGINE'] = 'django.db.backends.sqlite3'
+    DATABASES['default']['NAME'] = BASE_DIR / "db.sqlite3"
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -178,7 +185,7 @@ ACCOUNT_EMAIL_VERIFICATION = 'none'
 ACCOUNT_UNIQUE_EMAIL = True
 ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False
-LOGIN_REDIRECT_URL = '/index/'
+LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/login'
 
 
@@ -186,3 +193,11 @@ CSRF_TRUSTED_ORIGINS=["http://127.0.0.1:8000","https://8000-kay13051976-thailand
 
 
 ACCOUNT_FORMS = {'signup': 'home_app.forms.CustomSignupForm'}
+
+
+CLOUDINARY_STORAGE = {
+             'CLOUD_NAME': os.environ.get('CLOUDINARY_CLOUD_NAME'),
+             'API_KEY': os.environ.get('CLOUDINARY_API_KEY'),
+             'API_SECRET': os.environ.get('CLOUDINARY_API_SECRET')
+            }
+DEFAULT_FILE_STORAGE='cloudinary_storage.storage.MediaCloudinaryStorage'

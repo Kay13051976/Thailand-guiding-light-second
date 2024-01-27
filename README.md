@@ -1,5 +1,6 @@
 # Thailand Guiding Light
-[Link to website](https://8000-kay13051976-thailandgui-jfkilhjpyib.ws-eu107.gitpod.io/index/)
+  - Deployed website:[Link to website](https://8000-kay13051976-thailandgui-jfkilhjpyib.ws-eu107.gitpod.io/index/)
+
 ![Home page image](documentation/home-page.png)
 
   ## About
@@ -175,7 +176,7 @@
  - [iStock by Getty Images](https://www.istockphoto.com/):was used to get background images and all the images for the website.
 
  ## Features
- Please refer to the [FEATURES.md]()file for all test-related documentation.
+ Please refer to the [FEATURES.md](FEATURE.md)file for all test-related documentation.
 - []()
  ## design
 - []()
