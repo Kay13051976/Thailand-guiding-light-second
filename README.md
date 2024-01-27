@@ -190,7 +190,8 @@
 - ![Footer color](documentation/footer-color.png)
 - ![Footer background color](documentation/footer-background-color.png)
 - ![]()
-
+**color convertor use to pick color** 
+  - [Color convertor](https://cssgenerator.org/rgba-and-hex-color-generator.html)
  ### Typography
 - []()
 ### Imagery
