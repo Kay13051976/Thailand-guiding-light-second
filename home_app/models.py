@@ -32,7 +32,7 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     id_user = models.IntegerField()
     cover_image = models.ImageField(
-        "featured image", upload_to=None, height_field=None,
+        "featured image", upload_to='images', height_field=None,
         width_field=None, max_length=None)
     country = models.CharField(max_length=100, blank=True)
     profile_img = models.ImageField(
@@ -45,7 +45,11 @@ class Profile(models.Model):
     def __user__(self):
         return self.user.username
 
+    def get_full_name(self):
+        return f"{self.user.first_name} {self.user.last_name}"
 
+    def get_profile_url(self):
+        return self.profile_img.url
 class Post(models.Model):
     """ models.UUIDField is a field type that used for uniquely
     identifying objects or records in a database """
@@ -54,7 +58,7 @@ class Post(models.Model):
         User, on_delete=models.CASCADE, related_name="post_user")
     title = models.CharField(max_length=200, unique=True)
     featured_image = models.ImageField(
-        "featured image", upload_to=None, height_field=None,
+        "featured image", upload_to='images', height_field=None,
         width_field=None, blank=True, max_length=None)
     visibility = models.CharField(
         max_length=100, choices=VISIBILITY, default='Everyone', blank=True)
@@ -80,9 +84,27 @@ class Post(models.Model):
         else:
             return self.user.username
 
-    def number_of_likes(self):
+    def get_count_liked(self):
         return self.likes.count()
 
+    @classmethod
+    def get_list_approve(self):
+        return Post.objects.filter(admin_approved=True)
+
+    def get_all_comments(self):
+        return self.comment_set.all()
+    
+
+    def get_users_liked(self):
+        return self.likes.all()
+    
+
+    def remove_user_liked(self,user):
+        return self.likes.remove(user)
+
+    def add_user_liked(self,user):
+        return self.likes.add(user)
+        
 
 class Comment(models.Model):
 
@@ -100,6 +122,12 @@ class Comment(models.Model):
     def __str__(self):
         return str(self.post)
 
+    def get_date_string(self):
+        return self.date.strftime('%Y-%m-%d %H:%M:%S')
+
+    def get_owner(self):
+        return self.user.profile.get_full_name()
+
     class Meta:
         verbose_name_plural = 'comment'
 
@@ -108,7 +136,7 @@ class Gallery(models.Model):
     """ This Gallery class use to store multiple images in class Post """
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
     image = models.ImageField(
-        "image", upload_to=None, height_field=None,
+        "image", upload_to='images', height_field=None,
         width_field=None, max_length=None)
     active = models.BooleanField(default=True)
     date = models.DateTimeField(auto_now_add=True)
