@@ -7,16 +7,16 @@ from django.shortcuts import get_object_or_404
 from django.http import JsonResponse
 
 
-def login(request):
-    return render(request, 'home_app/login.html', {})
+# def login(request):
+#     return render(request, 'home_app/login.html', {})
 
 
-def first_page(request):
-    print(request.user, request.user.is_authenticated)
-    if request.user.is_authenticated == True:
-        return redirect('/index')
-    else:
-        return redirect('/login')
+# def first_page(request):
+#     print(request.user, request.user.is_authenticated)
+#     if request.user.is_authenticated == True:
+#         return redirect('/index')
+#     else:
+#         return redirect('/login')
 
 
 def index(request):
@@ -31,8 +31,8 @@ def index(request):
                 Gallery.objects.create(post=post_instance, image=image)
     else:
         form = UserPostForm()
-    # filter(user=request.user)
-    posts = Post.objects.filter(admin_approved=True)
+
+    posts = Post.get_list_approve()
     return render(request, 'home_app/index.html', {
         'posts': posts
     })
@@ -44,7 +44,7 @@ def account(request):
         form = AccountForm(request.POST, request.FILES)
         if form.is_valid():
             profile = Profile.objects.get(user=request.user)
-            if form.cleaned_data['profileimage'] != None:
+            if form.cleaned_data['profileimage'] is not None:
                 profile.profile_img = form.cleaned_data['profileimage']
             profile.phone = form.cleaned_data['phone']
             profile.save()
@@ -81,14 +81,14 @@ def api_toggle_like(request, id_post):
     post = get_object_or_404(Post, id_post=id_post)
     user = request.user
 
-    if user in post.likes.all():
-        post.likes.remove(user)
+    if user in post.get_users_liked():
+        post.remove_user_liked(user)
         liked = False
     else:
-        post.likes.add(user)
+        post.add_user_liked(user)
         liked = True
 
-    return JsonResponse({'liked': liked, 'like_count': post.likes.count()})
+    return JsonResponse({'liked': liked, 'like_count': post.get_count_liked()})
 
 
 def api_add_comment(request, post_id):
@@ -105,7 +105,7 @@ def api_add_comment(request, post_id):
             comment_data = {
                 'user': comment.user.username,
                 'comment': comment.comment,
-                'date': comment.date.strftime('%Y-%m-%d %H:%M:%S')
+                'date': comment.get_date_string()
             }
 
             return JsonResponse({
