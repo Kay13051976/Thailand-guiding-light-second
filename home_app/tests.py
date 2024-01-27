@@ -20,7 +20,6 @@ class ProfileModelTest(TestCase):
         self.assertEqual(profile_url, '/media/images/default/profile.png')
 
 
-
 class PostModelTest(TestCase):
 
     def setUp(self):
@@ -39,17 +38,17 @@ class PostModelTest(TestCase):
         self.assertNotIn(post, list_approve)
 
 
-
-
 class CommentModelTest(TestCase):
 
     def setUp(self):
         user = User.objects.create(username='testuser')
         Profile.objects.create(user=user, id_user=1)
-        post = Post.objects.create(user=user, title='Test Post', slug='test-post')
+        post = Post.objects.create(
+            user=user, title='Test Post', slug='test-post')
         Comment.objects.create(user=user, post=post, comment='Test Comment')
 
     def test_get_owner(self):
         comment = Comment.objects.get(comment='Test Comment')
         owner = comment.get_owner()
         self.assertEqual(owner, ' ')
+        

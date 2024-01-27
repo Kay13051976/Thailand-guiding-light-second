@@ -50,6 +50,8 @@ class Profile(models.Model):
 
     def get_profile_url(self):
         return self.profile_img.url
+
+
 class Post(models.Model):
     """ models.UUIDField is a field type that used for uniquely
     identifying objects or records in a database """
@@ -93,18 +95,16 @@ class Post(models.Model):
 
     def get_all_comments(self):
         return self.comment_set.all()
-    
 
     def get_users_liked(self):
         return self.likes.all()
-    
 
-    def remove_user_liked(self,user):
+    def remove_user_liked(self, user):
         return self.likes.remove(user)
 
-    def add_user_liked(self,user):
+    def add_user_liked(self, user):
         return self.likes.add(user)
-        
+
 
 class Comment(models.Model):
 
