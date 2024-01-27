@@ -78,14 +78,14 @@
                 <div class="d-flex flex-row mb-3">
                 <div class="text-center">
                     {% if request.user.profile.profile_img is not None %}
-                    <img src="{{request.user.profile.profile_img.url}}" class="rounded" alt="..." width=60 height=60 id="profile_img" onerror="this.src='/media/images/default/profile.png'">
+                    <img src="{{request.user.profile.get_profile_url}}" class="rounded" alt="..." width=60 height=60 id="profile_img" onerror="this.src='/media/images/default/profile.png'">
                     {% else %}
                     <img src=".." class="rounded" alt="human shadow image" width=60 height=60 id="profile_img" onerror="this.src='/media/images/default/profile.png'">
                     {% endif %}
                   </div>
                   <div>
                     <div class="pt-3">
-                <span  class="mx-3 fs-18">{{request.user.first_name}} {{request.user.last_name}}</span >
+                <span  class="mx-3 fs-18">{{request.user.profile.get_full_name}}</span >
                 </div>
             </div>
                 </div>
@@ -118,12 +118,12 @@
                   
                             <div class="d-flex flex-row m-4">
                             <div class="text-center">
-                                <img src="{{post.user.profile.profile_img.url}}" class="rounded-5" alt="..." width=60 height=60 onerror="this.src='/media/images/default/profile.png'">
+                                <img src="{{post.user.profile.get_profile_url}}" class="rounded-5" alt="..." width=60 height=60 onerror="this.src='/media/images/default/profile.png'">
                                
                               </div>
                               <div>
                                 <div class="">
-                            <span  class="mx-3 fs-20 fw-700">{{post.user.first_name}} {{post.user.last_name}}</span >
+                            <span  class="mx-3 fs-20 fw-700">{{post.user.profile.get_full_name}}</span >
                                 <small><i class="fa-solid fa-ellipsis-vertical"></i></small>
                             </div>
                         </div>
@@ -165,15 +165,15 @@
 
                     <div class="card-footer d-none" id="post-comment-{{post.id_post}}" >
                         <p class="h6 my-3">Comments</span>
-                        {% for comment in post.comment_set.all %}
+                        {% for comment in post.get_all_comments %}
                             <div class="row">
                                 <div class="d-flex flex-row my-1">
                                     <div class="text-center ml-5">
-                                        <img src="{{comment.user.profile.profile_img.url}}" class="rounded ml-5" alt="..." width=50 height=50>
+                                        <img src="{{comment.user.profile.get_profile_url}}" class="rounded ml-5" alt="..." width=50 height=50>
                                       </div>
                                       <div>
                                         <div class="">
-                                        <p  class="mx-3 my-0 text-post-account-comment">{{comment.user}}</p >
+                                        <p  class="mx-3 my-0 text-post-account-comment text-bold">{{comment.get_owner}}</p >
                                         <p  class="mx-3 my-2 text-post-comment">{{comment.comment}}</p >
                                     </div>
                                 </div>

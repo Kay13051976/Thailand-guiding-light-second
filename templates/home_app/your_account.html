@@ -1,4 +1,4 @@
-{% extends "home_app/base.html" %}
+{% extends "base.html" %}
 {% load crispy_forms_tags %}
 
 {% block content %}
@@ -7,7 +7,7 @@
         <div class="col-12 col-md-4">
             <div class="row">
               {% if request.user.profile.profile_img %}
-              <img class="card-img-top" alt="..." src="{{ request.user.profile.profile_img.url }}" onerror="this.src='https://placehold.co/250x250'">
+              <img class="card-img-top" alt="..." src="{{ request.user.profile.get_profile_url }}" onerror="this.src='https://placehold.co/250x250'">
           {% else %}
               <img class="card-img-top" alt="..." src=".." onerror="this.src='https://placehold.co/250x250'">
           {% endif %}
