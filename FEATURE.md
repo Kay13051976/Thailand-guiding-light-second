@@ -70,7 +70,7 @@ write mark down table
 ![Admin home page](documentation/admin-home-page.png)
 ![User home page](documentation/user-home-page.png)
 ![New user home page](documentation/new-user-home-page.png)
-  ### Home page has 
+  ### Laptop home page has 
    - header havbar
   ![Admin navbar in header](documentation/admin-navbar-in-header.png)
   header section has a logo in the top left cornor. There is also an eye-catching image 
@@ -89,14 +89,21 @@ write mark down table
   ![Display post section](documentation/display-post-section.png)
      - Display post section has user image in a curcle shape and name on the same line underneath has a carousal to display multiple image.
   
+### Mobile home page
+  - Mobile home page has hamburger dropdown it will show navbar when you click on hamberger icon
+![Mobile home page](documentation/mobile-home-page.png)
 
+  - When you click on hamburger dropdown
+![Mobile hamburger dropdown](documentation/mobile-hamburger-dropdown.png)
+  - Mobile home page admin
+![Mobile home page admin]()
+ ## Your account page
+  - This page has the primary data on the customer for the logged-in user.
+    - It has an avatar, full name, primary
 
-![]()
-![]()
-![]()
-![]()
-![]()
-![]()
-![]()
+![](documentation/your-accont-page-user.png)
+![](documentation/your-account-page-admin.png)
+![](documentation/mobile-home-page-admin.png)
+![Mobile home page hamburger](documentation/mobile-home-page-hamburger.png)
 ![]()
 ![]()
