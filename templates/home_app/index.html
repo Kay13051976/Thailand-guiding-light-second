@@ -134,10 +134,10 @@
                     {% else %}
                    
                     <div id="carouselExampleControls-{{post.id_post}}" class="carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-inner p-3">
+                        <div class="carousel-inner p-1">
                             {% for gallery in post.gallery_set.all %}
                     
-                          <div class="carousel-item active">
+                          <div class="carousel-item active  p-1">
                             <img src="{{gallery.image.url}}" class="d-block w-100 rounded" alt="..." height=500 style="object-fit:cover">
                           </div>
 
