@@ -181,7 +181,16 @@
  ## design
 - []()
  ### Color Scheme
-- []()
+- ![advert hover color](documentation/advert-hover-color.png)
+- ![icon hover color](documentation/icon-hover-color.png)
+- ![Logo background color](documentation/logo-background-color.png)
+- ![Card border color](documentation/card-border-color.png)
+- ![Body background color](documentation/body-background-color.png)
+- ![Typography color](documentation/typography-color.png)
+- ![Footer color](documentation/footer-color.png)
+- ![Footer background color](documentation/footer-background-color.png)
+- ![]()
+
  ### Typography
 - []()
 ### Imagery

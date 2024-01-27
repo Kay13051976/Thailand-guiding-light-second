@@ -17,7 +17,7 @@ write mark down table
         ![]()
 
      2. Logo, which redirect to the hame page;
-      ![Logo](documentation/Logo-in-header.png)
+      ![Logo](documentation/logo-in-header.png)
       - home button, which redirects the user to the store page
       - information button, which redirects the user to the external link website "tourismthailand.org/home
       - admin site button, which redirects admin to django admin dashboard.
