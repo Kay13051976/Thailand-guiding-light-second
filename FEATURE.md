@@ -25,6 +25,17 @@ write mark down table
       3. nav section 
       - you account, which redirect user to user account form and manage the user account
       
-
-
-
+| Page Name | Most Popular Page | Logged In | logged Out | Addmin site | 
+| --------- | ----------------- | --------- | ---------- | ----------- |
+| Home      | Yes               | Yes       | Yes        | Yes         |
+| Login     | Yes               | Yes       | Yes        | Yes         | 
+| Sign up   | Yes               | Yes       | Yes        | Yes         |   
+| Most popular placce      | Yes               | Yes       | Yes        | Yes         | 
+| Information      | Yes               | Yes       | Yes        | No         | 
+| Your Account      | Yes               | Yes       | Yes        | No         | 
+| Chat      | Yes               | Yes       | Yes        | Yes         | 
+| Travel Agent     | Yes               | Yes       | Yes        | Yes         | 
+| Accommodations      | Yes               | Yes       | Yes        | Yes         | 
+| Transport     | Yes               | Yes       | Yes        | Yes         |
+| Thai Travel News     | Yes               | Yes       | Yes        | Yes         | 
+     |  
