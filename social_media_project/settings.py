@@ -31,7 +31,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG')
 
-ALLOWED_HOSTS = ['8000-kay13051976-thailandgui-jfkilhjpyib.ws-eu107.gitpod.io',
+ALLOWED_HOSTS = ['261e-2a09-bac1-6f20-1060-00-1f1-20b.ngrok-free.app','8000-kay13051976-thailandgui-jfkilhjpyib.ws-eu107.gitpod.io',
                  'thailand-guiding-light-2fb0b0e33db8.herokuapp.com',
                  'thailand-guiding-light.herokuapp.com', 
                  'localhost','127.0.0.1']
