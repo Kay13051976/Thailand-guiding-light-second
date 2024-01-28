@@ -1,5 +1,5 @@
 # Thailand Guiding Light
-  - Deployed website:[Link to website](https://8000-kay13051976-thailandgui-jfkilhjpyib.ws-eu107.gitpod.io/index/)
+  - Deployed website:[Link to website](https://8000-kay13051976-thailandgui-jfkilhjpyib.ws-eu107.gitpod.io/)
 
 ![Home page image](documentation/home-page.png)
 
@@ -134,7 +134,12 @@
  
 
  ## Future Development
- - Chat bot
+  - Chatbot: to communicate and information retrieval, Entertainment, Language learning, Customer support and Task Automation.
+ - Group : joined or create group based on interests, hobbies, or affiliation to connect with like-minded people and discuss topics.
+ - Page : similar to profiles but for business, organizations, public figures, and brands. Users can like/follow pages to receive updates.
+ - Notifications : alert you to activity on your account, such as friend requests, comments, likes, and event invitations.
+ - Privacy setting : control who can see you posts, friend list, profile information, and other personal data.
+ - Ads : advertising platform allows business to create and target ads to specific demographics, interests, and behaviors.
 
 ## Technologies used
  
@@ -145,41 +150,39 @@
  - [CSS](https://developer.mozilla.org/en-US/docs/Web/css): the styling language used to style the website.
 
  ### Frameworks and libraries:
- - [Django](https://www.djangoproject.com/):Django use to build content management systems.
- - [jQuery](https://jquery.com/):was used to control click events and sending AJAX requests.
+ - [Django](https://www.djangoproject.com/): Django use to build content management systems.
+ - [jQuery](https://jquery.com/): was used to control-click events and sending AJAX requests.
  - [jQuery User Interface](https://jqueryui.com/):was used to create interactive elements.
+ - [Bootstrap](https://getbootstrap.com/docs/5.0/forms/form-control/): was used to create templates html file
     
  ### Database:
  - [SQLite](https://www.sqlite.org/index.html):was used to as a development database.
  - [PostgreSQL](https://www.postgresql.org/):the database used to store all the data.
-
  ### Other tools:
- - [Git](https://git-scm.com/):The version control system used to manage to code.
- - [Pip3](https://pypi.org/project/pip/):the package manager used to install the dependencies.
- - [Gunicorn](https://gunicorn.org/):the web server used to run the website.
- - [Psycopg2](https://www.psycopg.org/):the database driver used to connect to the database.
- - [Django-allauth](https://docs.allauth.org/en/latest/):the authentication library used to create the user accounts.
- - [Render](https://pypi.org/project/render/):was used to render the README file.
- - [GitHub](https://github.com/):used to host the website's source code.
- - [GitPod](https://www.gitpod.io/):the IDE used to develop the website.
- - [Cloudinary](https://cloudinary.com/):was used to store all the images for the website.
- - [Chrome Devtools](https://developer.chrome.com/docs/devtools/open/):was used to debug the website.
- - [Font Awesome](https://fontawesome.com/icons):was used to create the icons used in the website.
- - [Lucidchart](https://www.lucidchart.com/pages/):was used to make a flowchart for the README file.
- - []():was used to make a color palette for the website.
+ - [Git](https://git-scm.com/): The version control system used to manage the code.
+ - [Pip3](https://pypi.org/project/pip/): the package manager used to install the dependencies.
+ - [Gunicorn](https://gunicorn.org/): the web server used to run the website.
+ - [Psycopg2](https://www.psycopg.org/): the database driver used to connect to the database.
+ - [Django-allauth](https://docs.allauth.org/en/latest/): the authentication library used to create the user accounts.
+ - [Render](https://pypi.org/project/render/): was used to render the README file.
+ - [GitHub](https://github.com/): used to host the website's source code.
+ - [GitPod](https://www.gitpod.io/): the IDE used to develop the website.
+ - [Cloudinary](https://cloudinary.com/): was used to store all the images for the website.
+ - [Chrome Devtools](https://developer.chrome.com/docs/devtools/open/): was used to debug the website.
+ - [Font Awesome](https://fontawesome.com/icons): was used to create the icons used in the website.
+ - [Lucidchart](https://www.lucidchart.com/pages/): was used to make a flowchart for the README file.
+ - [](): was used to make a colour palette for the website.
  - [W3C Validator](https://validator.w3.org/):was used to validate HTML5 code for the website.
- - [W3c CSS validator](https://jigsaw.w3.org/css-validator/):was used to validate CSS code for the website.
+ - [W3c CSS validator](https://jigsaw.w3.org/css-validator/): was used to validate CSS code for the website.
  - [JShint](): was used to validate JS code for the website.
- - [PEP8](https://pep8.org/):was used to validate Python code for the website.
- - [Privacy Policy Generator](https://www.privacypolicygenerator.info/):was used to create the privacy policy.
- - [Django-extensions](https://django-extensions.readthedocs.io/en/latest/):was used to create a Entity-Relationship Diagram.
- - [iStock by Getty Images](https://www.istockphoto.com/):was used to get background images and all the images for the website.
+ - [PEP8](https://pep8.org/): was used to validate Python code for the website.
+ - [Privacy Policy Generator](https://www.privacypolicygenerator.info/): was used to create the privacy policy.
+ - [Django-extensions](https://django-extensions.readthedocs.io/en/latest/): was used to create an Entity-Relationship Diagram.
+ - [iStock by Getty Images](https://www.istockphoto.com/): was used to get background images and all the images for the website.
 
  ## Features
  Please refer to the [FEATURES.md](FEATURE.md)file for all test-related documentation.
-- []()
- ## design
-- []()
+ ## Design
  ### Color Scheme
 - ![advert hover color](documentation/advert-hover-color.png)
 - ![icon hover color](documentation/icon-hover-color.png)
@@ -194,8 +197,6 @@
   - [Color convertor](https://cssgenerator.org/rgba-and-hex-color-generator.html)
  ### Typography
 - []()
-### Imagery
-- []()
 
 ## Agile Methodology
 - []()
@@ -205,8 +206,7 @@
 ## Information Architecture
 
 ### Database
-- Doing the earliest stages of the project, the database was created using SQLite.
-- The database was then migrated to PostgreSQL.
+- The Thailand Guiding Light website database was migrated to PostgreSQL.
 
 **Entity-Relationship Diagram**
 
@@ -226,17 +226,19 @@
 
 **Please refer to the [DEPLOYMENT.md](DEPLOYMENT.md) for all deployment**
 ## Credits
+- [GitHub](https://github.com/)for giving an idea of the project's design.
+- [Django](https://www.djangoproject.com/) for the framework.
+- [Font awesome](https://fontawesome.com/)for the access icons.
+- [jQuery](https://jquery.com/)for providing a variety of tools to make standard HTML code look appealing.
+- [PostgresSQL](https://www.postgresql.org/) for providing a free database.
+- [Very Academy Youtube Channel](https://www.youtube.com/) for brilliant tutorials, which shed light on the implementation of databases with multi-value products, precise explanations of Django, social media websites, API, and many other things.
+- [Responsive Viewer](https://chromewebstore.google.com/detail/responsive-viewer/inmopeiepgfljkpkidclfgbgbmfcennb) for providing a free full web page screenshorts.
+- [Coolors](https://coolors.co/)for providing a free platform to generate your palette.
 
 ## Content and Images
+**All the images for the website were taken from**
 - [iStock by Getty Images](https://www.istockphoto.com/)
-
-## Acknowledgments
-- Code Institute tutor and Slack community members for their support and help.
-- Code Institute mentor Julia Konovalova for her advice
-- Pook Pak with an Entity-Relationship Diagram explanation.
-- Yodsapon Naree with an API, Django allauth, login and logout form explanation.
-
-## image
+### image
   - [Chiangmai Thailand](https://www.istockphoto.com/photo/hot-air-balloons-gm619250406-107950677?phrase=chiangmai+thailand)
   - [Rachaburi Thailand](https://www.istockphoto.com/photo/market-woman-at-damnoen-saduak-in-thailand-gm535808385-57328202?phrase=bangkok+Thailand)
   - [Golden buddha in bangkok Thailand](https://www.istockphoto.com/photo/reclining-buddha-wat-pho-temple-bangkok-thailand-gm467571456-60438042?phrase=bangkok+Thailand)
@@ -250,18 +252,25 @@
   - [Wat Rong Khun Thailand](https://www.istockphoto.com/photo/wat-rong-khun-or-white-temple-landmark-chiang-rai-thailand-gm526443477-52763864?phrase=chiang+rai+thailand)
   - [Keren long neck woman Chaingrai Thailand](https://www.istockphoto.com/photo/karen-long-neck-woman-selling-handicrafts-in-hill-tribe-village-chiang-rai-thailand-gm1496955496-519473110?phrase=chiang+rai+thailand)
   - [Asia elephant family Chiangmai Thailand](https://www.istockphoto.com/photo/asia-elephant-family-live-in-the-elephant-camp-in-chiang-mai-gm1497301330-519714578?phrase=elephant+thailand)
-  - []()
-  - []()
-  - []()
+  - [Luxury travel, romantic couple in beach hotel stock phot](https://www.istockphoto.com/photo/luxury-travel-romantic-couple-in-beach-hotel-gm1213840216-352931300)
+  - [Karbi thailand](https://media.istockphoto.com/id/1309583872/photo/aerial-view-of-lao-lading-island-in-krabi-thailand.jpg?s=1024x1024&w=is&k=20&c=QluXaL4bsnRTTmpHZHvMRNJqGhFT-dBEy8xmJsXZWW8=)
+  - [Temple in Bangkok Thailand](https://media.istockphoto.com/id/1146493663/photo/bangkok-thailand-at-the-temple-of-the-emerald-buddha-and-grand-palace.jpg?s=1024x1024&w=is&k=20&c=f2M_Pq_7ci7hp3sgSQfbhpZIrTfOSdlcocDXt2xvQXI=)
+  - [Young women pulling suitcase](https://media.istockphoto.com/id/1173736603/photo/young-woman-pulling-suitcase-in-airport-terminal-copy-space.jpg?s=1024x1024&w=is&k=20&c=Z90V6j_KuXIgd8KW_7eObiQMFZTfO4lDnulJ1QmrDSg=)
+
+## Solved bug
+
+## unsolved bug
+- The warning of Dangerous page in Heroku and it will be future improvement
+## Mistake
+
+## Future Improvement
 
 
-
-
-
-
-
-
-
+## Acknowledgments
+- Code Institute tutor and Slack community members for their support and help.
+- Code Institute mentor Julia Konovalova for her advice
+- Pook Pak with an Entity-Relationship Diagram explanation.
+- Yodsapon Naree with an API, Django allauth, login and logout form explanation.
 
 
 

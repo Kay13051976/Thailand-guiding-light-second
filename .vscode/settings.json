@@ -30,5 +30,8 @@
       "cloudinary",
       "postgras",
       "profileimage"
-   ]
+   ],
+   "[html]": {
+      "editor.defaultFormatter": "HookyQR.beautify"
+   }
 }
