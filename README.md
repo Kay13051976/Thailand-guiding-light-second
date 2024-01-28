@@ -258,12 +258,10 @@
   - [Young women pulling suitcase](https://media.istockphoto.com/id/1173736603/photo/young-woman-pulling-suitcase-in-airport-terminal-copy-space.jpg?s=1024x1024&w=is&k=20&c=Z90V6j_KuXIgd8KW_7eObiQMFZTfO4lDnulJ1QmrDSg=)
 
 ## Solved bug
-
+- 
 ## unsolved bug
-- The warning of Dangerous page in Heroku and it will be future improvement
+- The warning of Dangerous page in Heroku will be a future improvement
 ## Mistake
-
-## Future Improvement
 
 
 ## Acknowledgments
