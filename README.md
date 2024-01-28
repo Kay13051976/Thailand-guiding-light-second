@@ -198,7 +198,10 @@
 **color convertor use to pick color** 
   - [Color convertor](https://cssgenerator.org/rgba-and-hex-color-generator.html)
  ### Typography
-- []()
+ The main font used in the application is Roboto, a bootstrap default. Roboto is straightforward and has perfect readability, is comfortable and frictionless, increase user experience
+**Bootstrap utilizes a "native font stack" or "system font stack"**
+- ![Bootstrap5 native font stack](documentation/typography-native-font-stack.png)
+- ![Roboto](documentation/typography-roboto.png)
 
 ## Agile Methodology
 - []()
