@@ -1,4 +1,4 @@
-## Main Features:
+# Main Features:
   - Each page has a navbar 
 
   Navbar: 

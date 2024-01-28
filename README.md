@@ -140,7 +140,9 @@
  - Notifications : alert you to activity on your account, such as friend requests, comments, likes, and event invitations.
  - Privacy setting : control who can see you posts, friend list, profile information, and other personal data.
  - Ads : advertising platform allows business to create and target ads to specific demographics, interests, and behaviors.
-
+ - Friend request : to add a friend(connector) to the user account, and the user can follow, chat, and block.
+- Reply comment: to reply to all the comments on the user post.
+ 
 ## Technologies used
  
 ### Languages
