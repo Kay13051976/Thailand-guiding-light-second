@@ -55,12 +55,9 @@ pep8ci Python Linter
 ### Lighthouse admin page report
 
 ![Test lighthouse user](documentation/lighthouse-test-admin.png)
-![]()
-![]()
-![]()
-![]()
-![]()
-
+![Test lighthouse your account page](documentation/lighthouse-test-your-account-page.png)
+![Test lighthouse most popular place page](documentation/lighthouse-test-your-account-page.png)
+![Test lighthouse sign up page](documentation/lighthouse-test-signup-page.png)
 ## Solved bug
 
 ## unsolved bug
