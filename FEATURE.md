@@ -1,70 +1,66 @@
 # Main Features:
-  - Each page has a navbar 
-
-  Navbar: 
-  **Access to pages according to the user role**
-  | Page Name | Home | Information | Admin site | Logout |
-  | --------- | ---- | ----------- | ---------- | ------ |
-  | Admin | Yes | Yes | Yes | Yes |
-  | User | Yes | Yes | No | Yes |
-
-  
-- The navbar has two subsections:
-     1. User's section, which is visible is visible for all users:
-        - if the user is an admin 
-        ![Header with admin site](documentation/header-with-admin-site.png)
-        - if the user is not an admin
-        ![]()
-
-     2. Logo, which redirects to the home page;
-      ![Logo](documentation/logo-in-header.png)
-      - home button, which redirects the user to the store page
-      - information button, which redirects the user to the external link website "tourismthailand.org/home
-      - admin Site button, which redirects admin to Django admin dashboard.
-      - sign out, which redirects the user to logout 
-      3. nav section 
-      - your account, which redirects the user to the user account form and manages the user account
-      
-| Page Name | Most Popular Page | Your Account | Your Connnection | Chat | Most Popular | Travel Agent | Accommodations | Transport | Thai Travel News
-| --------- | ----------------- | --------- | ---------- | ----------- |
-| Home      | Yes               | Yes       | Yes        | Yes (Only for admin)       |
-| Login     | No              | No       | No        | No         | 
-| Sign up   | No               | No       | No        | No         |   
-| Most popular place      | Yes               | Yes       | Yes        | Yes         | 
-| Your Account      | Yes               | Yes       | Yes        | No (Only for admin)        | 
-
-
-## Main Features :
   - Each page has a navbar in the header and left section.
-  ### Navbar : 
+
+  ## Navbar: 
+  **Access to pages according to the user role**
   - The Navbar has two subsections :
-     1. User's section, which is visible to all users :
-       **if the user is logged in, the Navbar has the following feature:**
-         - [User navbar in header](documentation/user-navbar-in-header.png)
-            - Logo, which redirects to the home page
-            - Home button, which redirects the user to the home page
-            - The information button redirects the user to the Thailand tourism information website.
-            - logout button, which redirects the user to the logout
-            - logout form, which redirects the user to the login form and signup link to redirect to the signup form.
-       ![]()
+1. User's section, which is visible to all users :
+  - Logo, which redirects to the home page
+     
+  ![Logo](documentation/logo-in-header.png)
 
-      2. Admin's section, which is only visible for admin :
-       ![Admin navbar in header](documentation/admin-navbar-in-header.png)
-            will have the same Navbar as the user but the admin site button will appear
-            - Admin Site button, which redirects to the Django admin page. 
+  - Header nav bar
+  ![Header user image](documentation/header-user-image.png)
 
-      3. Left Navbar section 
-        - ![Left navbar section](documentation/left-navbar-section.png)
-          - Your Account button, which redirects the user to the Your accont page
-          - Your Connection button, which redirects the user to the connection page
-          - Chat button, which redirects the user to the popover chat box
-          - Most Popular place button, which redirects the user to the most popular page
-          - Accommodations button, which redirects the user to the accommodation website page
-          - Transport button, which redirects the user to the transport booking website
-**The simplistic design of the Navbar is based on the decision to make the use of the web app easy for all users.
 
-**Navbar looks as follows on the mobile devices**
-![Mobile hamburger navbar](documentation/mobile-hamburger-navbar.png)
+    - Home button, which redirects the user to the home page
+    - The information button redirects the user to the Thailand tourism information website.
+    - Logout button, which redirects the user to the logout
+    - Access to page table
+
+  | User Name | Sign in | Sign up | Comment |
+  | ------- | --------- | ------- | ------- |
+  | New user | Yes | Yes | Yes | - |
+  | User | Yes | Yes | Yes | - |
+
+2. Admin's section, which is visible for all admin:
+    if the user is an admin 
+
+   ![Header with admin site](documentation/header-with-admin-site.png)
+
+
+    - Access to page table
+
+  | User Name | Home | Information | Admin site | Logout | Comment |
+  | --------- | ---- | ----------- | ---------- | ------ | ------- |
+  | Admin | Yes | Yes | Yes | Yes | - |
+  | New User | Yes | Yes | No | Yes | - |
+  | User | Yes | Yes | No | Yes | - |
+
+ 
+  4. Left nav section 
+  - Your Account button, which redirects the user to Your account page.
+  - Your Connection button, which redirects the user to the connection page(Future Improvement).
+  - Chat button, which redirects the user to the popover chat box(Future improvement).
+  - Most Popular place button, which redirects the user to the most popular page.
+  - Travel Agent, which redirects the user to the travel agent's external link.
+  - Accommodations button, which redirects the user to the accommodation website page.
+  - Transport button, which redirects the user to the transport booking website.
+  - Thai Travel News, which redirects the user to the external link Thai Travel News.
+
+**The simplistic design of the Navbar is based on the decision to make the use of the web app easy for all users.**
+
+  - ![Left navbar section](documentation/left-nav.png)
+
+
+    - Access to page table
+      
+| Page Name | Your Account | Most Popular Page| Your Connection | Chat | Most Popular | Travel Agent | Accommodations | Transport | Thai Travel News | Comment |
+| --------- | ----------------- | ------------ | --------------- | ---- | ------------ | ------------ | -------------- | --------- | ---------------- | ------- |
+| Admin      | Yes               | Yes       | Dummy link       | Dummy link   | Yes | Yes | Yes | Yes | Yes |  Future improvement  |
+| New User      | Yes               | Yes       |         | Dummy link   | Yes | Yes | Yes | Yes | Yes |  Future improvement |
+| User      | Yes               | Yes       |         | Dummy link   | Yes | Yes | Yes | Yes | Yes |  Future improvement |
+
 
 ## Home page :
 ![Admin home page](documentation/admin-home-page.png)
@@ -76,7 +72,7 @@
   header section has a logo in the top left corner. There is also an eye-catching image 
 
    - Left section navbar
-  ![Left navbar section](documentation/left-section-navbar.png)
+  ![Left navbar section](documentation/left-nav.png)
      - The left section nav has a list of nav link buttons that are nice and clear with an icon on the front, which will navigate the user directly to what they need to do and connect. 
    - Left section advert
   ![Left section advert](documentation/left-section-advert.png)
@@ -135,10 +131,10 @@
     ![Mobile most popular page](documentation/mobile-most-popular-page-.png)
     ![Mobile most popular page hamburger dropdown](documentation/mobile-most-popular-page-hamburger-dropdown.png)
 
-    ## Allauth and Access pages :
+## Allauth and Access pages :
 
   - Logout page
-  ![Log out form page](documentation/log-out-form.png)
+  ![Log out form page](documentation/logout-page-image.png)
 
   - login page
   ![Sign in page](documentation/sign-in-page.png)

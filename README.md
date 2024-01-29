@@ -15,24 +15,29 @@
   product or tour package online, and promote brands and Thailand tour businesses.
 ## User Stories ## 
  ### As a first time user ###
+- Admin
+  - As an admin, I want to be able to manage approved user account settings, suspension, and delete.
+  - As an admin, I want to access detailed analytics on user engagement, content popularity, and platform performance to inform decision-making and improve user experience.
+  - As an admin, I want to receive automated alerts and notifications for critical events such as system outages, policy violations, or user-reported emergencies.
+  - As an admin, I want to track and investigate all the data like posts, comments, likes, and shares.
 - First time user 
   - As a First Time Visitor, I want to quickly understand the app's primary purpose so that I can learn more about how to get benefit from this app.
   - As a First Time Visitor, I want to navigate through the app to find the content easily.
   - As a First Time Visitor, I want to find this useful for my needs.
   - As a First Time Visitor, I want to be able to easily to create an account by providing basic information such as my name, email address , and password.
   - As a First Time Visitor, I want to be informed if I am making any errors when create my account so that I can fix any mistakes quickly.
-  - As a Firs Time Visitor, I want to have a personalized profile where I can add a profile picture, cover photo, and write a bio to introduce myself to others.
+  - As a Firs Time Visitor, I want to have a personalized profile where I can add a profile picture, cover photo, and write a bio to introduce themself to others.
   - As a First Time Visitor, I want to see the variety of places in Thailand, such as images, VDO, and short stories that are most valuable to visit.
   - As a First Time Visitor, I want to share my photo, videos, and comment on a beautiful place in Thailand.
   - As a First Time Visitor, I want to quickly and easily connect to people and link them to book the holiday trip (Hotel, Flight, Taxi, Guide, and All facilities).
   - As a First Time Visitor, I want to be able to access social media websites from various devices, such as desktop computers and smartphones, with a consistent user experience.
 
-- Regular User (customer)
+- Regular User
   - As a Regular User, I want to access my account without having to log in every time so that I can quickly post and share pictures, videos, and short stories.
   - As a Regular User, I want to safely protect my account details from sharing pictures, videos and short stories.
   - As a Regular User, I want to view my data to quickly check my account details and add or amend the information.
   - As a Regular User, I want to be able to search for a connection with a friend, a place or a relative story by name, username, or email address to get the most appropriate choices so that I am likely to find what I am looking for.
-  - As a Regular User, I want to send post updates, photos, external content and videos to share with my connector.
+  - As a Regular User, I want to send, delete and updates post, photos, external content and videos to share with my connector.
   - As a Regular User, I want to be able to search for people, places, and relevant organizations by text search so that I can connect to communicate with them.
   - As a Regular User, I want to see ratings and reviews on a photo or videos, the story of the place that the experience shares.
   - As a regular User, I want to customize my news post and have control over the privacy of my posts, being able to choose who can see them.
@@ -282,6 +287,9 @@
  ![Heroku warning visit this unsafe site](documentation/heroku-warning-visit-this-unsafe-site.png)
 ### The warning of Dangerous page in Heroku will be a future improvement
 ## Mistake
+- I have changed ERD and class in the models.py file many times because it is part of learning and caused me the problem of not being able to migrate the data. I could use the python manage.py shell and the same python I use in your views.py file to update the id value of each row in the database. I can also change them directly by using SQL on my database, wherever it's hosted, but I don't know SQL that well. So, I drop this choice
+Or, like permanently, can delete/drop the database and start over. 
+According to the limited time I had left before the PP4 submission deadline, I designed to rebuild everything from scratch; it caused me to lose all the git committed history when I tried to look back to see when the bug happened to sort out the Heroku dangerous site I am not able to find it because I assume the bug occurs when I start to apply the bootstrap framework.
 
 ## Acknowledgments
 - Code Institute tutor and Slack community members for their support and help.
