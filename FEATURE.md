@@ -2,6 +2,12 @@
   - Each page has a navbar 
 
   Navbar: 
+  **Access to pages according to the user role**
+  | Page Name | Home | Information | Admin site | Logout |
+  | --------- | ---- | ----------- | ---------- | ------ |
+  | Admin | Yes | Yes | Yes | Yes |
+  | User | Yes | Yes | No | Yes |
+
   
 - The navbar has two subsections:
      1. User's section, which is visible is visible for all users:
@@ -19,7 +25,7 @@
       3. nav section 
       - your account, which redirects the user to the user account form and manages the user account
       
-| Page Name | Most Popular Page | Logged In | logged Out | Addmin site | 
+| Page Name | Most Popular Page | Your Account | Your Connnection | Chat | Most Popular | Travel Agent | Accommodations | Transport | Thai Travel News
 | --------- | ----------------- | --------- | ---------- | ----------- |
 | Home      | Yes               | Yes       | Yes        | Yes (Only for admin)       |
 | Login     | No              | No       | No        | No         | 
