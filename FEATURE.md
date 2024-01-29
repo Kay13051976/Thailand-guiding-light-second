@@ -148,11 +148,12 @@
 ## Allauth and Access pages :
 
   - Logout page
+  
   ![Log out form page](documentation/logout-page-image.png)
 
   - login page
   ![Sign in page](documentation/sign-in-page.png)
-  
+
   - sign up page
   ![Sign up page](documentation/sign-up-page.png)
 
