@@ -270,11 +270,16 @@
   - [Young women pulling suitcase](https://media.istockphoto.com/id/1173736603/photo/young-woman-pulling-suitcase-in-airport-terminal-copy-space.jpg?s=1024x1024&w=is&k=20&c=Z90V6j_KuXIgd8KW_7eObiQMFZTfO4lDnulJ1QmrDSg=)
 
 ## Solved bug
-- 
-## unsolved bug
-- The warning of Dangerous page in Heroku will be a future improvement
-## Mistake
 
+## Unsolved bug
+- The Warning of Dangerous site from Heroku is still on, but you will still be able to view the website by clicking on details and visiting this unsafe site.
+### Click on Details.
+![Heroku warning dangerous site](documentation/heroku-warning-dangerous-site.png)
+
+### Click on visit this unsafe site.
+ ![Heroku warning visit this unsafe site](documentation/heroku-warning-visit-this-unsafe-site.png)
+### The warning of Dangerous page in Heroku will be a future improvement
+## Mistake
 
 ## Acknowledgments
 - Code Institute tutor and Slack community members for their support and help.
