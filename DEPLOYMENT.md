@@ -17,15 +17,14 @@
      - `touch env.py`
 6. Add the following lines env.py
      - `import os`
-     - `os.environ["SECRET_KEY] = your secret key.`
-     - `os.environ["DEBUG"] = "True" or "False" depending on whether you are in development or production.`
-     - `os.environ["ALLOW_HOSTS] = your domain name.`
-     - `os.environ["DATABASE_URL"] = your database url.`
-     - `os.environ[CLOUDINARY_CLOUD_NAME] = your cloudinary cloud name.`
-     - `os.environ["CLOUDINARY_API_KEY] = your cloudinary api key`
-     - `os.environ["CLOUDINARY_API_SECRET] = your cloudinary api secret`
+     - `os.environ.setdefault["SECRET_KEY] = your secret key.`
+     - `os.environ.setdefault["DEBUG"] = "True" or "False" depending on whether you are in development or production.`
+     - `os.environ.default["ALLOW_HOSTS] = your domain name.`
+     - `os.environ.default["DATABASE_URL"] = your database url.`
+     - `os.environ.default[CLOUDINARY_CLOUD_NAME] = your cloudinary cloud name.`
+     - `os.environ.default["CLOUDINARY_API_KEY] = your cloudinary api key`
+     - `os.environ.default["CLOUDINARY_API_SECRET] = your cloudinary api secret`
 7. Create and migrate the database.
-[code image]()
      - `python3 manage.py makemigrations`
      - `python3 manage.py migrate`
      - `After migration, you will need to create a superuser.`
@@ -43,13 +42,20 @@ For example
   `superuser.profile.role_id = 3`    
   `superuser.save()`
 11. Go to Profiles and uncomment the default role. Make new migrations and migrate.
-     - python manage.py makemigrations
-     - python manage.py migrate
+     - python3 manage.py makemigrations
+     - python3 manage.py migrate
 
-After the following steps, you will ensure that the app is working correctly, and any other user registered in your app will only have access as a customer. The rest of the roles will be controlled by the admin
+After the following steps, you will ensure that the app is working correctly, and any other user registered in your app will only have access as a new user. The rest of the roles will be controlled by the admin
 12. Run the server.
-     - python3 manage.py runserver
-13. Access the website by the link provided in terminal. Add /admin/ at the end of the link to access the admin panel. If you are using Gitpod, you can skip steps 1-3 by clicking this [link](), and start from step4
+     - python3 manage.py runserver 
+     **It will redirect you to the home. Click on logout and login or signup.**
+- click on logout
+        ![Header new user](documentation/header-new-user-deployment.png)
+
+- click on Sign in or sign up
+        ![Sign in page](documentation/Signin-in-image-deployment.png)
+
+13. Access the website by the link provided in terminal. Add /admin/ at the end of the link to access the admin panel.
 
 ## The app was initially deployed to Heroku
 ### Heroku Deployment
@@ -69,7 +75,7 @@ After the following steps, you will ensure that the app is working correctly, an
      - CLOUDINARY_CLOUD_NAME = the cloud name you used when creating your cloudinary account.
      - CLOUDINARY_API_KEY = the api key you got when crated your cloudinary account.
      - CLOUDINARY_API_SECRET = the api secret you got when created your cloudinary account.
-     - DATABASE_URL = the url of your heroku postgras database.
+     - DATABASE_URL = the url of your heroku postgrate database.
      - EMAIL_HOST_USER = the email address you going to use to send emails.
      - DEBUG = True during development, False during production.
      - DISABLE_COLLECTIONSTATIC = 1 during development. Remove this when deploying to production.
@@ -100,7 +106,6 @@ To get Cloudinary cloud name, API key, and API secret:
     4. At the top of the page, you will see your cloud name, API key, and API secret.
     5. To reveal API secret, hover over the API key container and click on the button that look like and eye.
     6. Copy these values and paste them into the config vars on Heroku and into your `env.py` file.
-## Render Deployment
 ### Create Database on ElephantSQL
 1. Go to [ElephantSQL](https://www.elephantsql.com/) and create a new account.
 2. Create a new instance of the database.

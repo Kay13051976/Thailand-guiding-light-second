@@ -270,6 +270,8 @@
   - [Young women pulling suitcase](https://media.istockphoto.com/id/1173736603/photo/young-woman-pulling-suitcase-in-airport-terminal-copy-space.jpg?s=1024x1024&w=is&k=20&c=Z90V6j_KuXIgd8KW_7eObiQMFZTfO4lDnulJ1QmrDSg=)
 
 ## Solved bug
+- ![Update doctype in base.html](documentation/update-doctype-base-html.png)
+- ![Update doctype in base.html](documentation/update-doctype-login-html.png)
 
 ## Unsolved bug
 - The Warning of Dangerous site from Heroku is still on, but you will still be able to view the website by clicking on details and visiting this unsafe site.
