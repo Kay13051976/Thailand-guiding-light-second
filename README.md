@@ -205,7 +205,7 @@
 
 ## Agile Methodology
 ### GitHub project management
-**GitHub project management was used to manage the project. It help me to prioritize the task and to keep track of me progress.
+**GitHub project management was used to manage the project. It help me to prioritize the task and to keep track of me progress.**
 - ![](documentation/github-project-management1.png)
 - ![](documentation/github-project-management2.png)
 - ![](documentation/github-project-management3.png)
@@ -213,7 +213,7 @@
 - ![](documentation/github-project-management5.png)
 
 ## Flowcharts
-- []()
+- ![Flowchart](documentation/flow-chart.png)
 
 ## Information Architecture
 
