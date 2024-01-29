@@ -217,7 +217,7 @@
 - ![](documentation/github-project-management4.png)
 - ![](documentation/github-project-management5.png)
 
-## Flowcharts
+## Login Sign-up Flowcharts
 - ![Flowchart](documentation/flow-chart.png)
 
 ## Information Architecture
