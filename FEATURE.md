@@ -1,7 +1,8 @@
 # Main Features:
   - Each page has a navbar in the header and left section.
 
-  ## Navbar: 
+  ## Navbar 
+  ### Header navbar:
   **Access to pages according to the user role**
   - The Navbar has two subsections :
 1. User's section, which is visible to all users :
@@ -38,7 +39,7 @@
   | User | Yes | Yes | No | Yes | - |
 
  
-  4. Left nav section 
+  ### Left navbar section:
   - Your Account button, which redirects the user to Your account page.
   - Your Connection button, which redirects the user to the connection page(Future Improvement).
   - Chat button, which redirects the user to the popover chat box(Future improvement).
