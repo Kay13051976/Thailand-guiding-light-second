@@ -1,120 +1,226 @@
-from django.shortcuts import render, redirect
-from django.views import generic
-from .models import Post
-from .models import Popular, Profile, Gallery, Comment
-from .forms import AccountForm, UserPostForm
-from django.shortcuts import get_object_or_404
-from django.http import JsonResponse
+from django.db import models
+from django.contrib.auth.models import User
+import uuid
+from datetime import datetime
 
 
-# def login(request):
-#     return render(request, 'home_app/login.html', {})
+# Create your models here.
+STATUS = ((0, "Draft"), (1, "Published"))
+
+VISIBILITY = (
+    ("Only Me", "Only Me"),
+    ("Everyone", "Everyone")
+)
+
+FRIEND_REQUEST = (
+    ("pending", "pending"),
+    ("accept", "accept"),
+    ("reject", "reject")
+)
+
+NOTIFICATION_TYPE = (
+    ("Friend Request", "Friend Request"),
+    ("Friend Request Accepted", "Friend Request Accepted"),
+    ("New Friend", "New Friend"),
+    ("New Comment", "New Comment"),
+    ("Comment Liked", "Comment Liked"),
+    ("Comment Replied", "Comment Replied")
+)
 
 
-# def first_page(request):
-#     print(request.user, request.user.is_authenticated)
-#     if request.user.is_authenticated == True:
-#         return redirect('/index')
-#     else:
-#         return redirect('/login')
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    id_user = models.IntegerField()
+    cover_image = models.ImageField(
+        "featured image", upload_to='images', height_field=None,
+        width_field=None, max_length=None)
+    country = models.CharField(max_length=100, blank=True)
+    profile_img = models.ImageField(
+        "profile image", upload_to='images', height_field=None,
+        width_field=None, max_length=None, blank=True,
+        default='images/default/profile.png',)
+    phone = models.CharField(max_length=15, blank=True)
+    """ A special method that is used to define the user-friendly
+    string representation of an object """
+    def __user__(self):
+        return self.user.username
+
+    def get_full_name(self):
+        return f"{self.user.first_name} {self.user.last_name}"
+
+    def get_profile_url(self):
+        return self.profile_img.url
 
 
-def index(request):
-    if request.method == 'POST':
-        form = UserPostForm(request.POST)
-        if form.is_valid():
-            post_instance = form.save(commit=False)
-            post_instance.user = request.user
-            post_instance.save()
-            images = request.FILES.getlist('images')
-            for image in images:
-                Gallery.objects.create(post=post_instance, image=image)
-    else:
-        form = UserPostForm()
+class Post(models.Model):
+    """ models.UUIDField is a field type that used for uniquely
+    identifying objects or records in a database """
+    id_post = models.UUIDField(primary_key=True, default=uuid.uuid4)
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="post_user")
+    title = models.CharField(max_length=200, unique=True)
+    featured_image = models.ImageField(
+        "featured image", upload_to='images', height_field=None,
+        width_field=None, blank=True, max_length=None)
+    visibility = models.CharField(
+        max_length=100, choices=VISIBILITY, default='Everyone', blank=True)
+    slug = models.SlugField(max_length=200, blank=True)
+    updated_on = models.DateTimeField(auto_now=True)
+    content = models.TextField(blank=True)
+    excerpt = models.TextField(blank=True)
+    created_on = models.DateTimeField(auto_now_add=True)
+    status = models.IntegerField(choices=STATUS, default=0)
+    views = models.PositiveIntegerField(default=0)
+    likes = models.ManyToManyField(User, related_name="post_likes", blank=True)
+    admin_approved = models.BooleanField(default=False)
 
-    posts = Post.get_list_approve()
-    return render(request, 'home_app/index.html', {
-        'posts': posts
-    })
+    class Meta:
+        """ class Meta Allow you to specify various options for the model,
+        ordering is used to specify the default ordering for the model's
+        database queries """
+        ordering = ['-created_on']
 
-
-def account(request):
-    if request.method == 'POST':
-        print(request.POST)
-        form = AccountForm(request.POST, request.FILES)
-        if form.is_valid():
-            profile = Profile.objects.get(user=request.user)
-            if form.cleaned_data['profileimage'] is not None:
-                profile.profile_img = form.cleaned_data['profileimage']
-            profile.phone = form.cleaned_data['phone']
-            profile.save()
-            request.user.first_name = form.cleaned_data['first_name']
-            request.user.last_name = form.cleaned_data['last_name']
-            request.user.save()
-            return render(request, 'home_app/your_account.html', {
-                'form': form})
-
-    else:
-        form = AccountForm()
-        user = request.user
-        try:
-            profile = Profile.objects.get(user=request.user)
-        except Profile.DoesNotExist:
-            profile = Profile.objects.create(
-                user=request.user, id_user=request.user.id)
-        form.fields['profileimage'].initial = profile.profile_img
-        form.fields['phone'].initial = profile.phone
-        form.fields['accountname'].initial = user.username
-        form.fields['first_name'].initial = user.first_name
-        form.fields['last_name'].initial = user.last_name
-        form.fields['email'].initial = user.email
-    return render(request, 'home_app/your_account.html', {'form': form})
-
-
-def popular(request):
-    places = Popular.objects.all()
-    return render(
-        request, 'home_app/most_popular_place.html', {'places': places})
-
-
-def api_toggle_like(request, id_post):
-    post = get_object_or_404(Post, id_post=id_post)
-    user = request.user
-
-    if user in post.get_users_liked():
-        post.remove_user_liked(user)
-        liked = False
-    else:
-        post.add_user_liked(user)
-        liked = True
-
-    return JsonResponse({'liked': liked, 'like_count': post.get_count_liked()})
-
-
-def api_add_comment(request, post_id):
-    if request.method == 'POST':
-        user = request.user
-        post = get_object_or_404(Post, id_post=post_id)
-        comment_text = request.POST.get('comment', '')
-
-        if comment_text:
-            comment = Comment(user=user, post=post, comment=comment_text)
-            comment.save()
-
-            # Send comment back
-            comment_data = {
-                'user': comment.user.username,
-                'comment': comment.comment,
-                'date': comment.get_date_string()
-            }
-
-            return JsonResponse({
-                'success': True, 'message': 'Comment added successfully.',
-                'comment': comment_data,
-                'comment_count': post.comment_set.count()})
+    def __str__(self):
+        if self.title:
+            return self.title
         else:
-            return JsonResponse({
-                'success': False, 'message': 'Comment text is required.'})
+            return self.user.username
 
-    return JsonResponse({
-        'success': False, 'message': 'Invalid request method.'})
+    def get_count_liked(self):
+        return self.likes.count()
+
+    @classmethod
+    def get_list_approve(self):
+        return Post.objects.filter(admin_approved=True)
+
+    def get_all_comments(self):
+        return self.comment_set.all()
+
+    def get_users_liked(self):
+        return self.likes.all()
+
+    def remove_user_liked(self, user):
+        return self.likes.remove(user)
+
+    def add_user_liked(self, user):
+        return self.likes.add(user)
+
+
+class Comment(models.Model):
+
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="comment_user")
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    comment = models.CharField(max_length=1000)
+    active = models.BooleanField(default=True)
+    date = models.DateTimeField(auto_now_add=True)
+    likes = models.ManyToManyField(User, blank=True, related_name="comment_likes")
+    id_post_comment = models.UUIDField(primary_key=True, default=uuid.uuid4)
+
+    def __str__(self):
+        return str(self.post)
+
+    def get_date_string(self):
+        return self.date.strftime('%Y-%m-%d %H:%M:%S')
+
+    def get_owner(self):
+        return self.user.profile.get_full_name()
+
+    class Meta:
+        verbose_name_plural = 'comment'
+
+
+class Gallery(models.Model):
+    """ This Gallery class use to store multiple images in class Post """
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    image = models.ImageField(
+        "image", upload_to='images', height_field=None,
+        width_field=None, max_length=None)
+    active = models.BooleanField(default=True)
+    date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return str(self.post)
+
+    class Meta:
+        """ To stop Django automatically create a plural
+        verbose name from your object by adding "s" """
+        verbose_name_plural = 'Gallery'
+
+
+class FriendRequest(models.Model):
+    id_friend_request = models.UUIDField(primary_key=True, default=uuid.uuid4)
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="FriendRequest_user")
+    friend = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="FriendRequest_friend")
+    status = models.CharField(
+        max_length=100, default="pending", choices=FRIEND_REQUEST)
+    date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return str(self.post)
+
+    class Meta:
+        verbose_name_plural = 'Friend Request'
+
+
+class Friend(models.Model):
+    id_friend = models.UUIDField(primary_key=True, default=uuid.uuid4)
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="Friend_user")
+    friend = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="Friend_friend")
+    date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return str(self.post)
+
+    class Meta:
+        verbose_name_plural = 'Friend'
+
+
+class ReplyComment(models.Model):
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="ReplyComment_user")
+    comment = models.ForeignKey(Comment, on_delete=models.CASCADE)
+    reply = models.CharField(max_length=1000)
+    active = models.BooleanField(default=True)
+    date = models.DateTimeField(auto_now_add=True)
+    likes = models.ManyToManyField(
+        User, blank=True, related_name="ReplyComment_likes")
+    id_reply_comment = models.UUIDField(primary_key=True, default=uuid.uuid4)
+
+    def __str__(self):
+        return str(self.comment)
+
+    class Meta:
+        verbose_name_plural = 'Reply Comment'
+
+
+class Notification(models.Model):
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="reply_user")
+    sender = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="notification_user")
+    post = models.ForeignKey(Post, on_delete=models.SET_NULL, null=True)
+    comment = models.ForeignKey(Comment, on_delete=models.SET_NULL, null=True)
+    notification_type = models.CharField(
+        max_length=500, choices=NOTIFICATION_TYPE)
+    is_read = models.BooleanField(default=False)
+    date = models.DateTimeField(auto_now_add=True)
+    id_notification = models.UUIDField(primary_key=True, default=uuid.uuid4)
+
+    def __str__(self):
+        return str(self.user)
+
+    class Meta:
+        verbose_name_plural = 'Notification'
+
+
+class Popular(models.Model):
+    name = models.CharField(max_length=255)
+    description = models.TextField(verbose_name="Description")
+    image = models.ImageField(upload_to='images/')
+
+    def __str__(self):
+        return self.name

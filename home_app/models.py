@@ -108,15 +108,12 @@ class Post(models.Model):
 
 class Comment(models.Model):
 
-    user = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name="comment_user")
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="comment_user")
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
-    comment = models.CharField(
-        max_length=1000)
+    comment = models.CharField(max_length=1000)
     active = models.BooleanField(default=True)
     date = models.DateTimeField(auto_now_add=True)
-    likes = models.ManyToManyField(
-        User, blank=True, related_name="comment_likes")
+    likes = models.ManyToManyField(User, blank=True, related_name="comment_likes")
     id_post_comment = models.UUIDField(primary_key=True, default=uuid.uuid4)
 
     def __str__(self):
