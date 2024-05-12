@@ -17,3 +17,113 @@
 .hover-color-ads:hover {
     background-color: #888888;
     }
+
+/* Footer style */
+.card-footer-get-in-touch-social-media-list {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    list-style-type: none;
+    gap: 3em;
+    margin-left: 50px;
+    margin-right: 50px;
+    font-size: 150%;
+}
+
+.card-footer-get-in-touch-social-media-list:hover {
+    color: #e4d7d7;
+}
+
+.footer-container-list {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    list-style-type: none;
+    gap: 6em;
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+
+.footer-container {
+    padding-bottom: 20px;
+}
+
+.footer-container p {
+    font-size: 24px;
+    color: #f7f9f5;
+    display: block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.footer-container-list i {
+    font-size: 250%;
+    color: #f7f9f5;
+}
+
+.footer-container-list-copy-right {
+    display: flex;
+}
+
+.footer-container-list-copy-right p {
+    margin-left: 10px;
+}
+
+/* Media Query */
+/* Mobile */
+@media (max-width: 991px) {
+    h1 {
+        font-size: 30px;
+    }
+
+    .footer-container-list {
+        flex-direction: column;
+    }
+
+    .footer-container-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .card-footer-get-in-touch-social-media-list {
+        flex-direction: column;
+    }
+
+    .header-nav-dropdown button {
+        font-size: 12px;
+    }
+
+    .main-container {
+        margin-top: 130px;
+    }
+
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .card-footer-get-in-touch-social-media-list {
+        gap: 0.5em;
+        flex-direction: column;
+    }
+
+    .footer-container-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-container-list {
+        flex-direction: column;
+    }
+
+    .main-container {
+        margin-top: 100px;
+    }
+
+    .aside-container-advert {
+        margin-top: 100px;
+    }
+}
