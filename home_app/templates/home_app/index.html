@@ -174,7 +174,7 @@
                                       <div>
                                         <div class="">
                                         <p  class="mx-3 my-0 text-post-account-comment text-bold">{{comment.get_owner}}</p >
-                                        <p  class="mx-3 my-2 text-post-comment">{{comment.comment}}</p >
+                                            <p  class="mx-3 my-2 text-post-comment">{{comment.comment}} {% if user.is_authenticated %} {% if user.id == comment.user.id %}  <a href="{% url 'index' %}?delete_id={{comment.id_post_comment}}" >Delete?</a> {% endif %} {% endif %} </p >
                                     </div>
                                 </div>
                                     </div>
