@@ -1,4 +1,3 @@
-
 """
 Django settings for social_media_project project.
 
@@ -35,9 +34,7 @@ DEBUG = os.environ.get('DEBUG')
 ALLOWED_HOSTS = ['8000-kay13051976-thailandgui-jfkilhjpyib.ws-eu107.gitpod.io',
                  'thailand-guiding-light-2fb0b0e33db8.herokuapp.com',
                  'thailand-guiding-light.herokuapp.com',
-                 'localhost', '127.0.0.1','127.0.0.1:8000',
-                 '8000-kay13051976-thailandgui-jfkilhjpyib.ws-eu111.gitpod.io',
-                 ]
+                 'localhost', '127.0.0.1','127.0.0.1:8000']
 
 CSRF_TRUSTED_ORIGINS = [
     "https://8000-kay13051976-thailandgui-jfkilhjpyib.ws-eu107.gitpod.io",
@@ -45,16 +42,14 @@ CSRF_TRUSTED_ORIGINS = [
     "https://thailand-guiding-light.herokuapp.com",
     "https://localhost",
     "https://127.0.0.1",
-    "http://127.0.0.1:8000",
-    'https://8000-kay13051976-thailandgui-jfkilhjpyib.ws-eu111.gitpod.io/',]
+    "http://127.0.0.1:8000"]
 
 CORS_ORIGIN_WHITELIST = ["https://8000-kay13051976-thailandgui-jfkilhjpyib.ws-eu107.gitpod.io",
     "https://thailand-guiding-light-2fb0b0e33db8.herokuapp.com",
     "https://thailand-guiding-light.herokuapp.com",
     "https://localhost",
     "https://127.0.0.1",
-    "http://127.0.0.1:8000",
-    'https://8000-kay13051976-thailandgui-jfkilhjpyib.ws-eu111.gitpod.io/',]
+    "http://127.0.0.1:8000"]
 # Application definition
 
 INSTALLED_APPS = [
@@ -208,6 +203,7 @@ ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/login'
+
 
 ACCOUNT_FORMS = {'signup': 'home_app.forms.CustomSignupForm'}
 
