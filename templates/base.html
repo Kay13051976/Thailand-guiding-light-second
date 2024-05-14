@@ -29,23 +29,23 @@
 
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active text-center" aria-current="page" href="/" aria-label="Visit our home page website">Home   <i class="fa-sharp fa-regular fa-house"></i></a>
+                <a class="nav-link active text-center" aria-current="page" href="/" aria-label="Visit our home page website">Home   <i class="fa-sharp fa-regular fa-house icon-hover-color"></i></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-center" href="https://www.tourismthailand.org/home" aria-label="Visi our official tourism thailand website" target="_blank">Information   <i class="fa-sharp fa-regular fa-circle-info"></i></a>
+                <a class="nav-link text-center" href="https://www.tourismthailand.org/home" aria-label="Visi our official tourism thailand website" target="_blank">Information   <i class="fa-sharp fa-regular fa-circle-info icon-hover-color"></i></a>
               </li>
               {% if request.user.is_superuser %}
               <li class="nav-item">
-                <a class="nav-link text-center" href="/admin" aria-label="Visit admin site only for admin"><span class="text-nowrap">Admin site</span>   <i class="fa-sharp fa-solid fa-user-tie"></i></a>
+                <a class="nav-link text-center" href="/admin" aria-label="Visit admin site only for admin"><span class="text-nowrap">Admin site</span>   <i class="fa-sharp fa-solid fa-user-tie icon-hover-color"></i></a>
               </li>
               {% endif %}
               {% if request.user.is_superuser %}
               <li class="nav-item">
-                <a class="nav-link text-center" href="/comment_crud" aria-label="Visit admin site only for admin"><span class="text-nowrap">Comment CRUD</span>   <i class="fa-sharp fa-solid fa-user-gear"></i></a>
+                <a class="nav-link text-center" href="/comment_crud" aria-label="Visit admin site only for admin"><span class="text-nowrap">Comment CRUD</span>   <i class="fa-sharp fa-solid fa-user-gear icon-hover-color"></i></a>
               </li>
               {% endif %}
               <li class="nav-item">
-                <a class="nav-link text-center" aria-disabled="true" href="/logout" aria-label="Visit our log out page to sign out">Logout   <i class="fa-sharp fa-solid fa-right-from-bracket"></i></a>
+                <a class="nav-link text-center" aria-disabled="true" href="/logout" aria-label="Visit our log out page to sign out">Logout   <i class="fa-sharp fa-solid fa-right-from-bracket icon-hover-color"></i></a>
               </li>
             </ul>
           </div>
@@ -98,16 +98,16 @@
             <h5 class="card-title">Customer Service</h5>
             <ul class="list-group">
               <li>
-                <p>Thailand Guiding Light Ads
-                </p>
+                <a href="#" target="_blank" rel="noopener" aria-label="Visit ... page(open in a new tab)" class="text-decoration-none"><p class="text-muted customer-service-link">Thailand Guiding Light Ads
+                </p></a>
               </li>
               <li>
-                <p>Thailand Guiding Light Support
-                </p>
+                <a href="#" target="_blank" rel="noopener" aria-label="Visit ... page(open in a new tab)" class="text-decoration-none"><p class="text-muted customer-service-link">Thailand Guiding Light Support
+                </p></a>
               </li>
               <li>
-                <p>Contact Us
-                </p>
+                <a href="#" target="_blank" rel="noopener" aria-label="Visit ... page(open in a new tab)" class="text-decoration-none"> <p class="text-muted customer-service-link">Contact Us
+                </p></a>
               </li>
             </ul>
           </div>
@@ -119,12 +119,12 @@
             <h5 class="card-title">Information</h5>
             <ul class="list-group">
               <li>
-                <p>General Terms & Conditions
-                </p>
+                <a href="#" target="_blank" rel="noopener" aria-label="Visit ... page(open in a new tab)" class="text-decoration-none"> <p class="text-muted information-service-link">General Terms & Conditions
+                </p></a>
               </li>
               <li>
-                <p>Data Protection & GDPR
-                </p>
+                <a href="#" target="_blank" rel="noopener" aria-label="Visit ... page(open in a new tab)" class="text-decoration-none">  <p class="text-muted information-service-link">Data Protection & GDPR
+                </p></a>
               </li>
             </ul>
           </div>
@@ -135,7 +135,7 @@
       <ul class="footer-container-list">
         <li class="footer-container-list-copy-right">
           <i class="fa-regular fa-registered"> </i>
-          <p>Thailand Guideing Light - All Right Reserved</p>
+          <p>Thailand Guiding Light - All Right Reserved</p>
         </li>
         <li>
           <p>Sponsored by</p>

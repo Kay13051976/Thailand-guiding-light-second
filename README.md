@@ -274,6 +274,7 @@
   - [Karbi thailand](https://media.istockphoto.com/id/1309583872/photo/aerial-view-of-lao-lading-island-in-krabi-thailand.jpg?s=1024x1024&w=is&k=20&c=QluXaL4bsnRTTmpHZHvMRNJqGhFT-dBEy8xmJsXZWW8=)
   - [Temple in Bangkok Thailand](https://media.istockphoto.com/id/1146493663/photo/bangkok-thailand-at-the-temple-of-the-emerald-buddha-and-grand-palace.jpg?s=1024x1024&w=is&k=20&c=f2M_Pq_7ci7hp3sgSQfbhpZIrTfOSdlcocDXt2xvQXI=)
   - [Young women pulling suitcase](https://media.istockphoto.com/id/1173736603/photo/young-woman-pulling-suitcase-in-airport-terminal-copy-space.jpg?s=1024x1024&w=is&k=20&c=Z90V6j_KuXIgd8KW_7eObiQMFZTfO4lDnulJ1QmrDSg=)
+  - [Tuktuk parking on front of temple](https://www.istockphoto.com/photo/tuk-tuk-thailand-thai-traditional-taxi-in-thailand-gm1131729452-299756253)
 
 ## Solved bug
 - ![Update doctype in base.html](documentation/update-doctype-base-html.png)

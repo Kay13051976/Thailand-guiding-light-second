@@ -2,7 +2,10 @@
 ul {
     list-style-type: none;
 }
-
+.customer-service-link:hover,
+.information-service-link:hover {
+    text-decoration: underline;
+}
 /* color before pointer */
 .hover-color {
     color: #2c2c2c; 
@@ -10,7 +13,7 @@ ul {
   }
   
   /* color when hover*/
-  .hover-color:hover {
+  .icon-hover-color:hover {
     color: #e74c3c; 
   }
 
