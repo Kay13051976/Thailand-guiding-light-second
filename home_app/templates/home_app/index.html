@@ -7,7 +7,7 @@
             <div class="row">
             <p><a class="link-opacity-100" href="/account" aria-label="Visit your account page"><i class="fa-solid fa-gear mx-2 icon-hover-color"></i>Your Account</a></p>
             <p><a class="link-opacity-100" href="#" aria-label="Visit your connection list"><i class="fa-solid fa-people-arrows mx-2 icon-hover-color"></i>Your Connection</a></p>
-            <p><a class="link-opacity-100" href="#" aria-label="Visit our chat room popover" ><i class="fa-solid fa-comments mx-2 icon-hover-color"></i>Chat</a></p>
+            <p><a class="link-opacity-100" href="#" aria-label="Visit our chat room popover" ><i class="fa-solid fa-s mx-2 icon-hover-color"></i>Chat</a></p>
             <p><a class="link-opacity-100" href="/popular" aria-label="Visit our most popular place page" target="_blank"><i class="fa-brands fa-fort-awesome mx-2 icon-hover-color"></i>Most Popular Place</a></p>
             <p><a class="link-opacity-100" href="https://www.audleytravel.com/thailand?infinity=ict2~net~gaw~cmp~16213647585~ag~136107107729~ar~679147414072~kw~thailand%20travel%20agency~mt~p~acr~2868936838&audcmp=16213647585&audadg=136107107729&audkey=thailand%20travel%20agency&auddev=c&audadid=679147414072&audpos=&audtrgt=kwd-627272734261&audtel=ppcnb&audnet=g&gad_source=1&gclid=Cj0KCQiAh8OtBhCQARIsAIkWb69knbPeiiIa-IqpTcnGycyXQnAh38qZY23ul8AsbUYOCiM2OarKkv8aAkGREALw_wcB"aria-label="Visit our travel agent page" target="_blank"><i class="fa-solid fa-cart-flatbed-suitcase mx-2 icon-hover-color"></i>Travel Agent</a></p>
             <p><a class="link-opacity-100" href="https://uk.hotels.com/Hotel-Search?destination=Thailand&endDate=2024-02-08&gad_source=1&gclid=Cj0KCQiAh8OtBhCQARIsAIkWb6-lWCdV3ejPxpe0xPLA6OdpgvgvDfUYHFmpI1RxOVMRaghJEqKkTIYaAkIQEALw_wcB&locale=en_GB&regionId=178&semcid=HCOM-UK.UB.GOOGLE.DT-c-EN.HOTEL&semdtl=a112471567546.b1117822180639.g1kwd-15368040.e1c.m1Cj0KCQiAh8OtBhCQARIsAIkWb6-lWCdV3ejPxpe0xPLA6OdpgvgvDfUYHFmpI1RxOVMRaghJEqKkTIYaAkIQEALw_wcB.r1632a215bbafda89b93d9208569c01843edf04c0de81bc3284061577712f8d011.c1.j19046590.k1.d1618834618925.h1e.i1.l1.n1.o1.p1.q1.s1.t1.x1.f1.u1.v1.w1&siteid=300000005&sort=RECOMMENDED&startDate=2024-02-07&theme=&useRewards=false&userIntent=" aria-label="Visit our accommodations website" target="-blank"><i class="fa-solid fa-square-h mx-2 icon-hover-color"></i>Accommodations</a></p>
@@ -167,7 +167,7 @@
                       <p class="card-text">{{post.excerpt}}</p>
                       <p class="card-text"><small class="text-body-secondary  mx-2 pointer " id="like-{{post.id_post}}" onclick="toggle_like('{{post.id_post}}')">{{post.likes.count}} <i class="fa-solid fa-heart icon-hover-color"></i></small> <small class="text-body-secondary  mx-2 pointer " id="comment-{{post.id_post}}" onclick="toggle_comment('post-comment-{{post.id_post}}')" >{{ post.comment_set.all.count }}  <i class="fa-regular fa-comment  mx-2 icon-r icon-hover-color"></i></small><small><i class="fa-solid fa-share-from-square  mx-2 pointer icon-hover-color"></i></small><small><i class="fa-solid fa-people-arrows  mx-2 pointer icon-hover-color"></i></small> </p>
                     <hr/>
-                    <input type="text" name="comment" class="form-control" onkeypress="post_comment(event,'{{post.id_post}}')" placeholder="what do you thing about this .. "/>
+                    <input type="text" name="comment" class="form-control" onkeypress="post_comment(event,'{{post.id_post}}')" placeholder="what do you thing about this ... Press enter to add your comments"/>
 
                     </div>
 
