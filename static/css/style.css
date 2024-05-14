@@ -1,5 +1,7 @@
 .pointer {cursor: pointer;}
-
+ul {
+    list-style-type: none;
+}
 
 /* color before pointer */
 .hover-color {
