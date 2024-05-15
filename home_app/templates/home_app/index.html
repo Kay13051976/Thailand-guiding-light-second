@@ -167,7 +167,7 @@
                       <p class="card-text">{{post.excerpt}}</p>
                       <p class="card-text"><small class="text-body-secondary  mx-2 pointer " id="like-{{post.id_post}}" onclick="toggle_like('{{post.id_post}}')">{{post.likes.count}} <i class="fa-solid fa-heart icon-hover-color"></i></small> <small class="text-body-secondary  mx-2 pointer " id="comment-{{post.id_post}}" onclick="toggle_comment('post-comment-{{post.id_post}}')" >{{ post.comment_set.all.count }}  <i class="fa-regular fa-comment  mx-2 icon-r icon-hover-color"></i></small><small><i class="fa-solid fa-share-from-square  mx-2 pointer icon-hover-color"></i></small><small><i class="fa-solid fa-people-arrows  mx-2 pointer icon-hover-color"></i></small> </p>
                     <hr/>
-                    <input type="text" name="comment" class="form-control" onkeypress="post_comment(event,'{{post.id_post}}')" placeholder="what do you thing about this ... Press enter to add your comments"/>
+                    <input type="text" name="comment" class="form-control" onkeypress="post_comment(event,'{{post.id_post}}')" placeholder="what do you thing about this ... Press enter to add your comments">
 
                     </div>
 
@@ -202,7 +202,6 @@
             </div>
         </div>
         </div>
-</div>
 {% endblock content %}
 
 
@@ -269,7 +268,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <hr/>
+                            <>
                         `;
                         // Add HTML 
                         $('#post-comment-' + post_id).append(commentHtml);
