@@ -44,6 +44,24 @@ pep8ci Python Linter
 ![urls social media project pep8](documentation/url-social-media-project-pep8.png)
 ![wsgi pep8](documentation/wsgi-pep8.png)
 ![settings pep8](documentation/setting-pep8.png)
+## HTML validation
+- Home page
+![Home page html validation](documentation/home-page-html-validation.png)
+
+- Your account page
+![Your account page html validation](documentation/your-account-page-html-validation.png)
+
+- Most popular page
+
+ **The error appear because of Django form variable**
+![Most popular page html validation](documentation/most-popular-page-html-validation.png)
+
+![Comment CRUD page html validation1](documentation/comment-crud-page-html-validation1.png)
+![ Comment CRUD page html validation2](documentation/comment-crud-page-html-validation2.png)
+![Comment CRUD page html validation3](documentation/comment-crud-page-html-validation3.png)
+![Comment CRUD page html validation4](documentation/comment-crud-page-html-validation4.png)
+![]()
+
 
 
 ## Lighthouse Report
