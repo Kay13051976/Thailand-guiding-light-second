@@ -27,7 +27,7 @@
 2. Admin's section, which is visible for all admin:
     if the user is an admin 
 
-   ![Header with admin site](documentation/header-with-admin-site.png)
+   ![Header with admin site](documentation/header-admin-image.png)
 
 
     - Access to page table
@@ -64,8 +64,8 @@
 
 
 ## Home page :
-![Admin home page](documentation/admin-home-page.png)
-![User home page](documentation/user-home-page.png)
+![Admin home page](documentation/home-page-image1.png)
+![User home page](documentation/home-page-user.png)
 ![New user home page](documentation/new-user-home-page.png)
   ### Laptop home page has 
   - header navbar
