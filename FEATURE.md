@@ -32,11 +32,11 @@
 
     - Access to page table
 
-  | User Name | Home | Information | Admin site | Logout | Comment |
-  | --------- | ---- | ----------- | ---------- | ------ | ------- |
-  | Admin | Yes | Yes | Yes | Yes | - |
-  | New User | Yes | Yes | No | Yes | - |
-  | User | Yes | Yes | No | Yes | - |
+  | User Name | Home | Information | Admin site | Comment CRUD | Logout | Comment |
+  | --------- | ---- | ----------- | ---------- | ------ | ------- | ------- |
+  | Admin | Yes | Yes | Yes | Yes | Yes | - |
+  | New User | Yes | Yes | No | Yes | No | - |
+  | User | Yes | Yes | No | Yes | No | - |
 
  
   ### Left navbar section:
@@ -64,13 +64,18 @@
 
 
 ## Home page :
+- Admin Home Page
 ![Admin home page](documentation/home-page-image1.png)
+
+- User Home Page
 ![User home page](documentation/home-page-user.png)
+
+- New User Home Page
 ![New user home page](documentation/new-user-home-page.png)
   ### Laptop home page has 
   - header navbar
   **header section has a logo in the top left corner. There is also an eye-catching image**
-  ![Admin navbar in header](documentation/admin-navbar-in-header.png)
+  ![Admin navbar in header](documentation/header-admin-image.png)
 
   - Left navbar section
   **The left section nav has a list of nav link buttons that are nice and clear with an icon on the front, which will navigate the user directly to what they need to do and connect.**
