@@ -7,8 +7,8 @@ urlpatterns = [
     path('account/', account, name='account'),
     path('', index, name='index'),
     path('popular/', popular, name='popular'),
-    path('api/toggle-like/<uuid:id_post>/',api_toggle_like, name='toggle-like'),
+    path('api/toggle-like/<uuid:id_post>/', api_toggle_like, name='toggle-like'),
     path('api/add_comment/<str:post_id>/', api_add_comment, name='add_comment'),
-    path('comment_crud/',views.CommentsCrud,name='comment-crud')
+    path('comment_crud/', views.CommentsCrud, name='comment-crud')
 
 ]

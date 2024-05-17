@@ -1,5 +1,5 @@
 from django import forms
-from .models import Post, VISIBILITY,Comment,User,Profile
+from .models import Post, VISIBILITY, Comment, User, Profile
 
 from allauth.account.forms import SignupForm
 
@@ -25,12 +25,14 @@ class CustomSignupForm(SignupForm):
     first_name = forms.CharField(max_length=30, label='First Name')
     last_name = forms.CharField(max_length=30, label='Last Name')
 
+
 class CommentsForm(forms.ModelForm):
     class Meta:
         model = Comment
-        fields = ['user','post','comment' ]
+        fields = ['user', 'post', 'comment']
+
 
 class CommentsFormEdit(forms.ModelForm):
     class Meta:
         model = Comment
-        fields = ['user','post','comment' ]
+        fields = ['user', 'post', 'comment']

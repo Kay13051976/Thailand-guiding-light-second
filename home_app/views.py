@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.views import generic
 from .models import Post
 from .models import Popular, Profile, Gallery, Comment
-from .forms import AccountForm, UserPostForm,CommentsForm,CommentsFormEdit
+from .forms import AccountForm, UserPostForm, CommentsForm, CommentsFormEdit
 from django.shortcuts import get_object_or_404
 from django.http import JsonResponse
 from django.contrib import messages
@@ -126,7 +126,7 @@ def api_add_comment(request, post_id):
 
 
 def CommentsCrud(request):
-    
+
     if request.method == 'GET':
         if 'delete_id' in request.GET:
             delete_comment = Comment.objects.get(id_post_comment=request.GET['delete_id'])
@@ -136,30 +136,28 @@ def CommentsCrud(request):
     elif request.method == 'POST':
         if 'comment_edit_id' in request.POST:
             edit_comment = Comment.objects.get(id_post_comment=request.POST['comment_edit_id'])
-            form = CommentsFormEdit(request.POST,instance=edit_comment)
+            form = CommentsFormEdit(request.POST, instance=edit_comment)
             if form.is_valid():
-                #form = form.save(commit=False)  # change is here
-                #form.user = request.user  # change is here
+                # form = form.save(commit=False)  # change is here
+                # form.user = request.user  # change is here
                 form.save()
                 messages.success(request, 'Comment save successfully!')
                 return redirect('comment-crud')
         else:
             form = CommentsForm(request.POST)
             if form.is_valid():
-                #form = form.save(commit=False)  # change is here
-                #form.user = request.user  # change is here
+                # form = form.save(commit=False)  # change is here
+                # form.user = request.user  # change is here
                 form.save()
                 messages.success(request, 'Comment save successfully!')
                 return redirect('comment-crud')
-    
+
     form = CommentsForm()
     formedit = CommentsFormEdit()
     comments = Comment.objects.all()
     context = {
-    'form': form,
-    'formedit':formedit,
-    'commnets': comments,
+        'form': form,
+        'formedit': formedit,
+        'commnets': comments,
     }
     return render(request, 'home_app/comment_crud.html', context)
-
-

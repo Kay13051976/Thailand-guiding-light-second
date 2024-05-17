@@ -76,10 +76,15 @@ pep8ci Python Linter
 ![Test lighthouse your account page](documentation/lighthouse-test-your-account-page.png)
 ![Test lighthouse most popular place page](documentation/lighthouse-test-your-account-page.png)
 ![Test lighthouse sign up page](documentation/lighthouse-test-signup-page.png)
-## Solved bug
+## Solved bugs
+- Removed stray end tag in base.html
+![Bug fixed in base.html1](documentation/stray-end-tag-bug-fixed1.jpeg)
+![Bug fixed in base.html2](documentation/stray-end-tag-bug-fixed2.jpeg)
 
-## unsolved bug
-- The warning of Dangerous page in Heroku and it will be future improvement
 ## Mistake
+- Forgot to adjust the KanBan board in GitHub before start developed the code
 
 ## Future Improvement
+- Add a function to edit the post for the user.
+- Add reply comments in post comment sections.
+- Create your connection app and manage the connection function.

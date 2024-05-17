@@ -34,7 +34,7 @@ DEBUG = os.environ.get('DEBUG')
 ALLOWED_HOSTS = ['8000-kay13051976-thailandgui-jfkilhjpyib.ws-eu107.gitpod.io',
                  'thailand-guiding-light-2fb0b0e33db8.herokuapp.com',
                  'thailand-guiding-light.herokuapp.com',
-                 'localhost', '127.0.0.1','127.0.0.1:8000',
+                 'localhost', '127.0.0.1', '127.0.0.1:8000',
                  '8000-kay13051976-thailandgui-jfkilhjpyib.ws-eu111.gitpod.io']
 
 CSRF_TRUSTED_ORIGINS = [
@@ -46,7 +46,8 @@ CSRF_TRUSTED_ORIGINS = [
     "http://127.0.0.1:8000",
     'https://8000-kay13051976-thailandgui-jfkilhjpyib.ws-eu111.gitpod.io']
 
-CORS_ORIGIN_WHITELIST = ["https://8000-kay13051976-thailandgui-jfkilhjpyib.ws-eu107.gitpod.io",
+CORS_ORIGIN_WHITELIST = [
+    "https://8000-kay13051976-thailandgui-jfkilhjpyib.ws-eu107.gitpod.io",
     "https://thailand-guiding-light-2fb0b0e33db8.herokuapp.com",
     "https://thailand-guiding-light.herokuapp.com",
     "https://localhost",
