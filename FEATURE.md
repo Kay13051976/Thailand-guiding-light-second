@@ -73,12 +73,16 @@
 - New User Home Page
 ![New user home page](documentation/new-user-home-page.png)
   ### Laptop home page has 
-  - header navbar
+- header navbar
   **header section has a logo in the top left corner. There is also an eye-catching image**
   ![Admin navbar in header](documentation/header-admin-image.png)
 
-  - The comment CRUD nav link redirects to the comment CRUD page only on the admin home page, making it easy for the admin to manage comments.
+- The comment CRUD nav link redirects to the comment CRUD page only on the admin home page, making it easy for the admin to manage comments.
   ![Comment CRUD page](documentation/comment-crud-page.png)
+ - The comment CRUD page has a notifications function.
+ ![Comment CRUD page notifications](documentation/comment-crud-page-notification.png)
+  - The comment CRUD page has an All comments detail table make it easy to manage.
+ ![Comment CRUD page comments detail table](documentation/comment-crud-table-detail.png)
 
   - Left navbar section
   **The left section nav has a list of nav link buttons that are nice and clear with an icon on the front, which will navigate the user directly to what they need to do and connect.**
