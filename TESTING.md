@@ -13,7 +13,8 @@ Usability was tested with the below user acceptance testing, sent to new users t
 | 1. Home     | Click on Home button | Redirection to Home page | Y   | |
 | 2 Information     | Click on Information button | Redirection to information website | Y   | |
 | 3. Admin site     | Click on Admin site button | Redirection to Sjango admin site | Y   | |
-| 4. Log Out     | Click on Log Out button | Redirection to Log Out page | Y   | |
+| 4. Comment CRUD     | Click on Comment CRUD button | Redirection to comment CRUD page | Y   | |
+| 5. Log Out     | Click on Log Out button | Redirection to Log Out page | Y   | |
 | Your Account | Click on Account button | Redirection to Your account page | Y   | |
 | Your Connection | Click on Your Connection button | Redirection to home page | This is only dummy link nav and will be future improvement  | |
 | Chat  | Click on Chat button | Redirection to Home page | This is only dummy link nav and will be future improvement  | N |
