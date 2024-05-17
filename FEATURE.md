@@ -77,6 +77,9 @@
   **header section has a logo in the top left corner. There is also an eye-catching image**
   ![Admin navbar in header](documentation/header-admin-image.png)
 
+  - The comment CRUD nav link redirects to the comment CRUD page only on the admin home page, making it easy for the admin to manage comments.
+  ![Comment CRUD page](documentation/comment-crud-page.png)
+
   - Left navbar section
   **The left section nav has a list of nav link buttons that are nice and clear with an icon on the front, which will navigate the user directly to what they need to do and connect.**
   ![Left navbar section](documentation/left-nav.png)
@@ -111,6 +114,11 @@
   - Mobile home page for admin
   ![Mobile home page admin](documentation/mobile-home-page-hamburger.png)
   ![Mobile home page hamburger dropdown](documentation/mobile-home-page-hamburger-dropdown.png)
+
+  - Comment CRUD page
+  ![Mobile comment crud image1](documentation/mobile-comment-crud-image1.png)
+  ![mobile comment crud image2](documentation/mobile-comment-crud-image2.png)
+
 
  ## Your account page
   - This page has the primary data; this page allows the user to add or edit profile image, account name, full name, email address, phone number 
