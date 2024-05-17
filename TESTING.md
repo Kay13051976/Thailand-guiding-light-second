@@ -71,18 +71,23 @@ pep8ci Python Linter
 
 ![Test lighthouse user](documentation/lighthouse-test-user.png)
 ### Lighthouse admin page report
-
+- User page
 ![Test lighthouse user](documentation/lighthouse-test-admin.png)
+- Your account page
 ![Test lighthouse your account page](documentation/lighthouse-test-your-account-page.png)
+- Most popular page
 ![Test lighthouse most popular place page](documentation/lighthouse-test-your-account-page.png)
+- Sign up page
 ![Test lighthouse sign up page](documentation/lighthouse-test-signup-page.png)
+- Comment CRUD page 
+![Comment CRUD lighthouse analyze](documentation/comment-crud-lighthouse-analyze.png)
 ## Solved bugs
 - Removed stray end tag in base.html
 ![Bug fixed in base.html1](documentation/stray-end-tag-bug-fixed1.jpeg)
 ![Bug fixed in base.html2](documentation/stray-end-tag-bug-fixed2.jpeg)
 
 ## Mistake
-- Forgot to adjust the KanBan board in GitHub before start developed the code
+- Forgot to adjust the KanBan board in GitHub before start developed the code.
 
 ## Future Improvement
 - Add a function to edit the post for the user.
