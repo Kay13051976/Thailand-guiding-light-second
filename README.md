@@ -286,7 +286,7 @@
 - I have changed ERD and class in the models.py file many times because it is part of learning and caused me the problem of not being able to migrate the data. I could use the python manage.py shell and the same python I use in your views.py file to update the id value of each row in the database. I can also change them directly by using SQL on my database, wherever it's hosted, but I don't know SQL that well. So, I drop this choice
 Or, like permanently, can delete/drop the database and start over. 
 According to the limited time I had left before the PP4 submission deadline, I designed to rebuild everything from scratch; it caused me to lose all the git committed history when I tried to look back to see when the bug happened to sort out the Heroku dangerous site I am not able to find it because I assume the bug occurs when I start to apply the bootstrap framework.
-
+- Forgot to adjust the KanBan board in GitHub before start developed the code.
 ## Acknowledgments
 - Code Institute tutor and Slack community members for their support and help.
 - Code Institute mentor Julia Konovalova for her advice
