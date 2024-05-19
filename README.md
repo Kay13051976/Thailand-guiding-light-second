@@ -1,5 +1,5 @@
 # Thailand Guiding Light
-  - Deployed website:[Link to website](https://8000-kay13051976-thailandgui-jfkilhjpyib.ws-eu107.gitpod.io/)
+  - Deployed website:[Link to website](https://thailand-guiding-light-2fb0b0e33db8.herokuapp.com/)
 
 ![Home page image1](documentation/home-page-image1.png)
 ![Home page image2](documentation/home-page-image2.png)
@@ -7,8 +7,7 @@
 
   ## About
   Thailand Guiding Light is a social network media website allowing customers who love to travel to Thailand or live in Thailand to share their passion. They can also view, comment, like, share pictures, share external content, videos or literary posts, and connect and navigate to other social links or websites. It is a platform to sell Thailand travel packages online, promote Thailand tour businesses, and sell all tourist-relevant firms or products by navigating the user to their website. The user can create a network and improve communication to find people with similar interests online.
-  The website allows users and organizations to connect, communicate, and share information and relationships. People can connect with others in the same area or worldwide, families, friends, and those with the same interests. Also, eCommerce customers advertise and navigate the customer to their website. It has a login system. The website has a personal functionality that allows the admin and user to edit and manage their account. Deployed website:[ Link to website](
-)
+  The website allows users and organizations to connect, communicate, and share information and relationships. People can connect with others in the same area or worldwide, families, friends, and those with the same interests. Also, eCommerce customers advertise and navigate the customer to their website. It has a login system. The website has a personal functionality that allows the admin and user to edit and manage their account. Deployed website:[ Link to website](https://thailand-guiding-light-2fb0b0e33db8.herokuapp.com/)
 ## UX  
   The website was created to be eye-catching and user-friendly. The user is given a simple procedure when they want to share their experience picture and videos. The emphasis is on the user experience. The user can navigate the website easily to fulfil the user's goal; the website is designed to be ready to use and easy to understand.
 
@@ -240,7 +239,8 @@
 
 
 ## Deployment 
-- The app was deployed to[Heroku](https://id.heroku.com/login)
+- The app was successfully deployed to[Heroku](https://id.heroku.com/login)
+![Heroku Deploy View Log](documentation/heroku-deploy-view-log.png)
 - The database was deployed to [ElephantSQL](https://www.elephantsql.com/)
 - The app can be reached by the [link](https://thailand-guiding-light-2fb0b0e33db8.herokuapp.com/)
 
