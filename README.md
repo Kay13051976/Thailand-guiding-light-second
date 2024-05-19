@@ -181,7 +181,7 @@
  - [Chrome Devtools](https://developer.chrome.com/docs/devtools/open/): was used to debug the website.
  - [Font Awesome](https://fontawesome.com/icons): was used to create the icons used in the website.
  - [Lucidchart](https://www.lucidchart.com/pages/): was used to make a flowchart for the README file.
- - [](): was used to make a colour palette for the website.
+ - [Colors](https://coolors.co/): was used to make a colour palette for the website.
  - [W3C Validator](https://validator.w3.org/):was used to validate HTML5 code for the website.
  - [W3c CSS validator](https://jigsaw.w3.org/css-validator/): was used to validate CSS code for the website.
  - [JShint](): was used to validate JS code for the website.
@@ -282,20 +282,10 @@
 - ![Update doctype in base.html](documentation/update-doctype-base-html.png)
 - ![Update doctype in base.html](documentation/update-doctype-login-html.png)
 
-## Unsolved bug
-- The Warning of Dangerous site from Heroku is still on, but you will still be able to view the website by clicking on details and visiting this unsafe site.
-### Click on Details.
-![Heroku warning dangerous site](documentation/heroku-warning-dangerous-site.png)
-
-### Click on visit this unsafe site.
- ![Heroku warning visit this unsafe site](documentation/heroku-warning-visit-this-unsafe-site.png)
-### The warning of Dangerous page in Heroku will be a future improvement
 ## Mistake
 - I have changed ERD and class in the models.py file many times because it is part of learning and caused me the problem of not being able to migrate the data. I could use the python manage.py shell and the same python I use in your views.py file to update the id value of each row in the database. I can also change them directly by using SQL on my database, wherever it's hosted, but I don't know SQL that well. So, I drop this choice
 Or, like permanently, can delete/drop the database and start over. 
 According to the limited time I had left before the PP4 submission deadline, I designed to rebuild everything from scratch; it caused me to lose all the git committed history when I tried to look back to see when the bug happened to sort out the Heroku dangerous site I am not able to find it because I assume the bug occurs when I start to apply the bootstrap framework.
- ![Migrate problem](documentation/migrate-problem.png)
-- Run out of time to sort bugs by converting Django HTML to HTML and validating the code in the validator.w3
 
 ## Acknowledgments
 - Code Institute tutor and Slack community members for their support and help.
