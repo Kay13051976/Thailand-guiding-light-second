@@ -29,13 +29,15 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False # os.environ.get('DEBUG')
+DEBUG = False
+# os.environ.get('DEBUG')
 
 ALLOWED_HOSTS = ['8000-kay13051976-thailandgui-jfkilhjpyib.ws-eu107.gitpod.io',
                  'thailand-guiding-light-2fb0b0e33db8.herokuapp.com',
                  'thailand-guiding-light.herokuapp.com',
                  'localhost', '127.0.0.1', '127.0.0.1:8000',
-                 '8000-kay13051976-thailandgui-jfkilhjpyib.ws-eu111.gitpod.io']
+                 '8000-kay13051976-thailandgui-jfkilhjpyib.ws-eu111.gitpod.io',
+                 '8000-kay13051976-thailandgui-jfkilhjpyib.ws-eu114.gitpod.io']
 
 CSRF_TRUSTED_ORIGINS = [
     "https://8000-kay13051976-thailandgui-jfkilhjpyib.ws-eu107.gitpod.io",
