@@ -281,7 +281,9 @@
 ## Solved bug
 - ![Update doctype in base.html](documentation/update-doctype-base-html.png)
 - ![Update doctype in base.html](documentation/update-doctype-login-html.png)
-
+## Unsolved bug
+In the last deploy, the static file did not load in the Heroku which I ran out of time to sort this problem.
+- ![Unsove bug Heroku](documentation/unsolve-bug-heroku.png)
 ## Mistake
 - I have changed ERD and class in the models.py file many times because it is part of learning and caused me the problem of not being able to migrate the data. I could use the python manage.py shell and the same python I use in your views.py file to update the id value of each row in the database. I can also change them directly by using SQL on my database, wherever it's hosted, but I don't know SQL that well. So, I drop this choice
 Or, like permanently, can delete/drop the database and start over. 
