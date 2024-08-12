@@ -51,14 +51,18 @@ ul {
     margin-bottom: 60px;
 }
 
-.footer-container {
-    padding-bottom: 20px;
+.footer-container-section {
+    display: flex;
+    flex-direction: row;
 }
-
+.footer-container-section-left,
+.footer-container-section-right {
+    margin: 20px;
+}
 .footer-container p {
     font-size: 24px;
     color: #f7f9f5;
-    display: block;
+    /* display: block; */
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
@@ -71,10 +75,6 @@ ul {
 
 .footer-container-list-copy-right {
     display: flex;
-}
-
-.footer-container-list-copy-right p {
-    margin-left: 10px;
 }
 
 /* Media Query */
