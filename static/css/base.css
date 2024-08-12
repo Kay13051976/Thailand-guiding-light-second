@@ -62,7 +62,6 @@ ul {
 .footer-container p {
     font-size: 24px;
     color: #f7f9f5;
-    /* display: block; */
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
@@ -85,6 +84,7 @@ ul {
     }
 
     .footer-container-list {
+        text-align: center;
         flex-direction: column;
     }
 
@@ -122,9 +122,13 @@ ul {
         align-items: center;
         text-align: center;
     }
+    .footer-container-section {
+        display: flex;
+        flex-direction: column;
+    }
 
     .footer-container-list {
-        flex-direction: column;
+        flex-direction: row;
     }
 
     .main-container {
