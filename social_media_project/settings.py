@@ -36,7 +36,8 @@ ALLOWED_HOSTS = ['8000-kay13051976-thailandgui-jfkilhjpyib.ws-eu107.gitpod.io',
                  'thailand-guiding-light.herokuapp.com',
                  'localhost', '127.0.0.1', '127.0.0.1:8000',
                  '8000-kay13051976-thailandgui-jfkilhjpyib.ws-eu111.gitpod.io',
-                 '8000-kay13051976-thailandgui-jfkilhjpyib.ws-eu114.gitpod.io']
+                 '8000-kay13051976-thailandgui-jfkilhjpyib.ws-eu114.gitpod.io',
+                 '8000-kay13051976-thailandgui-sjlpe6fl74p.ws.codeinstitute-ide.net']
 
 CSRF_TRUSTED_ORIGINS = [
     "https://8000-kay13051976-thailandgui-jfkilhjpyib.ws-eu107.gitpod.io",
