@@ -72,7 +72,7 @@ class Post(models.Model):
     status = models.IntegerField(choices=STATUS, default=0)
     views = models.PositiveIntegerField(default=0)
     likes = models.ManyToManyField(User, related_name="post_likes", blank=True)
-    admin_approved = models.BooleanField(default=False)
+    admin_approved = models.BooleanField(default=True)
 
     class Meta:
         """ class Meta Allow you to specify various options for the model,
