@@ -219,19 +219,34 @@
                       <div class="card-footer d-none" id="post-comment-{{post.id_post}}" >
                           <p class="h6 my-3">Comments</p>
                           {% for comment in post.get_all_comments %}
-                              <div class="row">
-                                  <div class="d-flex flex-row my-1">
-                                      <div class="text-center ml-5">
-                                          <img src="{{comment.user.profile.get_profile_url}}" class="rounded ml-5" alt="..." width="50" height="50" onerror="this.src='/media/images/default/profile.png'" />
-                                        </div>
-                                        <div>
-                                          <div class="">
-                                          <p  class="mx-3 my-0 text-post-account-comment text-bold">{{comment.get_owner}}</p >
-                                              <p  class="mx-3 my-2 text-post-comment">{{comment.comment}} {% if user.is_authenticated %} {% if user.id == comment.user.id %}  <a href="{% url 'index' %}?delete_id={{comment.id_post_comment}}" >Delete?</a> {% endif %} {% endif %} </p >
+                              <div class="row" id="comment-{{comment.id_post_comment}}" >
+                                <div class="d-flex flex-row my-1">
+                                    <div class="text-center ml-5">
+                                        <img src="{{comment.user.profile.get_profile_url}}" class="rounded ml-5" alt="..." width="50" height="50" onerror="this.src='/media/images/default/profile.png'" >
                                       </div>
-                                  </div>
-                                      </div>
-                              </div>
+                                      <div>
+                                        <div class="">
+                                        <p  class="mx-3 my-0 text-post-account-comment text-bold">{{comment.user}}</p >
+                                            <p  class="mx-3 my-2 text-post-comment"><span id="commenttxt-{{comment.id_post_comment}}" >{{comment.comment}}</span>
+                                                {% if user.is_authenticated %} {% if user.id == comment.user.id %}
+                                                <a href="{% url 'index' %}?delete_id={{comment.id_post_comment}}" >Delete?</a>
+                                                <button style="background: none!important;
+  border: none;
+  padding: 0!important;
+  /*optional*/
+  font-family: arial, sans-serif;
+  /*input has OS specific font-family*/
+  color: #069;
+  text-decoration: underline;
+  cursor: pointer;" href="" onclick="editshow('{{comment.id_post_comment}}')" >Edit?</button>
+
+                                                <input style="display:none;" type="text" id="{{comment.id_post_comment}}" name="comment" class="form-control editboxhide" value="{{comment.comment}}" onkeypress="edit_comment(event,'{{comment.id_post_comment}}','{{post.id_post}}')" placeholder="press enter to Save Comment">
+                                                </p>
+                                                {% endif %} {% endif %}
+                                    </div>
+                                </div>
+                                    </div>
+                            </div>
                               
                               {% empty %}
                               <p  class="mx-3 my-2 text-center text-post-comment"></p >
@@ -284,6 +299,94 @@
         });
     }
 
+function editshow( comment_id ){
+
+var x = document.getElementById(comment_id);
+if (x.style.display === "none") {
+    x.style.display = "block";
+  }else {
+    x.style.display = "none";
+  }
+
+}
+
+function edit_comment(event,comment_id,post_id){
+
+if (event.key === 'Enter') {
+            console.log("post comment")
+            event.preventDefault();
+            var comment_text = $(event.target).val();
+
+            $.ajax({
+                type: 'POST',
+                url: `/api/edit_comment/${comment_id}/`,
+                data: {
+                    'comment': comment_text,
+                    'post_id':post_id,
+                    'csrfmiddlewaretoken': '{{ csrf_token }}'
+                },
+                success: function (data) {
+                    if (data.success) {
+                        // Add HTML
+                        //var x = document.getElementById("comment-"+comment_id);
+                            //x.style.display = "none";
+                        var x = document.getElementById("commenttxt-"+comment_id);
+                        var xbox = document.getElementById(comment_id);
+                        x.innerText= comment_text;
+                        xbox.value= comment_text;
+                        xbox.style.display = "none";
+
+
+                        var profileImgSrc = $('#profile_img').attr('src');
+                        var commentHtml = `
+                            <div class="row"  id="comment-{{comment.id_post_comment}}"  >
+                                <div class="d-flex flex-row my-1">
+                                    <div class="text-center ml-5">
+                                        <img src="${profileImgSrc}" class="rounded ml-5" alt="..." width=50 height=50>
+                                    </div>
+                                    <div>
+                                        <div class="">
+                                            <p  class="mx-3 my-0 text-post-account-comment">${data.comment.user}</p>
+                                            <p  class="mx-3 my-2 text-post-comment">${data.comment.comment}
+                                            {% if user.is_authenticated %} {% if user.id == comment.user.id %}
+                                                <a href="{% url 'index' %}?delete_id={{comment.id_post_comment}}" >Delete?</a>
+                                                <button style="background: none!important;
+  border: none;
+  padding: 0!important;
+  /*optional*/
+  font-family: arial, sans-serif;
+  /*input has OS specific font-family*/
+  color: #069;
+  text-decoration: underline;
+  cursor: pointer;" href="" onclick="editshow('{{comment.id_post_comment}}')" >Edit?</button>
+
+                                                <input style="display:none;" type="text" id="{{comment.id_post_comment}}" name="comment" class="form-control editboxhide" value="{{comment.comment}}" onkeypress="edit_comment(event,'{{comment.id_post_comment}}','{{post.id_post}}')" placeholder="what do you thing about this ... Press enter to add your comments">
+                                                </p>
+                                                {% endif %} {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr/>
+                        `;
+                        // Add HTML
+                        //$('#post-comment-' + post_id).append(commentHtml);
+
+                        // Delete text in textbox
+                        //$(event.target).val('');
+
+                        $('#comment-' + post_id).html(data.comment_count + '  <i class="fa-regular fa-comment  mx-2">');
+                    }
+                },
+                error: function() {
+                    alert('An error occurred.');
+                }
+            });
+        }
+
+
+}
+
     function post_comment(event,post_id) {
         if (event.key === 'Enter') {
             console.log("post comment")
@@ -299,18 +402,34 @@
                 },
                 success: function (data) {
                     if (data.success) {
-                        // Add HTML 
+                        // Add HTML
                         var profileImgSrc = $('#profile_img').attr('src');
                         var commentHtml = `
                             <div class="row">
                                 <div class="d-flex flex-row my-1">
                                     <div class="text-center ml-5">
-                                        <img src="${profileImgSrc}" class="rounded ml-5" alt="..." width=50 height=50>
+                                        <img src="${profileImgSrc}" class="rounded ml-5" alt="..." width=50 height=50 onerror="this.src='/media/images/default/profile.png'" >
                                     </div>
                                     <div>
                                         <div class="">
                                             <p  class="mx-3 my-0 text-post-account-comment">${data.comment.user}</p>
-                                            <p  class="mx-3 my-2 text-post-comment">${data.comment.comment}</p>
+                                            <p  class="mx-3 my-2 text-post-comment">${data.comment.comment}
+
+                                            {% if user.is_authenticated %} {% if user.id == comment.user.id %}
+                                                <a href="{% url 'index' %}?delete_id={{comment.id_post_comment}}" >Delete?</a>
+                                                <button style="background: none!important;
+  border: none;
+  padding: 0!important;
+  /*optional*/
+  font-family: arial, sans-serif;
+  /*input has OS specific font-family*/
+  color: #069;
+  text-decoration: underline;
+  cursor: pointer;" href="" onclick="editshow('{{comment.id_post_comment}}')" >Edit?</button>
+
+                                                <input style="display:none;" type="text" id="{{comment.id_post_comment}}" name="comment" class="form-control editboxhide" value="{{comment.comment}}" onkeypress="edit_comment(event,'{{comment.id_post_comment}}','{{post.id_post}}')" placeholder="what do you thing about this ... Press enter to add your comments">
+                                                </p>
+                                                {% endif %} {% endif %}
                                         </div>
                                     </div>
                                 </div>

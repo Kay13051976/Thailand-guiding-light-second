@@ -311,10 +311,10 @@ form button {
 
 .post-card-action .post-card-action-item .action-text .count-badge {
     position: absolute;
-    top: -18px;
-    right: -22px;
-    min-width: 22px;
-    height: 22px;
+    top: -10px;
+    right: -18px;
+    min-width: 14px;
+    height: 14px;
     border: 1px solid red;
     background: red;
     display: flex;

@@ -1,5 +1,6 @@
+
 from django.shortcuts import render, redirect
-from django.views import generic
+# from django.views import generic
 from .models import Post
 from .models import Popular, Profile, Gallery, Comment
 from .forms import AccountForm, UserPostForm, CommentsForm, CommentsFormEdit
@@ -22,7 +23,9 @@ from django.contrib import messages
 def index(request):
     if request.method == 'GET':
         if 'delete_id' in request.GET:
-            delete_comment = Comment.objects.get(id_post_comment=request.GET['delete_id'])
+            delete_comment = Comment.objects.get(
+                id_post_comment=request.GET['delete_id']
+            )
             delete_comment.delete()
 
     elif request.method == 'POST':
@@ -96,6 +99,37 @@ def api_toggle_like(request, id_post):
     return JsonResponse({'liked': liked, 'like_count': post.get_count_liked()})
 
 
+def api_edit_comment(request, comment_id):
+
+    if request.method == 'POST':
+        post_id = request.POST.get('post_id')
+        post = get_object_or_404(Post, id_post=post_id)
+        Commentt = Comment.objects.get(pk=comment_id)
+        comment_text = request.POST.get('comment', '')
+
+        if comment_text:
+            Commentt.comment = comment_text
+            Commentt.save()
+
+            # Send comment back
+            comment_data = {
+                'user': Commentt.user.username,
+                'comment': Commentt.comment,
+                'date': Commentt.get_date_string()
+            }
+
+            return JsonResponse({
+                'success': True, 'message': 'Comment Update successfully.',
+                'comment': comment_data,
+                'comment_count': post.comment_set.count()})
+        else:
+            return JsonResponse({
+                'success': False, 'message': 'Comment text is required.'})
+
+    return JsonResponse({
+        'success': False, 'message': 'Invalid request method.'})
+
+
 def api_add_comment(request, post_id):
     if request.method == 'POST':
         user = request.user
@@ -129,13 +163,17 @@ def CommentsCrud(request):
 
     if request.method == 'GET':
         if 'delete_id' in request.GET:
-            delete_comment = Comment.objects.get(id_post_comment=request.GET['delete_id'])
+            delete_comment = Comment.objects.get(
+                id_post_comment=request.GET['delete_id']
+            )
             delete_comment.delete()
             messages.success(request, 'Comment deleted successfully!')
             return redirect('comment-crud')
     elif request.method == 'POST':
         if 'comment_edit_id' in request.POST:
-            edit_comment = Comment.objects.get(id_post_comment=request.POST['comment_edit_id'])
+            edit_comment = Comment.objects.get(
+                id_post_comment=request.POST['comment_edit_id']
+            )
             form = CommentsFormEdit(request.POST, instance=edit_comment)
             if form.is_valid():
                 # form = form.save(commit=False)  # change is here
