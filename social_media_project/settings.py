@@ -44,7 +44,8 @@ CSRF_TRUSTED_ORIGINS = [
     "https://localhost",
     "https://127.0.0.1",
     "http://127.0.0.1:8000",
-    'https://8000-kay13051976-thailandgui-jfkilhjpyib.ws-eu111.gitpod.io']
+    'https://8000-kay13051976-thailandgui-jfkilhjpyib.ws-eu111.gitpod.io',
+    'https://8000-kay13051976-thailandgui-sjlpe6fl74p.ws.codeinstitute-ide.net']
 
 CORS_ORIGIN_WHITELIST = [
     "https://8000-kay13051976-thailandgui-jfkilhjpyib.ws-eu107.gitpod.io",
@@ -53,7 +54,8 @@ CORS_ORIGIN_WHITELIST = [
     "https://localhost",
     "https://127.0.0.1",
     "http://127.0.0.1:8000",
-    'https://8000-kay13051976-thailandgui-jfkilhjpyib.ws-eu111.gitpod.io'
+    'https://8000-kay13051976-thailandgui-jfkilhjpyib.ws-eu111.gitpod.io',
+    'https://8000-kay13051976-thailandgui-sjlpe6fl74p.ws.codeinstitute-ide.net'
     ]
 # Application definition
 
