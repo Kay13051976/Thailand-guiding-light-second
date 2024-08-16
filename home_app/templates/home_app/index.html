@@ -264,10 +264,12 @@
 
         </div>
     </div>
+
 {% endblock content %}
 
 
 {% block extras_js %}
+
 <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
 <script>
     function toggle_comment(id_post){
@@ -415,8 +417,8 @@ if (event.key === 'Enter') {
                                             <p  class="mx-3 my-0 text-post-account-comment">${data.comment.user}</p>
                                             <p  class="mx-3 my-2 text-post-comment">${data.comment.comment}
 
-                                            {% if user.is_authenticated %} {% if user.id == comment.user.id %}
-                                                <a href="{% url 'index' %}?delete_id={{comment.id_post_comment}}" >Delete?</a>
+
+                                                <a href="/?delete_id=${post_id}" >Delete?</a>
                                                 <button style="background: none!important;
   border: none;
   padding: 0!important;
@@ -429,16 +431,16 @@ if (event.key === 'Enter') {
 
                                                 <input style="display:none;" type="text" id="{{comment.id_post_comment}}" name="comment" class="form-control editboxhide" value="{{comment.comment}}" onkeypress="edit_comment(event,'{{comment.id_post_comment}}','{{post.id_post}}')" placeholder="what do you thing about this ... Press enter to add your comments">
                                                 </p>
-                                                {% endif %} {% endif %}
+
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <hr/>
                         `;
-                        // Add HTML 
+                        // Add HTML
                         $('#post-comment-' + post_id).append(commentHtml);
-                        
+
                         // Delete text in textbox
                         $(event.target).val('');
 
@@ -452,4 +454,5 @@ if (event.key === 'Enter') {
         }
     }
   </script>
+
   {% endblock extras_js %}
