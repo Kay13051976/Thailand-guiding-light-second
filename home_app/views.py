@@ -1,4 +1,3 @@
-
 from django.shortcuts import render, redirect
 # from django.views import generic
 from .models import Post
@@ -139,12 +138,20 @@ def api_add_comment(request, post_id):
         if comment_text:
             comment = Comment(user=user, post=post, comment=comment_text)
             comment.save()
+            # imagepath ='/media/images/default/profile.png'
+            # if comment.user.profile.get_profile_url is None:
+            #    imagepath = '/media/images/default/profile.png'
+            # else:
+            #    imagepath= comment.user.profile.get_profile_url
+
 
             # Send comment back
             comment_data = {
                 'user': comment.user.username,
                 'comment': comment.comment,
-                'date': comment.get_date_string()
+                'date': comment.get_date_string(),
+                'id_post_comment': comment.id_post_comment
+                # 'get_profile_url': imagepath
             }
 
             return JsonResponse({

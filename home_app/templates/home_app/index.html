@@ -108,9 +108,9 @@
                 <div class="form-post-header d-flex flex-row align-items-center mb-3 ">
                   <div class="text-center">
                     {% if request.user.profile.profile_img is not None %}
-                    <img src="{{request.user.profile.get_profile_url}}" class="rounded" alt="..." width='60' height='60'  onerror="this.src='/media/images/default/profile.png'"/>
+                    <img src="{{request.user.profile.get_profile_url}}" id="profile_img" class="rounded" alt="..." width='60' height='60'  onerror="this.src='/media/images/default/profile.png'"/>
                     {% else %}
-                    <img src=".." class="rounded" alt="human shadow image" width='60' height='60'  onerror="this.src='/media/images/default/profile.png'"/>
+                    <img src=".." class="rounded" id="profile_img" alt="human shadow image" width='60' height='60'  onerror="this.src='/media/images/default/profile.png'"/>
                     {% endif %}
                   </div>
                   <div>
@@ -407,7 +407,7 @@ if (event.key === 'Enter') {
                         // Add HTML
                         var profileImgSrc = $('#profile_img').attr('src');
                         var commentHtml = `
-                            <div class="row">
+                            <div class="row" id="comment-${data.comment.id_post_comment}" >
                                 <div class="d-flex flex-row my-1">
                                     <div class="text-center ml-5">
                                         <img src="${profileImgSrc}" class="rounded ml-5" alt="..." width=50 height=50 onerror="this.src='/media/images/default/profile.png'" >
@@ -415,10 +415,10 @@ if (event.key === 'Enter') {
                                     <div>
                                         <div class="">
                                             <p  class="mx-3 my-0 text-post-account-comment">${data.comment.user}</p>
-                                            <p  class="mx-3 my-2 text-post-comment">${data.comment.comment}
+                                            <p  class="mx-3 my-2 text-post-comment"><span id="commenttxt-${data.comment.id_post_comment}" >${data.comment.comment}</span>
 
 
-                                                <a href="/?delete_id=${post_id}" >Delete?</a>
+                                                <a href="/?delete_id=${data.comment.id_post_comment}" >Delete?</a>
                                                 <button style="background: none!important;
   border: none;
   padding: 0!important;
@@ -427,16 +427,16 @@ if (event.key === 'Enter') {
   /*input has OS specific font-family*/
   color: #069;
   text-decoration: underline;
-  cursor: pointer;" href="" onclick="editshow('{{comment.id_post_comment}}')" >Edit?</button>
+  cursor: pointer;" href="" onclick="editshow('${data.comment.id_post_comment}')" >Edit?</button>
 
-                                                <input style="display:none;" type="text" id="{{comment.id_post_comment}}" name="comment" class="form-control editboxhide" value="{{comment.comment}}" onkeypress="edit_comment(event,'{{comment.id_post_comment}}','{{post.id_post}}')" placeholder="what do you thing about this ... Press enter to add your comments">
+                                                <input style="display:none;" type="text" id="${data.comment.id_post_comment}" name="comment" class="form-control editboxhide" value="${data.comment.comment}" onkeypress="edit_comment(event,'${data.comment.id_post_comment}','${post_id}')" placeholder="Press enter to save comment">
                                                 </p>
 
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <hr/>
+
                         `;
                         // Add HTML
                         $('#post-comment-' + post_id).append(commentHtml);
