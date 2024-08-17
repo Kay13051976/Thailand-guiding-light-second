@@ -200,7 +200,7 @@
                           </div> 
                           <div class="post-card-action-item" id="comment-{{post.id_post}}" onclick="toggle_comment('post-comment-{{post.id_post}}')" >
                             <span class="action-text">
-                              <span class="count-badge">{{post.comment_set.all.count}} </span>
+                              <span class="count-badge" id="commentcount-{{post.id_post}}" >{{post.comment_set.all.count}} </span>
                               <i class="fa-regular fa-comment  mx-2 icon-r icon-hover-color"></i> COMMENT
                             </span>
                           </div>
@@ -229,7 +229,15 @@
                                         <p  class="mx-3 my-0 text-post-account-comment text-bold">{{comment.user}}</p >
                                             <p  class="mx-3 my-2 text-post-comment"><span id="commenttxt-{{comment.id_post_comment}}" >{{comment.comment}}</span>
                                                 {% if user.is_authenticated %} {% if user.id == comment.user.id %}
-                                                <a href="{% url 'index' %}?delete_id={{comment.id_post_comment}}" >Delete?</a>
+                                                <button style="background: none!important;
+  border: none;
+  padding: 0!important;
+  /*optional*/
+  font-family: arial, sans-serif;
+  /*input has OS specific font-family*/
+  color: #069;
+  text-decoration: underline;
+  cursor: pointer;" onclick="delete_comment('{{comment.id_post_comment}}','{{post.id_post}}')" >Delete?</button>
                                                 <button style="background: none!important;
   border: none;
   padding: 0!important;
@@ -276,9 +284,6 @@
         $('#' + id_post).toggleClass('d-none');
       }
 
-
-
-
       function toggle_like(id_post) {
         var csrftoken = Cookies.get('csrftoken');
 
@@ -311,6 +316,37 @@ if (x.style.display === "none") {
   }
 
 }
+
+function delete_comment(comment_id , post_id){
+
+//if (event.key === 'Enter') {
+            console.log("delete comment")
+  //          event.preventDefault();
+    //        var comment_text = $(event.target).val();
+
+            $.ajax({
+                type: 'POST',
+                url: `/api/delete_comment/${comment_id}/`,
+                data: {
+                    'post_id':post_id,
+                    'csrfmiddlewaretoken': '{{ csrf_token }}'
+                },
+                success: function (data) {
+                    if (data.success) {
+                        // Add HTML
+                        var x = document.getElementById("comment-"+comment_id);
+                            x.style.display = "none";
+
+                        $('#commentcount-' + post_id).html(data.comment_count );
+                    }
+                },
+                error: function() {
+                    alert('An error occurred.');
+                }
+            });
+        //}
+}
+
 
 function edit_comment(event,comment_id,post_id){
 
@@ -377,7 +413,7 @@ if (event.key === 'Enter') {
                         // Delete text in textbox
                         //$(event.target).val('');
 
-                        $('#comment-' + post_id).html(data.comment_count + '  <i class="fa-regular fa-comment  mx-2">');
+                        //$('#comment-' + post_id).html(data.comment_count + '  <i class="fa-regular fa-comment  mx-2">');
                     }
                 },
                 error: function() {
@@ -418,7 +454,15 @@ if (event.key === 'Enter') {
                                             <p  class="mx-3 my-2 text-post-comment"><span id="commenttxt-${data.comment.id_post_comment}" >${data.comment.comment}</span>
 
 
-                                                <a href="/?delete_id=${data.comment.id_post_comment}" >Delete?</a>
+                                                <button style="background: none!important;
+  border: none;
+  padding: 0!important;
+  /*optional*/
+  font-family: arial, sans-serif;
+  /*input has OS specific font-family*/
+  color: #069;
+  text-decoration: underline;
+  cursor: pointer;" onclick="delete_comment('${data.comment.id_post_comment}','${post_id}')" >Delete?</button>
                                                 <button style="background: none!important;
   border: none;
   padding: 0!important;
@@ -444,7 +488,7 @@ if (event.key === 'Enter') {
                         // Delete text in textbox
                         $(event.target).val('');
 
-                        $('#comment-' + post_id).html(data.comment_count + '  <i class="fa-regular fa-comment  mx-2">');
+                        $('#commentcount-' + post_id).html(data.comment_count );
                     }
                 },
                 error: function() {

@@ -129,6 +129,35 @@ def api_edit_comment(request, comment_id):
         'success': False, 'message': 'Invalid request method.'})
 
 
+def api_delete_comment(request, comment_id):
+
+    if request.method == 'POST':
+        post_id = request.POST.get('post_id')
+        post = get_object_or_404(Post, id_post=post_id)
+        Commentt = Comment.objects.get(pk=comment_id)
+
+        if comment_id is not None:
+            Commentt.delete()
+
+            # Send comment back
+            comment_data = {
+                'user': Commentt.user.username,
+                'comment': Commentt.comment,
+                'date': Commentt.get_date_string()
+            }
+
+            return JsonResponse({
+                'success': True, 'message': 'Comment Update successfully.',
+                'comment': comment_data,
+                'comment_count': post.comment_set.count()})
+        else:
+            return JsonResponse({
+                'success': False, 'message': 'Comment is required to delete.'})
+
+    return JsonResponse({
+        'success': False, 'message': 'Invalid request method.'})
+
+
 def api_add_comment(request, post_id):
     if request.method == 'POST':
         user = request.user
@@ -143,8 +172,6 @@ def api_add_comment(request, post_id):
             #    imagepath = '/media/images/default/profile.png'
             # else:
             #    imagepath= comment.user.profile.get_profile_url
-
-
             # Send comment back
             comment_data = {
                 'user': comment.user.username,
