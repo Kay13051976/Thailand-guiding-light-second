@@ -340,6 +340,15 @@ form button {
         top: -15px;
         right: -15px;
     }
+
+    .footer-content .footer-content-item {
+        width: 100%;
+        padding: 20px;
+    }
+
+    #footer-copyright {
+        justify-content: flex-start;
+    }
 }
 
 /**********************************************
