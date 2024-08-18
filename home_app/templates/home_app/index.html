@@ -146,14 +146,18 @@
                       
                       <!-- Post Header -->
                       <div class="post-card-header">
-                        <div class="d-flex flex-row align-items-center">
-                          <div class="text-center">
+                          <div class="d-flex flex-row align-items-center">
+                            <div class="text-center">
                               <img src="{{post.user.profile.get_profile_url}}" class="rounded-5" alt="..." width=60 height=60 onerror="this.src='/media/images/default/profile.png'" />
                             </div>
-                            <div>
-                              <div class="">
-                                <span  class="mx-3 fs-20 fw-700">{{post.user.profile.get_full_name}}</span >
-                                <small><i class="fa-solid fa-ellipsis-vertical icon-hover-color"></i></small>
+                            <div class="">
+                              <span  class="mx-3 fs-20 fw-700">{{post.user.profile.get_full_name}}</span >
+                            </div>
+                            <div class="dot-menu">
+                              <i class="fa-solid fa-ellipsis-vertical icon-hover-color"></i>
+                              <div class="dot-menu-frame">
+                                <div class="menu-item"><a href="javascript:void(0);">Delete</a></div>
+                                <div class="menu-item"><a href="javascript:void(0);">Edit</a></div>
                               </div>
                             </div>
                           </div>
@@ -205,10 +209,16 @@
                             </span>
                           </div>
                           <div class="post-card-action-item ">
-                            <span class="action-text"><i class="fa-solid fa-share-from-square  mx-2 pointer icon-hover-color"></i> SHARED</span>
+                            <span class="action-text">
+                              <span class="count-badge">0</span>
+                              <i class="fa-solid fa-share-from-square  mx-2 pointer icon-hover-color"></i> SHARED
+                            </span>
                           </div>
                           <div class="post-card-action-item ">
-                            <span class="action-text"><i class="fa-solid fa-people-arrows  mx-2 pointer icon-hover-color"></i> CONNECT</span>
+                            <span class="action-text">
+                              <span class="count-badge">0</span>
+                              <i class="fa-solid fa-people-arrows  mx-2 pointer icon-hover-color"></i> CONNECT
+                            </span>
                           </div> 
                         </div>
                         <!-- End Post Action -->
