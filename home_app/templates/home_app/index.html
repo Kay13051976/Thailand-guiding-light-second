@@ -258,7 +258,7 @@
   /*input has OS specific font-family*/
   color: #069;
   text-decoration: underline;
-  cursor: pointer;" href="" onclick="editshow('{{comment.id_post_comment}}')" >Edit?</button>
+  cursor: pointer;" onclick="editshow('{{comment.id_post_comment}}')" >Edit?</button>
 
                                                 <input style="display:none;" type="text" id="{{comment.id_post_comment}}" name="comment" class="form-control editboxhide" value="{{comment.comment}}" onkeypress="edit_comment(event,'{{comment.id_post_comment}}','{{post.id_post}}')" placeholder="press enter to Save Comment">
                                                 </p>
