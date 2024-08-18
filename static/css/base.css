@@ -242,12 +242,10 @@ ul {
 }
 
 #form-post button {
-    /* background: orange; */
     background-image: linear-gradient(to left, #FF8008 0%, #FFC837  51%, #FF8008  100%);
     color: white !important;
     box-shadow: 0 0 20px #eee;
     border-radius: 10px;
-    /* border: 1px solid rgb(42, 58, 238); */
     font-weight: bold;
 }
 
@@ -286,9 +284,6 @@ form button {
 .post-card-info .post-card-excerpt {
     font-size: 18px;
     line-height: 22px;
-}
-
-.post-card-body {
 }
 
 .post-card-body input {
@@ -459,9 +454,8 @@ form button {
 }
 
 .dot-menu .dot-menu-frame .menu-item {
-    font-size: 16px;
+    font-size: 14px;
     line-height: 22px;
-   
 }
 
 .dot-menu .dot-menu-frame .menu-item a,
