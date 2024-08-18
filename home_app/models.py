@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 import uuid
 from datetime import datetime
+from django.utils import timezone
 
 
 # Create your models here.
@@ -224,3 +225,22 @@ class Popular(models.Model):
 
     def __str__(self):
         return self.name
+
+class Share(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='shares', verbose_name="User", help_text="The user who shared this content")
+    content = models.TextField(help_text="Content of the share")
+    created_at = models.DateTimeField(default=timezone.now, help_text="Date and time the content was shared")
+    updated_at = models.DateTimeField(auto_now=True, help_text="Date and time the content was last updated")
+    likes = models.ManyToManyField(User, related_name='liked_shares', blank=True, help_text="Users who liked the share")
+    share_count = models.PositiveIntegerField(default=0, help_text="Number of times this content has been shared")
+    id_share = models.UUIDField(primary_key=True, default=uuid.uuid4)
+
+    def __str__(self):
+        return f"Share by {self.user.username} on {self.created_at.strftime('%Y-%m-%d %H:%M')}"
+
+    def total_likes(self):
+        return self.likes.count()
+
+    class Meta:
+        verbose_name = "Share"
+        verbose_name_plural = "Shares"
