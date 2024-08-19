@@ -1,7 +1,9 @@
 from django.shortcuts import render, redirect
 # from django.views import generic
 from .models import Post
-from .models import Popular, Profile, Gallery, Comment
+from django.db.models import Count
+from .models import Popular, Profile, \
+    Gallery, Comment, User, FriendRequest, Friend
 from .forms import AccountForm, UserPostForm, CommentsForm, CommentsFormEdit
 from django.shortcuts import get_object_or_404
 from django.http import JsonResponse
@@ -39,7 +41,9 @@ def index(request):
     else:
         form = UserPostForm()
 
-    posts = Post.get_list_approve()
+    posts = Post.get_list_approve().annotate(
+        friend_count=Count('user__Friend_user')
+    )
     return render(request, 'home_app/index.html', {
         'posts': posts
     })
@@ -82,6 +86,83 @@ def popular(request):
     places = Popular.objects.all()
     return render(
         request, 'home_app/most_popular_place.html', {'places': places})
+
+
+def api_toggle_connect(request, user_id):
+    if not request.user.is_authenticated:
+        return redirect('login')
+
+    user = get_object_or_404(User, id=request.user.id)
+    friend = get_object_or_404(User, id=user_id)
+
+    if not FriendRequest.objects.filter(user=user, friend=friend).exists():
+        friendRequest = FriendRequest.objects.create(
+            user=user, friend=friend, status="pending"
+        )
+        friendRequest.save()
+        connected = True
+    else:
+        connected = False
+
+    return JsonResponse({'connected': connected})
+
+
+def friend_request_list(request):
+    if request.method == 'GET':
+        if 'delete_request_id' in request.GET:
+            delete_friend_request = FriendRequest.objects.get(
+                id_friend_request=request.GET['delete_request_id']
+            )
+            delete_friend_request.delete()
+            messages.success(request, 'Friend Request Canceled successfully!')
+            return redirect('connection')
+
+        if 'friend_request_id' in request.GET:
+            friend_request_id = request.GET['friend_request_id']
+            # Get the FriendRequest object
+            friend_request = get_object_or_404(
+                FriendRequest, id_friend_request=friend_request_id
+            )
+
+            # Ensure the request is for the current user
+            if friend_request.friend != request.user:
+                return redirect('connection')
+
+            # Update the status to 'accept'
+            friend_request.status = 'accept'
+            friend_request.save()
+
+            # Create a Friend relationship for both users
+            Friend.objects.create(
+                user=friend_request.user, friend=friend_request.friend
+            )
+            Friend.objects.create(
+                user=friend_request.friend, friend=friend_request.user
+            )
+
+            messages.success(request, 'Friend Request Canceled successfully!')
+            return redirect('connection')
+
+    friendRequest = FriendRequest.objects.filter(
+        user=request.user
+
+    )
+
+    friendRequestReceived = FriendRequest.objects.filter(
+        friend=request.user,
+        status="pending"
+    )
+
+    friend = Friend.objects.filter(
+        user=request.user
+    )
+
+    context = {
+        'FriendRequest': friendRequest,
+        'FriendRequestReceived': friendRequestReceived,
+        'Friend': friend
+    }
+    return render(request, 'home_app/connection.html', context)
 
 
 def api_toggle_like(request, id_post):

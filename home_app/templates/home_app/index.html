@@ -24,7 +24,7 @@
             <div class="menu-lists">
               <ul>
                 <li><a class="link-opacity-100" href="/account" aria-label="Visit your account page (open in a same tab)"><i class="fa-solid fa-gear mx-2 icon-hover-color"></i>Profile</a></li>
-                <li><a class="link-opacity-100" href="#" aria-label="Visit your connection list (open in a same tab)"><i class="fa-solid fa-people-arrows mx-2 icon-hover-color"></i>Your Connection</a></li>
+                <li><a class="link-opacity-100" href="/connection" aria-label="Visit your connection list (open in a same tab)"><i class="fa-solid fa-people-arrows mx-2 icon-hover-color"></i>Your Connection</a></li>
                 <li><a class="link-opacity-100" href="#" aria-label="Visit our chat room popover (open in a same tab)" ><i class="fa-solid fa-comments mx-2  icon-hover-color"></i>Chat</a></li>
                 <li><a class="link-opacity-100" href="/popular" aria-label="Visit our most popular place page (open in a same tab)"><i class="fa-brands fa-fort-awesome mx-2 icon-hover-color"></i>Most Popular Place</a></li>
                 <li><a class="link-opacity-100" href="https://www.audleytravel.com/thailand?infinity=ict2~net~gaw~cmp~16213647585~ag~136107107729~ar~679147414072~kw~thailand%20travel%20agency~mt~p~acr~2868936838&audcmp=16213647585&audadg=136107107729&audkey=thailand%20travel%20agency&auddev=c&audadid=679147414072&audpos=&audtrgt=kwd-627272734261&audtel=ppcnb&audnet=g&gad_source=1&gclid=Cj0KCQiAh8OtBhCQARIsAIkWb69knbPeiiIa-IqpTcnGycyXQnAh38qZY23ul8AsbUYOCiM2OarKkv8aAkGREALw_wcB" aria-label="Visit our travel agent page" target="_blank"><i class="fa-solid fa-cart-flatbed-suitcase mx-2 icon-hover-color"></i>Travel Agent</a></li>
@@ -198,7 +198,7 @@
                         <div class="post-card-action">
                           <div class="post-card-action-item" id="like-{{post.id_post}}" onclick="toggle_like('{{post.id_post}}')">
                             <span class="action-text">
-                              <span class="count-badge">{{post.likes.count}} </span>
+                              <span class="count-badge" id="likeCount-{{post.id_post}}" >{{post.likes.count}} </span>
                               <i class="fa-solid fa-heart icon-hover-color"></i> LIKE
                             </span>
                           </div> 
@@ -208,15 +208,15 @@
                               <i class="fa-regular fa-comment  mx-2 icon-r icon-hover-color"></i> COMMENT
                             </span>
                           </div>
-                          <div class="post-card-action-item ">
+                          <div class="post-card-action-item " id="share-{{post.id_post}}" onclick="" >
                             <span class="action-text">
-                              <span class="count-badge">0</span>
+                              <span class="count-badge" id="shareCount-{{post.id_post}}" >{{post.likes.count}}</span>
                               <i class="fa-solid fa-share-from-square  mx-2 pointer icon-hover-color"></i> SHARED
                             </span>
                           </div>
-                          <div class="post-card-action-item ">
+                          <div class="post-card-action-item " id="connects-{{post.id_post}}" onclick="toggle_connect('{{post.user.id}}','{{post.id_post}}')" >
                             <span class="action-text">
-                              <span class="count-badge">0</span>
+                              <span class="count-badge" id="connectsCount-{{post.id_post}}" >{{post.friend_count}}</span>
                               <i class="fa-solid fa-people-arrows  mx-2 pointer icon-hover-color"></i> CONNECT
                             </span>
                           </div> 
@@ -292,6 +292,27 @@
 
 <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
 <script>
+
+function toggle_connect(user_id,id_post) {
+        var csrftoken = Cookies.get('csrftoken');
+        $.ajaxSetup({
+            headers: {
+                'X-CSRFToken': csrftoken
+            }
+         });
+
+        $.ajax({
+            type: 'POST',
+            url: `/api/toggle-connect/${user_id}/`,
+            success: function(data) {
+            alert('Friend Request Sent!');
+            },
+            error: function() {
+                alert('Connect fail');
+            }
+        });
+    }
+
     function toggle_comment(id_post){
         $('#' + id_post).toggleClass('d-none');
       }
@@ -310,7 +331,7 @@
             type: 'POST',
             url: `/api/toggle-like/${id_post}/`,
             success: function(data) {
-                $('#like-' + id_post).html(data.like_count + ' <i class="fa-solid fa-heart"></i>');
+                $('#likeCount-' + id_post).html(data.like_count);
             },
             error: function() {
                 console.log('like fail')
