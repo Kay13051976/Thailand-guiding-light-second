@@ -153,13 +153,15 @@
                             <div class="">
                               <span  class="mx-3 fs-20 fw-700">{{post.user.profile.get_full_name}}</span >
                             </div>
-                            <div class="dot-menu">
+
+                              <div class="dot-menu">
                               <i class="fa-solid fa-ellipsis-vertical icon-hover-color"></i>
                               <div class="dot-menu-frame">
                                 <div class="menu-item"><a href="javascript:void(0);">Delete Post</a></div>
                                 <div class="menu-item"><a href="javascript:void(0);">Edit Post</a></div>
                               </div>
                             </div>
+
                           </div>
                       </div>
                       <!-- End Post Header -->
@@ -208,10 +210,21 @@
                               <i class="fa-regular fa-comment  mx-2 icon-r icon-hover-color"></i> COMMENT
                             </span>
                           </div>
-                          <div class="post-card-action-item " id="share-{{post.id_post}}" onclick="" >
+                          <div class="post-card-action-item " id="share-{{post.id_post}}" >
                             <span class="action-text">
-                              <span class="count-badge" id="shareCount-{{post.id_post}}" >{{post.likes.count}}</span>
-                              <i class="fa-solid fa-share-from-square  mx-2 pointer icon-hover-color"></i> SHARED
+
+
+                                    <span id="copylink-{{post.id_post}}" style="display:none;" >{{full_url}}?post_id={{post.id_post}}</span>
+                                    <div class="dot-menu">
+                                        <span class="count-badge" id="shareCount-{{post.id_post}}" >{{post.total_shares}}</span>
+                                        <i class="fa-solid fa-share-from-square  mx-2 pointer icon-hover-color"> </i> SHARE
+                                <div class="dot-menu-frame">
+                                <div class="menu-item"><a onclick="copyURI(event,'{{post.id_post}}')" href="javascript:void(0);">Copy Link</a></div>
+
+                              </div>
+                            </div>
+
+
                             </span>
                           </div>
                           <div class="post-card-action-item " id="connects-{{post.id_post}}" onclick="toggle_connect('{{post.user.id}}','{{post.id_post}}')" >
@@ -239,28 +252,10 @@
                                         <p  class="mx-3 my-0 text-post-account-comment text-bold">{{comment.user}}</p >
                                             <p  class="mx-3 my-2 text-post-comment"><span id="commenttxt-{{comment.id_post_comment}}" >{{comment.comment}}</span>
                                                 {% if user.is_authenticated %} {% if user.id == comment.user.id %}
-                                                <button style="background: none!important;
-  border: none;
-  padding: 0!important;
-  font-size: 14px;
-  /*optional*/
-  font-family: arial, sans-serif;
-  /*input has OS specific font-family*/
-  color: #069;
-  text-decoration: underline;
-  cursor: pointer;" onclick="delete_comment('{{comment.id_post_comment}}','{{post.id_post}}')" >Delete?</button>
-                                                <button style="background: none!important;
-  border: none;
-  padding: 0!important;
-  font-size: 14px;
-  /*optional*/
-  font-family: arial, sans-serif;
-  /*input has OS specific font-family*/
-  color: #069;
-  text-decoration: underline;
-  cursor: pointer;" onclick="editshow('{{comment.id_post_comment}}')" >Edit?</button>
+                                                <button class="deleteupdatebutton"  onclick="delete_comment('{{comment.id_post_comment}}','{{post.id_post}}')" >Delete?</button>
+                                                <button class="deleteupdatebutton" onclick="editshow('{{comment.id_post_comment}}')" >Edit?</button>
 
-                                                <input style="display:none;" type="text" id="{{comment.id_post_comment}}" name="comment" class="form-control editboxhide" value="{{comment.comment}}" onkeypress="edit_comment(event,'{{comment.id_post_comment}}','{{post.id_post}}')" placeholder="press enter to Save Comment">
+                                                <input class="editcommetfield" style="display:none;" type="text" id="{{comment.id_post_comment}}" name="comment" class="form-control editboxhide" value="{{comment.comment}}" onkeypress="edit_comment(event,'{{comment.id_post_comment}}','{{post.id_post}}')" placeholder="press enter to Save Comment">
                                                 </p>
                                                 {% endif %} {% endif %}
                                     </div>
@@ -292,6 +287,39 @@
 
 <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
 <script>
+
+function copyURI(evt, post_id ) {
+    evt.preventDefault();
+    const linkElement = document.getElementById("copylink-"+post_id);
+    const linkToCopy = linkElement.innerText;
+
+    var csrftoken = Cookies.get('csrftoken');
+        $.ajaxSetup({
+            headers: {
+                'X-CSRFToken': csrftoken
+            }
+         });
+
+
+    $.ajax({
+            type: 'POST',
+            url: `/api/toggle-share/${post_id}/`,
+            success: function(data) {
+
+            $('#shareCount-' + post_id).html(data.share_count);
+
+            navigator.clipboard.writeText(linkToCopy).then(() => {
+            alert('Post link copied');
+            }, () => {
+            alert('Post link not Copied');
+            });
+
+            },
+            error: function() {
+                alert('Share failed!');
+            }
+        });
+}
 
 function toggle_connect(user_id,id_post) {
         var csrftoken = Cookies.get('csrftoken');
