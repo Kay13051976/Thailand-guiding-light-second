@@ -217,14 +217,12 @@
                                     <span id="copylink-{{post.id_post}}" style="display:none;" >{{full_url}}?post_id={{post.id_post}}</span>
                                     <div class="action-share">
                                         <span class="count-badge" id="shareCount-{{post.id_post}}" >{{post.total_shares}}</span>
-                                        <i class="fa-solid fa-share-from-square  mx-2 pointer icon-hover-color"> </i> SHARE
+                                        <i class="fa-solid fa-share-from-square mx-2 icon-hover-color pointer"> </i> SHARE
                                 <div class="action-share-frame">
-                                <div class="copy-link-item"><a onclick="copyURI(event,'{{post.id_post}}')" href="javascript:void(0);"><i class="fa-solid fa-link"></i>  Copy Link</a></div>
+                                <div class="copy-link-item"><a onclick="copyURI(event,'{{post.id_post}}')" href="javascript:void(0);"><i class="fa-solid fa-link pointer"></i>  Copy Link</a></div>
 
                               </div>
                             </div>
-
-
                             </span>
                           </div>
                           <div class="post-card-action-item " id="connects-{{post.id_post}}" onclick="toggle_connect('{{post.user.id}}','{{post.id_post}}')" >
