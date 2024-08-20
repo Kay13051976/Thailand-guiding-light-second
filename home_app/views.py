@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 from .models import Post
 from django.db.models import Count
 from .models import Popular, Profile, \
-    Gallery, Comment, User, FriendRequest, Friend
+    Gallery, Comment, User, FriendRequest, Friend, Share
 from .forms import AccountForm, UserPostForm, CommentsForm, CommentsFormEdit
 from django.shortcuts import get_object_or_404
 from django.http import JsonResponse
@@ -41,11 +41,22 @@ def index(request):
     else:
         form = UserPostForm()
 
-    posts = Post.get_list_approve().annotate(
-        friend_count=Count('user__Friend_user')
-    )
+    if request.method == 'GET':
+        if 'post_id' in request.GET:
+            posts = Post.get_list_approve().filter(
+                id_post=request.GET['post_id']
+            ).annotate(
+                friend_count=Count('user__Friend_user')
+            )
+        else:
+            posts = Post.get_list_approve().annotate(
+                friend_count=Count('user__Friend_user')
+            )
+
+    full_url = request.build_absolute_uri()
     return render(request, 'home_app/index.html', {
-        'posts': posts
+        'posts': posts,
+        'full_url': full_url
     })
 
 
@@ -105,6 +116,26 @@ def api_toggle_connect(request, user_id):
         connected = False
 
     return JsonResponse({'connected': connected})
+
+
+def api_toggle_share(request, post_id):
+    if not request.user.is_authenticated:
+        return redirect('login')
+
+    post = get_object_or_404(Post, id_post=post_id)
+    user = get_object_or_404(User, id=request.user.id)
+
+    if not Share.objects.filter(user=user, post=post).exists():
+        share = Share.objects.create(
+            user=user, content="Share Post", post=post
+        )
+        share.save()
+        shared = True
+    else:
+        shared = False
+
+    return JsonResponse({'shared': shared,
+                         'share_count': post.shared_posts.count()})
 
 
 def friend_request_list(request):

@@ -106,6 +106,9 @@ class Post(models.Model):
     def add_user_liked(self, user):
         return self.likes.add(user)
 
+    def total_shares(self):
+        return self.shared_posts.count()
+
 
 class Comment(models.Model):
 
@@ -233,7 +236,11 @@ class Share(models.Model):
     updated_at = models.DateTimeField(auto_now=True, help_text="Date and time the content was last updated")
     likes = models.ManyToManyField(User, related_name='liked_shares', blank=True, help_text="Users who liked the share")
     share_count = models.PositiveIntegerField(default=0, help_text="Number of times this content has been shared")
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="shared_posts", null=True )
     id_share = models.UUIDField(primary_key=True, default=uuid.uuid4)
+
+    def __str__(self):
+        return str(self.post)
 
     def __str__(self):
         return f"Share by {self.user.username} on {self.created_at.strftime('%Y-%m-%d %H:%M')}"
