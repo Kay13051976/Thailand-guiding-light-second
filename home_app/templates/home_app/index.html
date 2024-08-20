@@ -201,13 +201,13 @@
                           <div class="post-card-action-item" id="like-{{post.id_post}}" onclick="toggle_like('{{post.id_post}}')">
                             <span class="action-text">
                               <span class="count-badge" id="likeCount-{{post.id_post}}" >{{post.likes.count}} </span>
-                              <i class="fa-solid fa-heart icon-hover-color"></i> LIKE
+                              <i class="fa-solid fa-heart pointer icon-hover-color"></i> LIKE
                             </span>
                           </div> 
                           <div class="post-card-action-item" id="comment-{{post.id_post}}" onclick="toggle_comment('post-comment-{{post.id_post}}')" >
                             <span class="action-text">
                               <span class="count-badge" id="commentcount-{{post.id_post}}" >{{post.comment_set.all.count}} </span>
-                              <i class="fa-regular fa-comment  mx-2 icon-r icon-hover-color"></i> COMMENT
+                              <i class="fa-regular fa-comment  pointer mx-2 icon-r icon-hover-color"></i> COMMENT
                             </span>
                           </div>
                           <div class="post-card-action-item " id="share-{{post.id_post}}" >
@@ -215,11 +215,11 @@
 
 
                                     <span id="copylink-{{post.id_post}}" style="display:none;" >{{full_url}}?post_id={{post.id_post}}</span>
-                                    <div class="dot-menu">
+                                    <div class="action-share">
                                         <span class="count-badge" id="shareCount-{{post.id_post}}" >{{post.total_shares}}</span>
                                         <i class="fa-solid fa-share-from-square  mx-2 pointer icon-hover-color"> </i> SHARE
-                                <div class="dot-menu-frame">
-                                <div class="menu-item"><a onclick="copyURI(event,'{{post.id_post}}')" href="javascript:void(0);">Copy Link</a></div>
+                                <div class="action-share-frame">
+                                <div class="copy-link-item"><a onclick="copyURI(event,'{{post.id_post}}')" href="javascript:void(0);"><i class="fa-solid fa-link"></i>  Copy Link</a></div>
 
                               </div>
                             </div>
@@ -252,8 +252,8 @@
                                         <p  class="mx-3 my-0 text-post-account-comment text-bold">{{comment.user}}</p >
                                             <p  class="mx-3 my-2 text-post-comment"><span id="commenttxt-{{comment.id_post_comment}}" >{{comment.comment}}</span>
                                                 {% if user.is_authenticated %} {% if user.id == comment.user.id %}
-                                                <button class="deleteupdatebutton"  onclick="delete_comment('{{comment.id_post_comment}}','{{post.id_post}}')" >Delete?</button>
-                                                <button class="deleteupdatebutton" onclick="editshow('{{comment.id_post_comment}}')" >Edit?</button>
+                                                <button class="delete-update-button"  onclick="delete_comment('{{comment.id_post_comment}}','{{post.id_post}}')" >Delete?</button>
+                                                <button class="edit-update-button" onclick="editshow('{{comment.id_post_comment}}')" >Edit?</button>
 
                                                 <input class="editcommetfield" style="display:none;" type="text" id="{{comment.id_post_comment}}" name="comment" class="form-control editboxhide" value="{{comment.comment}}" onkeypress="edit_comment(event,'{{comment.id_post_comment}}','{{post.id_post}}')" placeholder="press enter to Save Comment">
                                                 </p>

@@ -252,9 +252,6 @@ ul {
     font-weight: 600;
 }
 
-form {
-}
-
 form button {
     height: 50px;
 }
@@ -326,19 +323,17 @@ form button {
     font-weight: bold;
 }
 
-.deleteupdatebutton{
-
+.delete-update-button .edit-update-button {
     background: none!important;
-border: none;
-padding: 0!important;
-font-size: 14px;
-/*optional*/
-font-family: arial, sans-serif;
-/*input has OS specific font-family*/
-color: #069;
-text-decoration: underline;
-cursor: pointer;
-
+    border: none;
+    padding: 0!important;
+    font-size: 14px;
+    /*optional*/
+    font-family: arial, sans-serif;
+    /*input has OS specific font-family*/
+    color: #069;
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 @media (max-width: 430px) {
@@ -457,7 +452,7 @@ cursor: pointer;
 
 .dot-menu {
     position: relative;
-    width: 150px;
+    width: 130px;
     height: auto;
     text-align: center;
 }
@@ -485,7 +480,7 @@ cursor: pointer;
     position: absolute;
     width: 160px;
     top: -22px;
-    left: 34px;
+    left: 90px;
     padding: 15px;
     border: 1px solid #f5f5f5;
     box-shadow: 0px 4px 12px #e8e8e8;
@@ -494,6 +489,43 @@ cursor: pointer;
     min-height: 40px;
 }
 
+.action-ahare {
+    position: relative;
+    width: 130px;
+    height: auto;
+    text-align: center;
+}
+.action-share .action-share-frame {
+    display: none;
+}
+
+.action-share .action-share-frame .copy-link-item {
+    font-size: 14px;
+    line-height: 22px;
+}
+
+.action-share .action-share-frame .copy-link-item a,
+.action-share .action-share-frame .copy-link-item a:hover {
+    color: #000000;
+    text-decoration: none;
+    color: #069;
+}
+.copy-link-item:hover {
+    text-decoration: underline;
+}
+.action-share:hover .action-share-frame {
+    display: block;
+    position: absolute;
+    width: 120px;
+    top: 34px;
+    right: 20px;
+    padding: 15px;
+    border: 1px solid #f5f5f5;
+    box-shadow: 0px 4px 12px #e8e8e8;
+    background: white;
+    text-align: left;
+    min-height: 40px;
+}
 @media (max-width: 430px) {
     .dot-menu:hover .dot-menu-frame {
         top: 35px;
