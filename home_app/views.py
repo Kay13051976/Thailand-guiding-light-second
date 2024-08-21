@@ -23,21 +23,37 @@ from django.contrib import messages
 
 def index(request):
     if request.method == 'GET':
-        if 'delete_id' in request.GET:
-            delete_comment = Comment.objects.get(
-                id_post_comment=request.GET['delete_id']
-            )
-            delete_comment.delete()
+        if 'post_edit' in request.GET:
+            return render(request, 'home_app/post_edit.html', { 'post_id': request.GET['post_edit']})
 
     elif request.method == 'POST':
-        form = UserPostForm(request.POST)
-        if form.is_valid():
-            post_instance = form.save(commit=False)
-            post_instance.user = request.user
-            post_instance.save()
-            images = request.FILES.getlist('images')
-            for image in images:
-                Gallery.objects.create(post=post_instance, image=image)
+        if 'post_id' in request.POST:
+            #form = UserPostForm(request.POST)
+            post = get_object_or_404(Post, id_post=request.POST['post_id'])
+            if 'title' in request.POST:
+                #post_instance = form.save(commit=False)
+                post.title = request.POST['title']
+                post.save()
+                images = request.FILES.getlist('images')
+                if images is not None:
+                    gallery = Gallery.objects.filter(post=post).delete()
+                    for image in images:
+                        Gallery.objects.create(post=post, image=image)
+
+        else:
+            form = UserPostForm(request.POST)
+            if form.is_valid():
+                post_instance = form.save(commit=False)
+                post_instance.user = request.user
+                post_instance.save()
+                images = request.FILES.getlist('images')
+                for image in images:
+                    Gallery.objects.create(post=post_instance, image=image)
+
+        posts = Post.get_list_approve().annotate(
+            friend_count=Count('user__Friend_user')
+        )
+
     else:
         form = UserPostForm()
 
@@ -269,6 +285,31 @@ def api_delete_comment(request, comment_id):
     return JsonResponse({
         'success': False, 'message': 'Invalid request method.'})
 
+def api_delete_post(request, post_id):
+    if request.method == 'POST':
+        post_id = request.POST.get('post_id')
+        post = get_object_or_404(Post, id_post=post_id)
+
+        if post_id is not None:
+            post.delete()
+
+            # Send comment back
+            post_data = {
+                'user': post.user.username,
+                'post': post.id_post,
+                'date': post.title
+            }
+
+            return JsonResponse({
+                'success': True, 'message': 'Post deleted successfully.',
+                'post': post_data
+                })
+        else:
+            return JsonResponse({
+                'success': False, 'message': 'Post is required to delete.'})
+
+    return JsonResponse({
+        'success': False, 'message': 'Invalid request method.'})
 
 def api_add_comment(request, post_id):
     if request.method == 'POST':

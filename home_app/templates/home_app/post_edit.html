@@ -123,6 +123,8 @@
 
                 <form method="post"  enctype="multipart/form-data">
                   {% csrf_token %}
+
+                  <input type="hidden" name="post_id" value="{{post_id}}">
                   <div class="input-group mb-3">
                     <input type="text" class="form-control" name="title" placeholder="Write something" aria-label="Write something" aria-describedby="button-addon2">
                   </div>
@@ -130,150 +132,14 @@
                     <input class="form-control" type="file" id="formFileMultiple" name="images" multiple>
                   </div>
                   <div>
-                    <button class="btn w-100" type="submit" id="button-addon2">Post</button>
+                    <button class="btn w-100" type="submit" id="button-addon2">Update Post</button>
                   </div>
                 </form>
             </div>
             <!-- End Form Post -->
 
             <!-- Post Lists -->
-            <div class="row">
-              <div class="col-12">
-                {% for post in posts %}
 
-                  <!-- Post -->
-                  <div id="delete_post-{{post.id_post}}" class="post-card card">
-                      
-                      <!-- Post Header -->
-                      <div class="post-card-header">
-                          <div class="d-flex flex-row align-items-center">
-                            <div class="text-center">
-                              <img src="{{post.user.profile.get_profile_url}}" class="rounded-5" alt="..." width=60 height=60 onerror="this.src='/media/images/default/profile.png'" />
-                            </div>
-                            <div class="">
-                              <span  class="mx-3 fs-20 fw-700">{{post.user.profile.get_full_name}}</span >
-                            </div>
-
-                              <div class="dot-menu">
-                              <i class="fa-solid fa-ellipsis-vertical icon-hover-color"></i>
-
-                                  {% if user.is_authenticated %} {% if user.id == post.user.id %}
-
-                                  <div class="dot-menu-frame">
-                                <div class="menu-item"><a href="javascript:void(0);" onclick="delete_post('{{post.id_post}}')" >Delete Post</a></div>
-                                <div class="menu-item"><a href="/?post_edit={{post.id_post}}"  >Edit Post</a></div>
-                              </div>
-                                  {% endif %} {% endif %}
-                            </div>
-
-                          </div>
-                      </div>
-                      <!-- End Post Header -->
-
-                      <div class="post-card-info">
-                        <div class="post-card-title">{{post.title}}</div>
-                        <!-- <p class="post-card-excerpt">{{post.excerpt}}</p> -->
-                      </div>
-
-                      <!-- Post Image -->
-                      {% if post.featured_image.url is not None %}
-                        <img  class="card-img-top" alt="image from user" src="{{post.featured_image.url}}"  >home_app
-                      {% else %}
-                      <div id="carouselExampleControls-{{post.id_post}}" class="carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-inner">
-                          {% for gallery in post.gallery_set.all %}
-                            <div class="carousel-item active">
-                              <img src="{{gallery.image.url}}" class="d-block w-100 rounded" alt="..." height=500 style="object-fit:cover;border-radius: 0px !important;" />
-                            </div>
-                          {% endfor %}
-                        </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls-{{post.id_post}}" data-bs-slide="prev">
-                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                          <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls-{{post.id_post}}" data-bs-slide="next">
-                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                          <span class="visually-hidden">Next</span>
-                        </button>
-                      </div>
-                      {% endif %}
-                      <!-- End Post Image -->
-
-                      <div class="post-card-body card-body p-0">
-                        <!-- Post Action -->
-                        <div class="post-card-action">
-                          <div class="post-card-action-item" id="like-{{post.id_post}}" onclick="toggle_like('{{post.id_post}}')">
-                            <span class="action-text">
-                              <span class="count-badge" id="likeCount-{{post.id_post}}" >{{post.likes.count}} </span>
-                              <i class="fa-solid fa-heart icon-hover-color"></i> LIKE
-                            </span>
-                          </div> 
-                          <div class="post-card-action-item" id="comment-{{post.id_post}}" onclick="toggle_comment('post-comment-{{post.id_post}}')" >
-                            <span class="action-text">
-                              <span class="count-badge" id="commentcount-{{post.id_post}}" >{{post.comment_set.all.count}} </span>
-                              <i class="fa-regular fa-comment  mx-2 icon-r icon-hover-color"></i> COMMENT
-                            </span>
-                          </div>
-                            <p id="copylink-{{post.id_post}}" style="display:none;" >{{full_url}}?post_id={{post.id_post}}</p>
-                          <div class="post-card-action-item " id="share-{{post.id_post}}" >
-
-                                    <div class="action-text action-share">
-                                        <span class="count-badge " id="shareCount-{{post.id_post}}" >{{post.total_shares}}</span>
-                                        <i class="fa-solid fa-share-from-square  mx-2 pointer icon-hover-color"> </i> SHARE
-                                <div class="action-share-frame">
-                                <div class="copy-link-item"><a onclick="copyURI(event,'{{post.id_post}}')" href="javascript:void(0);"><i class="fa-solid fa-link pointer"></i> Copy Link</a></div>
-
-                              </div>
-                            </div>
-
-                          </div>
-                          <div class="post-card-action-item " id="connects-{{post.id_post}}" onclick="toggle_connect('{{post.user.id}}','{{post.id_post}}')" >
-                            <span class="action-text">
-                              <span class="count-badge" id="connectsCount-{{post.id_post}}" >{{post.friend_count}}</span>
-                              <i class="fa-solid fa-people-arrows  mx-2 pointer icon-hover-color"></i> CONNECT
-                            </span>
-                          </div> 
-                        </div>
-                        <!-- End Post Action -->
-                        
-                        <input type="text" name="comment" class="form-control" onkeypress="post_comment(event,'{{post.id_post}}')" placeholder="what do you thing about this ... Press enter to add your comments">
-                      </div>
-
-                      <div class="card-footer d-none" id="post-comment-{{post.id_post}}" >
-                          <p class="h6 my-3">Comments</p>
-                          {% for comment in post.get_all_comments %}
-                              <div class="row" id="comment-{{comment.id_post_comment}}" >
-                                <div class="d-flex flex-row my-1">
-                                    <div class="text-center ml-5">
-                                        <img src="{{comment.user.profile.get_profile_url}}" class="rounded ml-5" alt="..." width="50" height="50" onerror="this.src='/media/images/default/profile.png'" >
-                                      </div>
-                                      <div>
-                                        <div class="">
-                                        <p  class="mx-3 my-0 text-post-account-comment text-bold">{{comment.user}}</p >
-                                            <p  class="mx-3 my-2 text-post-comment"><span id="commenttxt-{{comment.id_post_comment}}" >{{comment.comment}}</span>
-                                                {% if user.is_authenticated %} {% if user.id == comment.user.id %}
-                                                <button class="deleteupdatebutton"  onclick="delete_comment('{{comment.id_post_comment}}','{{post.id_post}}')" >Delete?</button>
-                                                <button class="deleteupdatebutton" onclick="editshow('{{comment.id_post_comment}}')" >Edit?</button>
-
-                                                <input class="editcommetfield" style="display:none;" type="text" id="{{comment.id_post_comment}}" name="comment" class="form-control editboxhide" value="{{comment.comment}}" onkeypress="edit_comment(event,'{{comment.id_post_comment}}','{{post.id_post}}')" placeholder="press enter to Save Comment">
-                                                </p>
-                                                {% endif %} {% endif %}
-                                    </div>
-                                </div>
-                                    </div>
-                            </div>
-                              
-                              {% empty %}
-                              <p  class="mx-3 my-2 text-center text-post-comment"></p >
-                          {% endfor %}
-                      </div>
-                  </div>
-                  <!-- End Post -->
-
-
-                {% endfor %}
-                </div>
-            </div>
             <!-- End Post Lists -->
 
 
