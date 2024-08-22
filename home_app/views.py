@@ -24,19 +24,22 @@ from django.contrib import messages
 def index(request):
     if request.method == 'GET':
         if 'post_edit' in request.GET:
-            return render(request, 'home_app/post_edit.html', { 'post_id': request.GET['post_edit']})
+            return render(request, 'home_app/post_edit.html',
+                          {'post_id': request.GET['post_edit']})
 
     elif request.method == 'POST':
         if 'post_id' in request.POST:
-            #form = UserPostForm(request.POST)
             post = get_object_or_404(Post, id_post=request.POST['post_id'])
             if 'title' in request.POST:
-                #post_instance = form.save(commit=False)
                 post.title = request.POST['title']
                 post.save()
                 images = request.FILES.getlist('images')
-                if images is not None:
-                    gallery = Gallery.objects.filter(post=post).delete()
+                total_files_submitted = 0
+                for file in images:
+                    total_files_submitted += 1
+
+                if total_files_submitted > 0:
+                    Gallery.objects.filter(post=post).delete()
                     for image in images:
                         Gallery.objects.create(post=post, image=image)
 
@@ -50,7 +53,7 @@ def index(request):
                 for image in images:
                     Gallery.objects.create(post=post_instance, image=image)
 
-        posts = Post.get_list_approve().annotate(
+        posts = Post.get_list_approve().order_by('-created_on').annotate(
             friend_count=Count('user__Friend_user')
         )
 
@@ -61,11 +64,11 @@ def index(request):
         if 'post_id' in request.GET:
             posts = Post.get_list_approve().filter(
                 id_post=request.GET['post_id']
-            ).annotate(
+            ).order_by('-created_on').annotate(
                 friend_count=Count('user__Friend_user')
             )
         else:
-            posts = Post.get_list_approve().annotate(
+            posts = Post.get_list_approve().order_by('-created_on').annotate(
                 friend_count=Count('user__Friend_user')
             )
 
@@ -285,6 +288,7 @@ def api_delete_comment(request, comment_id):
     return JsonResponse({
         'success': False, 'message': 'Invalid request method.'})
 
+
 def api_delete_post(request, post_id):
     if request.method == 'POST':
         post_id = request.POST.get('post_id')
@@ -310,6 +314,7 @@ def api_delete_post(request, post_id):
 
     return JsonResponse({
         'success': False, 'message': 'Invalid request method.'})
+
 
 def api_add_comment(request, post_id):
     if request.method == 'POST':
