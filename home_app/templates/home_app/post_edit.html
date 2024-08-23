@@ -104,21 +104,65 @@
           
         <div class="col-12 col-md-8">
             <!-- Form Post -->
-            <div id="form-post" class="card p-4">
-                <div class="form-post-header d-flex flex-row align-items-center mb-3 ">
-                  <div class="text-center">
-                    {% if request.user.profile.profile_img is not None %}
-                    <img src="{{request.user.profile.get_profile_url}}" id="profile_img" class="rounded" alt="..." width='60' height='60'  onerror="this.src='/media/images/default/profile.png'"/>
-                    {% else %}
-                    <img src=".." class="rounded" id="profile_img" alt="human shadow image" width='60' height='60'  onerror="this.src='/media/images/default/profile.png'"/>
-                    {% endif %}
-                  </div>
-                  <div>
-                      <div class="">
-                        <span  class="mx-3 fs-18">{{request.user.profile.get_full_name}}</span >
+          <div class="row">
+              <div class="col-12">
+                {% for post in posts %}
+
+                  <!-- Post -->
+                  <div id="delete_post-{{post.id_post}}" class="post-card card">
+
+                      <!-- Post Header -->
+                      <div class="post-card-header">
+                          <div class="d-flex flex-row align-items-center">
+                            <div class="text-center">
+                              <img src="{{post.user.profile.get_profile_url}}" class="rounded-5" alt="..." width=60 height=60 onerror="this.src='/media/images/default/profile.png'" />
+                            </div>
+                            <div class="">
+                              <span  class="mx-3 fs-20 fw-700">{{post.user.profile.get_full_name}}</span >
+                            </div>
+
+
+                          </div>
                       </div>
+                      <!-- End Post Header -->
+
+                      <div class="post-card-info">
+                        <div class="post-card-title">{{post.title}}</div>
+                        <!-- <p class="post-card-excerpt">{{post.excerpt}}</p> -->
+                      </div>
+
+                      <!-- Post Image -->
+                      {% if post.featured_image.url is not None %}
+                        <img  class="card-img-top" alt="image from user" src="{{post.featured_image.url}}"  >home_app
+                      {% else %}
+                      <div id="carouselExampleControls-{{post.id_post}}" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                          {% for gallery in post.gallery_set.all %}
+                            <div class="carousel-item active">
+                              <img src="{{gallery.image.url}}" class="d-block w-100 rounded" alt="..." height=500 style="object-fit:cover;border-radius: 0px !important;" />
+                            </div>
+                          {% endfor %}
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls-{{post.id_post}}" data-bs-slide="prev">
+                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                          <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls-{{post.id_post}}" data-bs-slide="next">
+                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                          <span class="visually-hidden">Next</span>
+                        </button>
+                      </div>
+                      {% endif %}
+                      <!-- End Post Image -->
+
                   </div>
+                  <!-- End Post -->
+
+                {% endfor %}
                 </div>
+            </div>
+
+          <div id="form-post" class="card p-4">
                 {{form.errors}}
 
                 <form method="post"  enctype="multipart/form-data">
@@ -126,7 +170,9 @@
 
                   <input type="hidden" name="post_id" value="{{post_id}}">
                   <div class="input-group mb-3">
-                    <input type="text" class="form-control" name="title" placeholder="Write something" aria-label="Write something" aria-describedby="button-addon2">
+                    {% for post in posts %}
+                    <input type="text" value="{{post.title}}" class="form-control" name="title" placeholder="Write something" aria-label="Write something" aria-describedby="button-addon2">
+                    {% endfor %}
                   </div>
                   <div class="mb-3">
                     <input class="form-control" type="file" id="formFileMultiple" name="images" multiple>

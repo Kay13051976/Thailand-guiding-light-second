@@ -534,6 +534,12 @@ form button {
     }
 }
 
+
+
+
+
+
+
 .modal {
     display: none;
     position: fixed;
@@ -573,4 +579,20 @@ form button {
 
 .modal-button.cancel {
     background-color: #dc3545;
+}
+
+.deleteupdatebutton{
+background: none!important;
+  border: none;
+  padding: 0!important;
+  /*optional*/
+  font-family: arial, sans-serif;
+  /*input has OS specific font-family*/
+  color: #069;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.editcommetfield{
+width:400px;
 }

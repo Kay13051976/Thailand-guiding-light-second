@@ -218,13 +218,14 @@
                           <div class="post-card-action-item action-share" id="share-{{post.id_post}}" >
 
                                     <span class="action-text ">
-                                        <span class="count-badge" id="shareCount-{{post.id_post}}" >{{post.total_shares}}</span>
-                                        <i class="fa-solid fa-share-from-square  mx-2 pointer icon-hover-color"> </i> SHARE
-                                <div class="action-share-frame">
+                                        <span class="count-badge " id="shareCount-{{post.id_post}}" >{{post.total_shares}}</span>
+                                        <i class="fa-solid fa-share-from-square  mx-2 pointer icon-hover-color "> </i> SHARE
+<div class="action-share-frame">
                                 <div class="copy-link-item"><a onclick="copyURI(event,'{{post.id_post}}')" href="javascript:void(0);"><i class="fa-solid fa-link pointer"></i> Copy Link</a></div>
 
                               </div>
                             </span>
+
                           </div>
                             <p id="copylink-{{post.id_post}}" style="display:none;" >{{full_url}}?post_id={{post.id_post}}</p>
                           <div class="post-card-action-item " id="connects-{{post.id_post}}" onclick="toggle_connect('{{post.user.id}}','{{post.id_post}}')" >
@@ -239,8 +240,10 @@
                         <input type="text" name="comment" class="form-control" onkeypress="post_comment(event,'{{post.id_post}}')" placeholder="what do you thing about this ... Press enter to add your comments">
                       </div>
 
-                      <div class="card-footer d-none" id="post-comment-{{post.id_post}}" >
-                          <p class="h6 my-3">Comments</p>
+                      <p  class="h6 my-3 d-none " id="post-commentp-{{post.id_post}}" >Comments</p>
+
+                      <div class="card-footer d-none border-0" id="post-comment-{{post.id_post}}" >
+
                           {% for comment in post.get_all_comments %}
                               <div class="row" id="comment-{{comment.id_post_comment}}" >
                                 <div class="d-flex flex-row my-1">
@@ -255,7 +258,7 @@
                                                 <button class="deleteupdatebutton"  onclick="delete_comment('{{comment.id_post_comment}}','{{post.id_post}}')" >Delete?</button>
                                                 <button class="deleteupdatebutton" onclick="editshow('{{comment.id_post_comment}}')" >Edit?</button>
 
-                                                <input class="editcommetfield" style="display:none;" type="text" id="{{comment.id_post_comment}}" name="comment" class="form-control editboxhide" value="{{comment.comment}}" onkeypress="edit_comment(event,'{{comment.id_post_comment}}','{{post.id_post}}')" placeholder="press enter to Save Comment">
+                                                <input class="form-control editcommetfield" style="display:none;" type="text" id="{{comment.id_post_comment}}" name="comment" class="form-control editboxhide" value="{{comment.comment}}" onkeypress="edit_comment(event,'{{comment.id_post_comment}}','{{post.id_post}}')" placeholder="press enter to Save Comment">
                                                 </p>
                                                 {% endif %} {% endif %}
                                     </div>
@@ -400,11 +403,6 @@ function delete_post(post_id){
         var confirmYesBtn = document.getElementById("confirmYes");
         var confirmNoBtn = document.getElementById("confirmNo");
 
-        // When the user clicks the button, open the modal
-        //btn.onclick = function() {
-
-        //}
-
 // When the user clicks on No, close the modal and cancel
         confirmNoBtn.onclick = function() {
             modal.style.display = "none";
@@ -427,6 +425,7 @@ function delete_post(post_id){
                         // Add HTML
                         var x = document.getElementById("delete_post-"+post_id);
                             x.style.display = "none";
+                        alert('Post deleted successfully!');
 
                     }
                 },
@@ -496,44 +495,8 @@ if (event.key === 'Enter') {
 
 
                         var profileImgSrc = $('#profile_img').attr('src');
-                        var commentHtml = `
-                            <div class="row"  id="comment-{{comment.id_post_comment}}"  >
-                                <div class="d-flex flex-row my-1">
-                                    <div class="text-center ml-5">
-                                        <img src="${profileImgSrc}" class="rounded ml-5" alt="..." width=50 height=50>
-                                    </div>
-                                    <div>
-                                        <div class="">
-                                            <p  class="mx-3 my-0 text-post-account-comment">${data.comment.user}</p>
-                                            <p  class="mx-3 my-2 text-post-comment">${data.comment.comment}
-                                            {% if user.is_authenticated %} {% if user.id == comment.user.id %}
-                                                <a href="{% url 'index' %}?delete_id={{comment.id_post_comment}}" >Delete?</a>
-                                                <button style="background: none!important;
-  border: none;
-  padding: 0!important;
-  /*optional*/
-  font-family: arial, sans-serif;
-  /*input has OS specific font-family*/
-  color: #069;
-  text-decoration: underline;
-  cursor: pointer;" href="" onclick="editshow('{{comment.id_post_comment}}')" >Edit?</button>
 
-                                                <input style="display:none;" type="text" id="{{comment.id_post_comment}}" name="comment" class="form-control editboxhide" value="{{comment.comment}}" onkeypress="edit_comment(event,'{{comment.id_post_comment}}','{{post.id_post}}')" placeholder="what do you thing about this ... Press enter to add your comments">
-                                                </p>
-                                                {% endif %} {% endif %}
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <hr/>
-                        `;
-                        // Add HTML
-                        //$('#post-comment-' + post_id).append(commentHtml);
 
-                        // Delete text in textbox
-                        //$(event.target).val('');
-
-                        //$('#comment-' + post_id).html(data.comment_count + '  <i class="fa-regular fa-comment  mx-2">');
                     }
                 },
                 error: function() {
@@ -574,24 +537,8 @@ if (event.key === 'Enter') {
                                             <p  class="mx-3 my-2 text-post-comment"><span id="commenttxt-${data.comment.id_post_comment}" >${data.comment.comment}</span>
 
 
-                                                <button style="background: none!important;
-  border: none;
-  padding: 0!important;
-  /*optional*/
-  font-family: arial, sans-serif;
-  /*input has OS specific font-family*/
-  color: #069;
-  text-decoration: underline;
-  cursor: pointer;" onclick="delete_comment('${data.comment.id_post_comment}','${post_id}')" >Delete?</button>
-                                                <button style="background: none!important;
-  border: none;
-  padding: 0!important;
-  /*optional*/
-  font-family: arial, sans-serif;
-  /*input has OS specific font-family*/
-  color: #069;
-  text-decoration: underline;
-  cursor: pointer;" href="" onclick="editshow('${data.comment.id_post_comment}')" >Edit?</button>
+                                                <button class="deleteupdatebutton"  onclick="delete_comment('${data.comment.id_post_comment}','${post_id}')" >Delete?</button>
+                                                <button class="deleteupdatebutton"  onclick="editshow('${data.comment.id_post_comment}')" >Edit?</button>
 
                                                 <input style="display:none;" type="text" id="${data.comment.id_post_comment}" name="comment" class="form-control editboxhide" value="${data.comment.comment}" onkeypress="edit_comment(event,'${data.comment.id_post_comment}','${post_id}')" placeholder="Press enter to save comment">
                                                 </p>
@@ -603,7 +550,7 @@ if (event.key === 'Enter') {
 
                         `;
                         // Add HTML
-                        $('#post-comment-' + post_id).append(commentHtml);
+                        $('#post-comment-' + post_id).prepend(commentHtml);
 
                         // Delete text in textbox
                         $(event.target).val('');

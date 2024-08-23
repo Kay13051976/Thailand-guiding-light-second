@@ -24,8 +24,14 @@ from django.contrib import messages
 def index(request):
     if request.method == 'GET':
         if 'post_edit' in request.GET:
+            posts = Post.get_list_approve().filter(
+                id_post=request.GET['post_edit']
+            ).order_by('-created_on').annotate(
+                friend_count=Count('user__Friend_user')
+            )
             return render(request, 'home_app/post_edit.html',
-                          {'post_id': request.GET['post_edit']})
+                          {'posts': posts,
+                           'post_id': request.GET['post_edit']})
 
     elif request.method == 'POST':
         if 'post_id' in request.POST:
