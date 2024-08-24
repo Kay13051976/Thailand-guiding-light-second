@@ -142,7 +142,6 @@ class Gallery(models.Model):
     active = models.BooleanField(default=True)
     date = models.DateTimeField(auto_now_add=True)
 
-
     def __str__(self):
         return str(self.post)
 
@@ -235,6 +234,7 @@ class Popular(models.Model):
     def __str__(self):
         return self.name
 
+
 class Share(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='shares', verbose_name="User", help_text="The user who shared this content")
     content = models.TextField(help_text="Content of the share")
@@ -242,7 +242,7 @@ class Share(models.Model):
     updated_at = models.DateTimeField(auto_now=True, help_text="Date and time the content was last updated")
     likes = models.ManyToManyField(User, related_name='liked_shares', blank=True, help_text="Users who liked the share")
     share_count = models.PositiveIntegerField(default=0, help_text="Number of times this content has been shared")
-    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="shared_posts", null=True )
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="shared_posts", null=True)
     id_share = models.UUIDField(primary_key=True, default=uuid.uuid4)
 
     def __str__(self):
