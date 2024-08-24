@@ -95,7 +95,7 @@ class Post(models.Model):
         return Post.objects.filter(admin_approved=True)
 
     def get_all_comments(self):
-        return self.comment_set.all()
+        return self.comment_set.all().order_by('-date')
 
     def get_users_liked(self):
         return self.likes.all()
@@ -138,9 +138,10 @@ class Gallery(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
     image = models.ImageField(
         "image", upload_to='images', height_field=None,
-        width_field=None, max_length=None)
+        width_field=None, max_length=None, default=uuid.uuid4)
     active = models.BooleanField(default=True)
     date = models.DateTimeField(auto_now_add=True)
+
 
     def __str__(self):
         return str(self.post)
@@ -178,6 +179,11 @@ class Friend(models.Model):
 
     def __str__(self):
         return str(self.post)
+
+    @classmethod
+    def unfriend(cls, user, friend):
+        cls.objects.filter(user=user, friend=friend).delete()
+        cls.objects.filter(user=friend, friend=user).delete()
 
     class Meta:
         verbose_name_plural = 'Friend'

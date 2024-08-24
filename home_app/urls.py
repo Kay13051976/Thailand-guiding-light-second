@@ -1,6 +1,6 @@
 from . import views
 from django.urls import path
-from .views import popular, index, account, api_toggle_like, api_add_comment, api_edit_comment, api_delete_comment,api_toggle_connect,friend_request_list,api_toggle_share, api_delete_post
+from .views import popular, index, account, api_toggle_like, api_add_comment, api_edit_comment, api_delete_comment,api_toggle_connect, friend_request_list, api_toggle_share, api_delete_post
 
 
 urlpatterns = [

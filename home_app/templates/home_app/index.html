@@ -283,7 +283,6 @@
         </div>
     </div>
 
-<button id="openModalBtn">Show Confirm Dialog</button>
 
     <div id="confirmModal" class="modal">
         <div class="modal-content">
@@ -336,7 +335,7 @@ function copyURI(evt, post_id ) {
 }
 
 function toggle_connect(user_id,id_post) {
-        var csrftoken = Cookies.get('csrftoken');
+        const csrftoken = Cookies.get('csrftoken');
         $.ajaxSetup({
             headers: {
                 'X-CSRFToken': csrftoken
@@ -347,7 +346,16 @@ function toggle_connect(user_id,id_post) {
             type: 'POST',
             url: `/api/toggle-connect/${user_id}/`,
             success: function(data) {
+
+            if(data.connected){
             alert('Friend Request Sent!');
+            }else{
+
+            alert('Friend Request already Sent or you are already friends of each other!');
+
+            }
+
+
             },
             error: function() {
                 alert('Connect fail');
@@ -360,7 +368,7 @@ function toggle_connect(user_id,id_post) {
       }
 
       function toggle_like(id_post) {
-        var csrftoken = Cookies.get('csrftoken');
+        const csrftoken = Cookies.get('csrftoken');
 
 
         $.ajaxSetup({
@@ -383,7 +391,7 @@ function toggle_connect(user_id,id_post) {
 
 function editshow( comment_id ){
 
-var x = document.getElementById(comment_id);
+const x = document.getElementById(comment_id);
 if (x.style.display === "none") {
     x.style.display = "block";
   }else {
@@ -394,14 +402,14 @@ if (x.style.display === "none") {
 function delete_post(post_id){
 
 // Get the modal
-        var modal = document.getElementById("confirmModal");
+        const modal = document.getElementById("confirmModal");
         modal.style.display = "block";
         // Get the button that opens the modal
-        var btn = document.getElementById("openModalBtn");
+        //const btn = document.getElementById("openModalBtn");
 
         // Get the buttons inside the modal
-        var confirmYesBtn = document.getElementById("confirmYes");
-        var confirmNoBtn = document.getElementById("confirmNo");
+        const confirmYesBtn = document.getElementById("confirmYes");
+        const confirmNoBtn = document.getElementById("confirmNo");
 
 // When the user clicks on No, close the modal and cancel
         confirmNoBtn.onclick = function() {
@@ -423,7 +431,7 @@ function delete_post(post_id){
                 success: function (data) {
                     if (data.success) {
                         // Add HTML
-                        var x = document.getElementById("delete_post-"+post_id);
+                        const x = document.getElementById("delete_post-"+post_id);
                             x.style.display = "none";
                         alert('Post deleted successfully!');
 
@@ -438,10 +446,8 @@ function delete_post(post_id){
 
 function delete_comment(comment_id , post_id){
 
-//if (event.key === 'Enter') {
+
             console.log("delete comment")
-  //          event.preventDefault();
-    //        var comment_text = $(event.target).val();
 
             $.ajax({
                 type: 'POST',
@@ -453,7 +459,7 @@ function delete_comment(comment_id , post_id){
                 success: function (data) {
                     if (data.success) {
                         // Add HTML
-                        var x = document.getElementById("comment-"+comment_id);
+                        const x = document.getElementById("comment-"+comment_id);
                             x.style.display = "none";
 
                         $('#commentcount-' + post_id).html(data.comment_count );
@@ -472,7 +478,7 @@ function edit_comment(event,comment_id,post_id){
 if (event.key === 'Enter') {
             console.log("post comment")
             event.preventDefault();
-            var comment_text = $(event.target).val();
+            const comment_text = $(event.target).val();
 
             $.ajax({
                 type: 'POST',
@@ -485,18 +491,12 @@ if (event.key === 'Enter') {
                 success: function (data) {
                     if (data.success) {
                         // Add HTML
-                        //var x = document.getElementById("comment-"+comment_id);
-                            //x.style.display = "none";
-                        var x = document.getElementById("commenttxt-"+comment_id);
-                        var xbox = document.getElementById(comment_id);
+                        const x = document.getElementById("commenttxt-"+comment_id);
+                        const xbox = document.getElementById(comment_id);
                         x.innerText= comment_text;
                         xbox.value= comment_text;
                         xbox.style.display = "none";
-
-
-                        var profileImgSrc = $('#profile_img').attr('src');
-
-
+                        const profileImgSrc = $('#profile_img').attr('src');
                     }
                 },
                 error: function() {
@@ -512,7 +512,7 @@ if (event.key === 'Enter') {
         if (event.key === 'Enter') {
             console.log("post comment")
             event.preventDefault();
-            var comment_text = $(event.target).val();
+            const comment_text = $(event.target).val();
 
             $.ajax({
                 type: 'POST',
@@ -524,8 +524,8 @@ if (event.key === 'Enter') {
                 success: function (data) {
                     if (data.success) {
                         // Add HTML
-                        var profileImgSrc = $('#profile_img').attr('src');
-                        var commentHtml = `
+                        const profileImgSrc = $('#profile_img').attr('src');
+                        const commentHtml = `
                             <div class="row" id="comment-${data.comment.id_post_comment}" >
                                 <div class="d-flex flex-row my-1">
                                     <div class="text-center ml-5">

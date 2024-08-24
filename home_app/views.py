@@ -33,6 +33,19 @@ def index(request):
                           {'posts': posts,
                            'post_id': request.GET['post_edit']})
 
+        if 'photo_id' in request.GET:
+            Gallery.objects.filter(post=request.GET['post_id'],
+                                   image=request.GET['photo_id']).delete()
+            posts = Post.get_list_approve().filter(
+                id_post=request.GET['post_id']
+            ).order_by('-created_on').annotate(
+                friend_count=Count('user__Friend_user')
+            )
+
+            return render(request, 'home_app/post_edit.html',
+                          {'posts': posts,
+                           'post_id': request.GET['post_id']})
+
     elif request.method == 'POST':
         if 'post_id' in request.POST:
             post = get_object_or_404(Post, id_post=request.POST['post_id'])
@@ -45,9 +58,20 @@ def index(request):
                     total_files_submitted += 1
 
                 if total_files_submitted > 0:
-                    Gallery.objects.filter(post=post).delete()
+                    # Gallery.objects.filter(post=post).delete()
                     for image in images:
                         Gallery.objects.create(post=post, image=image)
+
+            posts = Post.get_list_approve().filter(
+                id_post=request.POST['post_id']
+            ).order_by('-created_on').annotate(
+                friend_count=Count('user__Friend_user')
+            )
+
+            return render(request,
+                          'home_app/post_edit.html',
+                          {'posts': posts,
+                           'post_id': request.POST['post_id']})
 
         else:
             form = UserPostForm(request.POST)
@@ -137,6 +161,8 @@ def api_toggle_connect(request, user_id):
         )
         friendRequest.save()
         connected = True
+    elif request.user.id == user_id:
+        connected = False
     else:
         connected = False
 
@@ -198,6 +224,13 @@ def friend_request_list(request):
 
             messages.success(request, 'Friend Request Canceled successfully!')
             return redirect('connection')
+
+        if 'friend_id' in request.GET:
+            friend = get_object_or_404(User, id=request.GET['friend_id'])
+            user = request.user
+            Friend.unfriend(user, friend)
+            FriendRequest.objects.filter(user=user, friend=friend).delete()
+            FriendRequest.objects.filter(user=friend, friend=user).delete()
 
     friendRequest = FriendRequest.objects.filter(
         user=request.user

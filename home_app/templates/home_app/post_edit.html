@@ -127,7 +127,7 @@
                       <!-- End Post Header -->
 
                       <div class="post-card-info">
-                        <div class="post-card-title">{{post.title}}</div>
+                        <div class="post-card-title"><b>Post title: </b>{{post.title}}</div>
                         <!-- <p class="post-card-excerpt">{{post.excerpt}}</p> -->
                       </div>
 
@@ -138,7 +138,11 @@
                       <div id="carouselExampleControls-{{post.id_post}}" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-inner">
                           {% for gallery in post.gallery_set.all %}
+
+
                             <div class="carousel-item active">
+<a class="imagedelete" href="/?photo_id={{gallery.image}}&post_id={{post.id_post}}"  >Delete Photo?</a>
+                          <br/>
                               <img src="{{gallery.image.url}}" class="d-block w-100 rounded" alt="..." height=500 style="object-fit:cover;border-radius: 0px !important;" />
                             </div>
                           {% endfor %}
