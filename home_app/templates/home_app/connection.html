@@ -1,7 +1,9 @@
 {% extends "base.html" %}
 {% load crispy_forms_tags %}
 {% block content %}
-
+<div class="row my-5">
+  <h1>Your Connection</h1>
+</div>
 <div class="container">
     <div class="row mt-5 pt-5 pb-5">
         {% for message in messages %}
@@ -15,7 +17,7 @@
 
             <div class="card">
                 <div class="card-body">
-                    <h3>Friends Requests Sent</h3>
+                    <h3>Connection Requests Sent</h3>
 
 <table class="table table-striped">
   <thead>
@@ -52,7 +54,7 @@
 
             <div class="card">
                 <div class="card-body">
-                    <h3>Friends Requests Received</h3>
+                    <h3>Connection Requests Received</h3>
 
 <table class="table table-striped">
   <thead>
@@ -91,7 +93,7 @@
 
             <div class="card">
                 <div class="card-body">
-                    <h3>Friend List</h3>
+                    <h3>Connection List</h3>
 
 <table class="table table-striped">
   <thead>
@@ -106,7 +108,7 @@
 {% for friend in Friend %}
     <tr>
       <th scope="row">{{friend.friend}}</th>
-        <td><a href="/connection?friend_id={{friend.friend.id}}">Unfriend</a>
+        <td><a href="/connection?friend_id={{friend.friend.id}}">Disconnect</a>
         </td>
     </tr>
 
