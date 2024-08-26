@@ -23,12 +23,7 @@ ul {
 .hover-color-ads:hover {
     background-color: #888888;
 }
-.comment-crud-btn,
-.profile-btn {
-    background-image: linear-gradient(to left, #FF8008 0%, #FFC837  51%, #FF8008  100%);
-    box-shadow: 0 0 20px #eee;
-    border-radius: 10px;
-}
+
 /* Footer style */
 .card-footer-get-in-touch-social-media-list {
     display: flex;
@@ -494,11 +489,12 @@ form button {
     min-height: 40px;
 }
 
-.action-ahare {
+.action-share {
     position: relative;
-    width: 130px;
+    /*width: 130px;*/
     height: auto;
     text-align: center;
+    padding-bottom:5px;
 }
 .action-share .action-share-frame {
     display: none;
@@ -521,14 +517,14 @@ form button {
 .action-share:hover .action-share-frame {
     display: block;
     position: absolute;
-    width: 120px;
+    width: 130px;
     top: 24px;
-    right: -30px;
+    right: 15px;
     padding: 15px;
     border: 1px solid #f5f5f5;
     box-shadow: 0px 4px 12px #e8e8e8;
     background: white;
-    text-align: left;
+    /*text-align: left;*/
     min-height: 40px;
 }
 @media (max-width: 430px) {
@@ -538,12 +534,6 @@ form button {
         right: 0px;
     }
 }
-
-
-
-
-
-
 
 .modal {
     display: none;
@@ -600,4 +590,13 @@ background: none!important;
 
 .editcommetfield{
 width:400px;
+}
+
+.imagedelete{
+pointer-events: auto; position: relative; z-index: 10;
+width:50px;height:50px; border:1px solid black; padding:10px;
+}
+
+.postimages{
+object-fit:cover;border-radius: 0px !important;
 }

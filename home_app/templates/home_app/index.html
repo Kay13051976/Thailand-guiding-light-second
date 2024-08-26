@@ -107,11 +107,8 @@
             <div id="form-post" class="card p-4">
                 <div class="form-post-header d-flex flex-row align-items-center mb-3 ">
                   <div class="text-center">
-                    {% if request.user.profile.profile_img is not None %}
-                    <img src="{{request.user.profile.get_profile_url}}" id="profile_img" class="rounded" alt="..." width='60' height='60'  onerror="this.src='/media/images/default/profile.png'"/>
-                    {% else %}
-                    <img src=".." class="rounded" id="profile_img" alt="human shadow image" width='60' height='60'  onerror="this.src='/media/images/default/profile.png'"/>
-                    {% endif %}
+                    <img src="{{request.user.profile.get_profile_url}}" class="rounded" id="profile_img" alt="human shadow image" width='60' height='60'  onerror="this.src='/media/images/default/profile.png'"/>
+
                   </div>
                   <div>
                       <div class="">
@@ -183,7 +180,7 @@
                         <div class="carousel-inner">
                           {% for gallery in post.gallery_set.all %}
                             <div class="carousel-item active">
-                              <img src="{{gallery.image.url}}" class="d-block w-100 rounded" alt="..." height=500 style="object-fit:cover;border-radius: 0px !important;" />
+                              <img src="{{gallery.image.url}}" class="d-block w-100 rounded postimages" alt="..." height=500  />
                             </div>
                           {% endfor %}
                         </div>
@@ -215,19 +212,23 @@
                             </span>
                           </div>
 
-                          <div class="post-card-action-item action-share" id="share-{{post.id_post}}" >
+                          <div class="post-card-action-item " id="share-{{post.id_post}}" >
 
-                                    <span class="action-text ">
+                                    <div  class="action-text ">
                                         <span class="count-badge " id="shareCount-{{post.id_post}}" >{{post.total_shares}}</span>
+                                    <div  class="action-share" >
+
                                         <i class="fa-solid fa-share-from-square  mx-2 pointer icon-hover-color "> </i> SHARE
+
 <div class="action-share-frame">
                                 <div class="copy-link-item"><a onclick="copyURI(event,'{{post.id_post}}')" href="javascript:void(0);"><i class="fa-solid fa-link pointer"></i> Copy Link</a></div>
 
                               </div>
-                            </span>
+                                        </div>
+                            </div>
 
                           </div>
-                            <p id="copylink-{{post.id_post}}" style="display:none;" >{{full_url}}?post_id={{post.id_post}}</p>
+                            <p id="copylink-{{post.id_post}}" class="d-none"  >{{full_url}}?post_id={{post.id_post}}</p>
                           <div class="post-card-action-item " id="connects-{{post.id_post}}" onclick="toggle_connect('{{post.user.id}}','{{post.id_post}}')" >
                             <span class="action-text">
                               <span class="count-badge" id="connectsCount-{{post.id_post}}" >{{post.friend_count}}</span>
@@ -258,7 +259,7 @@
                                                 <button class="deleteupdatebutton"  onclick="delete_comment('{{comment.id_post_comment}}','{{post.id_post}}')" >Delete?</button>
                                                 <button class="deleteupdatebutton" onclick="editshow('{{comment.id_post_comment}}')" >Edit?</button>
 
-                                                <input class="form-control editcommetfield" style="display:none;" type="text" id="{{comment.id_post_comment}}" name="comment" class="form-control editboxhide" value="{{comment.comment}}" onkeypress="edit_comment(event,'{{comment.id_post_comment}}','{{post.id_post}}')" placeholder="press enter to Save Comment">
+                                                <input class="form-control editcommetfield d-none form-control editboxhide" type="text" id="{{comment.id_post_comment}}" name="comment" value="{{comment.comment}}" onkeypress="edit_comment(event,'{{comment.id_post_comment}}','{{post.id_post}}')" placeholder="press enter to Save Comment">
                                                 </p>
                                                 {% endif %} {% endif %}
                                     </div>
@@ -540,7 +541,7 @@ if (event.key === 'Enter') {
                                                 <button class="deleteupdatebutton"  onclick="delete_comment('${data.comment.id_post_comment}','${post_id}')" >Delete?</button>
                                                 <button class="deleteupdatebutton"  onclick="editshow('${data.comment.id_post_comment}')" >Edit?</button>
 
-                                                <input style="display:none;" type="text" id="${data.comment.id_post_comment}" name="comment" class="form-control editboxhide" value="${data.comment.comment}" onkeypress="edit_comment(event,'${data.comment.id_post_comment}','${post_id}')" placeholder="Press enter to save comment">
+                                                <input class="d-none" type="text" id="${data.comment.id_post_comment}" name="comment" class="form-control editboxhide" value="${data.comment.comment}" onkeypress="edit_comment(event,'${data.comment.id_post_comment}','${post_id}')" placeholder="Press enter to save comment">
                                                 </p>
 
                                         </div>
