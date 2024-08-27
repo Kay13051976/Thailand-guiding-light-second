@@ -22,10 +22,12 @@ Deployed Website: Visit Thailand Guiding Light[ Link to website](https://thailan
 ## User Stories ## 
  ### As a first time user ###
 - Admin
-  - As an admin, I want to be able to manage approved user account settings, suspension, and delete.
-  - As an admin, I want to access detailed analytics on user engagement, content popularity, and platform performance to inform decision-making and improve user experience.
-  - As an admin, I want to receive automated alerts and notifications for critical events such as system outages, policy violations, or user-reported emergencies.
-  - As an admin, I want to track and investigate all the data like posts, comments, likes, and shares.
+  - As an admin, I need the ability to adjust user account settings, suspend accounts, or delete them as required.
+  - As an admin, I require a user-friendly interface on my admin homepage that allows for easy management of comments.
+  - As an admin, I require access to detailed analytics on user engagement, content popularity, and overall platform performance to guide decision-making and enhance the user experience.
+  - As an admin, I need to receive automated notifications for critical events, including system outages, policy violations, or user-reported emergencies, to ensure prompt response and management.
+  - As an admin, I want the capability to monitor and review all   
+  user-generated data such as posts, comments, likes, and shares for compliance and quality control.
 - First time user 
   - As a First Time Visitor, I want to quickly understand the app's primary purpose so that I can learn more about how to get benefit from this app.
   - As a First Time Visitor, I want to navigate through the app to find the content easily.
@@ -145,15 +147,13 @@ Deployed Website: Visit Thailand Guiding Light[ Link to website](https://thailan
  
 
  ## Future Development
-  - Chatbot: to communicate and information retrieval, Entertainment, Language learning, Customer support and Task Automation.
+- Chatbot: to communicate and information retrieval, Entertainment, Language learning, Customer support and Task Automation.
  - Group : joined or create group based on interests, hobbies, or affiliation to connect with like-minded people and discuss topics.
  - Page : similar to profiles but for business, organizations, public figures, and brands. Users can like/follow pages to receive updates.
  - Notifications : alert you to activity on your account, such as friend requests, comments, likes, and event invitations.
  - Privacy setting : control who can see you posts, friend list, profile information, and other personal data.
  - Ads : advertising platform allows business to create and target ads to specific demographics, interests, and behaviors.
- - Friend request : to add a friend(connector) to the user account, and the user can follow, chat, and block.
 - Reply comment: to reply to all the comments on the user post.
-- Sort bugs by converting Django HTML to HTML and validating the code in the validator.w3
  
 ## Technologies used
  
@@ -187,7 +187,7 @@ Deployed Website: Visit Thailand Guiding Light[ Link to website](https://thailan
  - [Lucidchart](https://www.lucidchart.com/pages/): was used to make a flowchart for the README file.
  - [Colors](https://coolors.co/): was used to make a colour palette for the website.
  - [W3C Validator](https://validator.w3.org/):was used to validate HTML5 code for the website.
- - [W3c CSS validator](https://jigsaw.w3.org/css-validator/): was used to validate CSS code for the website.
+ - [W3C CSS validator](https://jigsaw.w3.org/css-validator/): was used to validate CSS code for the website.
  - [JShint](): was used to validate JS code for the website.
  - [PEP8](https://pep8.org/): was used to validate Python code for the website.
  - [Privacy Policy Generator](https://www.privacypolicygenerator.info/): was used to create the privacy policy.
