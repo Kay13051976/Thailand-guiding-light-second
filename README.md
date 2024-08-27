@@ -198,15 +198,26 @@ Deployed Website: Visit Thailand Guiding Light[ Link to website](https://thailan
  Please refer to the [FEATURES.md](FEATURE.md)file for all test-related documentation.
  ## Design
  ### Color Scheme
-- ![advert hover color](documentation/advert-hover-color.png)
-- ![icon hover color](documentation/icon-hover-color1.png)
-- ![Logo background color](documentation/logo-background-color.png)
-- ![Card border color](documentation/card-border-color.png)
-- ![Body background color](documentation/body-background-color.png)
-- ![Typography color](documentation/typography-color.png)
-- ![Footer color](documentation/footer-color.png)
-- ![Footer background color](documentation/footer-background-color.png)
-- ![]()
+- Adver hover colour
+![advert hover color](documentation/advert-hover-color.png)
+- icon hover colour
+ ![icon hover color](documentation/icon-hover-color1.png)
+- Logo background color
+![Logo background color](documentation/logo-background-color.png)
+- Post button and submit button color: linear-gradient(to left, #FF8008 0%, #FFC837  51%, #FF8008  100%);
+- ![Button color](documentation/button-color.png)
+- Header and footer background color
+ ![Header footer backgruond color](documentation/header-footer-background-color.png)
+- Header content colour and paragraph colour
+![Header content color](documentation/header-content-color.png)
+- Body backgruon colour and conten colour
+![Body backgruond color](documentation/body-background-color1.png)
+- Post function background color
+![Post function backgruond color](documentation/post-function-background-color.png)
+- Sub header content colour
+![Sub header content color](documentation/sub-header-content-color.png)
+- Count badge colour
+![count badge color](documentation/count-badge-color.png)
 **color convertor use to pick color** 
   - [Color convertor](https://cssgenerator.org/rgba-and-hex-color-generator.html)
  ### Typography
