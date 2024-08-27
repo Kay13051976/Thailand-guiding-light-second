@@ -155,14 +155,15 @@ def api_toggle_connect(request, user_id):
     user = get_object_or_404(User, id=request.user.id)
     friend = get_object_or_404(User, id=user_id)
 
-    if not FriendRequest.objects.filter(user=user, friend=friend).exists():
-        friendRequest = FriendRequest.objects.create(
-            user=user, friend=friend, status="pending"
-        )
-        friendRequest.save()
-        connected = True
-    elif request.user.id == user_id:
+    if str(request.user.id) ==  str(user_id):
         connected = False
+    elif not FriendRequest.objects.filter(user=user, friend=friend).exists():
+        if not FriendRequest.objects.filter(user=friend, friend=user).exists():
+            friendRequest = FriendRequest.objects.create(
+            user=user, friend=friend, status="pending"
+            )
+            friendRequest.save()
+            connected = True
     else:
         connected = False
 
@@ -207,7 +208,7 @@ def friend_request_list(request):
             )
 
             # Ensure the request is for the current user
-            if friend_request.friend != request.user:
+            if friend_request.friend is not request.user:
                 return redirect('connection')
 
             # Update the status to 'accept'
