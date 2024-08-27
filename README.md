@@ -63,9 +63,9 @@ Deployed Website: Visit Thailand Guiding Light[ Link to website](https://thailan
 - Most popular place page
 ![Wire frame Laptop most popopular place page](documentation/wireframe-laptop-most-popular-place-page.png)
 
-- Full view home page
+- Profile page
 
-![Wire frame laptop full view home page](documentation/wireframe-laptop-full-page.png)
+![Wire frame laptop profile page](documentation/wireframe-laptop-profile-page.png)
 
 - About page
 

@@ -420,7 +420,7 @@ margin-left:-15px;
 }
 
 .footer-box ul li a:hover {
-color: #e74c3c;
+    color: #e74c3c;
 }
 .footer-box .social {
     display: flex;
