@@ -8,8 +8,11 @@
 
 
   ## About
-  Thailand Guiding Light is a social network media website allowing customers who love to travel to Thailand or live in Thailand to share their passion. They can also view, comment, like, share pictures, share external content, videos or literary posts, and connect and navigate to other social links or websites. It is a platform to sell Thailand travel packages online, promote Thailand tour businesses, and sell all tourist-relevant firms or products by navigating the user to their website. The user can create a network and improve communication to find people with similar interests online.
-  The website allows users and organizations to connect, communicate, and share information and relationships. People can connect with others in the same area or worldwide, families, friends, and those with the same interests. Also, eCommerce customers advertise and navigate the customer to their website. It has a login system. The website has a personal functionality that allows the admin and user to edit and manage their account. Deployed website:[ Link to website](https://thailand-guiding-light-2fb0b0e33db8.herokuapp.com/)
+  Thailand Guiding Light is a dynamic social networking site designed for enthusiasts of Thailand travel. Whether residing in or visiting Thailand, users can share their experiences through photos, videos, and posts, engage with content via likes and comments, and explore external links to other social sites or websites. The platform serves as a marketplace to promote and sell travel packages, boosting visibility for local tour businesses and other tourist-related services. Additionally, users can network with like-minded individuals globally or locally, enhancing communication and building relationships.
+
+The site supports eCommerce by allowing businesses to advertise and direct users to their websites. It features a comprehensive login system and personal account management tools that enable both users and administrators to edit and manage their profiles effectively.
+
+Deployed Website: Visit Thailand Guiding Light[ Link to website](https://thailand-guiding-light-2fb0b0e33db8.herokuapp.com/)
 ## UX  
   The website was created to be eye-catching and user-friendly. The user is given a simple procedure when they want to share their experience picture and videos. The emphasis is on the user experience. The user can navigate the website easily to fulfil the user's goal; the website is designed to be ready to use and easy to understand.
 
@@ -196,7 +199,7 @@
  ## Design
  ### Color Scheme
 - ![advert hover color](documentation/advert-hover-color.png)
-- ![icon hover color](documentation/icon-hover-color.png)
+- ![icon hover color](documentation/icon-hover-color1.png)
 - ![Logo background color](documentation/logo-background-color.png)
 - ![Card border color](documentation/card-border-color.png)
 - ![Body background color](documentation/body-background-color.png)
