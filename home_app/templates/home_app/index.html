@@ -199,40 +199,40 @@
                       <div class="post-card-body card-body p-0">
                         <!-- Post Action -->
                         <div class="post-card-action">
-                          <div class="post-card-action-item" id="like-{{post.id_post}}" onclick="toggle_like('{{post.id_post}}')">
+                          <div class="post-card-action-item mobilemargin" id="like-{{post.id_post}}" onclick="toggle_like('{{post.id_post}}')">
                             <span class="action-text">
                               <span class="count-badge" id="likeCount-{{post.id_post}}" >{{post.likes.count}} </span>
-                              <i class="fa-solid fa-heart icon-hover-color"></i> LIKE
+                                <i class="fa-solid fa-heart icon-hover-color tabwidth"></i> <span class="fontresposive" >LIKE</span>
                             </span>
                           </div> 
                           <div class="post-card-action-item" id="comment-{{post.id_post}}" onclick="toggle_comment('post-comment-{{post.id_post}}')" >
                             <span class="action-text">
                               <span class="count-badge" id="commentcount-{{post.id_post}}" >{{post.comment_set.all.count}} </span>
-                              <i class="fa-regular fa-comment  mx-2 icon-r icon-hover-color"></i> COMMENT
+                                <i class="fa-regular fa-comment icon-hover-color tabwidth"></i> <span class="fontresposive" >COMMENT</span>
                             </span>
                           </div>
 
                           <div class="post-card-action-item " id="share-{{post.id_post}}" >
 
-                                    <div  class="action-text ">
-                                        <span class="count-badge-share" id="shareCount-{{post.id_post}}" >{{post.total_shares}}</span>
-                                    <div  class="action-share" >
+                                    <span  class="action-text ">
+                                        <span class="count-badge" id="shareCount-{{post.id_post}}" >{{post.total_shares}}</span>
+                                    <span  class="action-share" >
 
-                                        <i class="fa-solid fa-share-from-square  mx-2 pointer icon-hover-color "> </i> SHARE
+                                        <i class="fa-solid fa-share-from-square pointer icon-hover-color tabwidth"> </i> <span class="fontresposive" >SHARE</span>
 
-<div class="action-share-frame">
-                                <div class="copy-link-item"><a onclick="copyURI(event,'{{post.id_post}}')" href="javascript:void(0);"><i class="fa-solid fa-link pointer"></i> Copy Link</a></div>
+<span class="action-share-frame">
+                                <span class="copy-link-item"><a onclick="copyURI(event,'{{post.id_post}}')" href="javascript:void(0);"><i class="fa-solid fa-link pointer"></i> Copy Link</a></span>
 
-                              </div>
-                                        </div>
-                            </div>
+                              </span>
+                                        </span>
+                            </span>
 
                           </div>
                             <p id="copylink-{{post.id_post}}" class="d-none"  >{{full_url}}?post_id={{post.id_post}}</p>
                           <div class="post-card-action-item " id="connects-{{post.id_post}}" onclick="toggle_connect('{{post.user.id}}','{{post.id_post}}')" >
                             <span class="action-text">
                               <span class="count-badge" id="connectsCount-{{post.id_post}}" >{{post.friend_count}}</span>
-                              <i class="fa-solid fa-people-arrows  mx-2 pointer icon-hover-color"></i> CONNECT
+                                <i class="fa-solid fa-people-arrows pointer icon-hover-color tabwidth"></i> <span class="fontresposive" >CONNECT</span>
                             </span>
                           </div> 
                         </div>
@@ -259,7 +259,7 @@
                                                 <button class="deleteupdatebutton"  onclick="delete_comment('{{comment.id_post_comment}}','{{post.id_post}}')" >Delete?</button>
                                                 <button class="deleteupdatebutton" onclick="editshow('{{comment.id_post_comment}}')" >Edit?</button>
 
-                                                <input class="form-control editcommetfield d-none form-control editboxhide" type="text" id="{{comment.id_post_comment}}" name="comment" value="{{comment.comment}}" onkeypress="edit_comment(event,'{{comment.id_post_comment}}','{{post.id_post}}')" placeholder="press enter to Save Comment">
+                                                <input class="form-control editcommetfield form-control editboxhide d-none" type="text" id="{{comment.id_post_comment}}" name="comment" value="{{comment.comment}}" onkeypress="edit_comment(event,'{{comment.id_post_comment}}','{{post.id_post}}')" placeholder="press enter to Save Comment">
                                                 </p>
                                                 {% endif %} {% endif %}
                                     </div>
@@ -393,11 +393,12 @@ function toggle_connect(user_id,id_post) {
 function editshow( comment_id ){
 
 const x = document.getElementById(comment_id);
-if (x.style.display === "none") {
-    x.style.display = "block";
-  }else {
-    x.style.display = "none";
-  }
+x.classList.toggle('d-none');
+//if (x.classList.contains("d-none")) {
+//    x.style.display = "block";
+//  }else {
+ //   x.style.display = "none";
+ // }
 }
 
 function delete_post(post_id){
@@ -541,7 +542,7 @@ if (event.key === 'Enter') {
                                                 <button class="deleteupdatebutton"  onclick="delete_comment('${data.comment.id_post_comment}','${post_id}')" >Delete?</button>
                                                 <button class="deleteupdatebutton"  onclick="editshow('${data.comment.id_post_comment}')" >Edit?</button>
 
-                                                <input class="d-none" type="text" id="${data.comment.id_post_comment}" name="comment" class="form-control editboxhide" value="${data.comment.comment}" onkeypress="edit_comment(event,'${data.comment.id_post_comment}','${post_id}')" placeholder="Press enter to save comment">
+                                                <input class="form-control editcommetfield form-control editboxhide d-none" type="text" id="${data.comment.id_post_comment}" name="comment" class="form-control editboxhide" value="${data.comment.comment}" onkeypress="edit_comment(event,'${data.comment.id_post_comment}','${post_id}')" placeholder="Press enter to save comment">
                                                 </p>
 
                                         </div>

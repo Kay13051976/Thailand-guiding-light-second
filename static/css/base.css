@@ -80,6 +80,10 @@ ul {
 /* Media Query */
 /* Mobile */
 @media (max-width: 991px) {
+.tabwidth{
+        /*width:85px;*/
+        }
+
     h1 {
         font-size: 30px;
     }
@@ -112,6 +116,10 @@ ul {
 
 /* Tablet */
 @media (max-width: 1024px) {
+
+.fontresposive{
+font-size:small;
+}
     .card-footer-get-in-touch-social-media-list {
         gap: 0.5em;
         flex-direction: column;
@@ -247,6 +255,15 @@ ul {
     font-weight: bold;
 }
 
+.allbtn {
+    background-image: linear-gradient(to left, #FF8008 0%, #FFC837  51%, #FF8008  100%);
+    color: white !important;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    font-weight: bold;
+    margin-bottom:1px;
+}
+
 .form-post-header {
     font-size: 22px;
     font-weight: 600;
@@ -353,13 +370,24 @@ form button {
 }
 
 @media (max-width: 430px) {
+
+.fontresposive{
+font-size:xx-small;
+}
+.mobilemargin{
+margin-left:-15px;
+}
+    .tabwidth{
+        width:auto;
+        }
+
     .post-card-action {
         padding: 15px 0px;
     }
 
     .post-card-action .post-card-action-item {
-        width: calc(100% / 2);
-        padding: 5px 0px;
+        /*width: calc(100% / 2);
+        padding: 5px 0px;*/
     }
 
     .post-card-action .post-card-action-item .action-text .count-badge {
@@ -471,7 +499,15 @@ form button {
     padding: 0px 20px;
 }
 
+
+
 @media (max-width: 768px) {
+        .tabwidth{
+        /*width:90px;*/
+        }
+.fontresposive{
+font-size:x-small;
+}
     .footer-content .footer-content-item {
         width: 100%;
         padding: 20px;
@@ -586,15 +622,20 @@ form button {
     position: absolute;
     width: 130px;
     top: 24px;
-    right: 15px;
+    right: -25px;
     padding: 15px;
     border: 1px solid #f5f5f5;
     box-shadow: 0px 4px 12px #e8e8e8;
     background: white;
     /*text-align: left;*/
     min-height: 40px;
+
 }
 @media (max-width: 430px) {
+
+    .tabwidth{
+        width:auto;
+        }
     .dot-menu:hover .dot-menu-frame {
     top: 35px;
     left: inherit;
