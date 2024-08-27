@@ -56,11 +56,12 @@ Deployed Website: Visit Thailand Guiding Light[ Link to website](https://thailan
  ### Laptop
 - Home page
 
-![Wire frame Laptop home page1](documentation/wireframe-laptop-home-page1.png)
+![Wire frame Laptop admin home page1](documentation/wireframe-laptop-admin-home-page.png)
 
-![Wire frame Laptop home page2](documentation/wireframe-laptop-home-page2.png)
+![Wire frame Laptop user home page](documentation/wireframe-laptop-user-home-page.png)
 
-![Wire frame Laptop home page3](documentation/wireframe-laptop-home-page3.png)
+- Most popular place page
+![Wire frame Laptop most popopular place page](documentation/wireframe-laptop-most-popular-place-page.png)
 
 - Full view home page
 
