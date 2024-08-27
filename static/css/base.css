@@ -322,6 +322,22 @@ form button {
     font-size: 11px;
     font-weight: bold;
 }
+.count-badge-share {
+    position: absolute;
+    top: -7px;
+    left: 147px;
+    min-width: 16px;
+    height: 16px;
+    border: 1px solid white;
+    background: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    border-radius: 5px;
+    font-size: 11px;
+    font-weight: bold;
+}
 
 .delete-update-button .edit-update-button {
     background: none!important;
@@ -349,6 +365,22 @@ form button {
     .post-card-action .post-card-action-item .action-text .count-badge {
         top: -5px;
         right: -15px;
+    }
+    .count-badge-share {
+        position: absolute;
+        top: -3px;
+        left: 139px;
+        min-width: 16px;
+        height: 16px;
+        border: 1px solid white;
+        background: red;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #ffffff;
+        border-radius: 5px;
+        font-size: 11px;
+        font-weight: bold;
     }
 
     .footer-content .footer-content-item {
@@ -448,6 +480,39 @@ form button {
     #footer-copyright {
         justify-content: flex-start;
     }
+
+    .count-badge-share {
+        position: absolute;
+        top: -3px;
+        left: 139px;
+        min-width: 16px;
+        height: 16px;
+        border: 1px solid white;
+        background: red;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #ffffff;
+        border-radius: 5px;
+        font-size: 11px;
+        font-weight: bold;
+    }
+    .count-badge {
+        position: absolute;
+        top: -10px;
+        right: -18px;
+        min-width: 16px;
+        height: 16px;
+        border: 1px solid white;
+        background: red;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #ffffff;
+        border-radius: 5px;
+        font-size: 11px;
+        font-weight: bold;
+    }
 }
 
 .dot-menu {
@@ -496,6 +561,8 @@ form button {
     text-align: center;
     padding-bottom:5px;
 }
+
+
 .action-share .action-share-frame {
     display: none;
 }
@@ -529,9 +596,9 @@ form button {
 }
 @media (max-width: 430px) {
     .dot-menu:hover .dot-menu-frame {
-        top: 35px;
-        left: inherit;
-        right: 0px;
+    top: 35px;
+    left: inherit;
+    right: 0px;
     }
 }
 
@@ -577,26 +644,26 @@ form button {
 }
 
 .deleteupdatebutton{
-background: none!important;
-  border: none;
-  padding: 0!important;
-  /*optional*/
-  font-family: arial, sans-serif;
-  /*input has OS specific font-family*/
-  color: #069;
-  text-decoration: underline;
-  cursor: pointer;
+    background: none!important;
+    border: none;
+    padding: 0!important;
+    /*optional*/
+    font-family: arial, sans-serif;
+    /*input has OS specific font-family*/
+    color: #069;
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 .editcommetfield{
-width:400px;
+    width:400px;
 }
 
 .imagedelete{
-pointer-events: auto; position: relative; z-index: 10;
-width:50px;height:50px; border:1px solid black; padding:10px;
+    pointer-events: auto; position: relative; z-index: 10;
+    width:50px;height:50px; border:1px solid black; padding:10px;
 }
 
 .postimages{
-object-fit:cover;border-radius: 0px !important;
+    object-fit:cover;border-radius: 0px !important;
 }
