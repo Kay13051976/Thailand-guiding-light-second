@@ -208,7 +208,7 @@ def friend_request_list(request):
             )
 
             # Ensure the request is for the current user
-            if friend_request.friend is not request.user:
+            if friend_request.friend is request.user:
                 return redirect('connection')
 
             # Update the status to 'accept'
