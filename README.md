@@ -218,6 +218,11 @@ Deployed Website: Visit Thailand Guiding Light[ Link to website](https://thailan
 ![Sub header content color](documentation/sub-header-content-color.png)
 - Count badge colour
 ![count badge color](documentation/count-badge-color.png)
+- Link paragraph colour
+![Link paragraph color](documentation/link-paragraph-color.png)
+- Paragraph colour
+![Paragraph color](documentation/paragraph-color.png)
+
 **color convertor use to pick color** 
   - [Color convertor](https://cssgenerator.org/rgba-and-hex-color-generator.html)
  ### Typography
