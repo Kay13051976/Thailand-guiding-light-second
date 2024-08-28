@@ -19,11 +19,7 @@
     - Search Bar: This interface element is designed to help users quickly and efficiently find specific information or items. It enhances the user experience by enabling easy access to relevant content (planned for future enhancement).
     - Welcome Message & Username Display: Displays a welcome message and the user's name to confirm that they are on their account page, enhancing the user experience.
 
-  | Welcone:User Name | Admin Site | Comment Management |
-  | ------- | --------- | ------- |
-  | Admin | Yes | Yes | Yes |
-  | New user | No | No | No | 
-  | User | Yes | No| No| 
+  
 
 ### Admin's left navbar section: which is visible for all admin:
     if the user is an admin 
@@ -33,8 +29,27 @@
 
     - Access to page table
 
+| Welcone:User Name | Admin Site | Comment Management |
+  | ------- | --------- | ------- |
+  | Admin | Yes | Yes | Yes |
+  | New user | No | No | No | 
+  | User | Yes | No| No| 
 
+  ### Left navbar section:
 
+   ![Use left navbar section](documentation/left-navbar-section.png)
+
+  - Your Profile Account button, which redirects the user to Your account page.
+  - Your Connection button, which redirects the user to the connection page.
+  - Chat button, which redirects the user to the popover chat box(Future improvement).
+  - Most Popular place button, which redirects the user to the most popular page.
+  - Travel Agent, which redirects the user to the travel agent's external link.
+  - Accommodations button, which redirects the user to the accommodation website page.
+  - Transport button, which redirects the user to the transport booking website.
+  - Thai Travel News, which redirects the user to the external link Thai Travel News.
+   - Logout button, which redirects the user to logout/signup page.
+
+    - Access to page table
 
   | user | Welcome:User Name | Home | Information | Admin site | Comment Management | Profile | Your Connection | Chat | Most Popular Place | Travel Agent | Accommodations | Transport | Thai Travel News | Logout |
   | --------- | ---- | ------- | ----- | ------ | ------- | -------- | ------- | ------ | ----- | ----- | ---- | ---- | ------ | -----|
@@ -43,37 +58,14 @@
   | User | Yes | Yes | Yes | No | No | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes |
 
  
-  ### Left navbar section:
-  - Your Account button, which redirects the user to Your account page.
-  - Your Connection button, which redirects the user to the connection page(Future Improvement).
-  - Chat button, which redirects the user to the popover chat box(Future improvement).
-  - Most Popular place button, which redirects the user to the most popular page.
-  - Travel Agent, which redirects the user to the travel agent's external link.
-  - Accommodations button, which redirects the user to the accommodation website page.
-  - Transport button, which redirects the user to the transport booking website.
-  - Thai Travel News, which redirects the user to the external link Thai Travel News.
-
-**The simplistic design of the Navbar is based on the decision to make the use of the web app easy for all users.**
-
-  - ![Left navbar section](documentation/left-nav.png)
-
-
-    - Access to page table
-
-      
-| Page Name | Your Account | Most Popular Page| Your Connection | Chat | Most Popular | Travel Agent | Accommodations | Transport | Thai Travel News | Comment | Logout |
-| --------- | ----------------- | ------------ | --------------- | ---- | ------------ | ------------ | -------------- | --------- | ---------------- | ------- |
-| Admin      | Yes               | Yes       | Dummy link       | Dummy link   | Yes | Yes | Yes | Yes | Yes |  Future improvement  |
-| New User      | Yes               | Yes       |         | Dummy link   | Yes | Yes | Yes | Yes | Yes |  Future improvement |
-| User      | Yes               | Yes       |         | Dummy link   | Yes | Yes | Yes | Yes | Yes |  Future improvement |
-
+**The navbar's simplistic design is intentionally crafted to ensure ease of use for all users of the web app.**
 
 ## Home page :
 - Admin Home Page
 ![Admin home page](documentation/home-page-image1.png)
 
 - User Home Page
-![User home page](documentation/home-page-user.png)
+![User home page](documentation/user-home-page.png)
 
 - New User Home Page
 ![New user home page](documentation/new-user-home-page.png)
