@@ -10,33 +10,37 @@
      
   ![Logo](documentation/logo-in-header.png)
 
-  - Header nav bar
-  ![Header user image](documentation/header-user-image.png)
+  - Header nav bar for user and admin
+  ![Header user image](documentation/header-laptop-image.png)
 
 
-    - Home button, which redirects the user to the home page
-    - The information button redirects the user to the Thailand tourism information website.
-    - Logout button, which redirects the user to the logout
-    - Access to page table
+    - Home button: which redirects the user to the home page
+    - The information button: redirects the user to the Thailand tourism information website.
+    - Search Bar: This interface element is designed to help users quickly and efficiently find specific information or items. It enhances the user experience by enabling easy access to relevant content (planned for future enhancement).
+    - Welcome Message & Username Display: Displays a welcome message and the user's name to confirm that they are on their account page, enhancing the user experience.
 
-  | User Name | Sign in | Sign up | Comment |
-  | ------- | --------- | ------- | ------- |
-  | New user | Yes | Yes | Yes | - |
-  | User | Yes | Yes | Yes | - |
+  | Welcone:User Name | Admin Site | Comment Management |
+  | ------- | --------- | ------- |
+  | Admin | Yes | Yes | Yes |
+  | New user | No | No | No | 
+  | User | Yes | No| No| 
 
-2. Admin's section, which is visible for all admin:
+### Admin's left navbar section: which is visible for all admin:
     if the user is an admin 
 
-   ![Header with admin site](documentation/header-admin-image.png)
+   ![Header with admin site](documentation/admin-left-section-image.png)
 
 
     - Access to page table
 
-  | User Name | Home | Information | Admin site | Comment CRUD | Logout | Comment |
-  | --------- | ---- | ----------- | ---------- | ------ | ------- | ------- |
-  | Admin | Yes | Yes | Yes | Yes | Yes | - |
-  | New User | Yes | Yes | No | Yes | No | - |
-  | User | Yes | Yes | No | Yes | No | - |
+
+
+
+  | user | Welcome:User Name | Home | Information | Admin site | Comment Management | Profile | Your Connection | Chat | Most Popular Place | Travel Agent | Accommodations | Transport | Thai Travel News | Logout |
+  | --------- | ---- | ------- | ----- | ------ | ------- | -------- | ------- | ------ | ----- | ----- | ---- | ---- | ------ | -----|
+  | Admin | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes |
+  | New User | No | Yes | Yes | No | No | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | 
+  | User | Yes | Yes | Yes | No | No | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes |
 
  
   ### Left navbar section:
@@ -55,8 +59,9 @@
 
 
     - Access to page table
+
       
-| Page Name | Your Account | Most Popular Page| Your Connection | Chat | Most Popular | Travel Agent | Accommodations | Transport | Thai Travel News | Comment |
+| Page Name | Your Account | Most Popular Page| Your Connection | Chat | Most Popular | Travel Agent | Accommodations | Transport | Thai Travel News | Comment | Logout |
 | --------- | ----------------- | ------------ | --------------- | ---- | ------------ | ------------ | -------------- | --------- | ---------------- | ------- |
 | Admin      | Yes               | Yes       | Dummy link       | Dummy link   | Yes | Yes | Yes | Yes | Yes |  Future improvement  |
 | New User      | Yes               | Yes       |         | Dummy link   | Yes | Yes | Yes | Yes | Yes |  Future improvement |
