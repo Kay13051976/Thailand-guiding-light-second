@@ -194,6 +194,7 @@ Deployed Website: Visit Thailand Guiding Light[ Link to website](https://thailan
  - [Privacy Policy Generator](https://www.privacypolicygenerator.info/): was used to create the privacy policy.
  - [Django-extensions](https://django-extensions.readthedocs.io/en/latest/): was used to create an Entity-Relationship Diagram.
  - [iStock by Getty Images](https://www.istockphoto.com/): was used to get background images and all the images for the website.
+ - [Code institute CI python linter ](https://pep8ci.herokuapp.com/): was use to validate the python code for the website.
 
  ## Features
  Please refer to the [FEATURES.md](FEATURE.md)file for all test-related documentation.
@@ -225,12 +226,17 @@ Deployed Website: Visit Thailand Guiding Light[ Link to website](https://thailan
 ![Paragraph color](documentation/paragraph-color.png)
 
 **color convertor use to pick color** 
-  - [Color convertor](https://cssgenerator.org/rgba-and-hex-color-generator.html)
+  - [Color convertor](https://cssgenerator.org/rgba-and-hex-color-generator.html): was use to conver the css color code.
+  - [Gradientbuttons colorion tool](https://gradientbuttons.colorion.co/): was use to pick the button background colour.
+  - [Colorcodefinder.com](https://colorcodefinder.com/hex-to-rgb?input=%230d6efd): was use to conver css color code.
+
  ### Typography
  The main font used in the application is Roboto, a bootstrap default. Roboto is straightforward and has perfect readability, is comfortable and frictionless, increase user experience
 **Bootstrap utilizes a "native font stack" or "system font stack"**
 - ![Bootstrap5 native font stack](documentation/typography-native-font-stack.png)
-- ![Roboto](documentation/typography-roboto.png)
+
+- ![Google fonts work sans](documentation/google-fonts-work-sants.png)
+- ![Google Font Roboto](documentation/google-fonts-roboto.png)
 
 ## Agile Methodology
 ### GitHub project management
