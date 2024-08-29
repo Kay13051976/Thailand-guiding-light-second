@@ -98,9 +98,8 @@ Comprises the Account Owner's Post Creation Section and the Post Display Section
   ![User account post section image](documentation/user-account-post-section.png)
 
 
-- Display post section
+- Display post section: Features a circular user image alongside the user's name and a three-dot vertical icon at the top. Below, a carousel displays multiple images. Underneath the carousel, there are four icons: a heart, a comment bubble, a share symbol, and a connect icon. Users can interact with the post by clicking the heart to express liking the post, the comment bubble to leave their thoughts, the share symbol to copy the post link, and the connect icon to link up with the post owner.
 
-  - The Display Post Section: has a user image in a circle shape, and the name, three dots vertical iacon on the same line, underneath has a carousel to display multiple images.
 
   ![Display post section image](documentation/display-post-section-image.png)
 
@@ -108,9 +107,26 @@ Comprises the Account Owner's Post Creation Section and the Post Display Section
 
      ![Three dots vertical icon hover image](documentation/three-dots-vertical-hover.png)
 
-     - Edit Post; redirect user to the edit post page so the post owner can delete individual or image and add new image and edit header to update the post.
+    
+    - Delete Post: This option allows the post owner to delete a post. Upon selecting 'Delete', a confirmation popup appears. If the user clicks 'Yes, Proceed', an alert confirming successful deletion will display. After clicking 'OK' on the alert, the user will be redirected to the homepage where the post was originally displayed.
+
+    ![Delete post popup confirmation image](documentation/delete-post-popup-confirmation.png)
+
+    - an alert confirming successful image .
+    ![Allert post deleted successfully image](documentation/alert-post-deleted-successfully.png)
+
+     - Edit Post: Redirects the user to the edit post page, where the post owner can delete individual or multiple images, add new images, and edit the header to update the post.
 
        ![Edit post page image](documentation/edit-post-page.png)
+
+      - Heart icon, comment icon, share icon, connect icon
+
+    ![Heart, comment, share, connect icon image](documentation/post-icon-image.png)
+
+    ![Footer image](documentation/footer-image.png)
+
+    ![Advert left section image](documentation/advert-left-section.png)
+
 ### Mobile home page
   **The mobile home page has a hamburger dropdown. It will show a navbar when you click on the hamburger icon and in the dropdown menu, you will have an admin site nav to navigate to the Django panel for admin**
   - mobile home page for new user
