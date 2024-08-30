@@ -64,14 +64,20 @@
 
    ![Use left navbar section](documentation/left-navbar-section.png)
 
-  - Your Profile Account button, which redirects the user to Your account page.
+  - Profile Account Button: Redirects users to their account page, where new users can upload their image and enter personal information. Existing users can update their image and information as needed.
 
   ![User profile page image](documentation/user-profile-page.png)
-  - Your Connection button, which redirects the user to the connection page.
+
+  - Your Connection Button: Redirects users to the Connections page, where the account owner can accept or cancel connection requests, or disconnect from existing connections.
+
+  ![Your connection page image](documentation/your-connection-page.png)
+
   - Chat button, which redirects the user to the popover chat box(Future improvement).
-  - Most Popular place button, which redirects the user to the most popular page.
+  - Most Popular Places Button: Redirects users to the Most Popular Places page. Here, users can click links to connect with travel agents who support the website. Enhancements to this feature are planned for future improvement.
+
    ![Most popular page1 image](documentation/most-popular-page1.png)
    ![Most popular page2 image](documentation/most-popular-page2.png)
+
   - Travel Agent, which redirects the user to the travel agent's external link.
   - Accommodations button, which redirects the user to the accommodation website page.
   - Transport button, which redirects the user to the transport booking website.
@@ -119,13 +125,26 @@ Comprises the Account Owner's Post Creation Section and the Post Display Section
 
        ![Edit post page image](documentation/edit-post-page.png)
 
-      - Heart icon, comment icon, share icon, connect icon
+    #### Heart icon, comment icon, share icon, connect icon, input field
+    - Heart Icon: Clicking this icon toggles a 'like' for the post, increasing or decreasing the like count on its badge accordingly.
+    - Comment Icon: Opens the comment section under the post. Users can view all comments made by others.
+    - Share Icon: Allows users to share the post by copying its URL link.
+    - Connect Icon: Sends a connection request to the post owner when clicked. If the post owner accepts, the connection count increases; if declined, there is no change.
+    - Input Field: Users can type their comments here and press enter to post. Each new comment will update the comment count accordingly.
 
     ![Heart, comment, share, connect icon image](documentation/post-icon-image.png)
 
-    ![Footer image](documentation/footer-image.png)
+  
+   #### Advert left section
+   - Advertising Display: Advertisements paid for by clients will be displayed and managed by the website administrator. Currently, there are no special features; future enhancements are planned to expand functionality.
 
     ![Advert left section image](documentation/advert-left-section.png)
+
+     #### Footer
+    - Footer Layout: The footer is divided into three sections: 'Get in Touch', 'Customer Service', and 'Information'. Each section contains links to relevant pages. Enhancements to these links are planned for future improvement.
+
+    ![Footer image](documentation/footer-image.png)
+
 
 ### Mobile home page
   **The mobile home page has a hamburger dropdown. It will show a navbar when you click on the hamburger icon and in the dropdown menu, you will have an admin site nav to navigate to the Django panel for admin**
