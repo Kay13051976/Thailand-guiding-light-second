@@ -18,26 +18,53 @@
     <!-- Header -->
     <nav id="main-navbar"  class="navbar navbar-expand-lg">
       <div class="container">
-        <a id="main-logo"  class="navbar-brand" href="#">Thailand Guiding Light</a>
+        <a id="main-logo" href="/"  class="navbar-brand" href="#">Thailand Guiding Light</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/index" aria-label="Visit our home page website">Home<i class="fa-solid fa-house mx-2 hover-color"></i></a>
+              <a class="nav-link active" aria-current="page" href="/" aria-label="Visit our home page website">Home<i class="fa-solid fa-house mx-2 hover-color"></i></a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="https://www.tourismthailand.org/home" aria-label="Visi our official tourism thailand website" target="_blank">
                 Information<i class="fa-solid fa-circle-info  mx-2 hover-color"></i></a>
             </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Menu <i class="fa-solid fa-gear mx-2 icon-hover-color"></i>
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="link-opacity-100" href="/account" aria-label="Visit your account page (open in a same tab)"><i class="fa-solid fa-gear mx-2 icon-hover-color"></i>Profile</a></li>
+                <li><a class="link-opacity-100" href="/connection" aria-label="Visit your connection list (open in a same tab)"><i class="fa-solid fa-people-arrows mx-2 icon-hover-color"></i>Your Connection</a></li>
+                <li><a class="link-opacity-100" href="#" aria-label="Visit our chat room popover (open in a same tab)" ><i class="fa-solid fa-comments mx-2  icon-hover-color"></i>Chat</a></li>
+                <li><a class="link-opacity-100" href="/popular" aria-label="Visit our most popular place page (open in a same tab)"><i class="fa-brands fa-fort-awesome mx-2 icon-hover-color"></i>Most Popular Place</a></li>
+                <li><a class="link-opacity-100" href="https://www.audleytravel.com/thailand?infinity=ict2~net~gaw~cmp~16213647585~ag~136107107729~ar~679147414072~kw~thailand%20travel%20agency~mt~p~acr~2868936838&audcmp=16213647585&audadg=136107107729&audkey=thailand%20travel%20agency&auddev=c&audadid=679147414072&audpos=&audtrgt=kwd-627272734261&audtel=ppcnb&audnet=g&gad_source=1&gclid=Cj0KCQiAh8OtBhCQARIsAIkWb69knbPeiiIa-IqpTcnGycyXQnAh38qZY23ul8AsbUYOCiM2OarKkv8aAkGREALw_wcB" aria-label="Visit our travel agent page" target="_blank"><i class="fa-solid fa-cart-flatbed-suitcase mx-2 icon-hover-color"></i>Travel Agent</a></li>
+                <li><a class="link-opacity-100" href="https://uk.hotels.com/Hotel-Search?destination=Thailand&endDate=2024-02-08&gad_source=1&gclid=Cj0KCQiAh8OtBhCQARIsAIkWb6-lWCdV3ejPxpe0xPLA6OdpgvgvDfUYHFmpI1RxOVMRaghJEqKkTIYaAkIQEALw_wcB&locale=en_GB&regionId=178&semcid=HCOM-UK.UB.GOOGLE.DT-c-EN.HOTEL&semdtl=a112471567546.b1117822180639.g1kwd-15368040.e1c.m1Cj0KCQiAh8OtBhCQARIsAIkWb6-lWCdV3ejPxpe0xPLA6OdpgvgvDfUYHFmpI1RxOVMRaghJEqKkTIYaAkIQEALw_wcB.r1632a215bbafda89b93d9208569c01843edf04c0de81bc3284061577712f8d011.c1.j19046590.k1.d1618834618925.h1e.i1.l1.n1.o1.p1.q1.s1.t1.x1.f1.u1.v1.w1&siteid=300000005&sort=RECOMMENDED&startDate=2024-02-07&theme=&useRewards=false&userIntent=" aria-label="Visit our accommodations website" target="-blank"><i class="fa-solid fa-square-h mx-2 icon-hover-color"></i>Accommodations</a></li>
+                <li><a class="link-opacity-100" href="https://www.orientalescape.com/transfer/thailand/book" aria-label="Visit our transport website" target="_blank"><i class="fa-solid fa-taxi mx-2 icon-hover-color"></i>Transport</a></li>
+                <li><a class="link-opacity-100" href="https://www.independent.co.uk/topic/thailand-travel" aria-label="Visit our thai travel news" target="_blank"><i class="fa-solid fa-newspaper mx-2 icon-hover-color"></i>Thai Travel News </a></li>
+                <!-- <li><a class="link-opacity-100" href="/logout" aria-label="Visit your account page (open in a same tab)"><i class="fa-sharp fa-solid fa-right-from-bracket icon-hover-color mx-2 icon-hover-color"></i>Logout</a></li> -->
+              </ul>
+            </li>
+            {% if request.user.is_superuser %}
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Administrator <i class="fa-solid fa-gear mx-2 icon-hover-color"></i>
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="link-opacity-100"  href="/admin"><i class="fa-sharp fa-solid fa-user-tie icon-hover-color"></i> Admin Site</a></li>
+                <li><a class="link-opacity-100"  href="/comment_crud"><i class="fa-sharp fa-solid fa-user-gear icon-hover-color"></i> Comment Management</a></li>
+              </ul>
+            </li>
+            {% endif %}
           </ul>
           <form id="toolbar" class=" d-flex">
             <input id="search-box" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
             {% if request.user.is_authenticated  %}
               <div id="login-profile">
                 <a href="/account" class="btn btn-link me-2 text-light">{{ request.user.profile.get_full_name}}</a> |  
-                <a href="/logout" class="btn btn-link me-2 text-light">Logout</a>
+                <a href="/logout" class="btn btn-link me-2 text-light"><i class="fa-sharp fa-solid fa-right-from-bracket icon-hover-color mx-2 icon-hover-color"></i>Logout</a>
               </div>
               <!-- <div id="login-profile">
                 <div><a href="/account" class="btn btn-link me-2 text-light">{{ request.user.profile.get_full_name}}</a></div>
