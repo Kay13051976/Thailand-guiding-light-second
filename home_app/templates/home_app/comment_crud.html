@@ -1,95 +1,93 @@
 {% extends "base.html" %}
 {% load crispy_forms_tags %}
 {% block content %}
+<div class="row my-5">
+    <h1>Admin Comment management</h1>
+</div> 
 <div class="container">
-    <div class="row my-5">
-        <h1>Admin Comment management</h1>
-    </div> 
-    <div class="container">
-        <div class="row mt-5 pt-5 pb-5">
-            {% for message in messages %}
-                <div class="alert alert-success">
-                    {{ message }}
-                </div>
-                {% endfor %}
-            <div class="col-md-6 ">
-
-                <div class="card">
-                    <div class="card-body">
-                        <h3>Comments Add</h3>
-                        <hr>
-                        <form method="POST">
-                            {% csrf_token %}
-                            {{ form|crispy }}
-                            <input class="btn allbtn" type="submit" value="Save">
-                        </form>
-                    </div>
-                </div>
+    <div class="row mt-5 pt-5 pb-5">
+        {% for message in messages %}
+            <div class="alert alert-success">
+                {{ message }}
             </div>
+            {% endfor %}
+        <div class="col-md-6 ">
 
-
-            <div class="col-md-6 ">
-                <div class="card">
-                    <div class="card-body">
-                        <h3>Comments Edit</h3>
-                        <hr>
-                        <form method="POST">
-                            {% csrf_token %}
-                            <div id="div_id_comment" class="mb-3">
-    <label for="id_comment" class="form-label requiredField">
-                    Comment ID<span class="asteriskField">*</span>
-    </label>
-    <input type="text" name="comment_edit_id" maxlength="1000" class="text form-control" required="" id="id_comment">
-    </div>
-                            {{ formedit|crispy }}
-                            <input class="btn allbtn" type="submit" value="Save">
-                        </form>
-                    </div>
+            <div class="card">
+                <div class="card-body">
+                    <h3>Comments Add</h3>
+                    <hr>
+                    <form method="POST">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                        <input class="btn allbtn" type="submit" value="Save">
+                    </form>
                 </div>
             </div>
         </div>
 
-        <div class="row pb-5">
-            <div class="col-md-12 ">
 
-                <div class="card">
-                    <div class="card-body">
-                        <h3>Comments All</h3>
-
-    <table class="table table-striped">
-    <thead>
-        <tr>
-        <th scope="col">ID</th>
-            <th scope="col">User</th>
-        <th scope="col">Post</th>
-        <th scope="col">Comment</th>
-            <th scope="col">Action</th>
-
-        </tr>
-    </thead>
-    <tbody>
-
-    {% for commnet in commnets %}
-        <tr>
-        <th scope="row">{{commnet.id_post_comment}}</th>
-            <th scope="row">{{commnet.user.username}}</th>
-        <td>{{commnet.post.title}}</td>
-        <td>{{commnet.comment}}</td>
-            <td><a href="/comment_crud?delete_id={{commnet.id_post_comment}}">Delete</a></td>
-        </tr>
-
-    {% endfor %}
-    </tbody>
-    </table>
-
-                    </div>
+        <div class="col-md-6 ">
+            <div class="card">
+                <div class="card-body">
+                    <h3>Comments Edit</h3>
+                    <hr>
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div id="div_id_comment" class="mb-3">
+<label for="id_comment" class="form-label requiredField">
+                Comment ID<span class="asteriskField">*</span>
+</label>
+<input type="text" name="comment_edit_id" maxlength="1000" class="text form-control" required="" id="id_comment">
+</div>
+                        {{ formedit|crispy }}
+                        <input class="btn allbtn" type="submit" value="Save">
+                    </form>
                 </div>
-
             </div>
         </div>
-
-
     </div>
+
+    <div class="row pb-5">
+        <div class="col-md-12 ">
+
+            <div class="card">
+                <div class="card-body">
+                    <h3>Comments All</h3>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+        <th scope="col">User</th>
+      <th scope="col">Post</th>
+      <th scope="col">Comment</th>
+        <th scope="col">Action</th>
+
+    </tr>
+  </thead>
+  <tbody>
+
+{% for commnet in commnets %}
+    <tr>
+      <th scope="row">{{commnet.id_post_comment}}</th>
+        <th scope="row">{{commnet.user.username}}</th>
+      <td>{{commnet.post.title}}</td>
+      <td>{{commnet.comment}}</td>
+        <td><a href="/comment_crud?delete_id={{commnet.id_post_comment}}">Delete</a></td>
+    </tr>
+
+{% endfor %}
+  </tbody>
+</table>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
 </div>
 
 {% endblock content %}

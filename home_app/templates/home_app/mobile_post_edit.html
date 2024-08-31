@@ -1,6 +1,11 @@
 {% extends "base.html" %}
 
 {% block content %}
+
+<div class="container">
+  <div class="row my-5">
+    <h1>Edit Your Post</h1>
+  </div> 
     <div class="row my-4">
         <div class="col-12 col-md-4">
         
@@ -10,8 +15,8 @@
             <div class="header">Admin Settings</div>
             <div class="menu-lists">
               <ul>
-                <li><a class="link-opacity-100"  href="/admin"><i class="fa-sharp fa-solid fa-user-tie icon-hover-color"></i> Admin Site</a></li>
-                <li><a class="link-opacity-100"  href="/comment_crud"><i class="fa-sharp fa-solid fa-user-gear icon-hover-color"></i> Comment Management</a></li>
+                <li><a class="link-opacity-100"  href="/admin"><i class="fa-sharp fa-solid fa-user-tie icon-hover-color"></i> Admin site</a></li>
+                <li><a class="link-opacity-100"  href="/comment_crud"><i class="fa-sharp fa-solid fa-user-gear icon-hover-color"></i> Comment</a></li>
               </ul>
             </div>
           </div>
@@ -104,43 +109,13 @@
           
         <div class="col-12 col-md-8">
             <!-- Form Post -->
-            <div id="form-post" class="card p-4">
-                <div class="form-post-header d-flex flex-row align-items-center mb-3 ">
-                  <div class="text-center">
-                    <img src="{{request.user.profile.get_profile_url}}" class="rounded" id="profile_img" alt="human shadow image" width='60' height='60'  onerror="this.src='/media/images/default/profile.png'"/>
-
-                  </div>
-                  <div>
-                      <div class="">
-                        <span  class="mx-3 fs-18">{{request.user.profile.get_full_name}}</span >
-                      </div>
-                  </div>
-                </div>
-                {{form.errors}}
-
-                <form method="post"  enctype="multipart/form-data">
-                  {% csrf_token %}
-                  <div class="input-group mb-3">
-                    <input type="text" class="form-control" name="title" placeholder="Write something" aria-label="Write something" aria-describedby="button-addon2">
-                  </div>
-                  <div class="mb-3">
-                    <input class="form-control" type="file" id="formFileMultiple" name="images" multiple>
-                  </div>
-                  <div>
-                    <button class="btn w-100" type="submit" id="button-addon2">Post</button>
-                  </div>
-                </form>
-            </div>
-            <!-- End Form Post -->
-
-            <!-- Post Lists -->
-            <div class="row">
+          <div class="row">
               <div class="col-12">
                 {% for post in posts %}
 
                   <!-- Post -->
                   <div id="delete_post-{{post.id_post}}" class="post-card card">
-                      
+
                       <!-- Post Header -->
                       <div class="post-card-header">
                           <div class="d-flex flex-row align-items-center">
@@ -151,24 +126,13 @@
                               <span  class="mx-3 fs-20 fw-700">{{post.user.profile.get_full_name}}</span >
                             </div>
 
-                              <div class="dot-menu">
-                              <i class="fa-solid fa-ellipsis-vertical icon-hover-color"></i>
-
-                                  {% if user.is_authenticated %} {% if user.id == post.user.id %}
-
-                                  <div class="dot-menu-frame">
-                                <div class="menu-item"><a href="javascript:void(0);" onclick="delete_post('{{post.id_post}}')" >Delete Post</a></div>
-                                <div class="menu-item"><a href="/?post_edit={{post.id_post}}"  >Edit Post</a></div>
-                              </div>
-                                  {% endif %} {% endif %}
-                            </div>
 
                           </div>
                       </div>
                       <!-- End Post Header -->
 
                       <div class="post-card-info">
-                        <div class="post-card-title">{{post.title}}</div>
+                        <div class="post-card-title"><b>Post title: </b>{{post.title}}</div>
                         <!-- <p class="post-card-excerpt">{{post.excerpt}}</p> -->
                       </div>
 
@@ -179,7 +143,13 @@
                       <div id="carouselExampleControls-{{post.id_post}}" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-inner">
                           {% for gallery in post.gallery_set.all %}
+
+
                             <div class="carousel-item active">
+                                <br/>
+<a class="imagedelete" href="/?photo_id={{gallery.image}}&post_id={{post.id_post}}"  ><i  class="fa-solid fa-times mx-1 pointer text-dark icon-hover-color "></i></a>
+                          <br/>
+                                <br/>
                               <img src="{{gallery.image.url}}" class="d-block w-100 rounded postimages" alt="..." height=500  />
                             </div>
                           {% endfor %}
@@ -196,104 +166,43 @@
                       {% endif %}
                       <!-- End Post Image -->
 
-                      <div class="post-card-body card-body p-0">
-                        <!-- Post Action -->
-                        <div class="post-card-action">
-                          <div class="post-card-action-item mobilemargin" id="like-{{post.id_post}}" onclick="toggle_like('{{post.id_post}}')">
-                            <span class="action-text">
-                              <span class="count-badge" id="likeCount-{{post.id_post}}" >{{post.likes.count}} </span>
-                                <i class="fa-solid fa-heart icon-hover-color tabwidth"></i> <span class="fontresposive" >LIKE</span>
-                            </span>
-                          </div> 
-                          <div class="post-card-action-item" id="comment-{{post.id_post}}" onclick="toggle_comment('post-comment-{{post.id_post}}')" >
-                            <span class="action-text">
-                              <span class="count-badge" id="commentcount-{{post.id_post}}" >{{post.comment_set.all.count}} </span>
-                                <i class="fa-regular fa-comment icon-hover-color tabwidth"></i> <span class="fontresposive" >COMMENT</span>
-                            </span>
-                          </div>
-
-                          <div class="post-card-action-item " id="share-{{post.id_post}}" >
-
-                                    <span  class="action-text ">
-                                        <span class="count-badge" id="shareCount-{{post.id_post}}" >{{post.total_shares}}</span>
-                                    <span  class="action-share" >
-
-                                        <i class="fa-solid fa-share-from-square pointer icon-hover-color tabwidth"> </i> <span class="fontresposive" >SHARE</span>
-
-<span class="action-share-frame">
-                                <span class="copy-link-item"><a onclick="copyURI(event,'{{post.id_post}}')" href="javascript:void(0);"><i class="fa-solid fa-link pointer"></i> Copy Link</a></span>
-
-                              </span>
-                                        </span>
-                            </span>
-
-                          </div>
-                            <p id="copylink-{{post.id_post}}" class="d-none"  >{{full_url}}?post_id={{post.id_post}}</p>
-                          <div class="post-card-action-item " id="connects-{{post.id_post}}" onclick="toggle_connect('{{post.user.id}}','{{post.id_post}}')" >
-                            <span class="action-text">
-                              <span class="count-badge" id="connectsCount-{{post.id_post}}" >{{post.friend_count}}</span>
-                                <i class="fa-solid fa-people-arrows pointer icon-hover-color tabwidth"></i> <span class="fontresposive" >CONNECT</span>
-                            </span>
-                          </div> 
-                        </div>
-                        <!-- End Post Action -->
-                        
-                        <input type="text" name="comment" class="form-control" onkeypress="post_comment(event,'{{post.id_post}}')" placeholder="what do you thing about this ... Press enter to add your comments">
-                      </div>
-
-                      <p  class="h6 my-3 d-none " id="post-commentp-{{post.id_post}}" >Comments</p>
-
-                      <div class="card-footer d-none border-0" id="post-comment-{{post.id_post}}" >
-
-                          {% for comment in post.get_all_comments %}
-                              <div class="row" id="comment-{{comment.id_post_comment}}" >
-                                <div class="d-flex flex-row my-1">
-                                    <div class="text-center ml-5">
-                                        <img src="{{comment.user.profile.get_profile_url}}" class="rounded ml-5" alt="..." width="50" height="50" onerror="this.src='/media/images/default/profile.png'" >
-                                      </div>
-                                      <div>
-                                        <div class="">
-                                        <p  class="mx-3 my-0 text-post-account-comment text-bold">{{comment.user}}</p >
-                                            <p  class="mx-3 my-2 text-post-comment"><span id="commenttxt-{{comment.id_post_comment}}" >{{comment.comment}}</span>
-                                                {% if user.is_authenticated %} {% if user.id == comment.user.id %}
-                                                <button class="deleteupdatebutton"  onclick="delete_comment('{{comment.id_post_comment}}','{{post.id_post}}')" >Delete?</button>
-                                                <button class="deleteupdatebutton" onclick="editshow('{{comment.id_post_comment}}')" >Edit?</button>
-
-                                                <input class="form-control editcommetfield form-control editboxhide d-none" type="text" id="{{comment.id_post_comment}}" name="comment" value="{{comment.comment}}" onkeypress="edit_comment(event,'{{comment.id_post_comment}}','{{post.id_post}}')" placeholder="press enter to Save Comment">
-                                                </p>
-                                                {% endif %} {% endif %}
-                                    </div>
-                                </div>
-                                    </div>
-                            </div>
-                              
-                              {% empty %}
-                              <p  class="mx-3 my-2 text-center text-post-comment"></p >
-                          {% endfor %}
-                      </div>
                   </div>
                   <!-- End Post -->
-
 
                 {% endfor %}
                 </div>
             </div>
+
+          <div id="form-post" class="card p-4">
+                {{form.errors}}
+
+                <form method="post"  enctype="multipart/form-data">
+                  {% csrf_token %}
+
+                  <input type="hidden" name="post_id" value="{{post_id}}">
+                  <div class="input-group mb-3">
+                    {% for post in posts %}
+                    <input type="text" value="{{post.title}}" class="form-control" name="title" placeholder="Write something" aria-label="Write something" aria-describedby="button-addon2">
+                    {% endfor %}
+                  </div>
+                  <div class="mb-3">
+                    <input class="form-control" type="file" id="formFileMultiple" name="images" multiple>
+                  </div>
+                  <div>
+                    <button class="btn w-100" type="submit" id="button-addon2">Update Post</button>
+                  </div>
+                </form>
+            </div>
+            <!-- End Form Post -->
+
+            <!-- Post Lists -->
+
             <!-- End Post Lists -->
 
 
         </div>
     </div>
-
-
-    <div id="confirmModal" class="modal">
-        <div class="modal-content">
-            <p>Are you sure you want to delete this post?</p>
-            <div class="modal-buttons">
-                <button id="confirmYes" class="modal-button">Yes, Proceed</button>
-                <button id="confirmNo" class="modal-button cancel">No, Cancel</button>
-            </div>
-        </div>
-    </div>
+</div>
 {% endblock content %}
 
 
@@ -336,7 +245,7 @@ function copyURI(evt, post_id ) {
 }
 
 function toggle_connect(user_id,id_post) {
-        const csrftoken = Cookies.get('csrftoken');
+        var csrftoken = Cookies.get('csrftoken');
         $.ajaxSetup({
             headers: {
                 'X-CSRFToken': csrftoken
@@ -347,16 +256,7 @@ function toggle_connect(user_id,id_post) {
             type: 'POST',
             url: `/api/toggle-connect/${user_id}/`,
             success: function(data) {
-
-            if(data.connected){
             alert('Friend Request Sent!');
-            }else{
-
-            alert('Friend Request already Sent or you are already friends of each other or you can not send request to yourself or check you already received request from this user or not!');
-
-            }
-
-
             },
             error: function() {
                 alert('Connect fail');
@@ -369,7 +269,7 @@ function toggle_connect(user_id,id_post) {
       }
 
       function toggle_like(id_post) {
-        const csrftoken = Cookies.get('csrftoken');
+        var csrftoken = Cookies.get('csrftoken');
 
 
         $.ajaxSetup({
@@ -392,36 +292,21 @@ function toggle_connect(user_id,id_post) {
 
 function editshow( comment_id ){
 
-const x = document.getElementById(comment_id);
-x.classList.toggle('d-none');
-//if (x.classList.contains("d-none")) {
-//    x.style.display = "block";
-//  }else {
- //   x.style.display = "none";
- // }
+var x = document.getElementById(comment_id);
+if (x.style.display === "none") {
+    x.style.display = "block";
+  }else {
+    x.style.display = "none";
+  }
+
 }
 
 function delete_post(post_id){
 
-// Get the modal
-        const modal = document.getElementById("confirmModal");
-        modal.style.display = "block";
-        // Get the button that opens the modal
-        //const btn = document.getElementById("openModalBtn");
-
-        // Get the buttons inside the modal
-        const confirmYesBtn = document.getElementById("confirmYes");
-        const confirmNoBtn = document.getElementById("confirmNo");
-
-// When the user clicks on No, close the modal and cancel
-        confirmNoBtn.onclick = function() {
-            modal.style.display = "none";
-        }
-
-        // When the user clicks on Yes, close the modal and proceed
-        confirmYesBtn.onclick = function() {
-            modal.style.display = "none";
-            //alert("You pressed Yes!");
+//if (event.key === 'Enter') {
+            console.log("delete comment")
+  //          event.preventDefault();
+    //        var comment_text = $(event.target).val();
 
             $.ajax({
                 type: 'POST',
@@ -433,9 +318,8 @@ function delete_post(post_id){
                 success: function (data) {
                     if (data.success) {
                         // Add HTML
-                        const x = document.getElementById("delete_post-"+post_id);
+                        var x = document.getElementById("delete_post-"+post_id);
                             x.style.display = "none";
-                        alert('Post deleted successfully!');
 
                     }
                 },
@@ -443,13 +327,15 @@ function delete_post(post_id){
                     alert('An error occurred.');
                 }
             });
-}
+        //}
 }
 
 function delete_comment(comment_id , post_id){
 
-
+//if (event.key === 'Enter') {
             console.log("delete comment")
+  //          event.preventDefault();
+    //        var comment_text = $(event.target).val();
 
             $.ajax({
                 type: 'POST',
@@ -461,7 +347,7 @@ function delete_comment(comment_id , post_id){
                 success: function (data) {
                     if (data.success) {
                         // Add HTML
-                        const x = document.getElementById("comment-"+comment_id);
+                        var x = document.getElementById("comment-"+comment_id);
                             x.style.display = "none";
 
                         $('#commentcount-' + post_id).html(data.comment_count );
@@ -480,7 +366,7 @@ function edit_comment(event,comment_id,post_id){
 if (event.key === 'Enter') {
             console.log("post comment")
             event.preventDefault();
-            const comment_text = $(event.target).val();
+            var comment_text = $(event.target).val();
 
             $.ajax({
                 type: 'POST',
@@ -493,12 +379,18 @@ if (event.key === 'Enter') {
                 success: function (data) {
                     if (data.success) {
                         // Add HTML
-                        const x = document.getElementById("commenttxt-"+comment_id);
-                        const xbox = document.getElementById(comment_id);
+                        //var x = document.getElementById("comment-"+comment_id);
+                            //x.style.display = "none";
+                        var x = document.getElementById("commenttxt-"+comment_id);
+                        var xbox = document.getElementById(comment_id);
                         x.innerText= comment_text;
                         xbox.value= comment_text;
                         xbox.style.display = "none";
-                        const profileImgSrc = $('#profile_img').attr('src');
+
+
+                        var profileImgSrc = $('#profile_img').attr('src');
+
+
                     }
                 },
                 error: function() {
@@ -506,66 +398,9 @@ if (event.key === 'Enter') {
                 }
             });
         }
-
-
 }
 
-    function post_comment(event,post_id) {
-        if (event.key === 'Enter') {
-            console.log("post comment")
-            event.preventDefault();
-            const comment_text = $(event.target).val();
 
-            $.ajax({
-                type: 'POST',
-                url: `/api/add_comment/${post_id}/`,
-                data: {
-                    'comment': comment_text,
-                    'csrfmiddlewaretoken': '{{ csrf_token }}'
-                },
-                success: function (data) {
-                    if (data.success) {
-                        // Add HTML
-                        const profileImgSrc = $('#profile_img').attr('src');
-                        const commentHtml = `
-                            <div class="row" id="comment-${data.comment.id_post_comment}" >
-                                <div class="d-flex flex-row my-1">
-                                    <div class="text-center ml-5">
-                                        <img src="${profileImgSrc}" class="rounded ml-5" alt="..." width=50 height=50 onerror="this.src='/media/images/default/profile.png'" >
-                                    </div>
-                                    <div>
-                                        <div class="">
-                                            <p  class="mx-3 my-0 text-post-account-comment">${data.comment.user}</p>
-                                            <p  class="mx-3 my-2 text-post-comment"><span id="commenttxt-${data.comment.id_post_comment}" >${data.comment.comment}</span>
-
-
-                                                <button class="deleteupdatebutton"  onclick="delete_comment('${data.comment.id_post_comment}','${post_id}')" >Delete?</button>
-                                                <button class="deleteupdatebutton"  onclick="editshow('${data.comment.id_post_comment}')" >Edit?</button>
-
-                                                <input class="form-control editcommetfield form-control editboxhide d-none" type="text" id="${data.comment.id_post_comment}" name="comment" class="form-control editboxhide" value="${data.comment.comment}" onkeypress="edit_comment(event,'${data.comment.id_post_comment}','${post_id}')" placeholder="Press enter to save comment">
-                                                </p>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        `;
-                        // Add HTML
-                        $('#post-comment-' + post_id).prepend(commentHtml);
-
-                        // Delete text in textbox
-                        $(event.target).val('');
-
-                        $('#commentcount-' + post_id).html(data.comment_count );
-                    }
-                },
-                error: function() {
-                    alert('An error occurred.');
-                }
-            });
-        }
-    }
   </script>
 
   {% endblock extras_js %}
