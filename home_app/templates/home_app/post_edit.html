@@ -5,7 +5,7 @@
   <h1>Edit Your Post</h1>
 </div> 
     <div class="row my-4">
-        <div class="col-12 col-md-4">
+        <div class=" col-12 col-md-4 desktopdisplay" >
         
           {% if request.user.is_superuser %}
           <!-- Menu Sidebar -->
@@ -110,14 +110,14 @@
           <div class="row">
               <div class="col-12">
                   {% if messages %}
-    {% for message in messages %}
-        {% if 'update_post' in message.tags %}
+                {% for message in messages %}
+                {% if 'update_post' in message.tags %}
             <div class="alert alert-success">
                 {{ message }}
             </div>
-        {% endif %}
-    {% endfor %}
-{% endif %}
+                    {% endif %}
+                    {% endfor %}
+                        {% endif %}
 
                 {% for post in posts %}
 
@@ -155,7 +155,7 @@
 
                             <div class="carousel-item active">
                                 <br/>
-<a class="imagedelete" href="/?photo_id={{gallery.image}}&post_id={{post.id_post}}"  ><i  class="fa-solid fa-times mx-1 pointer text-dark icon-hover-color "></i></a>
+                            <a class="imagedelete" href="/?photo_id={{gallery.image}}&post_id={{post.id_post}}"  ><i  class="fa-solid fa-times mx-1 pointer text-dark icon-hover-color "></i></a>
                           <br/>
                                 <br/>
                               <img src="{{gallery.image.url}}" class="d-block w-100 rounded postimages" alt="..." height=500  />
@@ -210,6 +210,87 @@
 
         </div>
     </div>
+
+</div>
+  </section>
+
+  <section id="advert " class="mobiledisplay">
+    <div class="container">
+      <div class="title">Advert</div>
+      <div class="owl-carousel owl-theme d-block">
+        <!-- Item 1 -->
+        <div class="item">
+           <a href="https://theadventurepeople.com/destinations/thailand?gad_source=1&gclid=Cj0KCQiAh8OtBhCQARIsAIkWb69oxnEiFzIy4OvzXY9n6YMWJff1jJXbw8TcIr9OupEbmZU6FeksZW8aAqS0EALw_wcB"
+           target="_blank"  aria-label="Visit fish and chip tour website (open in a new tab)" class="advert-item card text-decoration-none mb-3">
+           <img alt="wat a run bangkok" src="https://media.istockphoto.com/id/1173736603/photo/young-woman-pulling-suitcase-in-airport-terminal-copy-space.jpg?s=1024x1024&w=is&k=20&c=Z90V6j_KuXIgd8KW_7eObiQMFZTfO4lDnulJ1QmrDSg=" class="card-img-top">
+           <div class="advert-item-body card-body">
+             <h5 class="card-title">Fish and Chip Tour</h5>
+             <p class="card-text">Amazing Thailand Escorted Tour Packages from UK
+               Explore Bangkok, the Golden Triangle, Chiang Rai and Chai Mai on a Thailand tour package, which features a visit to an elephant camp.</p>
+           </div>
+         </a>
+        </div>
+        <!-- End Item 1-->
+       <!-- Item 2 -->
+        <div class="item">
+          <a href="https://www.thailand-tourism.net/"
+              target="_blank"  aria-label="Visit thailand tourism.net website (open in a new tab)" class="advert-item card text-decoration-none mb-3">
+              <img alt="wat a run bangkok" src="https://media.istockphoto.com/id/1146493663/photo/bangkok-thailand-at-the-temple-of-the-emerald-buddha-and-grand-palace.jpg?s=1024x1024&w=is&k=20&c=f2M_Pq_7ci7hp3sgSQfbhpZIrTfOSdlcocDXt2xvQXI=" class="card-img-top">
+              <div class="advert-item-body card-body">
+                <h5 class="card-title">Buddha Tour Dot Com</h5>
+                <p class="card-text">5 DAYS CHIANG MAI BUDDHISM AND CULTURAL TOUR
+                  VISIT CHIANG MAI FOR A TASTE OF BUDDHIST HISTORY AND CULTURE!
+                  Let us design for you a trip that will give you insights into the development of Buddhism in North Thailand. We will discuss with you the itinerary and off we go!</p>
+              </div>
+            </a>
+       </div>
+       <!-- End Item 2-->
+        <!-- Item 3 -->
+        <div class="item">
+          <a href="https://www.thailand-tourism.net/"
+              target="_blank"  aria-label="Visit lonelyplanet.com thailand website (open in a new tab)" class="advert-item card text-decoration-none mb-3">
+              <img alt="phuket island" src="https://media.istockphoto.com/id/1309583872/photo/aerial-view-of-lao-lading-island-in-krabi-thailand.jpg?s=1024x1024&w=is&k=20&c=QluXaL4bsnRTTmpHZHvMRNJqGhFT-dBEy8xmJsXZWW8=" class="card-img-top">
+              <div class="advert-item-body card-body">
+                <h5 class="card-title">Best Phuket Tour</h5>
+                <p class="card-text">
+                  With turquoise waters, limestone cliffs, sandy beaches, and lush jungle, Phang Nga Bay boasts islands straight out of a brochure. Explore them with a guide on this all-inclusive day trip. Kayak through caves and mangroves at Koh Panak and surreal rock formations at Hong Island. Soak up views of James Bond Island then lounge on the beach at Lawa Island. Refuel with a buffet lunch onboard your boat.
+                </div>
+            </a>
+       </div>
+       <!-- End Item 3-->
+        <!-- Item 4 -->
+        <div class="item">
+          <a href="https://www.thaitravelcenter.com/thailand/"
+              target="_blank"  aria-label="Visit thailand trevelcenter.com (open in a new tab)" class="advert-item card text-decoration-none mb-3">
+              <img alt="two people sit on cragle on chang island" src="https://media.istockphoto.com/id/1213840216/photo/luxury-travel-romantic-couple-in-beach-hotel.jpg?s=1024x1024&w=is&k=20&c=Z-5_rrckhzQcXR_czDKemD3X5eQO2371QhDHzGI1Lew=" class="card-img-top">
+              <div class="advert-item-body card-body">
+                <h5 class="card-title">Koh Chang Island Tour</h5>
+                <p class="card-text">
+                  Koh Chang, ('Elephant Island' in Thai) is the third largest island in Thailand and part of the Mu Ko Chang National Park.
+                  Compared to the bustling Phuket and Samui islands, Koh Chang offers a more peaceful and laid-back atmosphere, making it an ideal destination for travelers seeking to avoid the crowds. With a good range of accommodations, some excellent restaurants, and numerous bars, Koh Chang provides a perfect balance of relaxation and adventure.
+                </p>
+              </div>
+            </a>
+       </div>
+       <!-- End Item 4 -->
+        <!-- Item 5 -->
+        <div class="item">
+          <a href="https://forevervacation.com/bangkok-thrilling-tuk-tuk-tour?gad_source=1&gclid=CjwKCAjwupGyBhBBEiwA0UcqaNTRhiSnh982LDLAG3qtgnr0yhhked_02LeKEk6Aytv44dRxO9r_BRoCYWQQAvD_BwE"
+              target="_blank"  aria-label="Visit thailand trevelcenter.com (open in a new tab)" class="advert-item card text-decoration-none mb-3">
+              <img alt="two people sit on cragle on chang island" src="https://media.istockphoto.com/id/1131729452/photo/tuk-tuk-thailand-thai-traditional-taxi-in-thailand.jpg?s=1024x1024&w=is&k=20&c=yxFh0gomMISMzOVbChHm6c1i95RTSJETF5j1m14JK7s=" class="card-img-top">
+              <div class="advert-item-body card-body">
+                <h5 class="card-title">Tuk Tuk Tour Adventure</h5>
+                <p class="card-text">
+                  Established in 2010 Book a tour in Bangkok. Book online for the best tours at the best prices! Must-see attractions. Top-rated things to do. Top attraction tickets. Easy price comparison.</p>
+                </div>
+            </a>
+       </div>
+       <!-- End Item 5 -->
+
+      </div>
+    </div>
+  </section>
+
 
 {% endblock content %}
 
