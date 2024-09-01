@@ -53,7 +53,7 @@ Deployed Website: Visit Thailand Guiding Light[ Link to website](https://thailan
   - As a regular User, I want to be able to report or block other users for inappropriate behavior, ensuring a safe and respectful community,
 
 ## Wire frames
- ### Laptop
+ ### Laptop and tablet
 - Home page
 
 ![Wire frame Laptop admin home page1](documentation/wireframe-laptop-admin-home-page.png)
@@ -71,25 +71,21 @@ Deployed Website: Visit Thailand Guiding Light[ Link to website](https://thailan
 ![Wire frame laptop profile page](documentation/wireframe-laptop-profile-page.png)
 
 
-
-
-
-
  ### Mobile
 
 - Mobile home page
+ ![Wire frame mobile home page image](documentation/wireframe-mobile-home-page.png)
 
- ![Wire frame Mobile1](documentation/wireframe-mobile-phone1.png)
+- Mobile home page hamburger menu drop down
+ ![Wire frame mobile hamburger drop down image](documentation/wireframe-mobile-hamburger-drop-down.png)
 
- ![Wire frame Mobile2](documentation/wireframe-mobile-phone2.png)
+- Mobile admin popover nav menu
 
-- Mobile hamburger menu popover nav
+![Wire frame mobile admin tool popover nav menu](documentation/wireframe-mobile-admin-popover-nav-menu.png)
 
-![Wire frame mobile hamburger popover nam](documentation/wireframe-mobile-hamburger-popover-nav.png)
+- Mobile user popover nav menu
 
-- Mobile your account
-
-![Wire frame mobile hamburger popover nam](documentation/wireframe-mobile-your-account.png)
+![Wire frame mobile user popover nav menu](documentation/wireframe-mobile-user-popover-nav-menu.png)
 
 - Mobile sign up
 

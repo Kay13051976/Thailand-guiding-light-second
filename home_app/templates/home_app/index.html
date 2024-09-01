@@ -240,7 +240,7 @@
                           </div>
                           <!-- End Post Action -->
 
-                          <input type="text" name="comment" class="form-control" onkeypress="post_comment(event,'{{post.id_post}}')" placeholder="What do you thing about this ... Press enter to add your comments">
+                          <input type="text" name="comment" class="form-control" onkeypress="post_comment(event,'{{post.id_post}}')" placeholder="What do you thing about this ... Press enter to add your comment">
                         </div>
 
                         <p  class="h6 my-3 d-none " id="post-commentp-{{post.id_post}}" >Comments</p>
@@ -261,7 +261,7 @@
                                                   <button class="deleteupdatebutton"  onclick="delete_comment('{{comment.id_post_comment}}','{{post.id_post}}')" >Delete?</button>
                                                   <button class="deleteupdatebutton" onclick="editshow('{{comment.id_post_comment}}')" >Edit?</button>
 
-                                                  <input class="form-control editcommetfield form-control editboxhide d-none" type="text" id="{{comment.id_post_comment}}" name="comment" value="{{comment.comment}}" onkeypress="edit_comment(event,'{{comment.id_post_comment}}','{{post.id_post}}')" placeholder="press enter to Save Comment">
+                                                  <input class="form-control editcommetfield form-control editboxhide d-none" type="text" id="{{comment.id_post_comment}}" name="comment" value="{{comment.comment}}" onkeypress="edit_comment(event,'{{comment.id_post_comment}}','{{post.id_post}}')" placeholder="Press enter to save comment">
                                                   </p>
                                                   {% endif %} {% endif %}
                                       </div>
