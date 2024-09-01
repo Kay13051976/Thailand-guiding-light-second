@@ -70,49 +70,10 @@ Deployed Website: Visit Thailand Guiding Light[ Link to website](https://thailan
 
 ![Wire frame laptop profile page](documentation/wireframe-laptop-profile-page.png)
 
-- About page
 
-![Wire frame Laptop about page](documentation/wireframe-laptop-about-page.png)
 
-- Contact page
 
-![Wire frame laptop contaction page](documentation/wireframe-your-connection-page.png)
 
-- Sign up page
-
-![Wire frame laptop sigh up page](documentation/wireframe-laptop-sign-up-page.png)
-
-- Thai travel news page
-
-![Wire frame laptop thai travel news page](documentation/wireframe-laptop-thai-travel-news-page.png)
-
-- Warning bell nav bar popover 
-
-![Wire frame laptop warning bell popover nav](documentation/wireframe-laptop-warning-bell-nav.png)
-
-- Information nav bar popover
-
-![Wire frame laptop information popover nav](documentation/wireframe-laptop-information-nav.png)
-
-- Hamburger nav bar popover
-
-![Wire frame laptop hamburger popover nav](documentation/wireframe-laptop-hamburger-menu.png)
-
-- Account management page
-
-![Wire frame laptop account management page](documentation/wireframe-laptop-your-account-page.png)
-
-- Your connections list page
-
-![Wire frame laptop your connections list page](documentation/wireframe-laptop-your-connection-list-page.png)
-
-- Most popular place page
-
-![Wire frame laptop most popular place page](documentation/wireframe-laptop-most-popular-place-page.png)
-
-- Chat room popover
-
-![Wire frame laptop chat room popover](documentation/wireframe-laptop-chat-room-popover.png)
 
  ### Mobile
 
