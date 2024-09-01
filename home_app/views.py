@@ -29,6 +29,7 @@ def index(request):
             ).order_by('-created_on').annotate(
                 friend_count=Count('user__Friend_user')
             )
+
             return render(request, 'home_app/post_edit.html',
                           {'posts': posts,
                            'post_id': request.GET['post_edit']})
@@ -41,6 +42,8 @@ def index(request):
             ).order_by('-created_on').annotate(
                 friend_count=Count('user__Friend_user')
             )
+
+            messages.success(request, 'Image Deleted successful!', extra_tags='update_post')
 
             return render(request, 'home_app/post_edit.html',
                           {'posts': posts,
@@ -67,7 +70,7 @@ def index(request):
             ).order_by('-created_on').annotate(
                 friend_count=Count('user__Friend_user')
             )
-
+            messages.success(request, 'Post Update successful!', extra_tags='update_post')
             return render(request,
                           'home_app/post_edit.html',
                           {'posts': posts,

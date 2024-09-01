@@ -3,18 +3,18 @@
 {% block content %}
 <div class="row my-5">
   <h1>Edit Your Post</h1>
-</div>
+</div> 
     <div class="row my-4">
         <div class="col-12 col-md-4">
         
           {% if request.user.is_superuser %}
           <!-- Menu Sidebar -->
-          <div id="admin-sidebar" class="sidebar-widget">
+          <div id="admin-sidebar" class="sidebar-widget desktopdisplay">
             <div class="header">Admin Settings</div>
             <div class="menu-lists">
               <ul>
                 <li><a class="link-opacity-100"  href="/admin"><i class="fa-sharp fa-solid fa-user-tie icon-hover-color"></i> Admin site</a></li>
-                <li><a class="link-opacity-100"  href="/comment_crud"><i class="fa-sharp fa-solid fa-user-gear icon-hover-color"></i> Comment</a></li>
+                <li><a class="link-opacity-100"  href="/comment_crud"><i class="fa-sharp fa-solid fa-user-gear icon-hover-color"></i> Comment Management</a></li>
               </ul>
             </div>
           </div>
@@ -22,7 +22,7 @@
           {% endif %}
 
           <!-- Menu Sidebar -->
-          <div id="menu-sidebar" class="sidebar-widget">
+          <div id="menu-sidebar" class="sidebar-widget desktopdisplay">
             <div class="header">Menu</div>
             <div class="menu-lists">
               <ul>
@@ -109,6 +109,16 @@
             <!-- Form Post -->
           <div class="row">
               <div class="col-12">
+                  {% if messages %}
+    {% for message in messages %}
+        {% if 'update_post' in message.tags %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endif %}
+    {% endfor %}
+{% endif %}
+
                 {% for post in posts %}
 
                   <!-- Post -->
