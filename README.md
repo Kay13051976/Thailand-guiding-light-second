@@ -1,5 +1,5 @@
 # Thailand Guiding Light
-  - Deployed website:[Link to website](https://thailand-guiding-light-2fb0b0e33db8.herokuapp.com/)
+  - Deployed website: [Link to website](https://thailand-guiding-light-2fb0b0e33db8.herokuapp.com/)
 
 ![Home page image1](documentation/home-page-image1.png)
 ![Home page image2](documentation/home-page-image2.png)
@@ -218,6 +218,132 @@ Deployed Website: Visit Thailand Guiding Light[ Link to website](https://thailan
 
 ### Data Modeling
 
+#### Profile
+
+| Name | Database Key | Field Type | Validation |
+| ----- | ------ | ------ | ------- |
+| user | user | OneToOneField | User, on_delete=models.CASCADE |
+| id_usr | id_user | IntegerField | - |
+| cover_image | cover_image | ImageField |  "featured image", upload_to='images', height_field=None,
+        width_field=None, max_length=None |
+| country | country | CharField | max_length=100, blank=True |
+| profile_img | profile_img |ImageField | "profile image", upload_to='images', height_field=None,
+        width_field=None, max_length=None, blank=True,
+        default='images/default/profile.png' |
+| phone | phone | CHarField |max_length=15, blank=True |
+
+#### Post
+
+| Name | Database Key | Field Type | Validation |
+| ----- | ------ | ------ | ------- |
+| id_post | id_post | UUIDField | primary_key=True, default=uuid.uuid4 |
+| user | user | ForeignKey |  User, on_delete=models.CASCADE, related_name="post_user" |
+| title | title | CharField | max_length=200, unique=True |
+| featured_image | featured_image | ImageField |  "featured image", upload_to='images', height_field=None,
+        width_field=None, blank=True, max_length=None |
+| visibility | visibility | CharField | max_length=100, choices=VISIBILITY, default='Everyone', blank=True |
+| slug | slug | SlugField | max_length=200, blank=True |
+| updated_on | updated_on | DateTimeField | auto_now=True |
+| content | content | TextField | blank=True |
+| except | except | TextField | blank=True |
+| created_on | created_on | DateTimeField | auto_now_add=True |
+| status | status | IntegerField | choices=STATUS, default=0 |
+| views | views | PositiveIntegerField | default=0 |
+| likes | likes | ManyToManyField | User, related_name="post_likes", blank=True |
+| admin_approved | admin_approved | BooleanField | default=True |
+
+#### Comment
+
+| Name | Database Key | Field Type | Validation |
+| ----- | ------ | ------ | ------- |
+| user | user | ForeignKey | User, on_delete=models.CASCADE, related_name="comment_user" |
+| post | post | ForeignKey | Post, on_delete=models.CASCADE |
+| comment | comment | CharField | max_length=1000 |
+| active | active | BooleanField | default=True |
+| date | date | DateTimeField  | auto_now_add=True |
+| likes | likes | models.ManyToManyField | User, blank=True, related_name="comment_likes" |
+| id_post_comment | id_post_ comment | UUIDField | primary_key=True, default=uuid.uuid4 |
+ 
+#### Gallery
+
+| Name | Database Key | Field Type | Validation |
+| ----- | ------ | ------ | ------- |
+| post | post | ForeingKey | Post, on_delete=models.CASCADE |
+| image | image | ImageField | "image", upload_to='images', height_field=None,
+        width_field=None, max_length=None, default=uuid.uuid4 |
+| active | active | BooleanField | default=True |
+| date | date | DateTimeField | auto_now_add=True | rimary_key=True, default=uuid.uuid4 |
+
+
+#### Friend Request
+
+| Name | Database Key | Field Type | Validation |
+| ----- | ------ | ------ | ------- |
+| id_friend_request | id_friend_request | UUIDField |
+| user | user | ForeingnKey |  User, on_delete=models.CASCADE, related_name="FriendRequest_user" |
+| friend | friend | ForeignKey | User, on_delete=models.CASCADE, related_name="FriendRequest_friend" |
+| status | status | CharField | max_length=100, default="pending", choices=FRIEND_REQUEST |
+| date | date | DateTimeField | auto_now_add=True |
+
+
+#### Friend
+
+| Name | Database Key | Field Type | Validation |
+| ----- | ------ | ------ | ------- |
+| id_friend | id_friend | UUIDField | rimary_key=True, default=uuid.uuid4 |
+| user | user | ForeignKey | User, on_delete=models.CASCADE, related_name="Friend_user" |
+| friend | friend | ForegniKey | User, on_delete=models.CASCADE, related_name="Friend_friend" |
+| date | date | DateTimeField | auto_now_add=True |
+
+#### ReplyComment
+
+| Name | Database Key | Field Type | Validation |
+| ----- | ------ | ------ | ------- |
+| user | user | ForeignKey | User, on_delete=models.CASCADE, related_name="ReplyComment_user" |
+| comment | comment | ForeignKey | Comment, on_delete=models.CASCADE |
+| reply | reply | CharField | max_length=1000 |
+| active |  active | BooleanField | default=True |
+| date | date | DateTimeField | auto_now_add=True |
+| likes | like | ManyToManyField |  User, blank=True, related_name="ReplyComment_likes" |
+| id_reply_comment | id_reply_comment | UUIDField | primary_key=True, default=uuid.uuid4 |
+
+#### Notification
+
+| Name | Database Key | Field Type | Validation |
+| ----- | ------ | ------ | ------- |
+| user | user | ForeignKey | User, on_delete=models.CASCADE, related_name="reply_user" |
+| sender | sender | ForeignKey |  User, on_delete=models.CASCADE, related_name="notification_user" |
+| post | post | ForeignKey | Post, on_delete=models.SET_NULL, null=True |
+| commetn | commetn | ForeignKey | Comment, on_delete=models.SET_NULL, null=True |
+| notification_type | notification_type | CharField | max_length=500, choices=NOTIFICATION_TYPE |
+| is_read | is_read | BooleanField | default=False |
+| date | date | DateTimeField | auto_now_add=True |
+| id_notificstion | id_notificstion | UUIDField | primary_key=True, default=uuid.uuid4 |
+
+#### Popular
+
+| Name | Database Key | Field Type | Validation |
+| ----- | ------ | ------ | ------- |
+| name | name | CharField | max_length=255 |
+| description | description | TextField | verbose_name="Description |
+| image | image | ImageField | upload_to='images/' |
+
+#### Share 
+
+| Name | Database Key | Field Type | Validation |
+| ----- | ------ | ------ | ------- |
+| user | user | ForeignKey | User, on_delete=models.CASCADE, related_name='shares', verbose_name="User", help_text="The user who shared this content" |
+| content | content | TextField | help_text="Content of the share" |
+| created_at | created_at | DateTimeField | default=timezone.now, help_text="Date and time the content was shared" |
+| updated_at | updated_at | DateTimeField | auto_now=True, help_text="Date and time the content was last updated" |
+| likes | likes | ManyToManyField | User, related_name='liked_shares', blank=True, help_text="Users who liked the share" |
+| share_count | share_count | PositiveIntegerField | default=0, help_text="Number of times this content has been shared" |
+| post | post | ForeignKey | Post, on_delete=models.CASCADE, related_name="shared_posts", null=True |
+| id_share | id_share | UUIDField | primary_key=True, default=uuid.uuid4 |
+
+
+
+
 
 ## Testing
 - Please refer to the [TESTING.md](TESTING.md) file for all test-related documentation.
@@ -243,6 +369,8 @@ Deployed Website: Visit Thailand Guiding Light[ Link to website](https://thailan
 ## Content and Images
 **All the images for the website were taken from**
 - [iStock by Getty Images](https://www.istockphoto.com/)
+- [chrome developer tolls Images](https://developer.chrome.com/docs/devtools)
+- [amiresponsive](https://ui.dev/amiresponsive)
 ### image
   - [Chiangmai Thailand](https://www.istockphoto.com/photo/hot-air-balloons-gm619250406-107950677?phrase=chiangmai+thailand)
   - [Rachaburi Thailand](https://www.istockphoto.com/photo/market-woman-at-damnoen-saduak-in-thailand-gm535808385-57328202?phrase=bangkok+Thailand)
