@@ -24,18 +24,18 @@ ul {
 /**********************************************
 * Main Navbar
 **********************************************/
-#main-navbar {
+.main-navbar {
     background: #003399;
     color: #ffffff;
 }
 
-#main-navbar a,
-#main-navbar a i {
+.main-navbar a,
+.main-navbar a i {
     color: #ffffff;
     text-decoration: none;
 }
 
-#main-navbar #main-logo {
+.main-navbar .main-logo {
     border-radius: 50% !important;
     color: #000000 !important;
     background-color: #ffc837 !important;
@@ -46,16 +46,22 @@ ul {
     font-weight: bolder;
 }
 
-#main-navbar .navbar-toggler {
+.main-navbar .navbar-toggler {
     border-color: #1b3297;
     outline: none;
     box-shadow: none;
 }
 
-#main-navbar .navbar-toggler-icon {
+.main-navbar .navbar-toggler-icon {
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 }
 
+.navbar-nav .nav-link.active, .navbar-nav .nav-link.show{
+color: #ffffff;
+}
+.nav-link:focus, .nav-link:hover{
+color: #ffffff;
+}
 /**********************************************
 * sidebar widget
 **********************************************/

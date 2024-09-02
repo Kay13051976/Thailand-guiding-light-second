@@ -1,19 +1,22 @@
 {% extends "base.html" %}
 {% load crispy_forms_tags %}
 {% block content %}
+
+    <div class="container">
 <div class="row my-5">
     <h1>Admin Comment management</h1>
 </div> 
-<div class="container">
-    <div class="row mt-5 pt-5 pb-5">
+    </div>
+        <div class="container">
+    <div class="row mt-5 pt-5 pb-5 ">
         {% for message in messages %}
             <div class="alert alert-success">
                 {{ message }}
             </div>
             {% endfor %}
-        <div class="col-md-6 ">
+        <div class="col-md-6">
 
-            <div class="card">
+            <div class="card mb-5">
                 <div class="card-body">
                     <h3>Comments Add</h3>
                     <hr>
@@ -27,6 +30,7 @@
         </div>
 
 
+
         <div class="col-md-6 ">
             <div class="card">
                 <div class="card-body">
@@ -35,11 +39,11 @@
                     <form method="POST">
                         {% csrf_token %}
                         <div id="div_id_comment" class="mb-3">
-<label for="id_comment" class="form-label requiredField">
+                <label for="id_comment" class="form-label requiredField">
                 Comment ID<span class="asteriskField">*</span>
-</label>
-<input type="text" name="comment_edit_id" maxlength="1000" class="text form-control" required="" id="id_comment">
-</div>
+                            </label>
+                                                    <input type="text" name="comment_edit_id" maxlength="1000" class="text form-control" required="" id="id_comment">
+                                                    </div>
                         {{ formedit|crispy }}
                         <input class="btn allbtn" type="submit" value="Save">
                     </form>
@@ -55,7 +59,8 @@
                 <div class="card-body">
                     <h3>Comments All</h3>
 
-<table class="table table-striped">
+<div class="table-responsive " >
+<table class="table fontresposive table-striped w-100 ">
   <thead>
     <tr>
       <th scope="col">ID</th>
@@ -81,6 +86,7 @@
   </tbody>
 </table>
 
+                    </div>
                 </div>
             </div>
 
