@@ -148,60 +148,65 @@ Comprises the Account Owner's Post Creation Section and the Post Display Section
 
 ### Mobile home page
   **The mobile home page has a hamburger dropdown. It will show a navbar when you click on the hamburger icon and in the dropdown menu, you will have an admin site nav to navigate to the Django panel for admin**
-  - mobile home page for new user
-  ![Mobile home page new user](documentation/mobile-home-page-new-user.png)
-  ![Mobile home page new user dropdown](documentation/mobile-home-page-new-user-dropdown.png)
+  - mobile home page for admin
+   - ![Mobile admin home page1 image](documentation/mobile-admin-home-page1.png)
 
-  - mobile home page for user
-  ![Mobile home page user](documentation/mobile-home-page-user.png)
-  ![Mobile home page user dropdown](documentation/mobile-home-page-user-dropdown.png)
+   - ![Mobile admin home page2 image](documentation/mobile-admin-home-page2.png)
 
-  - Mobile home page for admin
-  ![Mobile home page admin](documentation/mobile-home-page-hamburger.png)
-  ![Mobile home page hamburger dropdown](documentation/mobile-home-page-hamburger-dropdown.png)
+   - ![Mobile admin home page3 image](documentation/mobile-admin-home-page3.png)
 
-  - Comment CRUD page
-  ![Mobile comment crud image1](documentation/mobile-comment-crud-image1.png)
-  ![mobile comment crud image2](documentation/mobile-comment-crud-image2.png)
+   - ![Mobile admin home page4 image](documentation/mobile-admin-home-page4.png)
 
+- Mobile Menu Toggle: Opens the hamburger menu.
+  - admin
+   -  ![Mobile admin hamburger open page user](documentation/mobile-admin-hamburger-page.png)
 
- ## Your account page
+  - regular user
+   -  ![Mobile regular user hamburger open page user](documentation/mobile-user-hamburger-page.png)
+
+  - new user
+   -  ![Mobile new user hamburger open page user](documentation/mobile-new-user-hamburger-page.png)
+
+- mobile toggle menu open for admin
+  -  ![Mobile admin toggle menu open image](documentation/mobile-admin-toggle-menu-open.png)
+
+  -  ![Mobile admin toggle nav menu open image](documentation/mobile-admin-toggle-nav-menu-open.png)
+
+- mobile toggle menu open for user
+  -  ![Mobile user toggle nav menu open image](documentation/mobile-user-toggle-nav-menu-open.png)
+ 
+
+ ## Profile page
   - This page has the primary data; this page allows the user to add or edit profile image, account name, full name, email address, phone number 
     - It has an avatar as a default if the user don't want to display their image
-      - Your account's new user
-      ![Your account page new user](documentation/your-account-page-new-user.png)
+      - Your profile page
+       - ![Mobile profile page1](documentation/mobile-profile-page1.png)
 
-      - your account user
-      ![Your account page user](documentation/your-account-page-user.png)
+       - ![Mobile profile page2](documentation/mobile-profile-page2.png)
 
-      - your account admin
-      ![Your account page admin](documentation/your-account-page-admin.png)
-### Your account page mobile
- - This page has a hamburger dropdown including four navigate nav links and the primary data in this page allows the user to add or edit profile image, account name, full name, email address, phone number 
-    - It has an avatar as a default if the use doesn't want to display their image
-      - Your account's new user
-      ![Mobile your account page new user](documentation/mobile-your-account-page-new-user.png)
+## Most popular page
 
-      - your account user
-      ![Mobile your account page user](documentation/mobile-your-account-page-user.png)
+  - ![Mobile most popular page1 image](documentation/mobile-most-popular-page1.png)
 
-      - your account admin
-      ![Mobile your account page admin](documentation/mobile-your-account-page-admin.png)
+  - ![Mobile most popular page2 image](documentation/mobile-most-popular-page2.png)
 
-## Most popular place
-  - This page has the most popular places in Thailand that will always be on the top list to visit.
-      - most popular page for users and new users
-  ![Most popular place for user and new user](documentation/most-popular-page-user-and-new-user.png)
+  - ![Mobile most popular page3 image](documentation/mobile-most-popular-page3.png)
 
-       - most popular page for admin
-  ![Most popular place for admin](documentation/most-popular-page-admin.png)
+  - ![Mobile most popular page4 image](documentation/mobile-most-popular-page4.png)
 
 
-  ### Most popular place mobile
-   - This page has the most popular place in Thailand that will always in the top list for tourists to visit, and a hamburger dropdown to hide/show the nav link
-    ![Mobile most popular page](documentation/mobile-most-popular-page-.png)
+## Your connection page
+  - ![Mobile your connection page1](documentation/mobile-your-connection-page1.png)
 
-    ![Mobile most popular page hamburger dropdown](documentation/mobile-most-popular-page-hamburger-dropdown.png)
+
+- ![Mobile your connection page2](documentation/mobile-your-connection-page2.png)
+
+
+
+
+
+
+  
 
 ## Allauth and Access pages :
 
