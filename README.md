@@ -87,13 +87,14 @@ Deployed Website: Visit Thailand Guiding Light[ Link to website](https://thailan
 
 ![Wire frame mobile user popover nav menu](documentation/wireframe-mobile-user-popover-nav-menu.png)
 
-- Mobile sign up
+- Mobile your connections page
 
-![Wire frame mobile hamburger popover nam](documentation/wireframe-mobile-sign-up.png)
+![Wire frame mobile comment management page](documentation/wireframe-mobile-your-connection-page.png)
 
-- Mobile your connections list
+- Mobile comment management page
 
-![Wire frame mobile hamburger popover nam](documentation/wireframe-mobile-your-connection-list.png)
+
+
 
 - Mobile most popular place
 
