@@ -89,20 +89,17 @@ Deployed Website: Visit Thailand Guiding Light[ Link to website](https://thailan
 
 - Mobile your connections page
 
-![Wire frame mobile comment management page](documentation/wireframe-mobile-your-connection-page.png)
+![Wire frame mobile your connection page](documentation/wireframe-mobile-your-connection-page.png)
 
 - Mobile comment management page
 
-
+![Wire frame comment management page](documentation/wireframe-mobile-your-connection-page.png)
 
 
 - Mobile most popular place
 
-![Wire frame mobile hamburger popover nam](documentation/wireframe-mobile-most-popular-place.png)
+![Wire frame mobile most popular place page](documentation/wireframe-mobile-most-popular-page.png)
 
-- Mobile chat room
-
-![Wire frame mobile hamburger popover nam](documentation/wireframe-mobile-chat-room.png)
 ## Workflow
 
 ![Workflow Picture](documentation/workflow-picture.png)
@@ -115,7 +112,6 @@ Deployed Website: Visit Thailand Guiding Light[ Link to website](https://thailan
  - Notifications : alert you to activity on your account, such as friend requests, comments, likes, and event invitations.
  - Privacy setting : control who can see you posts, friend list, profile information, and other personal data.
  - Ads : advertising platform allows business to create and target ads to specific demographics, interests, and behaviors.
-- Reply comment: to reply to all the comments on the user post.
  
 ## Technologies used
  
@@ -224,7 +220,7 @@ Deployed Website: Visit Thailand Guiding Light[ Link to website](https://thailan
 
 
 ## Testing
-- Please refer to the [TESTING.md]()file for all test-related documentation.
+- Please refer to the [TESTING.md](TESTING.md) file for all test-related documentation.
 
 
 ## Deployment 
@@ -283,6 +279,8 @@ According to the limited time I had left before the PP4 submission deadline, I d
 - Code Institute mentor Julia Konovalova for her advice
 - Pook Pak with an Entity-Relationship Diagram explanation.
 - Yodsapon Naree with an API, Django allauth, login and logout form explanation.
+- Kunakon provides explanations on HTML and CSS.
+- Omer provides explanations on Django and JavaScript.
 
 
 
