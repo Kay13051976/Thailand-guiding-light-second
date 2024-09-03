@@ -11,58 +11,59 @@
 ![New user home page](documentation/new-user-home-page.png)
   ## Navbar 
   ### Header navbar:
-  **Access to pages according to the user role**
-  - The Navbar has two subsections :
-1. User's section, which is visible to all users :
+ 
+ Which is visible to all users :
+
+  ![Header user image](documentation/header-laptop-image.png)
+
   - Logo, which redirects to the home page
      
   ![Logo](documentation/logo-in-header.png)
 
-  - Header nav bar for user and admin
-  ![Header user image](documentation/header-laptop-image.png)
-
-
-    - Home button: which redirects the user to the home page
-    - The information button: redirects the user to the Thailand tourism information website.
-    - Search Bar: This interface element is designed to help users quickly and efficiently find specific information or items. It enhances the user experience by enabling easy access to relevant content (planned for future enhancement).
-    - Welcome Message & Username Display: Displays a welcome message and the user's name to confirm that they are on their account page, enhancing the user experience.
+  - Home button: which redirects the user to the home page
+  - The information button: redirects the user to the Thailand tourism information website.
+  - Search Bar: This interface element is designed to help users quickly and efficiently find specific information or items. It enhances the user experience by enabling easy access to relevant content (planned for future enhancement).
+  - Welcome Message & Username Display: Displays a welcome message and the user's name to confirm that they are on their account page, enhancing the user experience.
 
   ### Left navbar section:
+
+   **Display Section Based on User Role**
  
   **The left section nav has a list of nav link buttons that are nice and clear with an icon on the front, which will navigate the user directly to what they need to do and connect.**
 
-**The navbar's simplistic design is intentionally crafted to ensure ease of use for all users of the web app.**
-
 ### Admin's Left Navbar: This section is visible to all users identified as admins. This section includes two navigation links.
 
-
 ![Header with admin site](documentation/admin-left-section-image.png)
-- Admin Site Navigation Link: Directs to the admin panel, allowing for the creation, reading, updating, and deletion (CRUD) of information from both admin and user accounts.
+- Admin Site: Directs to the admin panel, allowing for the creation, reading, updating, and deletion (CRUD) of information from both admin and user accounts.
 
 ![Administration panel image](documentation/administration-panel-image.png)
 
-- Comment Management Navigation Link: Directs to the admin comment management page, where admins can efficiently create, read, update, and delete comments using a user-friendly interface.
+- Comment Management: Directs to the admin comment management page, where admins can efficiently create, read, update, and delete comments using a user-friendly interface.
 
 ![Comment management page image](documentation/admin-comment-management-page.png)
 
-  - The comment management page has a notifications function.
+  - The comment management page has a notifications function to confirm task completion for the admin.
 
 ![Comment management page notification image](documentation/comment-management-page-notification.png)
 
    - The comment management page has an All comments detail table make it easy to manage.
+
 ![Comment management table image ](documentation/comment-management-table.png)
+
 
 **Access to page table**
 
-| Welcone:User Name | Admin Site | Comment Management |
-  | ------- | --------- | ------- |
-  | Admin | Yes | Yes | Yes |
-  | New user | No | No | No | 
-  | User | Yes | No| No| 
+  | User | Welcone:User Name | Admin Site | Comment Management |
+  | ------- | --------- | ------- | ----- |
+  | Admin | Yes | Yes | Yes | Yes |
+  | New user | No | No | No | No |
+  | Regular User | Yes | No| No| No |
 
   ### User's Left navbar section:
+  
+Visibility: This section is accessible to all users, including administrators
 
-   ![Use left navbar section](documentation/left-navbar-section.png)
+   ![User left navbar section](documentation/left-navbar-section.png)
 
   - Profile Account Button: Redirects users to their account page, where new users can upload their image and enter personal information. Existing users can update their image and information as needed.
 
@@ -84,6 +85,7 @@
   - Thai Travel News, which redirects the user to the external link Thai Travel News.
   - Logout button, which redirects the user to logout/signup page.
   ![Sign out page image](documentation/sign-out-page1.png)
+
     - when the user click sign out which redirects the user to the sing in and sign up page.
   ![Sign in and sign up page image](documentation/sign-in-and-sign-up-page.png)
 
@@ -106,10 +108,9 @@ Comprises the Account Owner's Post Creation Section and the Post Display Section
 
 - Display post section: Features a circular user image alongside the user's name and a three-dot vertical icon at the top. Below, a carousel displays multiple images. Underneath the carousel, there are four icons: a heart, a comment bubble, a share symbol, and a connect icon. Users can interact with the post by clicking the heart to express liking the post, the comment bubble to leave their thoughts, the share symbol to copy the post link, and the connect icon to link up with the post owner.
 
-
   ![Display post section image](documentation/display-post-section-image.png)
 
-    - Three Dots Vertical Icon: Features a hover function that displays a navigation menu, allowing the post owner to easily edit or delete their posts.
+  - Three Dots Vertical Icon: Features a hover function that displays a navigation menu, allowing the post owner to easily edit or delete their posts.
 
      ![Three dots vertical icon hover image](documentation/three-dots-vertical-hover.png)
 
@@ -118,12 +119,14 @@ Comprises the Account Owner's Post Creation Section and the Post Display Section
 
     ![Delete post popup confirmation image](documentation/delete-post-popup-confirmation.png)
 
-    - an alert confirming successful image .
+    **an alert confirming successful image**
     ![Allert post deleted successfully image](documentation/alert-post-deleted-successfully.png)
 
      - Edit Post: Redirects the user to the edit post page, where the post owner can delete individual or multiple images, add new images, and edit the header to update the post.
 
        ![Edit post page image](documentation/edit-post-page.png)
+
+       
 
     #### Heart icon, comment icon, share icon, connect icon, input field
     - Heart Icon: Clicking this icon toggles a 'like' for the post, increasing or decreasing the like count on its badge accordingly.
