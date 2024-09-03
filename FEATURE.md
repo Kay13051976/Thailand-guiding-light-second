@@ -124,9 +124,14 @@ Comprises the Account Owner's Post Creation Section and the Post Display Section
 
      - Edit Post: Redirects the user to the edit post page, where the post owner can delete individual or multiple images, add new images, and edit the header to update the post.
 
-       ![Edit post page image](documentation/edit-post-page.png)
+       - ![Edit post page image](documentation/edit-post-page.png)
+        - **Image delete notification**
+        ![Image delete notification](documentation/edit-your-post-image-delete-notification.png)
 
-       
+         - **Post sucessfully update notification**
+        ![Post successfully update notification image](documentation/edit-your-post-update-notification.png)
+
+
 
     #### Heart icon, comment icon, share icon, connect icon, input field
     - Heart Icon: Clicking this icon toggles a 'like' for the post, increasing or decreasing the like count on its badge accordingly.
