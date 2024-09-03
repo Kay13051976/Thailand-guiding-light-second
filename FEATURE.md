@@ -134,16 +134,16 @@ Comprises the Account Owner's Post Creation Section and the Post Display Section
 
 
     #### Heart icon, comment icon, share icon, connect icon, input field
+    ![Heart, comment, share, connect icon image](documentation/post-icon-image.png)
+
     - Heart Icon: Clicking this icon toggles a 'like' for the post, increasing or decreasing the like count on its badge accordingly.
-    - Comment Icon: Opens the comment section under the post. Users can view all comments made by others.
+    - Comment Icon: Opens the comment section under the post. Users can view all comments made by others. Users can edit, delete, or reply to comments made by others.
+    ![Comment reply for post image](documentation/comment-reply-for-post.png)
     - Share Icon: Allows users to share the post by copying its URL link.
     - Connect Icon: Sends a connection request to the post owner when clicked. If the post owner accepts, the connection count increases; if declined, there is no change.
     - Input Field: Users can type their comments here and press enter to post. Each new comment will update the comment count accordingly.
 
-    ![Heart, comment, share, connect icon image](documentation/post-icon-image.png)
-
-  
-   #### Advert left section
+   #### Advertisement left section
    - Advertising Display: Advertisements paid for by clients will be displayed and managed by the website administrator. Currently, there are no special features; future enhancements are planned to expand functionality.
 
     ![Advert left section image](documentation/advert-left-section.png)
