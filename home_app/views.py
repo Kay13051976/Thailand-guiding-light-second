@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 from .models import Post
 from django.db.models import Count
 from .models import Popular, Profile, \
-    Gallery, Comment, User, FriendRequest, Friend, Share
+    Gallery, Comment, User, FriendRequest, Friend, Share, ReplyComment
 from .forms import AccountForm, UserPostForm, CommentsForm, CommentsFormEdit
 from django.shortcuts import get_object_or_404
 from django.http import JsonResponse
@@ -22,6 +22,10 @@ from django.contrib import messages
 
 
 def index(request):
+    # replycomment = get_object_or_404(ReplyComment,
+    # id_reply_comment='7bb0724d-df01-4a50-b026-7212b36fbfe5')
+    # replycomment.delete()
+
     if request.method == 'GET':
         if 'post_edit' in request.GET:
             posts = Post.get_list_approve().filter(
@@ -43,7 +47,8 @@ def index(request):
                 friend_count=Count('user__Friend_user')
             )
 
-            messages.success(request, 'Image Successfully Deleted', extra_tags='update_post')
+            messages.success(request, 'Image Deleted successful!',
+                             extra_tags='update_post')
 
             return render(request, 'home_app/post_edit.html',
                           {'posts': posts,
@@ -70,7 +75,8 @@ def index(request):
             ).order_by('-created_on').annotate(
                 friend_count=Count('user__Friend_user')
             )
-            messages.success(request, 'Post Successfully Updated', extra_tags='update_post')
+            messages.success(request, 'Post Update successful!',
+                             extra_tags='update_post')
             return render(request,
                           'home_app/post_edit.html',
                           {'posts': posts,
@@ -151,6 +157,16 @@ def popular(request):
         request, 'home_app/most_popular_place.html', {'places': places})
 
 
+def contact(request):
+    return render(
+        request, 'home_app/contact.html')
+
+
+def about(request):
+    return render(
+        request, 'home_app/about.html')
+
+
 def api_toggle_connect(request, user_id):
     if not request.user.is_authenticated:
         return redirect('login')
@@ -158,12 +174,13 @@ def api_toggle_connect(request, user_id):
     user = get_object_or_404(User, id=request.user.id)
     friend = get_object_or_404(User, id=user_id)
 
-    if str(request.user.id) ==  str(user_id):
+    if str(request.user.id) == str(user_id):
         connected = False
     elif not FriendRequest.objects.filter(user=user, friend=friend).exists():
         if not FriendRequest.objects.filter(user=friend, friend=user).exists():
             friendRequest = FriendRequest.objects.create(
-            user=user, friend=friend, status="pending"
+                user=user, friend=friend,
+                status="pending"
             )
             friendRequest.save()
             connected = True
@@ -303,6 +320,53 @@ def api_edit_comment(request, comment_id):
         'success': False, 'message': 'Invalid request method.'})
 
 
+def api_reply_comment(request, comment_id):
+
+    if request.method == 'POST':
+        user_id = request.POST.get('user_id')
+        reply_to_user = get_object_or_404(User, id=user_id)
+        current_user = get_object_or_404(User, id=request.user.id)
+        Commentt = Comment.objects.get(pk=comment_id)
+        comment_text = request.POST.get('comment', '')
+
+        if comment_text:
+            # Commentt.comment = comment_text
+            # Commentt.save()
+            if str(user_id) == str(request.user.id):
+                comment = ReplyComment(user=current_user, comment=Commentt,
+                                       reply=comment_text)
+                comment.save()
+            else:
+                comment = ReplyComment(user=current_user, comment=Commentt,
+                                       reply="<b>" + reply_to_user.username
+                                             + "</b> " + comment_text)
+                comment_text = "<b>" + reply_to_user.username +\
+                               "</b> " + comment_text
+                comment.save()
+
+            # Send comment back
+            comment_data = {
+                'currentusername': current_user.username,
+                'reply_to_username': reply_to_user.username,
+                'currentuserid': request.user.id,
+                'reply_to_user_id': user_id,
+                'comment': comment_text,
+                'reply_comment_id': comment.id_reply_comment
+            }
+
+            return JsonResponse({
+                'success': True, 'message': 'Comment Added successfully.',
+                'comment': comment_data
+                # 'comment_count': post.comment_set.count()
+                })
+        else:
+            return JsonResponse({
+                'success': False, 'message': 'Comment text is required.'})
+
+    return JsonResponse({
+        'success': False, 'message': 'Invalid request method.'})
+
+
 def api_delete_comment(request, comment_id):
 
     if request.method == 'POST':
@@ -376,6 +440,7 @@ def api_add_comment(request, post_id):
             # Send comment back
             comment_data = {
                 'user': comment.user.username,
+                'user_id': comment.user.id,
                 'comment': comment.comment,
                 'date': comment.get_date_string(),
                 'id_post_comment': comment.id_post_comment

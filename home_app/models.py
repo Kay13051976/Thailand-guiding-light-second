@@ -120,14 +120,20 @@ class Comment(models.Model):
     likes = models.ManyToManyField(User, blank=True, related_name="comment_likes")
     id_post_comment = models.UUIDField(primary_key=True, default=uuid.uuid4)
 
+    #ReplyComment
+
     def __str__(self):
         return str(self.post)
+
+    def get_all_replycomments(self):
+        return self.replycomment_set.all().order_by('date')
 
     def get_date_string(self):
         return self.date.strftime('%Y-%m-%d %H:%M:%S')
 
     def get_owner(self):
         return self.user.profile.get_full_name()
+
 
     class Meta:
         verbose_name_plural = 'comment'

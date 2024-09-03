@@ -263,11 +263,38 @@
                                                   <button class="deleteupdatebutton" onclick="editshow('{{comment.id_post_comment}}')" >Edit?</button>
 
                                                   <input class="form-control editcommetfield form-control editboxhide d-none" type="text" id="{{comment.id_post_comment}}" name="comment" value="{{comment.comment}}" onkeypress="edit_comment(event,'{{comment.id_post_comment}}','{{post.id_post}}')" placeholder="Press enter to save comment">
-                                                  </p>
                                                   {% endif %} {% endif %}
+
+                                              </p>
+
+                                                <button class="deleteupdatebutton mx-3 my-2" onclick="replyshow('{{comment.id_post_comment}}')" >Reply?</button>
+                                                <input class="form-control editcommetfield form-control editboxhide d-none" type="text" id="reply-{{comment.id_post_comment}}" name="comment" onkeypress="reply_comment(event,'{{comment.id_post_comment}}','{{comment.user.id}}', false, '{{comment.id_post_comment}}')" placeholder="Press enter to save comment">
+
+                                             </div>
+                                          </div>
                                       </div>
-                                  </div>
+
+<div  id="replycomment-{{comment.id_post_comment}}" >
+                                      {% for reply in comment.get_all_replycomments %}
+
+                                    <div class="d-flex flex-row my-1 mx-5">
+                                      <div class="text-center ml-5">
+                                          <img src="{{reply.user.profile.get_profile_url}}" class="rounded ml-5" alt="..." width="50" height="50" onerror="this.src='/media/images/default/profile.png'" >
+                                        </div>
+                                        <div>
+                                          <div class="">
+                                          <p  class="mx-3 my-0 text-post-account-comment text-bold">{{reply.user}}</p >
+                                              <p  class="mx-3 my-2 text-post-comment"><span id="commenttxt-{{reply.id_reply_comment}}" >{{reply.reply|safe}}</span></p>
+
+                                                <button class="deleteupdatebutton mx-3 my-2" onclick="replyreplyshow('{{reply.id_reply_comment}}')" >Reply?</button>
+                                                <input class="form-control editcommetfield form-control editboxhide d-none" type="text" id="replyreply-{{reply.id_reply_comment}}" name="comment" onkeypress="reply_comment(event,'{{comment.id_post_comment}}','{{reply.user.id}}', true, '{{reply.id_reply_comment}}')" placeholder="Press enter to save comment">
+
+                                             </div>
+                                          </div>
                                       </div>
+
+                                      {% endfor %}
+    </div>
                               </div>
 
                                 {% empty %}
@@ -282,17 +309,8 @@
                   </div>
               </div>
               <!-- End Post Lists -->
-
-
-
-
-
           </div>
-
-
       </div>
-
-
     </div>
   </section>
 
@@ -492,6 +510,20 @@ x.classList.toggle('d-none');
  // }
 }
 
+function replyshow( comment_id ){
+
+const x = document.getElementById("reply-"+comment_id);
+x.classList.toggle('d-none');
+
+}
+
+function replyreplyshow( comment_id ){
+
+const x = document.getElementById("replyreply-"+comment_id);
+x.classList.toggle('d-none');
+
+}
+
 function delete_post(post_id){
 
 // Get the modal
@@ -597,8 +629,66 @@ if (event.key === 'Enter') {
                 }
             });
         }
+}
 
+function reply_comment(event,comment_id,user_id, reply, reply_comment_id){
 
+if (event.key === 'Enter') {
+            console.log("post comment")
+            event.preventDefault();
+            const comment_text = $(event.target).val();
+
+            $.ajax({
+                type: 'POST',
+                url: `/api/reply_comment/${comment_id}/`,
+                data: {
+                    'comment': comment_text,
+                    'user_id':user_id,
+                    'csrfmiddlewaretoken': '{{ csrf_token }}'
+                },
+                success: function (data) {
+                    if (data.success) {
+                        // Add HTML
+                        if(reply==false){
+                        const xreply = document.getElementById("reply-"+comment_id);
+                        xreply.value= "";
+                        xreply.classList.toggle('d-none');
+                        }
+
+                        if(reply==true){
+                        const xreplyreply = document.getElementById("replyreply-"+reply_comment_id);
+                        xreplyreply.value= "";
+                        xreplyreply.classList.toggle('d-none');
+                        }
+                        const profileImgSrc = $('#profile_img').attr('src');
+                        const commentHtml = `
+                            <div class="d-flex flex-row my-1 mx-5">
+                                      <div class="text-center ml-5">
+                                          <img src="${profileImgSrc}" class="rounded ml-5" alt="..." width="50" height="50" onerror="this.src='/media/images/default/profile.png'" >
+                                        </div>
+                                        <div>
+                                          <div class="">
+                                          <p  class="mx-3 my-0 text-post-account-comment text-bold">${data.comment.currentusername}</p >
+                                              <p  class="mx-3 my-2 text-post-comment"><span id="commenttxt-${data.comment.reply_comment_id}" >${data.comment.comment}</span></p>
+
+                                                <button class="deleteupdatebutton mx-3 my-2" onclick="replyreplyshow('${data.comment.reply_comment_id}')" >Reply?</button>
+                                                <input class="form-control editcommetfield form-control editboxhide d-none" type="text" id="replyreply-${data.comment.reply_comment_id}" name="comment" onkeypress="reply_comment(event,'${comment_id}','${user_id}', true, '${data.comment.reply_comment_id}')" placeholder="Press enter to save comment">
+
+                                             </div>
+                                          </div>
+                                      </div>
+                        `;
+                        // Add HTML
+                        $('#replycomment-' + comment_id).append(commentHtml);
+
+                        //alert('Success!');
+                    }
+                },
+                error: function() {
+                    alert('An error occurred.');
+                }
+            });
+        }
 }
 
     function post_comment(event,post_id) {
@@ -636,11 +726,17 @@ if (event.key === 'Enter') {
                                                 <input class="form-control editcommetfield form-control editboxhide d-none" type="text" id="${data.comment.id_post_comment}" name="comment" class="form-control editboxhide" value="${data.comment.comment}" onkeypress="edit_comment(event,'${data.comment.id_post_comment}','${post_id}')" placeholder="Press enter to save comment">
                                                 </p>
 
+                                                <button class="deleteupdatebutton mx-3 my-2" onclick="replyshow('${data.comment.id_post_comment}')" >Reply?</button>
+                                                <input class="form-control editcommetfield form-control editboxhide d-none" type="text" id="reply-${data.comment.id_post_comment}" name="comment" onkeypress="reply_comment(event,'${data.comment.id_post_comment}','${data.comment.user_id}', false, '${data.comment.id_post_comment}')" placeholder="Press enter to save comment">
+
+<div  id="replycomment-${data.comment.id_post_comment}" >
+
+</div>
+
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
                         `;
                         // Add HTML
                         $('#post-comment-' + post_id).prepend(commentHtml);
