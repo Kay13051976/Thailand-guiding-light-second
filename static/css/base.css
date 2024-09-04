@@ -930,22 +930,19 @@ display:block;
     border-radius: 0px !important;
 }
 /* about page style*/
-.about-page-container {
-  margin: auto;
-  width: 60%;
-  text-align: center;
-  font-size: 32px;
-  padding-top: 130px;
-  padding-bottom: 130px;
-  margin-top: 400px;
-  margin-bottom: 400px;
+.about-picture > img {
+    width: auto;
+    height: 450px;
 }
-.about-page-content {
-    margin: auto;
-    padding: 10px;
-    text-align: center;
-    font-size: 26px;
-  }
-  .about-page-header {
-    font-size: 42px;
-  }
+@media (max-width: 1024px) {
+    .about-picture > img {
+        width: auto;
+        height: 330px;
+    }
+}
+@media (max-width: 430px) {
+    .about-picture > img {
+        width: auto;
+        height: 280px;
+    }
+}
