@@ -137,7 +137,7 @@ Comprises the Account Owner's Post Creation Section and the Post Display Section
     ![Heart, comment, share, connect icon image](documentation/post-icon-image.png)
 
     - Heart Icon: Clicking this icon toggles a 'like' for the post, increasing or decreasing the like count on its badge accordingly.
-    - Comment Icon: Opens the comment section under the post. Users can view all comments made by others. Users can edit, delete, or reply to comments made by others.
+    - Comment Icon: Opens the comment section under the post. Users can view all comments made by others. Users can edit, delete, or reply to comments made by others. also user can reply the reply. Users can also reply to replies, facilitating deeper interaction.
     ![Comment reply for post image](documentation/comment-reply-for-post.png)
     - Share Icon: Allows users to share the post by copying its URL link.
     - Connect Icon: Sends a connection request to the post owner when clicked. If the post owner accepts, the connection count increases; if declined, there is no change.
@@ -149,13 +149,27 @@ Comprises the Account Owner's Post Creation Section and the Post Display Section
     ![Advert left section image](documentation/advert-left-section.png)
 
      #### Footer
-    - Footer Layout: The footer is divided into three sections: 'Get in Touch', 'Customer Service', and 'Information'. Each section contains links to relevant pages. Enhancements to these links are planned for future improvement.
+    - Footer Layout: The footer is divided into three sections: 'Get in Touch', 'Customer Service', and 'Information'. Each section contains links to relevant pages. 
 
     ![Footer image](documentation/footer-image.png)
 
+    - Get in Touch Section 
+        - Social Media Icons: The Facebook, Twitter, YouTube, and Instagram icons provide direct links to our respective social media pages, facilitating easy access for users to connect with us.
+    - Customer Service Section: This section contains four navigation links to assist with various customer service inquiries.
+         - Thailand Guiding Light Ads: Currently a placeholder link without functionality.
+         - Thailand Guiding Light Support: Another 
+         placeholder link without functionality.
+         - About Us: Redirects users to the About page, which details the website’s foundation, purpose, and introduces the staff.
+         - Contact Us: Features a Google Maps link for navigation, a simple form for sending inquiries to the website administrator, and provides contact details including address, phone number, email, and hours of operation.
+      - Information Section: This section contain two navigation links.
+         - General Terms & Conditions: Currently a placeholder link without functionality.
+         - Data Protection & GDPR: Currently a placeholder link without functionality.
+    
+    **All links currently without functionality are planned for future development.**
+
 
 ### Mobile home page
-  **The mobile home page has a hamburger dropdown. It will show a navbar when you click on the hamburger icon and in the dropdown menu, you will have an admin site nav to navigate to the Django panel for admin**
+  **The mobile home page has a hamburger dropdown. It will show a navbar when you click on the hamburger icon and in the dropdown menu, you will have an admin site nav to navigate to the Django panel for admin and Comment Management: This feature provides a straightforward and user-friendly interface, allowing admins to create, read, update, and delete comments efficiently.**
   - mobile home page for admin
    - ![Mobile admin home page1 image](documentation/mobile-admin-home-page1.png)
 
@@ -167,21 +181,22 @@ Comprises the Account Owner's Post Creation Section and the Post Display Section
 
 - Mobile Menu Toggle: Opens the hamburger menu.
   - admin
-   -  ![Mobile admin hamburger open page user](documentation/mobile-admin-hamburger-page.png)
+  ![Mobile admin hamburger open page user](documentation/mobile-admin-hamburger-page.png)
 
   - regular user
    -  ![Mobile regular user hamburger open page user](documentation/mobile-user-hamburger-page.png)
 
   - new user
-   -  ![Mobile new user hamburger open page user](documentation/mobile-new-user-hamburger-page.png)
+  ![Mobile new user hamburger open page user](documentation/mobile-new-user-hamburger-page.png)
 
 - mobile toggle menu open for admin
-  -  ![Mobile admin toggle menu open image](documentation/mobile-admin-toggle-menu-open.png)
+![Mobile admin toggle menu open image](documentation/mobile-admin-toggle-menu-open.png)
 
-  -  ![Mobile admin toggle nav menu open image](documentation/mobile-admin-toggle-nav-menu-open.png)
+- mobile tool toggle menu open for admin
+  ![Mobile admin toggle nav menu open image](documentation/mobile-admin-toggle-nav-menu-open.png)
 
-- mobile toggle menu open for user
-  -  ![Mobile user toggle nav menu open image](documentation/mobile-user-toggle-nav-menu-open.png)
+- Mobile Tool Toggle: Opens the tool menu on mobile devices for the all user.
+  ![Mobile user toggle nav menu open image](documentation/mobile-user-toggle-nav-menu-open.png)
  
 
  ## Profile page
@@ -204,17 +219,12 @@ Comprises the Account Owner's Post Creation Section and the Post Display Section
 
 
 ## Your connection page
+Connection Management: Account owners can view sent and received connection requests, as well as their current connections. They have the ability to accept, cancel, or disconnect friend requests directly from the connection list.
   - ![Mobile your connection page1](documentation/mobile-your-connection-page1.png)
 
 
 - ![Mobile your connection page2](documentation/mobile-your-connection-page2.png)
 
-
-
-
-
-
-  
 
 ## Allauth and Access pages :
 
