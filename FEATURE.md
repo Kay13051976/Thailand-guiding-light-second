@@ -23,7 +23,7 @@
   - Home button: which redirects the user to the home page
   - The information button: redirects the user to the Thailand tourism information website.
   - Search Bar: This interface element is designed to help users quickly and efficiently find specific information or items. It enhances the user experience by enabling easy access to relevant content (planned for future enhancement).
-  - Welcome Message & Username Display: Displays a welcome message and the user's name to confirm that they are on their account page, enhancing the user experience.
+  - Welcome Message & Username Display: Features a welcome message alongside the user's name, confirming their presence on their account page. The username also serves as a link that redirects to the account owner's profile page, enhancing user experience.
 
   ### Left navbar section:
 
