@@ -112,15 +112,17 @@ class Post(models.Model):
 
 class Comment(models.Model):
 
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="comment_user")
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="comment_user")
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
     comment = models.CharField(max_length=1000)
     active = models.BooleanField(default=True)
     date = models.DateTimeField(auto_now_add=True)
-    likes = models.ManyToManyField(User, blank=True, related_name="comment_likes")
+    likes = models.ManyToManyField(
+       User, blank=True, related_name="comment_likes")
     id_post_comment = models.UUIDField(primary_key=True, default=uuid.uuid4)
 
-    #ReplyComment
+    # ReplyComment
 
     def __str__(self):
         return str(self.post)
@@ -133,7 +135,6 @@ class Comment(models.Model):
 
     def get_owner(self):
         return self.user.profile.get_full_name()
-
 
     class Meta:
         verbose_name_plural = 'comment'
@@ -242,20 +243,30 @@ class Popular(models.Model):
 
 
 class Share(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='shares', verbose_name="User", help_text="The user who shared this content")
+    user = models.ForeignKey(
+       User, on_delete=models.CASCADE,
+       related_name='shares', verbose_name="User",
+       help_text="The user who shared this content")
     content = models.TextField(help_text="Content of the share")
-    created_at = models.DateTimeField(default=timezone.now, help_text="Date and time the content was shared")
-    updated_at = models.DateTimeField(auto_now=True, help_text="Date and time the content was last updated")
-    likes = models.ManyToManyField(User, related_name='liked_shares', blank=True, help_text="Users who liked the share")
-    share_count = models.PositiveIntegerField(default=0, help_text="Number of times this content has been shared")
-    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="shared_posts", null=True)
+    created_at = models.DateTimeField(
+       default=timezone.now, help_text="Date and time the content was shared")
+    updated_at = models.DateTimeField(
+       auto_now=True, help_text="Date and time the content was last updated")
+    likes = models.ManyToManyField(
+       User, related_name='liked_shares',
+       blank=True, help_text="Users who liked the share")
+    share_count = models.PositiveIntegerField(
+       default=0, help_text="Number of times this content has been shared")
+    post = models.ForeignKey(
+       Post, on_delete=models.CASCADE, related_name="shared_posts", null=True)
     id_share = models.UUIDField(primary_key=True, default=uuid.uuid4)
 
     def __str__(self):
         return str(self.post)
 
     def __str__(self):
-        return f"Share by {self.user.username} on {self.created_at.strftime('%Y-%m-%d %H:%M')}"
+        return f"Share by {self.user.username}
+        on {self.created_at.strftime('%Y-%m-%d %H:%M')}"
 
     def total_likes(self):
         return self.likes.count()
