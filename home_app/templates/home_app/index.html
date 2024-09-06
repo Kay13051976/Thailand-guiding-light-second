@@ -411,37 +411,36 @@
 <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
 <script>
 
-function copyURI(evt, post_id ) {
-    evt.preventDefault();
-    const linkElement = document.getElementById("copylink-"+post_id);
-    const linkToCopy = linkElement.innerText;
+function copyURI(evt, post_id) {
+    evt.preventDefault();  // Prevent the default anchor click behavior
 
-    let csrftoken = Cookies.get('csrftoken');
-        $.ajaxSetup({
-            headers: {
-                'X-CSRFToken': csrftoken
-            }
-         });
+    const linkElement = document.getElementById("copylink-" + post_id);
+    const linkToCopy = linkElement.innerText || linkElement.textContent;  // Fallback for older browsers
 
+    let csrftoken = Cookies.get('csrftoken');  // Assuming you have included js-cookie library
+
+    // Setup AJAX with CSRF token
+    $.ajaxSetup({
+        headers: { 'X-CSRFToken': csrftoken }
+    });
 
     $.ajax({
-            type: 'POST',
-            url: `/api/toggle-share/${post_id}/`,
-            success: function(data) {
+        type: 'POST',
+        url: `/api/toggle-share/${post_id}/`,
+        success: function(data) {
+            $('#shareCount-' + post_id).html(data.share_count);  // Update the share count on the page
 
-            $('#shareCount-' + post_id).html(data.share_count);
-
+            // Copying link to clipboard
             navigator.clipboard.writeText(linkToCopy).then(() => {
-            alert('Post link copied');
+                alert('Post link copied successfully!');
             }, () => {
-            alert('Post link not Copied');
+                alert('Failed to copy post link.');
             });
-
-            },
-            error: function() {
-                alert('Share failed!');
-            }
-        });
+        },
+        error: function() {
+            alert('Failed to share post!');
+        }
+    });
 }
 
 function toggle_connect(user_id,id_post) {
