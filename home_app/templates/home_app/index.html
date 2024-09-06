@@ -416,7 +416,7 @@ function copyURI(evt, post_id ) {
     const linkElement = document.getElementById("copylink-"+post_id);
     const linkToCopy = linkElement.innerText;
 
-    var csrftoken = Cookies.get('csrftoken');
+    let csrftoken = Cookies.get('csrftoken');
         $.ajaxSetup({
             headers: {
                 'X-CSRFToken': csrftoken
