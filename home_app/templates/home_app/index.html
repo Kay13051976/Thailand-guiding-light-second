@@ -460,14 +460,14 @@ function toggle_connect(user_id,id_post) {
             alert('Friend Request Sent!');
             }else{
 
-            alert('Friend Request already Sent or you are already friends of each other or you can not send request to yourself or check you already received request from this user or not!');
+            alert('Friend Request cannot be sent. Possible reasons: already sent, you are already friends, you cannot send a request to yourself, or you may have a pending request from this user.');
 
             }
 
 
             },
             error: function() {
-                alert('Connect fail');
+                alert('Connection failed. Please try again.');
             }
         });
     }
