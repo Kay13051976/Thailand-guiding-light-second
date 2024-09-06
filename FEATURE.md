@@ -144,8 +144,7 @@ Comprises the Account Owner's Post Creation Section and the Post Display Section
     - Input Field: Users can type their comments here and press enter to post. Each new comment will update the comment count accordingly.
 
    #### Advertisement left section
-   - Advertising Display: Advertisements paid for by clients will be displayed and managed by the website administrator. Currently, there are no special features; future enhancements are planned to expand functionality.
-
+    - Advertising Display: Advertisements paid for by clients are displayed and managed by the website administrator. Each advertisement includes a navigation link to the client’s external website, promoting their involvement with Thailand Guiding Light.
     ![Advert left section image](documentation/advert-left-section.png)
 
      #### Footer
