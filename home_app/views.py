@@ -309,7 +309,7 @@ def api_edit_comment(request, comment_id):
             }
 
             return JsonResponse({
-                'success': True, 'message': 'Comment Update successfully.',
+                'success': True, 'message': 'Comment Updated successfully.',
                 'comment': comment_data,
                 'comment_count': post.comment_set.count()})
         else:
@@ -385,7 +385,7 @@ def api_delete_comment(request, comment_id):
             }
 
             return JsonResponse({
-                'success': True, 'message': 'Comment Update successfully.',
+                'success': True, 'message': 'Comment Updated successfully.',
                 'comment': comment_data,
                 'comment_count': post.comment_set.count()})
         else:
@@ -479,7 +479,7 @@ def CommentsCrud(request):
                 # form = form.save(commit=False)  # change is here
                 # form.user = request.user  # change is here
                 form.save()
-                messages.success(request, 'Comment save successfully!')
+                messages.success(request, 'Comment saved successfully!')
                 return redirect('comment-crud')
         else:
             form = CommentsForm(request.POST)
@@ -487,7 +487,7 @@ def CommentsCrud(request):
                 # form = form.save(commit=False)  # change is here
                 # form.user = request.user  # change is here
                 form.save()
-                messages.success(request, 'Comment save successfully!')
+                messages.success(request, 'Comment saved successfully!')
                 return redirect('comment-crud')
 
     form = CommentsForm()

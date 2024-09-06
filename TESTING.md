@@ -90,16 +90,14 @@ pep8ci Python Linter
 
 ## HTML validation
 - Home page
-![Home page html validation](documentation/home-page-html-validation.png)
-
-- Your account page
-![Your account page html validation](documentation/your-account-page-html-validation.png)
+![Home page html validation1](documentation/home-page-html-validation1.png)
+![Home page html validation2](documentation/home-page-html-validation2.png)
+![Home page html validation3](documentation/home-page-html-validation3.png)
 
 - Most popular page
-
- **The error appear because of Django form variable**
 ![Most popular page html validation](documentation/most-popular-page-html-validation.png)
 
+- Comment Management page
 ![Comment CRUD page html validation1](documentation/comment-crud-page-html-validation1.png)
 ![ Comment CRUD page html validation2](documentation/comment-crud-page-html-validation2.png)
 ![Comment CRUD page html validation3](documentation/comment-crud-page-html-validation3.png)

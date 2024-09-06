@@ -265,8 +265,7 @@ class Share(models.Model):
         return str(self.post)
 
     def __str__(self):
-        return f"Share by {self.user.username}
-        on {self.created_at.strftime('%Y-%m-%d %H:%M')}"
+        return f"Share by {self.user.username} on {self.created_at.strftime('%Y-%m-%d %H:%M')}"
 
     def total_likes(self):
         return self.likes.count()
