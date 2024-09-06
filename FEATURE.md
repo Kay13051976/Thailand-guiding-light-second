@@ -68,6 +68,7 @@ Visibility: This section is accessible to all users, including administrators
   - Profile Account Button: Redirects users to their account page, where new users can upload their image and enter personal information. Existing users can update their image and information as needed.
 
   ![User profile page image](documentation/user-profile-page.png)
+  ![New User profile page image](documentation/new-user-profile-page.png)
 
   - Your Connection Button: Redirects users to the Connections page, where the account owner can accept or cancel connection requests, or disconnect from existing connections.
 

@@ -98,31 +98,37 @@ pep8ci Python Linter
 ![Most popular page html validation](documentation/most-popular-page-html-validation.png)
 
 - Comment Management page
-![Comment CRUD page html validation1](documentation/comment-crud-page-html-validation1.png)
-![ Comment CRUD page html validation2](documentation/comment-crud-page-html-validation2.png)
-![Comment CRUD page html validation3](documentation/comment-crud-page-html-validation3.png)
-![Comment CRUD page html validation4](documentation/comment-crud-page-html-validation4.png)
+![Comment management page html validation1](documentation/comment-crud-page-html-validation1.png)
+![ Comment  management page html validation2](documentation/comment-crud-page-html-validation2.png)
+![Comment  management page html validation3](documentation/comment-crud-page-html-validation3.png)
+![Comment  management page html validation4](documentation/comment-crud-page-html-validation4.png)
 ![]()
+**The error appear because of Django form variable**
 
-
-
+## CSS validation
+![Base css validation4](documentation/base-css-validation.png)
+![]()
 ## Lighthouse Report
-### Lighthouse new user page report
-![Test lighthouse new user](documentation/lighthouse-tes-new-usert.png)
-### Lighthouse user page report
+### Lighthouse admin home page report
+![Test lighthouse admin home page](documentation/lighthouse-test-admin-home-page.png)
 
-![Test lighthouse user](documentation/lighthouse-test-user.png)
-### Lighthouse admin page report
-- User page
-![Test lighthouse user](documentation/lighthouse-test-admin.png)
-- Your account page
-![Test lighthouse your account page](documentation/lighthouse-test-your-account-page.png)
-- Most popular page
-![Test lighthouse most popular place page](documentation/lighthouse-test-your-account-page.png)
+### Lighthouse user home page report
+
+![Test lighthouse user home page](documentation/lighthouse-test-user-home-page.png)
+### Lighthouse new user home page report
+
+![Test lighthouse user](documentation/lighthouse-test-new-user-home-page.png)
+
+- Your Profile Page
+![Test lighthouse your profile page](documentation/lighthouse-test-your-profile-page.png)
+
+- Most Your Connection Page
+![Test lighthouse most popular place page](documentation/lighthouse-test-your-connection-page.png)
 - Sign up page
 ![Test lighthouse sign up page](documentation/lighthouse-test-signup-page.png)
-- Comment CRUD page 
-![Comment CRUD lighthouse analyze](documentation/comment-crud-lighthouse-analyze.png)
+
+- Most popular place page
+![Comment CRUD lighthouse analyze](documentation/lighthouse-test-most-popular-place-page.png)
 ## Solved bugs
 - Removed stray end tag in base.html
 ![Bug fixed in base.html1](documentation/stray-end-tag-bug-fixed1.jpeg)
