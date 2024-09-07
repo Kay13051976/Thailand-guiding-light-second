@@ -59,11 +59,34 @@ Usability was tested with the below user acceptance testing, sent to new users t
 
 ## Testing
 ### Chrome
-![Test home page new user](documentation/test-home-page-chrome.png)
-![Tst home page user chrome](documentation/test-home-page-admin-chrome.png)
+- Admin home page
+![Test home page admin user](documentation/home-page-image1.png)
+- User home page
+![User home page](documentation/user-home-page.png)
+- New User Home Page
+![New user home page](documentation/new-user-home-page.png)
+- Comment Management
+![Comment management page image](documentation/admin-comment-management-page.png)
+- Profile page
+ ![User profile page image](documentation/user-profile-page.png)
+- New Profile page
+ ![New User profile page image](documentation/new-user-profile-page.png)
+- Your Connection page
+ ![Your connection page image](documentation/your-connection-page.png)
+ - Most popular page
+ ![Most popular page1 image](documentation/most-popular-page1.png)
+ ![Most popular page2 image](documentation/most-popular-page2.png)
 ### Firefox
-![Test home page user fierfox](documentation/test-home-page-user-firefox.png)
-![Test home page admin](documentation/test-chrome.png)
+- Admin home page
+![Firefox admin home page](documentation/firefox-admin-home-page.png)
+- User home page
+![Firefox user home page](documentation/firefox-user-home-page.png)
+- New user home page
+![Firefox new user home page](documentation/firefox-new-user-home-page1.png)
+
+
+
+
 ### Brave
 ![Test home page brave](documentation/test-brave-home-page.png)
 ![Test home page brave](documentation/test-brabe-home-page.png)
