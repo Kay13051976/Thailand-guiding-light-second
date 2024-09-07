@@ -84,13 +84,38 @@ Usability was tested with the below user acceptance testing, sent to new users t
 - New user home page
 ![Firefox new user home page](documentation/firefox-new-user-home-page1.png)
 
-
-
+- Profile page
+![Firefox profile page](documentation/firefox-profile-page.png)
+- Your connection page
+![Firefox your connection page](documentation/firefox-your-connection-page.png)
+- Most popular page
+![Firefox most popular place page](documentation/firefox-most-popular-place-page.png)
+- Contact us page
+![Firefox contact us page](documentation/firefox-contact-us-page.png)
 
 ### Brave
-![Test home page brave](documentation/test-brave-home-page.png)
-![Test home page brave](documentation/test-brabe-home-page.png)
+- Admin home page
+![Brave admin home page](documentation/brave-admin-home-page.png)
+- New user home page
+![Brave new user home page](documentation/brave-new-user-home-page.png)
+- Comment management page
+![Brave admin comment management page](documentation/brave-admin-comment-management-page.png)
+- Profile page
+![Brave new user home page](documentation/brave-profile-page.png)
+- Contact us page
+![Brave contact us page](documentation/brave-contact-us-page.png)
+- Most popular page
+![Brave contact us page](documentation/brave-most-popular-page.png)
+- Your connection page
+![Brave contact us page](documentation/brave-your-connection-page.png)
+
+
+
+
+
 ## Python validation Testing
+## Python validation Testing
+
 pep8ci Python Linter
 - admin.py
 
