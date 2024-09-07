@@ -1,10 +1,11 @@
 # Thailand Guiding Light
   - Deployed website: [Link to website](https://thailand-guiding-light-2fb0b0e33db8.herokuapp.com/)
-
+![Many devices image1](documentation/many-devices.png)
+**Full View Home Page Image**
 ![Home page image1](documentation/home-page-image1.png)
 ![Home page image2](documentation/home-page-image2.png)
 ![Home page image3](documentation/home-page-image3.png)
-![Home page image3](documentation/home-page-image4.png)
+![Home page image4](documentation/home-page-image4.png)
 
 
   ## About
@@ -351,17 +352,19 @@ Deployed Website: Visit Thailand Guiding Light[ Link to website](https://thailan
 
 ## Deployment 
 - The app was successfully deployed to[Heroku](https://id.heroku.com/login)
-![Heroku Deploy View Log](documentation/heroku-deploy-view-log.png)
+![Heroku Deploy View Log](documentation/heroku-view-blog-detail.png)
 - The database was deployed to [ElephantSQL](https://www.elephantsql.com/)
+- The static file was deployed to cloundinary [Cloudinary](https://cloudinary.com/)
 - The app can be reached by the [link](https://thailand-guiding-light-2fb0b0e33db8.herokuapp.com/)
 
-**Please refer to the [DEPLOYMENT.md](DEPLOYMENT.md) for all deployment**
+**Please refer to the [DEPLOYMENT.md](DEPLOYMENT.md) for all deployment detail**
 ## Credits
 - [GitHub](https://github.com/)for giving an idea of the project's design.
 - [Django](https://www.djangoproject.com/) for the framework.
 - [Font awesome](https://fontawesome.com/)for the access icons.
 - [jQuery](https://jquery.com/)for providing a variety of tools to make standard HTML code look appealing.
 - [PostgresSQL](https://www.postgresql.org/) for providing a free database.
+- [Cloudinary](https://cloudinary.com/) for store static files.
 - [Very Academy Youtube Channel](https://www.youtube.com/) for brilliant tutorials, which shed light on the implementation of databases with multi-value products, precise explanations of Django, social media websites, API, and many other things.
 - [Responsive Viewer](https://chromewebstore.google.com/detail/responsive-viewer/inmopeiepgfljkpkidclfgbgbmfcennb) for providing a free full web page screenshorts.
 - [Coolors](https://coolors.co/)for providing a free platform to generate your palette.
