@@ -206,6 +206,7 @@ Use template tags to load static files instead of hardcoding paths.
 - Added template to load static file
 ![Added template to load static file](documentation/added-template-tag-to-load-static.png)
 ## Future Improvement
-- Add a function to edit the post for the user.
-- Add reply comments in post comment sections.
-- Create your connection app and manage the connection function.
+- Chat bot.
+- Thailand Guiding Light Ads Page, Thailand Guiding Light Support Page, General Terms & Condition Page, Data Protection & GDPR Page
+- 
+- 
