@@ -110,10 +110,6 @@ Usability was tested with the below user acceptance testing, sent to new users t
 ![Brave contact us page](documentation/brave-your-connection-page.png)
 
 
-
-
-
-## Python validation Testing
 ## Python validation Testing
 
 pep8ci Python Linter
@@ -193,9 +189,22 @@ pep8ci Python Linter
 - Most popular place page
 ![Comment CRUD lighthouse analyze](documentation/lighthouse-test-most-popular-place-page.png)
 ## Solved bugs
+**Error in html validation**
 - Removed stray end tag in base.html
 ![Bug fixed in base.html1](documentation/stray-end-tag-bug-fixed1.jpeg)
 ![Bug fixed in base.html2](documentation/stray-end-tag-bug-fixed2.jpeg)
+**The static files have not loaded when deployed:**
+Use template tags to load static files instead of hardcoding paths.
+- Collectstatic command show no static file to download
+![Terminal collectstatic command](documentation/terminal-collectstatic-zero-file.png)
+- Heroku view log show zero static file loaded
+![Heroku view log show zero static file loaded ](documentation/
+- Heroku view site with no static file
+![Added template tag ](documentation/heroku-view-site-with-no-static-file.png)heroku-view-log-show-zero-static.png)
+- Removed hard code and use template tag instead
+![Added template tag ](documentation/use-template-tag-in-link-to-base-css.png)
+- Added template to load static file
+![Added template to load static file](documentation/added-template-tag-to-load-static.png)
 ## Future Improvement
 - Add a function to edit the post for the user.
 - Add reply comments in post comment sections.
