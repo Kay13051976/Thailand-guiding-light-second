@@ -15,7 +15,7 @@
     </style>
   </head>
   <body>
-  
+
     <!--Mobile Header -->
     <nav   class="main-navbar navbar navbar-expand-lg mobiledisplay">
       <div class="container">
@@ -102,10 +102,10 @@
 
           <div class="text-end d-flex justify-content-lg-start align-items-center">
             {% if request.user.is_authenticated  %}
-              Welcome : <a href="/account" class="btn btn-link me-2">{{ request.user.profile.get_full_name}}</a>
+              Welcome : <a href="/account" class="btn btn-link me-2 text-decoration-underline">{{ request.user.profile.get_full_name}}</a>
             {% else %}
-              <a href="/signup" class="btn btn-light me-2">Register</a>
-              <a href="/login" class="btn btn-light me-2">Login</a>
+              <a href="/signup" class="btn btn-light me-2 text-black">Register</a>
+              <a href="/login" class="btn btn-light me-2 text-black">Login</a>
             {% endif %}
           </div>
 
