@@ -27,6 +27,22 @@ Usability was tested with the below user acceptance testing, sent to new users t
 | 7. Transport   | Click on Transport button | Redirection to Transport booking website  | Y   | |
 | 8. Thai Travel News   | Click on Thai Travel News button | Redirection to Thai Travel News website | Y   | |
 | 9. Log Out     | Click on Log Out button | Redirection to Log Out page | Y   | |
+| Main Section |  | |    | |
+| Account Owner's Post Creation Section |  | |    | |
+| Three Dots Vertical| hover on | Delete post and Edit Post appear | Y   | |
+| 1. Delete Post| Click on delete post button | The post has been deleted | Y   | |
+| 2. Edit Post| Click on edit post button | Redirection to Edit Your post page | Y   | |
+| Edit Your Post Page |  | |    | |
+| 1. Delete Image Icon | Click on delete image icon  button | The image has been deleted | Y   | |
+| 2. Update Post | Click on update post button | The post has been updated | Y   | |
+| Display Post Section |  | |    | |
+| 1. Heart icon | Click on heart icon button | The count badge has been updated | Y   | |
+| 2. Comment icon | Click on comment icon button | All comment has been display | Y | 
+| 3. Comment Input Bar | Type your comment in the input bar and press Enter | The comment will be added, and the comment count badge will update accordingly | Y |
+| 4. Share icon | hover on share icon | the copy link will display  | Y |
+| 5. Copy Link | click on copy link button | The link has been copied | Y |
+| 6. Heart icon | Click on heart icon button | The count badge has been updated | Y   | |
+| 7. Heart icon | Click on heart icon button | The count badge has been updated | Y   | |
 | Footer |  | |    | |
 | Get in touch |  | |    | |
 | 1. Facebook | Click on Facebook button | Redirection to Facebook website | Y   | |
