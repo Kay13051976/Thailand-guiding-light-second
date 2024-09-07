@@ -41,8 +41,7 @@ Usability was tested with the below user acceptance testing, sent to new users t
 | 3. Comment Input Bar | Type your comment in the input bar and press Enter | The comment will be added, and the comment count badge will update accordingly | Y |
 | 4. Share icon | hover on share icon | the copy link will display  | Y |
 | 5. Copy Link | click on copy link button | The link has been copied | Y |
-| 6. Heart icon | Click on heart icon button | The count badge has been updated | Y   | |
-| 7. Heart icon | Click on heart icon button | The count badge has been updated | Y   | |
+| 6. Connect icon | Click on connect icon button | Click the 'Connect' icon to send a friend request. Once accepted, the count badge will be updated | Y   | |
 | Footer |  | |    | |
 | Get in touch |  | |    | |
 | 1. Facebook | Click on Facebook button | Redirection to Facebook website | Y   | |

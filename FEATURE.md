@@ -14,6 +14,8 @@
  
  Which is visible to all users :
 
+  ![Header nav with login logout image](documentation/header-nav-with-login-logout.png)
+
   ![Header user image](documentation/header-laptop-image.png)
 
   - Logo, which redirects to the home page
@@ -23,6 +25,8 @@
   - Home button: which redirects the user to the home page
   - The information button: redirects the user to the Thailand tourism information website.
   - Search Bar: This interface element is designed to help users quickly and efficiently find specific information or items. It enhances the user experience by enabling easy access to relevant content (planned for future enhancement).
+  - Register button: which redirects the user to the rigister page.
+  - Login button: which redirects the user to the login page.
   - Welcome Message & Username Display: Features a welcome message alongside the user's name, confirming their presence on their account page. The username also serves as a link that redirects to the account owner's profile page, enhancing user experience.
 
   ### Left navbar section:
