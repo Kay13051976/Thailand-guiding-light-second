@@ -1,17 +1,18 @@
-# Deployment and Payment setup
+# Deployment setup
  - The app was deployed to [HEROKU](https://id.heroku.com/login)
  - The database was deployed to [ElephantSQL](https://www.elephantsql.com/)
- - The app can be reached by the [Link](https://thailand-guiding-light-2fb0b0e33db8.herokuapp.com/)
+  - The static file was deployed to cloundinary [Cloudinary](https://cloudinary.com/)
+ - The app can be reached by the [Link to Thailand Guiding Light](https://thailand-guiding-light-2fb0b0e33db8.herokuapp.com/)
 
 ## Local deployment
 1. Clone the repository.
    - git clone`https://github.com/Kay13051976/Thailand-guiding-light-second.git`
-  2. Go to the Thailand-guiding-light-second directory.
+2. Go to the Thailand-guiding-light-second directory.
      - `cd Thailand-guiding-light-second`
- 3. Create a virtual environment.
+3. Create a virtual environment.
      - `python3 -m venv venv`
-     - `venv/bin/activate`
-4. install all dependencies.
+     - `source venv/bin/activate`
+- 4. install all dependencies.
      - `pip3 install -r requirements.txt`
 5. Create a env.py file
      - `touch env.py`
@@ -32,10 +33,10 @@
      - `python3 manage.py createsuperuser`
 9. Create roles as following:
 
-For example
-`Role.objects.create(name='Customer)`
-`Role.objects.create(name='Customer)`
-`Role.objects.create(name='Customer)`
+- For example
+`Role.objects.create(name='Customer')`
+`Role.objects.create(name='Manager')`
+`Role.objects.create(name='Admin')`
 
 10. Set the role for the superuser with the role field with id 3.
 
@@ -49,8 +50,8 @@ After the following steps, you will ensure that the app is working correctly, an
 12. Run the server.
      - python3 manage.py runserver 
      **It will redirect you to the home. Click on logout and login or signup.**
-- click on logout
-        ![Header new user](documentation/header-new-user-deployment.png)
+- click on register or login 
+        ![Home page register login image](documentation/home-page-register-login.png)
 
 - click on Sign in or sign up
         ![Sign in page](documentation/Signin-in-image-deployment.png)
