@@ -158,4 +158,3 @@ Click on "this unsafe site" the sign in and sign up page of the website will app
 ![Heroku dangerous site this unsafe site image](documentation/heroku-dangerous-site-this-unsafe-site1.png)
 sign up to create account or sign in to your account.
 ![Heroku home page view](documentation/heroku-home-page-view.png)
-
