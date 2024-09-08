@@ -253,7 +253,7 @@
                                 <div class="row" id="comment-{{comment.id_post_comment}}" >
                                   <div class="d-flex flex-row my-1">
                                       <div class="text-center ml-5">
-                                          <img src="{{comment.user.profile.get_profile_url}}" class="rounded ml-5" alt="..." width="50" height="50" onerror="this.src='/media/images/default/profile.png'" >
+                                          <img src="{{comment.user.profile.get_profile_url}}" class="rounded ml-5" alt="..." width="50" height="50" onerror="this.src='{% static 'images/default/profile.png' %}'" >
                                         </div>
                                         <div>
                                           <div class="">
@@ -280,7 +280,7 @@
 
                                     <div class="d-flex flex-row my-1 mx-5">
                                       <div class="text-center ml-5">
-                                          <img src="{{reply.user.profile.get_profile_url}}" class="rounded ml-5" alt="..." width="50" height="50" onerror="this.src='/media/images/default/profile.png'" >
+                                          <img src="{{reply.user.profile.get_profile_url}}" class="rounded ml-5" alt="..." width="50" height="50" onerror="this.src='{% static 'images/default/profile.png' %}'" >
                                         </div>
                                         <div>
                                           <div class="">
@@ -664,7 +664,7 @@ if (event.key === 'Enter') {
                         const commentHtml = `
                             <div class="d-flex flex-row my-1 mx-5">
                                       <div class="text-center ml-5">
-                                          <img src="${profileImgSrc}" class="rounded ml-5" alt="..." width="50" height="50" onerror="this.src='/media/images/default/profile.png'" >
+                                          <img src="${profileImgSrc}" class="rounded ml-5" alt="..." width="50" height="50" onerror="this.src='{% static 'images/default/profile.png' %}'" >
                                         </div>
                                         <div>
                                           <div class="">
@@ -712,7 +712,7 @@ if (event.key === 'Enter') {
                             <div class="row" id="comment-${data.comment.id_post_comment}" >
                                 <div class="d-flex flex-row my-1">
                                     <div class="text-center ml-5">
-                                        <img src="${profileImgSrc}" class="rounded ml-5" alt="..." width=50 height=50 onerror="this.src='/media/images/default/profile.png'" >
+                                        <img src="${profileImgSrc}" class="rounded ml-5" alt="..." width=50 height=50 onerror="this.src='{% static 'images/default/profile.png' %}'" >
                                     </div>
                                     <div>
                                         <div class="">
