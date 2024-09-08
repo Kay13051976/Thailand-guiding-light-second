@@ -132,7 +132,7 @@ Comprises the Account Owner's Post Creation Section and the Post Display Section
 
      - Edit Post: Redirects the user to the edit post page, where the post owner can delete individual or multiple images, add new images, and edit the header to update the post.
 
-       - ![Edit post page image](documentation/edit-post-page.png)
+        ![Edit post page image](documentation/edit-post-page.png)
         - **Image delete notification**
         ![Image delete notification](documentation/edit-your-post-image-delete-notification.png)
 
@@ -145,9 +145,9 @@ Comprises the Account Owner's Post Creation Section and the Post Display Section
     ![Heart, comment, share, connect icon image](documentation/post-icon-image.png)
 
     - Heart Icon: Clicking this icon toggles a 'like' for the post, increasing or decreasing the like count on its badge accordingly.
-    - Comment Icon: Opens the comment section under the post. Users can view all comments made by others. Users can edit, delete, or reply to comments made by others. also user can reply the reply. Users can also reply to replies, facilitating deeper interaction.
+    - Comment Icon: Opens the comment section under the post. Users can view all comments made by others. Users can edit, delete, or reply to comments made by others. also Users can also reply to replies, facilitating deeper interaction.
     ![Comment reply for post image](documentation/comment-reply-for-post.png)
-    - Share Icon: Allows users to share the post by copying its URL link.
+    - Share Icon: Enables users to share the post by copying its URL link. Currently, the link can only be pasted into a URL search bar. The ability to paste it directly into chat or other platform inputs is planned for future improvement.
     - Connect Icon: Sends a connection request to the post owner when clicked. If the post owner accepts, the connection count increases; if declined, there is no change.
     - Input Field: Users can type their comments here and press enter to post. Each new comment will update the comment count accordingly.
 
@@ -172,37 +172,45 @@ Comprises the Account Owner's Post Creation Section and the Post Display Section
          - General Terms & Conditions: Currently a placeholder link without functionality.
          - Data Protection & GDPR: Currently a placeholder link without functionality.
     
-    **All links currently without functionality are planned for future development.**
+    **Apart from the 'About Us' and 'Contact Us' links, which redirect to the relevant pages, all other links currently lack functionality but are planned for future improvement.**
 
 
 ### Mobile home page
-  **The mobile home page has a hamburger dropdown. It will show a navbar when you click on the hamburger icon and in the dropdown menu, you will have an admin site nav to navigate to the Django panel for admin and Comment Management: This feature provides a straightforward and user-friendly interface, allowing admins to create, read, update, and delete comments efficiently.**
+  **The mobile homepage includes a hamburger dropdown menu that, when clicked, displays a navigation bar. This menu contains a link to the Django admin panel for easy admin access. The 'Comment Management' feature in the dropdown provides a user-friendly interface, enabling admins to efficiently create, read, update, and delete comments. This functionality mirrors that of the laptop and tablet versions.**
   - mobile home page for admin
-   - ![Mobile admin home page1 image](documentation/mobile-admin-home-page1.png)
+   ![Mobile admin home page1 image](documentation/mobile-admin-home-page1.png)
 
-   - ![Mobile admin home page2 image](documentation/mobile-admin-home-page2.png)
+   ![Mobile admin home page2 image](documentation/mobile-admin-home-page2.png)
 
-   - ![Mobile admin home page3 image](documentation/mobile-admin-home-page3.png)
+   ![Mobile admin home page3 image](documentation/mobile-admin-home-page3.png)
 
-   - ![Mobile admin home page4 image](documentation/mobile-admin-home-page4.png)
+   ![Mobile admin home page4 image](documentation/mobile-admin-home-page4.png)
 
-- Mobile Menu Toggle: Opens the hamburger menu.
+#### Mobile Menu Toggle: Opens the hamburger menu.
+
+
   - admin
+
   ![Mobile admin hamburger open page user](documentation/mobile-admin-hamburger-page.png)
 
   - regular user
-   -  ![Mobile regular user hamburger open page user](documentation/mobile-user-hamburger-page.png)
+
+  ![Mobile regular user hamburger open page user](documentation/mobile-user-hamburger-page.png)
 
   - new user
+
   ![Mobile new user hamburger open page user](documentation/mobile-new-user-hamburger-page.png)
 
 - mobile toggle menu open for admin
+
 ![Mobile admin toggle menu open image](documentation/mobile-admin-toggle-menu-open.png)
 
 - mobile tool toggle menu open for admin
+
   ![Mobile admin toggle nav menu open image](documentation/mobile-admin-toggle-nav-menu-open.png)
 
 - Mobile Tool Toggle: Opens the tool menu on mobile devices for the all user.
+
   ![Mobile user toggle nav menu open image](documentation/mobile-user-toggle-nav-menu-open.png)
  
 
@@ -210,27 +218,27 @@ Comprises the Account Owner's Post Creation Section and the Post Display Section
   - This page has the primary data; this page allows the user to add or edit profile image, account name, full name, email address, phone number 
     - It has an avatar as a default if the user don't want to display their image
       - Your profile page
-       - ![Mobile profile page1](documentation/mobile-profile-page1.png)
+       ![Mobile profile page1](documentation/mobile-profile-page1.png)
 
-       - ![Mobile profile page2](documentation/mobile-profile-page2.png)
+       ![Mobile profile page2](documentation/mobile-profile-page2.png)
 
 ## Most popular page
 
-  - ![Mobile most popular page1 image](documentation/mobile-most-popular-page1.png)
+ ![Mobile most popular page1 image](documentation/mobile-most-popular-page1.png)
 
-  - ![Mobile most popular page2 image](documentation/mobile-most-popular-page2.png)
+ ![Mobile most popular page2 image](documentation/mobile-most-popular-page2.png)
 
-  - ![Mobile most popular page3 image](documentation/mobile-most-popular-page3.png)
+ ![Mobile most popular page3 image](documentation/mobile-most-popular-page3.png)
 
-  - ![Mobile most popular page4 image](documentation/mobile-most-popular-page4.png)
+ ![Mobile most popular page4 image](documentation/mobile-most-popular-page4.png)
 
 
 ## Your connection page
 Connection Management: Account owners can view sent and received connection requests, as well as their current connections. They have the ability to accept, cancel, or disconnect friend requests directly from the connection list.
-  - ![Mobile your connection page1](documentation/mobile-your-connection-page1.png)
+ ![Mobile your connection page1](documentation/mobile-your-connection-page1.png)
 
 
-- ![Mobile your connection page2](documentation/mobile-your-connection-page2.png)
+ ![Mobile your connection page2](documentation/mobile-your-connection-page2.png)
 
 
 ## Allauth and Access pages :
@@ -240,8 +248,10 @@ Connection Management: Account owners can view sent and received connection requ
   ![Log out form page](documentation/logout-page-image.png)
 
   - login page
+
   ![Sign in page](documentation/sign-in-page.png)
 
   - sign up page
+  
   ![Sign up page](documentation/sign-up-page.png)
 
