@@ -205,6 +205,12 @@ Use template tags to load static files instead of hardcoding paths.
 ![Added template tag ](documentation/use-template-tag-in-link-to-base-css.png)
 - Added template to load static file
 ![Added template to load static file](documentation/added-template-tag-to-load-static.png)
+## Unsolved bugs
+**The deployment was successful, but clicking on the login button triggers a warning. Despite consultations with the tutor, the cause remains unknown. However, users can still log in or sign up on the website by following this procedure.-**
+- Click on Details
+![Heroku dangerous site warning image](documentation/heroku-dangerous-site-warning1.png)
+- Click on "this unsafe site" the sign in and sign up page of the website will appear
+![Heroku dangerous site this unsafe site image](documentation/heroku-dangerous-site-this-unsafe-site1.png)
 ## Future Improvement
 - Chat bot.
 - Thailand Guiding Light Ads Page, Thailand Guiding Light Support Page, General Terms & Condition Page, Data Protection & GDPR Page
