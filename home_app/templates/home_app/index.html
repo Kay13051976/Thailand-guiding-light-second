@@ -110,7 +110,7 @@
               <div id="form-post" class="card">
                   <div class="form-post-header d-flex flex-row align-items-center mb-3 ">
                     <div class="text-center">
-                      <img src="{{request.user.profile.get_profile_url}}" class="rounded" id="profile_img" alt="human shadow image" width='60' height='60'  onerror="this.src='{% static 'images/default/profile.png' %}'"/>
+                      <img src="{{request.user.profile.get_profile_url}}" class="rounded" id="profile_img" alt="human shadow image" width='60' height='60'  onerror="this.src='https://res.cloudinary.com/dpu0vr0wk/image/upload/v1725717184/static/images/default/profile.4491e84d823c.png'"/>
 
                     </div>
                     <div>
@@ -149,7 +149,7 @@
                         <div class="post-card-header">
                             <div class="d-flex flex-row align-items-center">
                               <div class="text-center">
-                                <img src="{{post.user.profile.get_profile_url}}" class="rounded-5" alt="..." width=60 height=60 onerror="this.src='{% static 'images/default/profile.png' %}'" />
+                                <img src="{{post.user.profile.get_profile_url}}" class="rounded-5" alt="..." width=60 height=60 onerror="this.src='https://res.cloudinary.com/dpu0vr0wk/image/upload/v1725717184/static/images/default/profile.4491e84d823c.png'" />
                               </div>
                               <div class="">
                                 <span  class="mx-3 fs-20 fw-700">{{post.user.profile.get_full_name}}</span >
@@ -253,7 +253,7 @@
                                 <div class="row" id="comment-{{comment.id_post_comment}}" >
                                   <div class="d-flex flex-row my-1">
                                       <div class="text-center ml-5">
-                                          <img src="{{comment.user.profile.get_profile_url}}" class="rounded ml-5" alt="..." width="50" height="50" onerror="this.src='{% static 'images/default/profile.png' %}'" >
+                                          <img src="{{comment.user.profile.get_profile_url}}" class="rounded ml-5" alt="..." width="50" height="50" onerror="this.src='https://res.cloudinary.com/dpu0vr0wk/image/upload/v1725717184/static/images/default/profile.4491e84d823c.png'" >
                                         </div>
                                         <div>
                                           <div class="">
@@ -280,7 +280,7 @@
 
                                     <div class="d-flex flex-row my-1 mx-5">
                                       <div class="text-center ml-5">
-                                          <img src="{{reply.user.profile.get_profile_url}}" class="rounded ml-5" alt="..." width="50" height="50" onerror="this.src='{% static 'images/default/profile.png' %}'" >
+                                          <img src="{{reply.user.profile.get_profile_url}}" class="rounded ml-5" alt="..." width="50" height="50" onerror="this.src='https://res.cloudinary.com/dpu0vr0wk/image/upload/v1725717184/static/images/default/profile.4491e84d823c.png'" >
                                         </div>
                                         <div>
                                           <div class="">
@@ -664,7 +664,7 @@ if (event.key === 'Enter') {
                         const commentHtml = `
                             <div class="d-flex flex-row my-1 mx-5">
                                       <div class="text-center ml-5">
-                                          <img src="${profileImgSrc}" class="rounded ml-5" alt="..." width="50" height="50" onerror="this.src='{% static 'images/default/profile.png' %}'" >
+                                          <img src="${profileImgSrc}" class="rounded ml-5" alt="..." width="50" height="50" onerror="this.src='https://res.cloudinary.com/dpu0vr0wk/image/upload/v1725717184/static/images/default/profile.4491e84d823c.png'" >
                                         </div>
                                         <div>
                                           <div class="">
@@ -712,7 +712,7 @@ if (event.key === 'Enter') {
                             <div class="row" id="comment-${data.comment.id_post_comment}" >
                                 <div class="d-flex flex-row my-1">
                                     <div class="text-center ml-5">
-                                        <img src="${profileImgSrc}" class="rounded ml-5" alt="..." width=50 height=50 onerror="this.src='{% static 'images/default/profile.png' %}'" >
+                                        <img src="${profileImgSrc}" class="rounded ml-5" alt="..." width=50 height=50 onerror="this.src='https://res.cloudinary.com/dpu0vr0wk/image/upload/v1725717184/static/images/default/profile.4491e84d823c.png'" >
                                     </div>
                                     <div>
                                         <div class="">
