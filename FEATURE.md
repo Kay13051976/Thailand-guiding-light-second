@@ -1,6 +1,9 @@
 # Main Features:
-  - Each page has a navbar in the header and left section.
+- Each page features a navigation bar in the header, navigation links on the left, and additional navigation links in the footer.
 ## Home page :
+- Home Page
+ ![Home wiht registor and login button](documentation/home-page-with-registor-login-button.png)
+
 - Admin Home Page
 ![Admin home page](documentation/home-page-image1.png)
 
@@ -50,7 +53,7 @@
 
 ![Comment management page notification image](documentation/comment-management-page-notification.png)
 
-   - The comment management page has an All comments detail table make it easy to manage.
+   - The comment management page includes a detailed 'All Comments' table below, making it easy to view and copy necessary information for efficient management.
 
 ![Comment management table image ](documentation/comment-management-table.png)
 
@@ -59,6 +62,7 @@
 
   | User | Welcone:User Name | Admin Site | Comment Management |
   | ------- | --------- | ------- | ----- |
+  | Unregister User | no | no | no | no |
   | Admin | Yes | Yes | Yes | Yes |
   | New user | No | No | No | No |
   | Regular User | Yes | No| No| No |
@@ -70,17 +74,16 @@ Visibility: This section is accessible to all users, including administrators
    ![User left navbar section](documentation/left-navbar-section.png)
 
   - Profile Account Button: Redirects users to their account page, where new users can upload their image and enter personal information. Existing users can update their image and information as needed.
-
   ![User profile page image](documentation/user-profile-page.png)
+
+  - The new user profile page displays a default image until the user updates it with their own.
   ![New User profile page image](documentation/new-user-profile-page.png)
 
   - Your Connection Button: Redirects users to the Connections page, where the account owner can accept or cancel connection requests, or disconnect from existing connections.
-
   ![Your connection page image](documentation/your-connection-page.png)
 
   - Chat button, which redirects the user to the popover chat box(Future improvement).
   - Most Popular Places Button: Redirects users to the Most Popular Places page. Here, users can click links to connect with travel agents who support the website. Enhancements to this feature are planned for future improvement.
-
    ![Most popular page1 image](documentation/most-popular-page1.png)
    ![Most popular page2 image](documentation/most-popular-page2.png)
 
