@@ -1,5 +1,5 @@
 # Thailand Guiding Light
-  - Deployed website: [Link to website](https://thailand-guiding-light-2fb0b0e33db8.herokuapp.com/)
+  - Deployed website: [Link to Thailand guiding light website](https://thailand-guiding-light-2fb0b0e33db8.herokuapp.com/)
 ![Many devices image1](documentation/many-devices.png)
 **Full View Home Page Image**
 ![Home page image1](documentation/home-page-image1.png)
@@ -129,16 +129,16 @@ Deployed Website: Visit Thailand Guiding Light[ Link to website](https://thailan
  - [Bootstrap](https://getbootstrap.com/docs/5.0/forms/form-control/): was used to create templates html file
     
  ### Database:
- - [SQLite](https://www.sqlite.org/index.html):was used to as a development database.
- - [PostgreSQL](https://www.postgresql.org/):the database used to store all the data.
+ - [SQLite](https://www.sqlite.org/index.html): was used to as a development database.
+ - [Elephantsql](https://customer.elephantsql.com/login): the database used to store all the data.
  ### Other tools:
  - [Git](https://git-scm.com/): The version control system used to manage the code.
  - [Pip3](https://pypi.org/project/pip/): the package manager used to install the dependencies.
  - [Gunicorn](https://gunicorn.org/): the web server used to run the website.
  - [Psycopg2](https://www.psycopg.org/): the database driver used to connect to the database.
  - [Django-allauth](https://docs.allauth.org/en/latest/): the authentication library used to create the user accounts.
- - [Render](https://pypi.org/project/render/): was used to render the README file.
  - [GitHub](https://github.com/): used to host the website's source code.
+ - [Heroku](https://id.heroku.com/login): was use to deployed website.
  - [GitPod](https://www.gitpod.io/): the IDE used to develop the website.
  - [Cloudinary](https://cloudinary.com/): was used to store all the images for the website.
  - [Chrome Devtools](https://developer.chrome.com/docs/devtools/open/): was used to debug the website.
@@ -211,7 +211,7 @@ Deployed Website: Visit Thailand Guiding Light[ Link to website](https://thailan
 ## Information Architecture
 
 ### Database
-- The Thailand Guiding Light website database was migrated to PostgreSQL.
+- The Thailand Guiding Light website database was migrated to Elephantsql.
 
 **Entity-Relationship Diagram**
 
@@ -225,13 +225,10 @@ Deployed Website: Visit Thailand Guiding Light[ Link to website](https://thailan
 | ----- | ------ | ------ | ------- |
 | user | user | OneToOneField | User, on_delete=models.CASCADE |
 | id_usr | id_user | IntegerField | - |
-| cover_image | cover_image | ImageField |  "featured image", upload_to='images', height_field=None,
-        width_field=None, max_length=None |
+| cover_image | cover_image | ImageField |  "featured image", upload_to='images', height_field=None, width_field=None, max_length=None |
 | country | country | CharField | max_length=100, blank=True |
-| profile_img | profile_img |ImageField | "profile image", upload_to='images', height_field=None,
-        width_field=None, max_length=None, blank=True,
-        default='images/default/profile.png' |
-| phone | phone | CHarField |max_length=15, blank=True |
+| profile_img | profile_img |ImageField | "profile image", upload_to='images', height_field=None, width_field=None, max_length=None, blank=True, default='images/default/profile.png' |
+| phone | phone | CHarField | max_length=15, blank=True |
 
 #### Post
 
@@ -240,8 +237,7 @@ Deployed Website: Visit Thailand Guiding Light[ Link to website](https://thailan
 | id_post | id_post | UUIDField | primary_key=True, default=uuid.uuid4 |
 | user | user | ForeignKey |  User, on_delete=models.CASCADE, related_name="post_user" |
 | title | title | CharField | max_length=200, unique=True |
-| featured_image | featured_image | ImageField |  "featured image", upload_to='images', height_field=None,
-        width_field=None, blank=True, max_length=None |
+| featured_image | featured_image | ImageField |  "featured image", upload_to='images', height_field=None, width_field=None, blank=True, max_length=None |
 | visibility | visibility | CharField | max_length=100, choices=VISIBILITY, default='Everyone', blank=True |
 | slug | slug | SlugField | max_length=200, blank=True |
 | updated_on | updated_on | DateTimeField | auto_now=True |
@@ -270,8 +266,7 @@ Deployed Website: Visit Thailand Guiding Light[ Link to website](https://thailan
 | Name | Database Key | Field Type | Validation |
 | ----- | ------ | ------ | ------- |
 | post | post | ForeingKey | Post, on_delete=models.CASCADE |
-| image | image | ImageField | "image", upload_to='images', height_field=None,
-        width_field=None, max_length=None, default=uuid.uuid4 |
+| image | image | ImageField | "image", upload_to='images', height_field=None, width_field=None, max_length=None, default=uuid.uuid4 |
 | active | active | BooleanField | default=True |
 | date | date | DateTimeField | auto_now_add=True | rimary_key=True, default=uuid.uuid4 |
 
@@ -352,9 +347,9 @@ Deployed Website: Visit Thailand Guiding Light[ Link to website](https://thailan
 
 ## Deployment 
 - The app was successfully deployed to[Heroku](https://id.heroku.com/login)
-![Heroku Deploy View Log](documentation/heroku-view-blog-detail.png)
+![Heroku Deploy View Log](documentation/heroku-view-build-log-detail.png)
 - The database was deployed to [ElephantSQL](https://www.elephantsql.com/)
-- The static file was deployed to cloundinary [Cloudinary](https://cloudinary.com/)
+- The static file and images was deployed to cloundinary [Cloudinary](https://cloudinary.com/)
 - The app can be reached by the [link](https://thailand-guiding-light-2fb0b0e33db8.herokuapp.com/)
 
 **Please refer to the [DEPLOYMENT.md](DEPLOYMENT.md) for all deployment detail**
@@ -363,8 +358,8 @@ Deployed Website: Visit Thailand Guiding Light[ Link to website](https://thailan
 - [Django](https://www.djangoproject.com/) for the framework.
 - [Font awesome](https://fontawesome.com/)for the access icons.
 - [jQuery](https://jquery.com/)for providing a variety of tools to make standard HTML code look appealing.
-- [PostgresSQL](https://www.postgresql.org/) for providing a free database.
-- [Cloudinary](https://cloudinary.com/) for store static files.
+- [ElephantSQL](https://www.elephantsql.com/) for providing a free database.
+- [Cloudinary](https://cloudinary.com/) for store static files and images.
 - [Very Academy Youtube Channel](https://www.youtube.com/) for brilliant tutorials, which shed light on the implementation of databases with multi-value products, precise explanations of Django, social media websites, API, and many other things.
 - [Responsive Viewer](https://chromewebstore.google.com/detail/responsive-viewer/inmopeiepgfljkpkidclfgbgbmfcennb) for providing a free full web page screenshorts.
 - [Coolors](https://coolors.co/)for providing a free platform to generate your palette.
@@ -398,13 +393,20 @@ Deployed Website: Visit Thailand Guiding Light[ Link to website](https://thailan
 - ![Update doctype in base.html](documentation/update-doctype-base-html.png)
 - ![Update doctype in base.html](documentation/update-doctype-login-html.png)
 ## Unsolved bug
-In the last deploy, the static file did not load in the Heroku which I ran out of time to sort this problem.
-- ![Unsove bug Heroku](documentation/unsolve-bug-heroku.png)
+**In the latest deployment, a warning about dangerous websites appears when clicking the sign-in button, but users can still view the site and sign in or sign up.**
+
+click on "Details"
+![Heroku dangerous site warning image](documentation/heroku-dangerous-site-warning1.png)
+
+Click on "this unsafe site" the sign in and sign up page of the website will appear
+![Heroku dangerous site this unsafe site image](documentation/heroku-dangerous-site-this-unsafe-site1.png)
+
 ## Mistake
 - I have changed ERD and class in the models.py file many times because it is part of learning and caused me the problem of not being able to migrate the data. I could use the python manage.py shell and the same python I use in your views.py file to update the id value of each row in the database. I can also change them directly by using SQL on my database, wherever it's hosted, but I don't know SQL that well. So, I drop this choice
 Or, like permanently, can delete/drop the database and start over. 
 According to the limited time I had left before the PP4 submission deadline, I designed to rebuild everything from scratch; it caused me to lose all the git committed history when I tried to look back to see when the bug happened to sort out the Heroku dangerous site I am not able to find it because I assume the bug occurs when I start to apply the bootstrap framework.
 - Forgot to adjust the KanBan board in GitHub before start developed the code.
+
 ## Acknowledgments
 - Code Institute tutor and Slack community members for their support and help.
 - Code Institute mentor Julia Konovalova for her advice

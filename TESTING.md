@@ -209,4 +209,6 @@ Use template tags to load static files instead of hardcoding paths.
 - Chat bot.
 - Thailand Guiding Light Ads Page, Thailand Guiding Light Support Page, General Terms & Condition Page, Data Protection & GDPR Page
 - Link to Advertisers: Directs users to book or purchase products from clients who have paid for advertising.
-- 
+- Enable users to post and share videos in the 'Post' section.
+- Easily share the post across popular platforms.
+- Include a search bar to connect users to relevant subjects within the website.
