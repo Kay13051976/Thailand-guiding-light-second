@@ -147,9 +147,9 @@ To get Cloudinary cloud name, API key, and API secret:
 8. Scroll to the bottom of the page and click Deploy Branch to start a manual deployment of the main branch.
 ![Heroku deploy branch button image](documentation/heroku-deploy-branch-button.png)
 9. Heroku will start to deploy the current state of a branch to this app.
-![Heroku view blog log image](documentation/heroku-view-blog-log.png)
+![Heroku view build log image](documentation/heroku-view-build-log-log.png)
 You can click on "View build log" to view the code. When loading completed click on open app on top right corner.
-![Heroku view blog detail image](documentation/heroku-view-blog-detail.png)
+![Heroku view build log detail image](documentation/heroku-view-build-log-detail.png)
 Click on Details
 ![Heroku dangerous site warning image](documentation/heroku-dangerous-site-warning.png)
 Click on "this unsafe site" the home page of the website will appear
