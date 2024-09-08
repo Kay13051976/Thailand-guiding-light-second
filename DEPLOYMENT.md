@@ -1,7 +1,7 @@
 # Deployment setup
  - The app was deployed to [HEROKU](https://id.heroku.com/login)
  - The database was deployed to [ElephantSQL](https://www.elephantsql.com/)
-  - The static file was deployed to cloundinary [Cloudinary](https://cloudinary.com/)
+  - The static file and images was deployed to cloundinary [Cloudinary](https://cloudinary.com/)
  - The app can be reached by the [Link to Thailand Guiding Light](https://thailand-guiding-light-2fb0b0e33db8.herokuapp.com/)
 
 ## Local deployment
@@ -42,11 +42,13 @@
 
   `superuser.profile.role_id = 3`    
   `superuser.save()`
+
 11. Go to Profiles and uncomment the default role. Make new migrations and migrate.
      - python3 manage.py makemigrations
      - python3 manage.py migrate
 
 After the following steps, you will ensure that the app is working correctly, and any other user registered in your app will only have access as a new user. The rest of the roles will be controlled by the admin
+
 12. Run the server.
      - python3 manage.py runserver 
      **It will redirect you to the home. Click on logout and login or signup.**
