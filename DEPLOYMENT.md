@@ -151,9 +151,9 @@ To get Cloudinary cloud name, API key, and API secret:
 You can click on "View build log" to view the code. When loading completed click on open app on top right corner.
 ![Heroku view build log detail image](documentation/heroku-view-build-log-detail.png)
 Click on Details
-![Heroku dangerous site warning image](documentation/heroku-dangerous-site-warning.png)
-Click on "this unsafe site" the home page of the website will appear
-![Heroku dangerous site this unsafe site image](documentation/heroku-dangerous-site-this-unsafe-site.png)
-sign out then sign in to your account.
+![Heroku dangerous site warning image](documentation/heroku-dangerous-site-warning1.png)
+Click on "this unsafe site" the sign in and sign up page of the website will appear
+![Heroku dangerous site this unsafe site image](documentation/heroku-dangerous-site-this-unsafe-site1.png)
+sign up to create account or sign in to your account.
 ![Heroku home page view](documentation/heroku-home-page-view.png)
 
